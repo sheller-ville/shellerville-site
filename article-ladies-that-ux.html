@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exploring design leadership and career pathing on Ladies That UX / Christine Sheller</title>
+<meta name="description" content="A conversation on design leadership, career pathing, and the move from in-house to consulting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+a{color:inherit}
+.inner{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.site-nav .links a.active{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+.art-hero{background:var(--black);color:var(--white);padding:100px 0 80px}
+
+.art-hero .kicker{color:var(--pink);margin-bottom:24px}
+.art-hero h1{font-weight:800;font-size:clamp(32px,5.6vw,60px);line-height:1.08;letter-spacing:-.035em;max-width:22ch}
+.art-hero .dek{margin-top:20px;font-size:clamp(17px,1.9vw,20px);color:#d9d9d6;max-width:60ch;line-height:1.55}
+.art-hero .meta{margin-top:28px;font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8f8f8a;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.art-hero .meta .dot{width:4px;height:4px;border-radius:50%;background:#8f8f8a}
+
+.art-img{background:var(--black);padding:0 0 32px}
+.art-img .ph-wide{width:520px;max-width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#161616;border:1px solid #3a3a3a}
+.art-img .ph-wide img{width:100%;height:100%;object-fit:cover;display:block}
+
+.art-body{background:var(--black);padding:0 0 140px}
+.art-body p{font-size:clamp(17px,1.9vw,20px);line-height:1.7;color:#c4c4c0;margin-top:26px}
+.art-body p:first-child{margin-top:0}
+.art-body p.lead{font-size:clamp(20px,2.2vw,24px);color:var(--white);font-weight:600;line-height:1.5}
+.art-body h2{margin-top:56px;font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;line-height:1.15;color:var(--white)}
+.art-body h3{margin-top:36px;margin-bottom:6px;font-weight:800;font-size:clamp(19px,2.2vw,23px);letter-spacing:-.015em;color:var(--white)}
+.art-body h3 + p{margin-top:0}
+.art-body ul{margin-top:24px;padding-left:22px}
+.art-body li{font-size:clamp(17px,1.9vw,20px);line-height:1.65;color:#c4c4c0;margin-top:12px}
+.art-body hr{margin-top:56px;border:none;border-top:1px solid #2a2a2a}
+.art-body .cta{margin-top:36px;display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;padding:15px 26px;border-radius:100px;background:var(--white);color:var(--black)}
+.art-body table{margin-top:32px;width:100%;border-collapse:collapse;background:#161616;color:var(--white);border-radius:14px;overflow:hidden;font-size:15px;border:1px solid #2a2a2a}
+.art-body th,.art-body td{padding:16px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,.12)}
+.art-body th{font-family:var(--cond);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:13px;color:#c8c8c4}
+.art-body tr:last-child td{border-bottom:none}
+
+.art-nav{background:var(--black);border-top:1px solid #2a2a2a;padding:56px 0}
+.art-nav .inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.art-nav a{font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--white)}
+.art-nav a:hover{color:var(--red)}
+
+.subscribe{background:var(--yellow);color:var(--black);padding:130px 0;position:relative;overflow:hidden}
+.subscribe .inner{max-width:1140px}
+.subscribe .kicker{color:#6b4e00}
+.subscribe h2{margin-top:26px;font-weight:800;font-size:clamp(30px,5vw,60px);letter-spacing:-.04em;line-height:1;max-width:16ch}
+.subscribe p{margin-top:22px;font-size:clamp(17px,1.9vw,20px);line-height:1.55;max-width:46ch;color:#4a3a00}
+.sub-form{margin-top:40px;display:flex;gap:14px;max-width:560px;flex-wrap:wrap}
+.sub-form input{flex:1;min-width:240px;font-family:var(--font);font-size:17px;padding:16px 22px;border:none;border-radius:100px;background:var(--white);outline:none}
+.sub-form button{font-family:var(--font);font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:100px;background:var(--black);color:var(--white);cursor:pointer}
+.sub-done{display:none;margin-top:22px;font-weight:700;font-size:19px}
+.sub-done.on{display:block}
+.sub-err{display:none;font-family:var(--cond);font-weight:600;font-size:15px;color:#7a1000;margin-top:14px}
+.sub-err.on{display:block}
+.squiggle-mark{display:block;margin-top:36px;width:340px;max-width:85%;height:auto;opacity:.85;pointer-events:none}
+
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .inner{max-width:1140px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+@media(max-width:700px){
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{display:none}
+  .art-body table{font-size:13px}
+  .art-body th,.art-body td{padding:12px 10px}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <div class="links" id="nav-links">
+    <a href="leading.html">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html" class="active">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="inner">
+    <p class="kicker">Perspective</p>
+    <h1>Exploring design leadership and career pathing on Ladies That UX</h1>
+    <p class="meta">Christine Sheller <span class="dot"></span> Originally written for O3 <span class="dot"></span> 4 min read</p>
+  </div>
+</header>
+
+<div class="art-img">
+  <div class="inner">
+    <div class="ph-wide"><img src="images/perspectives-ladies-that-ux.jpeg" alt="Exploring design leadership and career pathing on Ladies That UX"></div>
+  </div>
+</div>
+
+<section class="art-body">
+  <div class="inner">
+    <p class="lead">Christine Sheller recently joined the popular "Ladies That UX" podcast to share her insights into her journey, discussing her passion for design, the nuances of working in-house versus at a consultancy, and providing guidance on leading and managing design teams. This inspiring conversation explores the depths of design leadership and career development.</p>
+    <p>The Ladies That UX community is a vibrant and inclusive collective of women and non-binary people in the UX industry. With its presence in over 85 cities worldwide, the community fosters collaboration, skill promotion, and support among its members. The podcast is a platform where influential professionals come together to share their stories, expertise, and advice. It's the perfect avenue for Christine Sheller to inspire and empower aspiring and established designers alike.</p>
+
+    <h2>A trailblazer in design and UX</h2>
+    <p>Christine Sheller is a luminary in the design and user experience (UX) realm. Christine plays a pivotal role in ensuring exceptional customer experiences for her clients. Her vast experience includes leading award-winning teams and holding influential positions in prestigious organizations in the financial services space. When she is not spearheading creative for O3, Christine serves as an Adjunct Professor at ArtCenter College of Design, further nurturing the future of the design industry.</p>
+
+    <h2>Passion for design</h2>
+    <p>Christine candidly discusses her background and the origins of her passion for design. Listeners gain insights into the pivotal moments and experiences that have shaped her career. Her compelling story serves as a testament to the power of following one's passion and persevering through challenges.</p>
+    <p>Christine also sheds light on the key differences between working in-house and at a consultancy. Drawing from her extensive experience, she explores the unique challenges and opportunities that arise in each setting. Her perspectives provide valuable guidance for professionals considering different career paths in the design industry.</p>
+
+    <h2>Leading and managing design teams</h2>
+    <p>As a leader with a remarkable track record, Christine shares her approach to leading and managing design teams. Her insights encompass team dynamics, collaboration strategies, and fostering a culture of innovation and growth. From her wealth of experience, listeners gain practical advice on how to nurture and unleash the full potential of design teams.</p>
+
+    <h2>Career pathing for designers</h2>
+    <p>Career pathing is a critical aspect of professional growth, particularly in the design field. Christine emphasizes the importance of establishing clear career paths for designers, enabling them to envision their future and take meaningful steps toward their goals. She elaborates on the various avenues designers can explore to advance their careers, providing valuable advice for aspiring and established professionals.</p>
+    <p>Christine Sheller's episode on the "Ladies That UX" podcast offers a captivating journey into the world of design leadership and career development. Her deep expertise, combined with her genuine passion for the field, shines through as she shares her knowledge and experiences. Tune in to gain invaluable insights from a trailblazer in the design and UX community.</p>
+    <a class="cta" href="https://ladiesthatux.com/" target="_blank" rel="noopener">Listen on Ladies That UX &rarr;</a>
+
+  </div>
+</section>
+
+<div class="art-nav">
+  <div class="inner">
+    <a href="thinking.html">&larr; Back to thinking</a>
+  </div>
+</div>
+
+<section class="subscribe">
+  <div class="inner">
+    <p class="kicker">Get updates</p>
+    <h2>Occasional insights. No spam, just the good stuff.</h2>
+    <p>On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
+    <a class="btn btn-dark sub-link" href="https://shellerville.substack.com/" target="_blank" rel="noopener" style="margin-top:46px">Subscribe on Substack <span class="arw">&rarr;</span></a>
+    <img class="squiggle-mark" src="images/pattern-squiggle.png" alt="">
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+</script>
+</body>
+</html>

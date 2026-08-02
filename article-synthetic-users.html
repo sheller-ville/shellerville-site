@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond barriers: reaching untold stories through Synthetic Users / Christine Sheller</title>
+<meta name="description" content="How Synthetic Users opens up AI-driven research for industry and academia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+a{color:inherit}
+.inner{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.site-nav .links a.active{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+.art-hero{background:var(--black);color:var(--white);padding:100px 0 80px}
+
+.art-hero .kicker{color:var(--pink);margin-bottom:24px}
+.art-hero h1{font-weight:800;font-size:clamp(32px,5.6vw,60px);line-height:1.08;letter-spacing:-.035em;max-width:22ch}
+.art-hero .dek{margin-top:20px;font-size:clamp(17px,1.9vw,20px);color:#d9d9d6;max-width:60ch;line-height:1.55}
+.art-hero .meta{margin-top:28px;font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8f8f8a;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.art-hero .meta .dot{width:4px;height:4px;border-radius:50%;background:#8f8f8a}
+
+.art-img{background:var(--black);padding:0 0 32px}
+.art-img .ph-wide{width:520px;max-width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#161616;border:1px solid #3a3a3a}
+.art-img .ph-wide img{width:100%;height:100%;object-fit:cover;display:block}
+
+.art-body{background:var(--black);padding:0 0 140px}
+.art-body p{font-size:clamp(17px,1.9vw,20px);line-height:1.7;color:#c4c4c0;margin-top:26px}
+.art-body p:first-child{margin-top:0}
+.art-body p.lead{font-size:clamp(20px,2.2vw,24px);color:var(--white);font-weight:600;line-height:1.5}
+.art-body h2{margin-top:56px;font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;line-height:1.15;color:var(--white)}
+.art-body h3{margin-top:36px;margin-bottom:6px;font-weight:800;font-size:clamp(19px,2.2vw,23px);letter-spacing:-.015em;color:var(--white)}
+.art-body h3 + p{margin-top:0}
+.art-body ul{margin-top:24px;padding-left:22px}
+.art-body li{font-size:clamp(17px,1.9vw,20px);line-height:1.65;color:#c4c4c0;margin-top:12px}
+.art-body hr{margin-top:56px;border:none;border-top:1px solid #2a2a2a}
+.art-body .cta{margin-top:36px;display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;padding:15px 26px;border-radius:100px;background:var(--white);color:var(--black)}
+.art-body table{margin-top:32px;width:100%;border-collapse:collapse;background:#161616;color:var(--white);border-radius:14px;overflow:hidden;font-size:15px;border:1px solid #2a2a2a}
+.art-body th,.art-body td{padding:16px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,.12)}
+.art-body th{font-family:var(--cond);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:13px;color:#c8c8c4}
+.art-body tr:last-child td{border-bottom:none}
+
+.art-nav{background:var(--black);border-top:1px solid #2a2a2a;padding:56px 0}
+.art-nav .inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.art-nav a{font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--white)}
+.art-nav a:hover{color:var(--red)}
+
+.subscribe{background:var(--yellow);color:var(--black);padding:130px 0;position:relative;overflow:hidden}
+.subscribe .inner{max-width:1140px}
+.subscribe .kicker{color:#6b4e00}
+.subscribe h2{margin-top:26px;font-weight:800;font-size:clamp(30px,5vw,60px);letter-spacing:-.04em;line-height:1;max-width:16ch}
+.subscribe p{margin-top:22px;font-size:clamp(17px,1.9vw,20px);line-height:1.55;max-width:46ch;color:#4a3a00}
+.sub-form{margin-top:40px;display:flex;gap:14px;max-width:560px;flex-wrap:wrap}
+.sub-form input{flex:1;min-width:240px;font-family:var(--font);font-size:17px;padding:16px 22px;border:none;border-radius:100px;background:var(--white);outline:none}
+.sub-form button{font-family:var(--font);font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:100px;background:var(--black);color:var(--white);cursor:pointer}
+.sub-done{display:none;margin-top:22px;font-weight:700;font-size:19px}
+.sub-done.on{display:block}
+.sub-err{display:none;font-family:var(--cond);font-weight:600;font-size:15px;color:#7a1000;margin-top:14px}
+.sub-err.on{display:block}
+.squiggle-mark{display:block;margin-top:36px;width:340px;max-width:85%;height:auto;opacity:.85;pointer-events:none}
+
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .inner{max-width:1140px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+@media(max-width:700px){
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{display:none}
+  .art-body table{font-size:13px}
+  .art-body th,.art-body td{padding:12px 10px}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <div class="links" id="nav-links">
+    <a href="leading.html">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html" class="active">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="inner">
+    <p class="kicker">Perspective</p>
+    <h1>Beyond barriers: reaching untold stories through Synthetic Users</h1>
+    <p class="meta">Christine Sheller <span class="dot"></span> Originally written for O3 <span class="dot"></span> 5 min read</p>
+  </div>
+</header>
+
+<div class="art-img">
+  <div class="inner">
+    <div class="ph-wide"><img src="images/perspective-syntheticusers.jpg" alt="Beyond barriers: reaching untold stories through Synthetic Users"></div>
+  </div>
+</div>
+
+<section class="art-body">
+  <div class="inner">
+    <p class="lead">While direct engagement with users is always the gold standard for research, there are times when speaking with real people isn't possible. In these situations, Synthetic Users offers a powerful AI-driven solution for both industry and academic research.</p>
+
+    <h2>What is Synthetic Users?</h2>
+    <p>Synthetic Users is an advanced research platform that uses AI and natural language processing to generate synthetic user types that mimic real human behavior. Each synthetic user is underpinned by its own Five Factor Model (FFM) personality model, enabling realistic interactions through four distinct types of interviews.</p>
+
+    <h2>How it works in practice</h2>
+    <p>In business environments, Synthetic Users can transform how teams approach user research and product development. Product teams can leverage the platform to understand accessibility needs early in development, while designers can test usability assumptions. And emerging researchers can practice sensitive interview approaches, helping teams develop genuine empathy before engaging with real users.</p>
+    <p>In academic settings, students can also use Synthetic Users to practice interview techniques without risking harm to vulnerable participants, helping develop inclusive approaches while building skills for handling sensitive topics.</p>
+
+    <h2>Real-world applications</h2>
+    <p>Over the past year, I've had the opportunity to introduce Synthetic Users into research methods in my teaching. The platform has enabled my students to explore sensitive research topics while developing their interviewing skills in a safe environment. Here are three examples that demonstrate how my students have used Synthetic Users to tackle complex research challenges.</p>
+
+    <h3>1. Understanding users with disabilities</h3>
+    <p>Many of my students using Synthetic Users gained meaningful insights into both offline and online challenges faced by users with disabilities. Conversations revealed perspectives about adaptive devices, interface preferences, and creative workarounds, going beyond standard accessibility guidelines.</p>
+
+    <h3>2. Caregivers supporting children with cancer</h3>
+    <p>One student conducting parallel research streams, real-life interviews with caregivers and Synthetic Users interviews, found that the product's insights aligned remarkably closely with themes from real-world interviews. This demonstrated how the platform can provide reliable insights when direct access is limited.</p>
+
+    <h3>3. Youth in underserved communities</h3>
+    <p>Another student explored experiences of youth in underserved communities, focusing on after-school activities and home life. Through the platform, she gathered valuable perspectives about daily routines and family dynamics while maintaining appropriate research boundaries.</p>
+
+    <h2>Balancing learning and reality</h2>
+    <p>When conducting research with sensitive populations, we must balance our need to gather insights with ethical considerations and access limitations. Synthetic Users offers a middle ground where researchers can gain understanding while protecting vulnerable populations.</p>
+
+    <h2>Guidelines for success</h2>
+    <ul>
+      <li>Use Synthetic Users to complement other primary and secondary research</li>
+      <li>Leverage the platform for training and preliminary understanding of the interview process</li>
+      <li>Update profiles regularly to maintain relevance and accuracy</li>
+      <li>Create comprehensive interview guides to ensure effective synthetic interviews</li>
+    </ul>
+
+    <h2>Looking forward</h2>
+    <p>As products and services need to serve increasingly diverse users, synthetic users offer a valuable tool for understanding perspectives we might otherwise miss. They help bridge the gap between assumption and understanding, whether in education or practice.</p>
+
+  </div>
+</section>
+
+<div class="art-nav">
+  <div class="inner">
+    <a href="thinking.html">&larr; Back to thinking</a>
+  </div>
+</div>
+
+<section class="subscribe">
+  <div class="inner">
+    <p class="kicker">Get updates</p>
+    <h2>Occasional insights. No spam, just the good stuff.</h2>
+    <p>On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
+    <a class="btn btn-dark sub-link" href="https://shellerville.substack.com/" target="_blank" rel="noopener" style="margin-top:46px">Subscribe on Substack <span class="arw">&rarr;</span></a>
+    <img class="squiggle-mark" src="images/pattern-squiggle.png" alt="">
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+</script>
+</body>
+</html>

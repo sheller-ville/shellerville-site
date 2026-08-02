@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaking / Christine Sheller</title>
+<meta name="description" content="Talks, fireside chats, and workshops from Christine Sheller on design leadership and AI-native practice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+a{color:inherit}
+.inner{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:color .15s}
+.site-nav .links a.active{color:var(--white)}
+.site-nav .links a:hover{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+.sp-hero{background:var(--black);color:var(--white);padding:110px 0 90px}
+.sp-hero .kicker{color:#9a9a9a;margin-bottom:24px}
+.sp-hero h1{font-weight:800;font-size:clamp(36px,6.6vw,80px);line-height:1.06;letter-spacing:-.035em;max-width:18ch}
+
+.btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;border:2px solid transparent}
+.btn .arw{transition:transform .3s var(--ease)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn-dark{background:var(--black);color:var(--white)}
+.btn-dark:hover{background:var(--red)}
+
+.sp-list{background:var(--white);padding:100px 0 140px}
+.sp-entry-list{margin-top:20px;border-top:2px solid var(--black)}
+.sp-entry{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;padding:40px 0;border-bottom:2px solid var(--black)}
+.sp-entry .tag{font-size:13px;color:var(--red)}
+.sp-entry h3{margin-top:14px;font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.025em}
+.sp-entry p{margin-top:12px;font-size:17px;line-height:1.6;color:var(--ink);max-width:60ch}
+.sp-entry .when{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#8f8f8a;white-space:nowrap;padding-top:2px}
+
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .inner{max-width:1140px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+@media(max-width:700px){
+  .sp-entry{grid-template-columns:1fr}
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <div class="links" id="nav-links">
+    <a href="leading.html">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<header class="sp-hero">
+  <div class="inner">
+    <p class="kicker">Speaking</p>
+    <h1>Talks, fireside chats, and workshops.</h1>
+  </div>
+</header>
+
+<section class="sp-list">
+  <div class="inner">
+    <div class="sp-entry-list">
+
+      <div class="sp-entry">
+        <div>
+          <p class="tag kicker">Figma: Make event NY</p>
+          <h3>Invited to speak at Figma's invite-only event.</h3>
+          <p>On the possibilities of building with Figma Make, for a room of Figma's own design advocates and partners.</p>
+        </div>
+        <p class="when">2026</p>
+      </div>
+
+      <div class="sp-entry">
+        <div>
+          <p class="tag kicker">How to prompt your way to a product that lands</p>
+          <h3>Fireside chat with Greg Huntoon.</h3>
+          <p>Best practices for prompting, and why design is the differentiator in products that land.</p>
+        </div>
+        <p class="when">2026</p>
+      </div>
+
+    </div>
+    <div style="margin-top:56px">
+      <a class="btn btn-dark" href="mailto:christinesheller@gmail.com?subject=Speaking%20inquiry">Get in touch about speaking <span class="arw">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

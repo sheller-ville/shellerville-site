@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building high-performing teams / Christine Sheller</title>
+<meta name="description" content="A leadership journey across three organizations: building, scaling, and rebuilding design teams that deliver measurable business impact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--red);color:var(--white)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+.inner{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+/* nav */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:color .15s}
+.site-nav .links a.active{color:var(--white)}
+.site-nav .links a:hover{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+.tlink{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;border-bottom:2px solid var(--black);padding-bottom:3px;transition:color .2s,border-color .2s}
+.tlink .arw{transition:transform .3s var(--ease)}
+.tlink:hover{color:var(--teal);border-color:var(--teal)}
+.tlink:hover .arw{transform:translateX(5px)}
+
+.btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;border:2px solid transparent}
+.btn .arw{transition:transform .3s var(--ease)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn-dark{background:var(--black);color:var(--white)}
+.btn-dark:hover{background:var(--red)}
+
+/* hero */
+.case-hero{background:var(--black);color:var(--white);position:relative;overflow:hidden;padding:120px 0 110px}
+.case-hero .eyebrow{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:38px}
+.case-hero h1{font-weight:800;font-size:clamp(38px,7vw,88px);line-height:1.04;letter-spacing:-.045em;max-width:16ch}
+.case-hero .sub{margin-top:28px;font-size:clamp(18px,2vw,23px);line-height:1.55;color:#d9d9d6;max-width:44ch}
+
+/* facts band */
+.facts-band{background:#ECEAE6;color:var(--black);padding:44px 0}
+.facts-band .facts{display:flex;gap:44px;flex-wrap:wrap}
+.facts-band .facts div{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#6f6f6f}
+.facts-band .facts strong{display:block;font-family:var(--font);font-weight:700;font-size:17px;letter-spacing:0;text-transform:none;color:var(--black);margin-top:6px}
+
+/* hero image */
+.hero-img{background:var(--black);padding:80px 0 130px}
+.hero-img .frame{max-width:1360px;margin:0 auto;padding:0 28px}
+.hero-img img{width:100%;height:auto;display:block;border-radius:0}
+
+/* background */
+.ldr-bg{background:var(--paper);padding:120px 0 60px}
+.ldr-bg .grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:60px}
+.ldr-bg h2{font-weight:800;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em}
+.ldr-bg p{font-size:clamp(17px,1.7vw,19px);line-height:1.7;color:var(--ink)}
+
+/* philosophy */
+.philosophy{background:var(--paper);padding:80px 0 140px;border-top:1px solid var(--hair)}
+.philosophy h2{font-weight:800;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em}
+.philosophy .list{margin-top:48px;border-top:2px solid var(--black)}
+.phil-step{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,44px);align-items:start;padding:56px 0;border-bottom:2px solid var(--black)}
+.phil-step .num{font-weight:800;font-size:clamp(96px,17vw,240px);line-height:.72;letter-spacing:-.06em;color:var(--red);align-self:start;margin-top:-.08em}
+.phil-step:nth-child(2) .num{color:var(--yellow)}
+.phil-step:nth-child(3) .num{color:var(--teal)}
+.phil-step:nth-child(4) .num{color:var(--green)}
+.phil-step:nth-child(5) .num{color:var(--pink)}
+.phil-step h3{margin-top:12px;font-weight:800;font-size:clamp(26px,3.6vw,46px);letter-spacing:-.03em;line-height:1}
+.phil-step p{margin-top:14px;font-size:16px;line-height:1.6;color:var(--ink);max-width:58ch}
+
+/* journey */
+.journey{background:var(--white);padding:120px 0 140px;border-top:1px solid var(--hair)}
+
+/* impact */
+.impact{background:#ECEAE6;padding:120px 0 140px}
+.impact h2{font-weight:800;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em}
+.stats{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px 36px;border-top:2px solid var(--black);padding-top:56px}
+.stat .scope{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8f8f8a}
+.stat .n{margin-top:10px;font-weight:800;font-size:clamp(52px,6.4vw,88px);line-height:1;letter-spacing:-.04em;color:var(--red);font-variant-numeric:tabular-nums}
+.stat .l{margin-top:14px;font-size:15px;line-height:1.5;color:var(--ink);max-width:26ch}
+.journey > .inner > h2{font-weight:800;font-size:clamp(26px,3vw,36px);letter-spacing:-.02em;margin-bottom:56px}
+.jcard{display:grid;grid-template-columns:220px 1fr;gap:44px;padding:56px 0;border-top:2px solid var(--black)}
+.journey .jcard:last-child{border-bottom:2px solid var(--black)}
+.jcard .logo{width:220px;height:150px;background:none;display:flex;align-items:center;justify-content:center;padding:0}
+.jcard .logo img{max-width:100%;max-height:100%;object-fit:contain}
+.jcard h3{font-weight:800;font-size:clamp(21px,2.4vw,27px);letter-spacing:-.02em}
+.jcard .intro{margin-top:14px;font-size:16px;line-height:1.6;color:var(--ink);max-width:64ch}
+.jcard .accordion{margin-top:28px}
+.jcard .acc-item{border-top:1px solid var(--hair)}
+.jcard .acc-item:last-child{border-bottom:1px solid var(--hair)}
+.jcard .acc-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:18px 0;font-family:var(--font);font-weight:700;font-size:15px;text-align:left;cursor:pointer;color:var(--black)}
+.jcard .acc-btn .plus{font-size:20px;font-weight:400;transition:transform .25s var(--ease)}
+.jcard .acc-btn[aria-expanded="true"] .plus{transform:rotate(45deg)}
+.jcard .acc-panel{max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+.jcard .acc-panel p{padding:0 0 18px;font-size:15px;line-height:1.65;color:var(--ink);max-width:60ch}
+.jcard .acc-panel p.placeholder{color:#b0b0ac;font-style:italic}
+.jcard .acc-panel ol,.jcard .acc-panel ul{padding:0 0 22px 20px;max-width:60ch}
+.jcard .acc-panel li{font-size:15px;line-height:1.6;color:var(--ink);margin-top:10px}
+.jcard .acc-panel li:first-child{margin-top:0}
+.jcard .acc-panel li b{font-weight:700;color:var(--black)}
+
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+@media(max-width:900px){
+  .ldr-bg .grid{grid-template-columns:1fr;gap:24px}
+  .jcard{grid-template-columns:1fr}
+  .jcard .logo{width:140px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .phil-step{grid-template-columns:1fr;gap:12px;padding:32px 0}
+  .stats{grid-template-columns:1fr;gap:36px}
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{display:none}
+}
+.next{background:var(--black);color:var(--white);padding:110px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.next a{display:block;text-decoration:none;color:var(--white)}
+.next .kicker{color:var(--pink)}
+.next h2{margin-top:22px;font-weight:800;font-size:clamp(30px,5vw,64px);letter-spacing:-.035em;line-height:1.04;max-width:18ch;display:inline-block;transition:transform .35s var(--ease)}
+.next .arw{display:inline-block;font-weight:800;font-size:clamp(30px,5vw,64px);margin-left:20px;transition:transform .35s var(--ease)}
+.next a:hover h2{transform:translateX(8px)}
+.next a:hover .arw{transform:translateX(18px)}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <div class="links" id="nav-links">
+    <a href="leading.html">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html" class="active">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="inner">
+    <p class="eyebrow">Case study &middot; Design leadership</p>
+    <h1>Building high-performing teams.</h1>
+    <p class="sub">A leadership journey across three organizations, building, scaling, and rebuilding design teams that deliver measurable business impact.</p>
+  </div>
+</header>
+
+<section class="facts-band">
+  <div class="inner facts">
+    <div>Organizations <strong>SIG, FS Investments, O3</strong></div>
+    <div>My role <strong>Founding design leader at SIG + FS Investments; team rebuild at O3</strong></div>
+    <div>Scope <strong>Team building, org design, leadership</strong></div>
+  </div>
+</section>
+
+<div class="hero-img">
+  <div class="frame">
+    <img src="images/case-FS-leadership.jpg" alt="Design + user experience team strategic plan, slide collage">
+  </div>
+</div>
+
+<section class="ldr-bg">
+  <div class="inner grid">
+    <h2>Background</h2>
+    <p>Throughout my career, I've specialized in building, scaling, and transforming design teams that deliver measurable business impact. My approach combines strategic vision with practical implementation, creating design functions that evolve from service providers to strategic partners. This case study covers my journey across three distinct organizations where I established, grew, and rebuilt design teams to meet evolving business needs.</p>
+  </div>
+</section>
+
+<section class="philosophy">
+  <div class="inner">
+    <h2>My team-building philosophy</h2>
+    <div class="list">
+      <div class="phil-step">
+        <div class="num">1</div>
+        <div>
+          <h3>Begin with business needs</h3>
+          <p>Understanding the organization's goals, challenges, and opportunities before designing team structures.</p>
+        </div>
+      </div>
+      <div class="phil-step">
+        <div class="num">2</div>
+        <div>
+          <h3>Create clear frameworks</h3>
+          <p>Developing skills matrices, process documentation, and leadership playbooks that provide structure and clarity.</p>
+        </div>
+      </div>
+      <div class="phil-step">
+        <div class="num">3</div>
+        <div>
+          <h3>Balance capability + cost</h3>
+          <p>Building internal capabilities while optimizing external partnerships for maximum value.</p>
+        </div>
+      </div>
+      <div class="phil-step">
+        <div class="num">4</div>
+        <div>
+          <h3>Design as a strategic partner</h3>
+          <p>Positioning design as a strategic business driver, not just a service function.</p>
+        </div>
+      </div>
+      <div class="phil-step">
+        <div class="num">5</div>
+        <div>
+          <h3>Create clear frameworks</h3>
+          <p>Developing skills matrices, process documentation, and leadership playbooks that provide structure and clarity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journey">
+  <div class="inner">
+    <h2>The journey</h2>
+
+    <div class="jcard">
+      <div class="logo"><img src="images/logo_SIG.png" alt="SIG"></div>
+      <div>
+        <h3>SIG: creating a design function from scratch</h3>
+        <p class="intro">When I joined SIG (Susquehanna International Group) as their first creative leader, the organization relied entirely on external agencies for design work, resulting in inconsistent quality, high costs, and limited strategic alignment.</p>
+        <div class="accordion" data-group="sig">
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Challenge<span class="plus">+</span></button><div class="acc-panel"><p>No existing in-house design capabilities, heavy dependence on external agencies ($300K+ annual spend), fragmented brand expression across touchpoints, and limited design influence in business decision-making.</p></div></div>
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Approach<span class="plus">+</span></button><div class="acc-panel"><p>I began with a comprehensive audit of design needs across the organization, mapping them against business priorities. This surfaced the highest-impact areas where in-house capabilities would deliver the most value. Rather than replacing all agency work immediately, I developed a phased approach to building the team.</p></div></div>
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Implementation<span class="plus">+</span></button><div class="acc-panel"><ol><li><b>Strategic hiring.</b> Recruited versatile designers who could handle multiple disciplines while bringing specialized expertise in key areas.</li><li><b>Process development.</b> Created standardized workflows for project intake, feedback, and delivery.</li><li><b>Capability mapping.</b> Developed a clear understanding of which work should stay in-house vs. external.</li><li><b>Stakeholder education.</b> Helped business partners understand how to effectively collaborate with the new design function.</li></ol></div></div>
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Results<span class="plus">+</span></button><div class="acc-panel"><ul><li>Established the first in-house design team, delivering consistent, brand-aligned work.</li><li>Reduced agency dependencies, saving over $300K annually.</li><li>Led the transformation of the brand across all touchpoints, creating a cohesive visual identity.</li><li>Positioned design as a strategic partner in business initiatives rather than just an execution resource.</li></ul></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jcard">
+      <div class="logo"><img src="images/logo-fs.jpeg" alt="FS Investments"></div>
+      <div>
+        <h3>FS Investments: scaling from individual to department</h3>
+        <p class="intro">Building on my experience at SIG, I joined FS Investments as their first creative lead. The organization had significant potential for design impact but lacked the structure to realize it.</p>
+        <div class="accordion" data-group="fs">
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Challenge<span class="plus">+</span></button><div class="acc-panel"><p>I started as the solo in-house creative lead within the marketing team, working from an undefined scope and expectations for design's role. There was heavy reliance on external agencies and partners ($6M+ annual spend), and design was viewed primarily as a tactical service.</p></div></div>
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Approach<span class="plus">+</span></button><div class="acc-panel"><p>I focused on understanding the business model deeply before making recommendations about team structure. By identifying high-value design opportunities across the organization, I made a compelling case for building an in-house team that could drive both cost savings and strategic value.</p></div></div>
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Implementation<span class="plus">+</span></button><div class="acc-panel"><ol><li><b>Gradual team expansion.</b> Built the team methodically based on business needs and proven ROI.</li><li><b>Capability development.</b> Introduced new design disciplines based on organizational priorities.</li><li><b>Strategic insourcing.</b> Identified which agency work could be brought in-house for better results.</li><li><b>Organizational positioning.</b> Successfully advocated for design to become its own cost center, separate from marketing.</li></ol></div></div>
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Results<span class="plus">+</span></button><div class="acc-panel"><ul><li>Grew from a solo contributor to leading a full-fledged design department.</li><li>Transformed design from a marketing service to a business-critical function.</li><li>Reduced external agency spend from over $6M to under $900K annually over two years.</li><li>Established design as a strategic partner with direct impact on business outcomes.</li></ul></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jcard">
+      <div class="logo"><img src="images/logo-O3.png" alt="O3"></div>
+      <div>
+        <h3>O3: rebuilding during the Great Resignation</h3>
+        <p class="intro">The most complex team-building challenge came at O3, where I arrived during the height of the Great Resignation. This presented the unique opportunity to rebuild a team from the ground up during unprecedented talent volatility.</p>
+        <div class="accordion" data-group="o3">
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Challenge<span class="plus">+</span></button><div class="acc-panel"><p>I joined at a time of significant team turnover, in a historically difficult hiring market. There were unclear expectations and no documentation of processes for the design function, a clear need for stronger leadership frameworks across the organization, and inconsistent design quality and stakeholder satisfaction across product delivery.</p></div></div>
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Approach<span class="plus">+</span></button><div class="acc-panel"><p>Rather than rushing to fill vacancies, I took a strategic approach to redefining what the team should be. This began with a skills matrix that mapped roles to business objectives and set expectations for the team's contributions to the organization.</p></div></div>
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Implementation<span class="plus">+</span></button><div class="acc-panel"><ol><li><b>Department charter creation.</b> Developed a clear vision, mission, and operating principles.</li><li><b>Skills matrix development.</b> Created a comprehensive framework for assessing and developing talent.</li><li><b>Process refinement.</b> Established well-defined workflows that enhanced quality and predictability.</li><li><b>Leadership playbook.</b> Developed guidance deployed firm-wide, extending design thinking principles beyond the design team.</li></ol></div></div>
+          <div class="acc-item"><button class="acc-btn" aria-expanded="false">Results<span class="plus">+</span></button><div class="acc-panel"><ul><li>Successfully rebuilt the team with members aligned to the new vision.</li><li>Improved design quality and consistency across deliverables.</li><li>Increased stakeholder satisfaction and cross-functional collaboration.</li><li>Created leadership frameworks that influenced the broader organization.</li></ul></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="impact">
+  <div class="inner">
+    <h2>Impact, across all three</h2>
+    <div class="stats">
+      <div class="stat">
+        <p class="scope">Track record</p>
+        <p class="n">3</p>
+        <p class="l">Design teams built from scratch or rebuilt entirely.</p>
+      </div>
+      <div class="stat">
+        <p class="scope">SIG</p>
+        <p class="n">$300K+</p>
+        <p class="l">In annual agency spend saved by bringing design in-house.</p>
+      </div>
+      <div class="stat">
+        <p class="scope">FS Investments</p>
+        <p class="n">$6M &rarr; $900K</p>
+        <p class="l">Agency spend reduced annually, over two years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="inner">
+    <a href="case-study-climate-vision.html">
+      <p class="kicker rev">Next case study</p>
+      <h2 class="rev d1">Decoding climate risk for homes with Climate Vision.</h2><span class="arw rev d1" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<section style="background:var(--white);border-top:1px solid var(--hair);padding:64px 0">
+  <div class="inner">
+    <a href="case-studies.html" class="tlink">&larr; Back to all case studies</a>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.acc-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    var panel = btn.nextElementSibling;
+    btn.setAttribute('aria-expanded', String(!open));
+    panel.style.maxHeight = open ? '0px' : panel.scrollHeight + 'px';
+  });
+});
+</script>
+</body>
+</html>

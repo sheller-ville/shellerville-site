@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FS Investments website case study / Christine Sheller</title>
+<meta name="description" content="Cohesive by design: rebuilding FS Investments' digital experience. Building a scalable digital foundation from scattered product websites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--red);color:var(--white)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+.inner{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+/* nav */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:color .15s}
+.site-nav .links a.active{color:var(--white)}
+.site-nav .links a:hover{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+.tlink{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;border-bottom:2px solid var(--black);padding-bottom:3px;transition:color .2s,border-color .2s}
+.tlink .arw{transition:transform .3s var(--ease)}
+.tlink:hover{color:var(--teal);border-color:var(--teal)}
+.tlink:hover .arw{transform:translateX(5px)}
+
+/* hero */
+.case-hero{background:var(--black);color:var(--white);position:relative;overflow:hidden;padding:120px 0 110px}
+.case-hero .eyebrow{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:38px}
+.case-hero h1{font-weight:800;font-size:clamp(34px,6vw,68px);line-height:1.08;letter-spacing:-.04em;max-width:20ch}
+.case-hero .sub{margin-top:28px;font-size:clamp(18px,2vw,23px);line-height:1.55;color:#d9d9d6;max-width:48ch}
+
+/* facts band */
+.facts-band{background:#ECEAE6;color:var(--black);padding:44px 0}
+.facts-band .facts{display:flex;gap:44px;flex-wrap:wrap}
+.facts-band .facts div{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#6f6f6f}
+.facts-band .facts strong{display:block;font-family:var(--font);font-weight:700;font-size:17px;letter-spacing:0;text-transform:none;color:var(--black);margin-top:6px}
+
+/* hero image */
+.hero-img{background:var(--black);padding:80px 0 130px}
+.hero-img .frame{max-width:1360px;margin:0 auto;padding:0 28px}
+.hero-img img{width:100%;height:auto;display:block;border-radius:0}
+
+/* background */
+.fs-bg{background:var(--paper);padding:120px 0 140px}
+.fs-bg h2{font-weight:800;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em;margin-bottom:48px}
+.fs-bg .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px 56px}
+.fs-bg h3{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.fs-bg p{margin-top:10px;font-size:16px;line-height:1.6;color:var(--ink)}
+
+/* strategic approach */
+.approach{background:#ECEAE6;padding:120px 0 140px}
+.approach h2{font-weight:800;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em}
+.approach .list{margin-top:48px;border-top:2px solid var(--black)}
+.appr-step{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,44px);align-items:start;padding:56px 0;border-bottom:2px solid var(--black)}
+.appr-step .num{font-weight:800;font-size:clamp(96px,17vw,240px);line-height:.72;letter-spacing:-.06em;color:var(--red);align-self:start;margin-top:-.08em}
+.appr-step:nth-child(2) .num{color:var(--yellow)}
+.appr-step:nth-child(3) .num{color:var(--teal)}
+.appr-step:nth-child(4) .num{color:var(--green)}
+.appr-step h3{margin-top:12px;font-weight:800;font-size:clamp(26px,3.6vw,46px);letter-spacing:-.03em;line-height:1}
+.appr-step p{margin-top:14px;font-size:16px;line-height:1.6;color:var(--ink);max-width:58ch}
+
+/* impact */
+.impact{background:var(--white);padding:120px 0 60px;border-top:1px solid var(--hair)}
+.impact h2{font-weight:800;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em;margin-bottom:48px}
+.impact .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.impact h3{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.impact ul{margin-top:14px;padding-left:20px}
+.impact li{font-size:16px;line-height:1.6;color:var(--ink);margin-top:10px}
+
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+@media(max-width:900px){
+  .fs-bg .grid{grid-template-columns:1fr;gap:36px}
+  .impact .grid{grid-template-columns:1fr;gap:36px}
+}
+@media(max-width:700px){
+  .appr-step{grid-template-columns:1fr;gap:12px;padding:32px 0}
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{display:none}
+}
+.next{background:var(--black);color:var(--white);padding:110px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.next a{display:block;text-decoration:none;color:var(--white)}
+.next .kicker{color:var(--pink)}
+.next h2{margin-top:22px;font-weight:800;font-size:clamp(30px,5vw,64px);letter-spacing:-.035em;line-height:1.04;max-width:18ch;display:inline-block;transition:transform .35s var(--ease)}
+.next .arw{display:inline-block;font-weight:800;font-size:clamp(30px,5vw,64px);margin-left:20px;transition:transform .35s var(--ease)}
+.next a:hover h2{transform:translateX(8px)}
+.next a:hover .arw{transform:translateX(18px)}
+
+/* ---------- the story (quiet, paper) ---------- */
+.story{background:var(--paper);padding:160px 0 150px}
+.story .kicker{color:var(--red)}
+.story h2{margin-top:30px;font-weight:800;font-size:clamp(34px,5.2vw,66px);letter-spacing:-.035em;line-height:1.02;max-width:16ch}
+.story .carousel{margin-top:72px;position:relative}
+.story .track-wrap{overflow:hidden;border-top:2px solid var(--black);border-bottom:2px solid var(--black)}
+.story .track{display:flex;transition:transform .55s var(--ease)}
+.moment{flex:0 0 100%;display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,6vw,80px);align-items:start;padding:64px 0 72px}
+.moment .m-tag{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.moment .m-count{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;color:#8f8f8a;margin-top:8px}
+.moment h3{margin-top:16px;font-weight:800;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.03em;line-height:1.06;max-width:15ch}
+.moment .m-body p{font-weight:400;font-size:clamp(17px,1.9vw,21px);line-height:1.62;color:var(--ink);max-width:56ch}
+.moment .m-body p+p{margin-top:22px}
+.story .cbar{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.story .dots{display:flex;gap:10px}
+.story .dot{width:10px;height:10px;border-radius:50%;background:#cfcfca;border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s}
+.story .dot[aria-selected="true"]{background:var(--red);transform:scale(1.25)}
+.story .cbtns{display:flex;gap:12px}
+.story .cbtn{width:56px;height:56px;border-radius:50%;border:2px solid var(--black);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,transform .2s}
+.story .cbtn:hover{background:var(--black);color:var(--white)}
+.story .cbtn:disabled{opacity:.28;cursor:default}
+.story .cbtn:disabled:hover{background:transparent;color:inherit}
+.story .cbtn svg{width:22px;height:22px}
+@media(max-width:860px){
+  .story{padding:100px 0}
+  .story .carousel{margin-top:56px}
+  .moment{grid-template-columns:1fr;gap:24px;padding:48px 0 52px}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <div class="links" id="nav-links">
+    <a href="leading.html">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html" class="active">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="inner">
+    <p class="eyebrow">Case study &middot; FS Investments</p>
+    <h1>Cohesive by design: rebuilding FS Investments' digital experience.</h1>
+    <p class="sub">Building a scalable digital foundation from scattered product websites.</p>
+  </div>
+</header>
+
+<section class="facts-band">
+  <div class="inner facts">
+    <div>Client <strong>FS Investments</strong></div>
+    <div>My role <strong>Head of Research + Design, Product Owner</strong></div>
+    <div>Scope <strong>Platform consolidation, design system, launch</strong></div>
+  </div>
+</section>
+
+<div class="hero-img">
+  <div class="frame">
+    <img src="images/case-fswebsite-hero.jpg" alt="FS Investments website pages, tiled pattern">
+  </div>
+</div>
+
+<!-- ============ THE STORY ============ -->
+<section class="story">
+  <div class="inner">
+    <p class="kicker rev">The story</p>
+    <h2 class="rev d1">One brand, scattered across a dozen disconnected sites.</h2>
+
+    <div class="carousel rev d2">
+      <div class="track-wrap">
+        <div class="track" id="story-track">
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">Context</p>
+              <p class="m-count">01 / 05</p>
+              <h3>Disconnected sites, diluted brand.</h3>
+            </div>
+            <div class="m-body">
+              <p>FS Investments was managing multiple disconnected product websites, creating a fragmented user experience and diluted brand presence. The existing headless CMS structure required developer intervention for even small content changes, making updates both time-consuming and costly. This decentralized approach made it difficult for advisors to engage with the brand and complicated content management for internal teams.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">My role + leadership</p>
+              <p class="m-count">02 / 05</p>
+              <h3>From internal launch to full platform.</h3>
+            </div>
+            <div class="m-body">
+              <p>As Head of Research + Design and Product Owner, I led a major digital transformation initiative for the FS website after successfully launching an internal sales product. I drove the creation of a unified digital platform that would strengthen the FS brand presence while serving multiple stakeholders, from financial advisors to prospective employees and internal content teams.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">The challenge</p>
+              <p class="m-count">03 / 05</p>
+              <h3>One platform, many audiences.</h3>
+            </div>
+            <div class="m-body">
+              <p>The fragmented digital ecosystem was hindering advisor engagement and creating operational inefficiencies. We needed to consolidate multiple sites while ensuring the new platform would serve diverse stakeholder needs, from advisors seeking client-ready information to internal teams managing content with minimal friction.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">The opportunity</p>
+              <p class="m-count">04 / 05</p>
+              <h3>A cohesive, professional brand.</h3>
+            </div>
+            <div class="m-body">
+              <p>This transformation presented a chance to establish FS Investments as a cohesive, professional brand in the financial services space while dramatically improving operational efficiency and user experience across all digital touchpoints.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">Our solution</p>
+              <p class="m-count">05 / 05</p>
+              <h3>Unified platform, five phases.</h3>
+            </div>
+            <div class="m-body">
+              <p>We developed a unified digital platform with streamlined content management capabilities, supported by a comprehensive design system and authentic visual representation of company culture, all delivered through a structured five-phase implementation approach.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cbar">
+        <div class="dots" id="story-dots" role="tablist" aria-label="Story chapters"></div>
+        <div class="cbtns">
+          <button class="cbtn" id="story-prev" aria-label="Previous" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="cbtn" id="story-next" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </div>
+</section>
+
+<section class="approach">
+  <div class="inner">
+    <h2>Strategic approach</h2>
+    <div class="list">
+      <div class="appr-step">
+        <div class="num">1</div>
+        <div>
+          <h3>Building partnerships + governance</h3>
+          <p>We established cross-functional relationships, bringing together core teams, stakeholders, and subject matter experts from across the firm. I developed a five-phase implementation roadmap, initiation, discovery, design, refinement, and production, to gain buy-in and created comprehensive project plans that aligned business objectives with user needs.</p>
+        </div>
+      </div>
+      <div class="appr-step">
+        <div class="num">2</div>
+        <div>
+          <h3>Leading discovery + analysis</h3>
+          <p>I directed thorough audits across content, technology, and user experience while facilitating feedback sessions to identify pain points and opportunities. We managed the platform evaluation process through a structured RFP process, vendor demonstrations, and selection to ensure the right technology foundation.</p>
+        </div>
+      </div>
+      <div class="appr-step">
+        <div class="num">3</div>
+        <div>
+          <h3>Guiding design + development</h3>
+          <p>Working with my team, we established design principles and a component library to ensure consistency and scalability. I oversaw UX creation and validation through wireframing, prototyping, and testing, while directing a custom photoshoot to capture authentic company culture for the website.</p>
+        </div>
+      </div>
+      <div class="appr-step">
+        <div class="num">4</div>
+        <div>
+          <h3>Orchestrating implementation + launch</h3>
+          <p>We coordinated phased content migration and quality assurance processes, worked with communications teams on launch messaging, and brought together cross-functional teams for seamless deployment and activation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impact">
+  <div class="inner">
+    <h2>Impact</h2>
+    <div class="grid">
+      <div>
+        <h3>Immediate results</h3>
+        <ul>
+          <li>Successfully consolidated multiple sites into one unified platform.</li>
+          <li>Received positive feedback from internal stakeholders on improved content management capabilities.</li>
+          <li>Established streamlined operational processes for content updates and site maintenance.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Key deliverables</h3>
+        <ul>
+          <li>Unified corporate website with integrated product information.</li>
+          <li>Comprehensive design system and component library.</li>
+          <li>Custom photography showcasing company culture and environment.</li>
+          <li>Documentation and style guides for ongoing maintenance.</li>
+          <li>Streamlined content management workflows for internal teams.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="inner">
+    <a href="case-study-fs-brand.html">
+      <p class="kicker rev">Next case study</p>
+      <h2 class="rev d1">Building unity from complexity: a scalable global brand.</h2><span class="arw rev d1" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<section style="background:var(--white);border-top:1px solid var(--hair);padding:64px 0">
+  <div class="inner">
+    <a href="case-studies.html" class="tlink">&larr; Back to all case studies</a>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* story carousel */
+(function(){
+  var track = document.getElementById('story-track');
+  if(!track) return;
+  var slides = track.children;
+  var total = slides.length;
+  var dotsWrap = document.getElementById('story-dots');
+  var prev = document.getElementById('story-prev');
+  var next = document.getElementById('story-next');
+  var i = 0;
+
+  for(var d=0; d<total; d++){
+    var b = document.createElement('button');
+    b.className = 'dot';
+    b.setAttribute('role','tab');
+    b.setAttribute('aria-label','Chapter '+(d+1));
+    (function(idx){ b.addEventListener('click', function(){ go(idx); }); })(d);
+    dotsWrap.appendChild(b);
+  }
+  var dots = dotsWrap.children;
+
+  function go(n){
+    i = Math.max(0, Math.min(total-1, n));
+    track.style.transform = 'translateX(' + (-i*100) + '%)';
+    for(var k=0;k<total;k++){ dots[k].setAttribute('aria-selected', k===i ? 'true':'false'); }
+    prev.disabled = (i===0);
+    next.disabled = (i===total-1);
+  }
+  prev.addEventListener('click', function(){ go(i-1); });
+  next.addEventListener('click', function(){ go(i+1); });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowLeft') go(i-1);
+    if(e.key==='ArrowRight') go(i+1);
+  });
+
+  var x0 = null;
+  track.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    if(x0===null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if(dx < -50) go(i+1);
+    else if(dx > 50) go(i-1);
+    x0 = null;
+  }, {passive:true});
+
+  go(0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leading / Christine Sheller</title>
+<meta name="description" content="Christine Sheller's design leadership: building multidisciplinary teams from the ground up, scaling organizations, and cultivating cultures that connect design to business strategy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--red);color:var(--white)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+.inner{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+/* ---------- nav ---------- */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:color .15s}
+.site-nav .links a.active{color:var(--white)}
+.lock{display:inline-flex;align-items:center;gap:5px}
+.lock svg{width:11px;height:11px;opacity:.65;margin-bottom:1px}
+.site-nav .links a:hover{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+/* ---------- hero (black) ---------- */
+.lead-hero{background:var(--teal-deep,#077387);color:var(--white);position:relative;overflow:visible;padding:130px 0 150px}
+.lead-hero .eyebrow{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#bfe6ee;margin-bottom:38px}
+.lead-hero h1{font-weight:800;font-size:clamp(40px,8.4vw,120px);line-height:1.05;letter-spacing:-.04em;max-width:22ch}
+.lead-hero h1 .line{display:block;overflow:hidden;padding:.06em 0 .14em;margin:-.06em 0 -.14em}
+.lead-hero h1 .word{display:inline-block;transform:translateY(135%);animation:rise 1s var(--ease) forwards}
+.lead-hero h1 .accent{color:var(--yellow)}
+.lead-hero h1 .line:nth-child(2) .word{animation-delay:.12s}
+.lead-hero h1 .line:nth-child(3) .word{animation-delay:.24s}
+.lead-hero h1 .line:nth-child(4) .word{animation-delay:.36s}
+@keyframes rise{to{transform:translateY(0)}}
+.lead-hero .lede{margin-top:48px;max-width:52ch;opacity:0;animation:fade 1.1s .55s var(--ease) forwards}
+.lead-hero .lede p{font-size:clamp(18px,2vw,22px);line-height:1.6;font-weight:400;color:#e2f4f8}
+.lead-hero .lede strong{font-weight:700;color:var(--white)}
+@keyframes fade{to{opacity:1}}
+
+/* signature graphic: the target, cropped at the right edge */
+.lead-hero .path{position:absolute;z-index:1;right:max(-2vw,-10px);bottom:-230px;width:480px;height:480px;opacity:0;transform:translateY(30px);animation:settle 1.6s .3s var(--ease) forwards}
+.lead-hero .path .dot1{position:absolute;top:0;left:0;width:300px;height:300px;border-radius:50%;background:var(--white)}
+.lead-hero .path .dot2{position:absolute;bottom:0;right:0;width:230px;height:230px;border-radius:50%;background:var(--yellow)}
+@keyframes settle{to{opacity:1;transform:translateY(-50%) scale(1)}}
+
+/* ---------- the teams (black continues, hairline break) ---------- */
+.teams{background:var(--black);color:var(--white);padding:120px 0 160px;border-top:1px solid rgba(255,255,255,.14);position:relative;z-index:2}
+.teams .kicker{font-size:13px;color:var(--pink)}
+.teams .head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.teams h2{margin-top:30px;font-weight:800;font-size:clamp(34px,5.2vw,66px);letter-spacing:-.035em;line-height:1.02;max-width:18ch;color:var(--white)}
+.teams .note{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#8f8f8a;padding-bottom:10px}
+.teams .cards{margin-top:72px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;row-gap:64px}
+.card-p{display:flex;flex-direction:column;color:var(--white)}
+.card-p .thumb{aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#1a1a1a;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
+.card-p .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.card-p:hover .thumb img{transform:scale(1.05)}
+.card-p .thumb .ph{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6f6f6f;line-height:1.6;padding:20px;transition:transform .5s var(--ease)}
+.card-p:hover .thumb .ph{transform:scale(1.05)}
+.card-p .thumb::after{content:"";position:absolute;inset:0;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.card-p h3{margin-top:24px;font-weight:800;font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;line-height:1.14;transition:color .2s}
+.card-p .dek{margin-top:12px;font-size:16px;color:#b8b8b4;line-height:1.5}
+.card-p .meta{margin-top:16px;font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8f8f8a;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-p .meta .dot{width:4px;height:4px;border-radius:50%;background:#8f8f8a;display:inline-block}
+.card-p:hover h3{color:var(--pink)}
+
+/* ---------- beyond the office (quiet, paper) ---------- */
+.beyond{background:var(--paper);padding:150px 0 160px;position:relative;overflow:hidden}
+.beyond::before{content:"";position:absolute;inset:0;z-index:0;background:url('images/pattern-small-dots.png') repeat;background-size:220px auto;opacity:.28}
+.beyond .inner{position:relative;z-index:2}
+.beyond-copy{background:var(--white);padding:56px clamp(28px,4vw,64px);border-radius:20px}
+.beyond .kicker{font-size:13px;color:var(--red)}
+.beyond h2{margin-top:30px;font-weight:800;font-size:clamp(34px,5.2vw,66px);letter-spacing:-.035em;line-height:1.02;max-width:18ch}
+.beyond .grid{margin-top:70px;display:grid;grid-template-columns:repeat(3,1fr);gap:44px;border-top:2px solid var(--black);padding-top:56px}
+.beyond .item .label{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.beyond .item:nth-child(1) .label{color:var(--red)}
+.beyond .item:nth-child(2) .label{color:var(--teal)}
+.beyond .item:nth-child(3) .label{color:var(--green)}
+.beyond .item h3{margin-top:16px;font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.025em;line-height:1.1}
+.beyond .item p{margin-top:16px;font-size:17px;line-height:1.6;color:var(--ink);max-width:38ch}
+
+/* ---------- next (black band) ---------- */
+.next{background:var(--black);color:var(--white);padding:110px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.next a{display:block;text-decoration:none;color:var(--white)}
+.next .kicker{font-size:13px;color:var(--pink)}
+.next h2{margin-top:22px;font-weight:800;font-size:clamp(30px,5vw,64px);letter-spacing:-.035em;line-height:1.04;max-width:18ch;display:inline-block;transition:transform .35s var(--ease)}
+.next .arw{display:inline-block;font-weight:800;font-size:clamp(30px,5vw,64px);margin-left:20px;transition:transform .35s var(--ease)}
+.next a:hover h2{transform:translateX(8px)}
+.next a:hover .arw{transform:translateX(18px)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;border:2px solid transparent}
+.btn .arw{font-size:19px;margin-left:0;transition:transform .3s var(--ease)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn-ghost{border-color:#3a3a3a;color:var(--white)}
+.btn-ghost:hover{border-color:var(--white)}
+.next .btn{display:inline-flex}
+
+/* ---------- subscribe (color moment: yellow) ---------- */
+.subscribe{background:var(--yellow);color:var(--black);padding:150px 0;position:relative;overflow:hidden}
+.subscribe .kicker{font-size:13px;color:#6b4e00}
+.subscribe h2{margin-top:30px;font-weight:800;font-size:clamp(36px,5.8vw,80px);letter-spacing:-.04em;line-height:1;max-width:16ch}
+.subscribe p{margin-top:26px;font-size:clamp(18px,2vw,21px);line-height:1.55;max-width:46ch;color:#4a3a00}
+.sub-form{margin-top:46px;display:flex;gap:14px;max-width:560px;flex-wrap:wrap}
+.sub-form input{flex:1;min-width:240px;font-family:var(--font);font-size:17px;padding:16px 22px;border:none;border-radius:100px;background:var(--white);outline:none}
+.sub-form input:focus{box-shadow:0 0 0 3px var(--red)}
+.sub-form button{font-family:var(--font);font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:100px;background:var(--black);color:var(--white);cursor:pointer;transition:background .2s}
+.sub-form button:hover{background:var(--red)}
+.sub-done{display:none;margin-top:22px;font-weight:700;font-size:19px}
+.sub-done.on{display:block}
+.sub-err{display:none;margin-top:14px;font-family:var(--cond);font-weight:600;font-size:15px;color:#7a1000}
+.sub-err.on{display:block}
+.subscribe .square{position:absolute;z-index:1;width:200px;height:200px;background:var(--black);border-radius:36px;right:8%;bottom:-100px;transform:rotate(12deg)}
+.squiggle-mark{display:block;margin-top:36px;width:340px;max-width:85%;height:auto;opacity:.85;pointer-events:none}
+
+/* ---------- footer ---------- */
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer .fsub a:hover{color:var(--yellow)}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none;transition:color .15s}
+footer nav a:hover{color:var(--white)}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+/* ---------- reveals (subtle) ---------- */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rev.in{opacity:1;transform:none}
+.rev.d1{transition-delay:.08s}.rev.d2{transition-delay:.16s}.rev.d3{transition-delay:.24s}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .lead-hero h1 .word{transform:none}
+  .lead-hero .lede{opacity:1}
+  .lead-hero .path{opacity:1;transform:none}
+  .rev{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+@media(max-width:1040px){
+  .teams .cards{grid-template-columns:repeat(2,1fr)}
+  .beyond .grid{grid-template-columns:1fr;gap:56px}
+  .beyond .item p{max-width:56ch}
+}
+@media(max-width:860px){
+  .lead-hero{padding:84px 0 110px}
+  .lead-hero .path{width:62vw;height:62vw;right:-10vw;bottom:-32vw;opacity:0;animation:settleM 1.6s .3s var(--ease) forwards}
+  .teams{padding:90px 0 110px}
+  .teams .cards{grid-template-columns:1fr;gap:20px;row-gap:48px;max-width:440px}
+  .beyond{padding:100px 0 110px}
+  .next{padding:80px 0}
+  .subscribe{padding:100px 0}
+  .subscribe .square{display:none}
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{position:absolute;top:62px;left:0;right:0;background:var(--black);flex-direction:column;gap:0;padding:8px 0;display:none;border-top:1px solid #222}
+  .site-nav .links.open{display:flex}
+  .site-nav .links a{padding:14px 28px;width:100%;font-size:16px}
+  .site-nav .menu-btn{display:block}
+}
+@keyframes settleM{to{opacity:.5}}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('nav-links').classList.toggle('open')">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+    <div class="links" id="nav-links">
+    <a href="leading.html" class="active">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="lead-hero">
+  <div class="path" aria-hidden="true">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+  <div class="inner">
+    <p class="eyebrow">Leading &middot; the teams</p>
+    <h1>Building high-performing teams that grow into <span class="accent">the next generation of leaders.</span></h1>
+    <div class="lede">
+      <p>I believe <strong>great teams are the engine behind great experiences.</strong> Across my career, I've built multidisciplinary teams from the ground up, scaled organizations, and cultivated cultures that connect human-centered design to business strategy.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ THE TEAMS ============ -->
+<section class="teams">
+  <div class="inner">
+    <div class="head">
+      <div>
+        <p class="kicker rev">The proof</p>
+        <h2 class="rev d1">Teams built from zero. Cultures built to last.</h2>
+      </div>
+      <p class="note rev d1">First design team, built three times</p>
+    </div>
+    <div class="cards rev d2">
+
+      <div class="card-p">
+        <div class="thumb"><img src="images/leading-cella.jpeg" alt="Cella"></div>
+        <h3>Cella</h3>
+        <p class="dek">VP of AI Strategy + Consulting, leading the consulting practice and helping enterprise creative, marketing, and UX teams operationalize AI within Cella's broader talent and consulting offering. Closing the gap between knowing AI is necessary and actually implementing it, so adoption turns into transformation instead of stalling at awareness.</p>
+        <div class="meta">AI + consulting</div>
+      </div>
+
+      <div class="card-p">
+        <div class="thumb"><img src="images/leading-O3.jpg" alt="O3"></div>
+        <h3>O3</h3>
+        <p class="dek">As a member of O3's senior leadership team, I oversaw the UX research and design practice, scaling a multidisciplinary team to drive experience transformation for enterprise clients across technology, healthcare, and fintech industries. Built strategic partnerships with Figma and Miro to alpha test new product features.</p>
+        <div class="meta">UX design + research consulting</div>
+      </div>
+
+      <div class="card-p">
+        <div class="thumb"><img src="images/leading-fsbrand.jpg" alt="FS Investments"></div>
+        <h3>FS Investments</h3>
+        <p class="dek">Built the in-house design and content department from the ground up, scaling a multidisciplinary team to support brand, digital product, and marketing. Led cross-functional product and brand strategy as product owner for key digital platforms.</p>
+        <div class="meta">Fintech: alternative investments</div>
+      </div>
+
+      <div class="card-p">
+        <div class="thumb"><img src="images/leading-sig.jpg" alt="SIG"></div>
+        <h3>SIG</h3>
+        <p class="dek">Established SIG's first in-house creative studio, leading brand transformation across trading, sales, private equity, and corporate divisions. Directed the redesign of the corporate website and internal communications systems.</p>
+        <div class="meta">Fintech: global trading</div>
+      </div>
+
+      <div class="card-p">
+        <div class="thumb"><img src="images/leading-macquarie.jpg" alt="Macquarie"></div>
+        <h3>Macquarie</h3>
+        <p class="dek">Built and scaled the first in-house design team at Macquarie, delivering $1M+ in annual cost savings while standardizing brand strategy across retail, retirement, and institutional investment channels. Led creative direction for major product launches including state-sponsored 529 college savings programs.</p>
+        <div class="meta">Fintech: asset management</div>
+      </div>
+
+      <div class="card-p">
+        <div class="thumb"><img src="images/leading-aiga-phl.jpeg" alt="AIGA Philadelphia"></div>
+        <h3>AIGA</h3>
+        <p class="dek">Launched a permanent student scholarship program and produced two sold-out regional design conferences.</p>
+        <div class="meta">Professional design organization</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEYOND THE OFFICE ============ -->
+<section class="beyond">
+  <div class="inner">
+    <div class="beyond-copy">
+    <p class="kicker rev">Beyond the office</p>
+    <h2 class="rev d1">Leadership doesn't clock out at five.</h2>
+    <div class="grid rev d2">
+
+      <div class="item">
+        <p class="label">Teaching</p>
+        <h3>ArtCenter College of Design</h3>
+        <p>I teach interaction design + AI-enabled design at ArtCenter, preparing students for an AI-native future where design drives strategy. Previously served on Faculty Council.</p>
+      </div>
+
+      <div class="item">
+        <p class="label">Mentoring</p>
+        <h3>ADPList top 50 global mentor</h3>
+        <p>As a top 50 global mentor on ADPList for four years, I helped designers through career transitions, portfolio development, and leadership growth.</p>
+      </div>
+
+      <div class="item">
+        <p class="label">Community</p>
+        <h3>Design, citywide and beyond</h3>
+        <p>President emeritus of AIGA Philadelphia. I helped launch the annual student scholarship fund and produced two sold-out design conferences. Design advisory board at Moore College of Art. Mentor for UT Austin McCombs post-grad UX program.</p>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPEAKING ============ -->
+<section class="next" style="padding:110px 0 120px;border-bottom:none">
+  <div class="inner">
+    <p class="kicker rev" style="color:#9a9a9a">Speaking</p>
+    <h2 class="rev d1" style="display:inline-flex;align-items:center;gap:4px;margin-top:22px;font-size:clamp(30px,5vw,58px)">Recent talks and workshops.<img src="images/pattern-arrow-up.png" alt="" style="height:1.1em;width:auto;opacity:1;filter:invert(45%);transform:rotate(4deg);margin-left:-10px"></h2>
+    <div class="beyond-speak rev d2" style="margin-top:56px;display:grid;grid-template-columns:repeat(2,1fr);gap:44px">
+      <a href="speaking.html" style="text-decoration:none;color:inherit">
+        <p class="kicker" style="color:var(--yellow)">Figma: Make event NY</p>
+        <h3 style="margin-top:14px;font-weight:800;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em">Invited to speak at Figma's invite-only event on the possibilities of building with Figma Make.</h3>
+      </a>
+      <a href="speaking.html" style="text-decoration:none;color:inherit">
+        <p class="kicker" style="color:var(--pink)">How to prompt your way to a product that lands</p>
+        <h3 style="margin-top:14px;font-weight:800;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em">Fireside chat with Greg Huntoon on best practices for prompting, and why design is the differentiator in products that land.</h3>
+      </a>
+    </div>
+    <div class="rev d3" style="margin-top:48px"><a href="speaking.html" class="btn btn-ghost">View all speaking <span class="arw">&rarr;</span></a></div>
+  </div>
+</section>
+
+<!-- ============ SUBSCRIBE (color moment) ============ -->
+<section class="subscribe">
+  <div class="square" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker rev">Get updates</p>
+    <h2 class="rev d1">Occasional insights. No spam, just the good stuff.</h2>
+    <p class="rev d2">On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
+    <a class="btn btn-dark sub-link" href="https://shellerville.substack.com/" target="_blank" rel="noopener" style="margin-top:46px">Subscribe on Substack <span class="arw">&rarr;</span></a>
+    <img class="squiggle-mark" src="images/pattern-squiggle.png" alt="">
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+            <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.rev').forEach(function(el){
+    if(reduced){ el.classList.add('in'); } else { io.observe(el); }
+  });
+
+})();
+</script>
+</body>
+</html>

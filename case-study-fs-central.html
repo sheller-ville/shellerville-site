@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FS Central case study / Christine Sheller</title>
+<meta name="description" content="Right content, right time: powering sales success with FS Central. Reimagining content access at scale through research, design, and cross-functional leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--red);color:var(--white)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+.inner{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+/* nav */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:color .15s}
+.site-nav .links a.active{color:var(--white)}
+.site-nav .links a:hover{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+.tlink{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;border-bottom:2px solid var(--black);padding-bottom:3px;transition:color .2s,border-color .2s}
+.tlink .arw{transition:transform .3s var(--ease)}
+.tlink:hover{color:var(--teal);border-color:var(--teal)}
+.tlink:hover .arw{transform:translateX(5px)}
+
+/* hero */
+.case-hero{background:var(--black);color:var(--white);position:relative;overflow:hidden;padding:120px 0 110px}
+.case-hero .eyebrow{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:38px}
+.case-hero h1{font-weight:800;font-size:clamp(34px,6vw,72px);line-height:1.06;letter-spacing:-.04em;max-width:20ch}
+.case-hero .sub{margin-top:28px;font-size:clamp(18px,2vw,23px);line-height:1.55;color:#d9d9d6;max-width:48ch}
+
+/* facts band */
+.facts-band{background:#ECEAE6;color:var(--black);padding:44px 0}
+.facts-band .facts{display:flex;gap:44px;flex-wrap:wrap}
+.facts-band .facts div{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#6f6f6f}
+.facts-band .facts strong{display:block;font-family:var(--font);font-weight:700;font-size:17px;letter-spacing:0;text-transform:none;color:var(--black);margin-top:6px}
+
+/* hero image */
+.hero-img{background:var(--black);padding:0}
+.hero-img .frame{max-width:100%;margin:0;padding:0}
+.hero-img img{width:100%;height:auto;display:block;border-radius:0}
+
+/* background */
+.fs-bg{background:var(--paper);padding:120px 0 140px}
+.fs-bg h2{font-weight:800;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em;margin-bottom:48px}
+.fs-bg .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px 56px}
+.fs-bg h3{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.fs-bg p{margin-top:10px;font-size:16px;line-height:1.6;color:var(--ink)}
+
+/* strategic approach */
+.approach{background:#ECEAE6;padding:120px 0 140px}
+.approach h2{font-weight:800;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em}
+.approach .list{margin-top:48px;border-top:2px solid var(--black)}
+.appr-step{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,44px);align-items:start;padding:56px 0;border-bottom:2px solid var(--black)}
+.appr-step .num{font-weight:800;font-size:clamp(96px,17vw,240px);line-height:.72;letter-spacing:-.06em;color:var(--red);align-self:start;margin-top:-.08em}
+.appr-step:nth-child(2) .num{color:var(--yellow)}
+.appr-step:nth-child(3) .num{color:var(--teal)}
+.appr-step:nth-child(4) .num{color:var(--green)}
+.appr-step:nth-child(5) .num{color:var(--pink)}
+.appr-step:nth-child(6) .num{color:var(--red)}
+.appr-step:nth-child(7) .num{color:var(--yellow)}
+.appr-step h3{margin-top:12px;font-weight:800;font-size:clamp(26px,3.6vw,46px);letter-spacing:-.03em;line-height:1}
+.appr-step p{margin-top:14px;font-size:16px;line-height:1.6;color:var(--ink);max-width:58ch}
+
+/* impact */
+.impact{background:var(--white);padding:120px 0 60px;border-top:1px solid var(--hair)}
+.impact h2{font-weight:800;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em;margin-bottom:48px}
+.impact .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.impact h3{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.impact ul{margin-top:14px;padding-left:20px}
+.impact li{font-size:16px;line-height:1.6;color:var(--ink);margin-top:10px}
+.impact .qmark{display:block;width:clamp(70px,7vw,104px);height:auto;margin-bottom:20px}
+.impact blockquote{margin-top:14px}
+.impact blockquote p{font-weight:700;font-size:clamp(17px,1.8vw,20px);line-height:1.45;letter-spacing:-.01em;color:var(--black)}
+.impact figcaption{margin-top:18px;font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#6f6f6f}
+.stat-flag{margin-top:8px;margin-bottom:28px}
+.stat-flag .n{font-weight:800;font-size:clamp(52px,6.4vw,88px);line-height:1;letter-spacing:-.04em;color:var(--red);font-variant-numeric:tabular-nums}
+.stat-flag .l{margin-top:12px;font-size:15px;line-height:1.5;color:var(--ink);max-width:34ch}
+
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+@media(max-width:900px){
+  .fs-bg .grid{grid-template-columns:1fr;gap:36px}
+  .impact .grid{grid-template-columns:1fr;gap:36px}
+}
+@media(max-width:700px){
+  .appr-step{grid-template-columns:1fr;gap:12px;padding:32px 0}
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{display:none}
+}
+.next{background:var(--black);color:var(--white);padding:110px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.next a{display:block;text-decoration:none;color:var(--white)}
+.next .kicker{color:var(--pink)}
+.next h2{margin-top:22px;font-weight:800;font-size:clamp(30px,5vw,64px);letter-spacing:-.035em;line-height:1.04;max-width:18ch;display:inline-block;transition:transform .35s var(--ease)}
+.next .arw{display:inline-block;font-weight:800;font-size:clamp(30px,5vw,64px);margin-left:20px;transition:transform .35s var(--ease)}
+.next a:hover h2{transform:translateX(8px)}
+.next a:hover .arw{transform:translateX(18px)}
+
+/* ---------- the story (quiet, paper) ---------- */
+.story{background:var(--paper);padding:160px 0 150px}
+.story .kicker{color:var(--red)}
+.story h2{margin-top:30px;font-weight:800;font-size:clamp(34px,5.2vw,66px);letter-spacing:-.035em;line-height:1.02;max-width:16ch}
+.story .carousel{margin-top:72px;position:relative}
+.story .track-wrap{overflow:hidden;border-top:2px solid var(--black);border-bottom:2px solid var(--black)}
+.story .track{display:flex;transition:transform .55s var(--ease)}
+.moment{flex:0 0 100%;display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,6vw,80px);align-items:start;padding:64px 0 72px}
+.moment .m-tag{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.moment .m-count{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;color:#8f8f8a;margin-top:8px}
+.moment h3{margin-top:16px;font-weight:800;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.03em;line-height:1.06;max-width:15ch}
+.moment .m-body p{font-weight:400;font-size:clamp(17px,1.9vw,21px);line-height:1.62;color:var(--ink);max-width:56ch}
+.moment .m-body p+p{margin-top:22px}
+.story .cbar{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.story .dots{display:flex;gap:10px}
+.story .dot{width:10px;height:10px;border-radius:50%;background:#cfcfca;border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s}
+.story .dot[aria-selected="true"]{background:var(--red);transform:scale(1.25)}
+.story .cbtns{display:flex;gap:12px}
+.story .cbtn{width:56px;height:56px;border-radius:50%;border:2px solid var(--black);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,transform .2s}
+.story .cbtn:hover{background:var(--black);color:var(--white)}
+.story .cbtn:disabled{opacity:.28;cursor:default}
+.story .cbtn:disabled:hover{background:transparent;color:inherit}
+.story .cbtn svg{width:22px;height:22px}
+@media(max-width:860px){
+  .story{padding:100px 0}
+  .story .carousel{margin-top:56px}
+  .moment{grid-template-columns:1fr;gap:24px;padding:48px 0 52px}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <div class="links" id="nav-links">
+    <a href="leading.html">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html" class="active">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="inner">
+    <p class="eyebrow">Case study &middot; FS Investments</p>
+    <h1>Right content, right time: powering sales success with FS Central.</h1>
+    <p class="sub">Reimagining content access at scale through research, design, and cross-functional leadership.</p>
+  </div>
+</header>
+
+<section class="facts-band">
+  <div class="inner facts">
+    <div>Client <strong>FS Investments</strong></div>
+    <div>My role <strong>Head of Design, de facto Head of Product</strong></div>
+    <div>Scope <strong>Research, strategy, design, launch</strong></div>
+  </div>
+</section>
+
+<div class="hero-img">
+  <div class="frame">
+    <img src="images/case-fscentral-hero.jpg" alt="FS Central interface, tiled pattern of content cards">
+  </div>
+</div>
+
+<!-- ============ THE STORY ============ -->
+<section class="story">
+  <div class="inner">
+    <p class="kicker rev">The story</p>
+    <h2 class="rev d1">A wiki nobody could search, and a sales team stuck waiting.</h2>
+
+    <div class="carousel rev d2">
+      <div class="track-wrap">
+        <div class="track" id="story-track">
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">Context</p>
+              <p class="m-count">01 / 05</p>
+              <h3>Growth outran the intranet.</h3>
+            </div>
+            <div class="m-body">
+              <p>FS Investments was growing rapidly, expanding its product offerings and client base. While exciting, this growth created challenges for the sales team: they needed to quickly understand new products, tailor conversations, and access the right marketing materials in real time. The intranet, a cluttered and outdated wiki, was failing them. Finding relevant collateral took five to ten minutes, and outdated, unsorted files increased the risk of non-compliant communications.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">My role + leadership</p>
+              <p class="m-count">02 / 05</p>
+              <h3>Design, plus de facto product.</h3>
+            </div>
+            <div class="m-body">
+              <p>I served as Head of Design and expanded my impact by taking on de facto Head of Product responsibilities. I led end-to-end research, strategy, design, and launch, advocating for a more user-centered, efficient approach to content access.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">The challenge</p>
+              <p class="m-count">03 / 05</p>
+              <h3>Hunting for collateral instead of selling.</h3>
+            </div>
+            <div class="m-body">
+              <p>Sales teams were spending valuable time hunting for collateral instead of selling. The lack of a structured, searchable system hindered productivity, client engagement, and compliance. It was a clear experience and business problem, and an opportunity to lead a solution.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">Stepping up to lead</p>
+              <p class="m-count">04 / 05</p>
+              <h3>Taking ownership beyond the design role.</h3>
+            </div>
+            <div class="m-body">
+              <p>After identifying content accessibility issues, I presented my findings directly to the President of Sales and offered to take ownership beyond my design role. Despite it being outside my comfort zone, I embraced the opportunity to drive an end-to-end product strategy that aligned business needs with user outcomes.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">Our solution</p>
+              <p class="m-count">05 / 05</p>
+              <h3>FS Central, built on Salesforce Lightning.</h3>
+            </div>
+            <div class="m-body">
+              <p>I drove the development of FS Central, a Salesforce Lightning-based collateral repository. The system enabled seamless access to sales materials organized by product line and methodology, integrated into Salesforce email communications and account records for maximum efficiency.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cbar">
+        <div class="dots" id="story-dots" role="tablist" aria-label="Story chapters"></div>
+        <div class="cbtns">
+          <button class="cbtn" id="story-prev" aria-label="Previous" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="cbtn" id="story-next" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </div>
+</section>
+
+<div class="hero-img" style="padding:0 0 100px">
+  <div class="frame">
+    <img src="images/case-fscentral-devices-tight.jpg" alt="FS Central shown on laptop, tablet, and mobile">
+  </div>
+</div>
+
+<section class="approach">
+  <div class="inner">
+    <h2>Strategic approach</h2>
+    <div class="list">
+      <div class="appr-step">
+        <div class="num">1</div>
+        <div>
+          <h3>Stakeholder interviews</h3>
+          <p>Uncovered critical content accessibility gaps across different sales roles.</p>
+        </div>
+      </div>
+      <div class="appr-step">
+        <div class="num">2</div>
+        <div>
+          <h3>Ethnographic studies</h3>
+          <p>Observed real-time challenges in live sales calls, revealing the urgency of faster content retrieval.</p>
+        </div>
+      </div>
+      <div class="appr-step">
+        <div class="num">3</div>
+        <div>
+          <h3>UX audit</h3>
+          <p>Identified systemic failures, from broken links to inconsistent naming conventions.</p>
+        </div>
+      </div>
+      <div class="appr-step">
+        <div class="num">4</div>
+        <div>
+          <h3>Prioritization of features + functionality</h3>
+          <p>Aligned on must-have features: organized categories, optimized functionality, and maintainability.</p>
+        </div>
+      </div>
+      <div class="appr-step">
+        <div class="num">5</div>
+        <div>
+          <h3>Low- and high-fidelity wireframing</h3>
+          <p>Created a minimalist, brand-aligned framework that showcased marketing materials without competing visual elements.</p>
+        </div>
+      </div>
+      <div class="appr-step">
+        <div class="num">6</div>
+        <div>
+          <h3>Usability testing workshop</h3>
+          <p>Validated our designs through workshops measuring task completion and speed. Feedback was overwhelmingly positive.</p>
+        </div>
+      </div>
+      <div class="appr-step">
+        <div class="num">7</div>
+        <div>
+          <h3>Launch strategy</h3>
+          <p>Executed a phased rollout starting with a pilot group, supported by embedded training during sales meetings and clear documentation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impact">
+  <div class="inner">
+    <h2>Impact</h2>
+    <div class="grid">
+      <div>
+        <h3>Results</h3>
+        <div class="stat-flag">
+          <p class="n">&lt;5 sec</p>
+          <p class="l">To find any piece of sales collateral, down from five to ten minutes.</p>
+        </div>
+        <ul>
+          <li>Enhanced sales conversations through visual previews, improving material recall and client engagement.</li>
+          <li>Secured broader product leadership opportunities, leading to full ownership of the company's website redesign.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>User feedback</h3>
+        <img class="qmark" src="images/pattern-quote-bold.png" alt="" aria-hidden="true">
+        <blockquote>
+          <p>"Intuitive navigation, easy to grab anything I need, even in impromptu conversations. Favorites and email make it easy to follow up in just a couple of clicks. Thank you!"</p>
+        </blockquote>
+        <figcaption>Regional Sales Director</figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="inner">
+    <a href="case-study-rec.html">
+      <p class="kicker rev">Next case study</p>
+      <h2 class="rev d1">Personalizing the creative gig economy.</h2><span class="arw rev d1" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<section style="background:var(--white);border-top:1px solid var(--hair);padding:64px 0">
+  <div class="inner">
+    <a href="case-studies.html" class="tlink">&larr; Back to all case studies</a>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* story carousel */
+(function(){
+  var track = document.getElementById('story-track');
+  if(!track) return;
+  var slides = track.children;
+  var total = slides.length;
+  var dotsWrap = document.getElementById('story-dots');
+  var prev = document.getElementById('story-prev');
+  var next = document.getElementById('story-next');
+  var i = 0;
+
+  for(var d=0; d<total; d++){
+    var b = document.createElement('button');
+    b.className = 'dot';
+    b.setAttribute('role','tab');
+    b.setAttribute('aria-label','Chapter '+(d+1));
+    (function(idx){ b.addEventListener('click', function(){ go(idx); }); })(d);
+    dotsWrap.appendChild(b);
+  }
+  var dots = dotsWrap.children;
+
+  function go(n){
+    i = Math.max(0, Math.min(total-1, n));
+    track.style.transform = 'translateX(' + (-i*100) + '%)';
+    for(var k=0;k<total;k++){ dots[k].setAttribute('aria-selected', k===i ? 'true':'false'); }
+    prev.disabled = (i===0);
+    next.disabled = (i===total-1);
+  }
+  prev.addEventListener('click', function(){ go(i-1); });
+  next.addEventListener('click', function(){ go(i+1); });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowLeft') go(i-1);
+    if(e.key==='ArrowRight') go(i+1);
+  });
+
+  var x0 = null;
+  track.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    if(x0===null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if(dx < -50) go(i+1);
+    else if(dx > 50) go(i-1);
+    x0 = null;
+  }, {passive:true});
+
+  go(0);
+})();
+</script>
+</body>
+</html>

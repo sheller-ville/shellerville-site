@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An essential guide to workshop facilitation / Christine Sheller</title>
+<meta name="description" content="Pre-workshop planning through post-workshop follow-up, covered end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+a{color:inherit}
+.inner{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.site-nav .links a.active{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+.art-hero{background:var(--black);color:var(--white);padding:100px 0 80px}
+
+.art-hero .kicker{color:var(--pink);margin-bottom:24px}
+.art-hero h1{font-weight:800;font-size:clamp(32px,5.6vw,60px);line-height:1.08;letter-spacing:-.035em;max-width:22ch}
+.art-hero .dek{margin-top:20px;font-size:clamp(17px,1.9vw,20px);color:#d9d9d6;max-width:60ch;line-height:1.55}
+.art-hero .meta{margin-top:28px;font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8f8f8a;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.art-hero .meta .dot{width:4px;height:4px;border-radius:50%;background:#8f8f8a}
+
+.art-img{background:var(--black);padding:0 0 32px}
+.art-img .ph-wide{width:520px;max-width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#161616;border:1px solid #3a3a3a}
+.art-img .ph-wide img{width:100%;height:100%;object-fit:cover;display:block}
+
+.art-body{background:var(--black);padding:0 0 140px}
+.art-body p{font-size:clamp(17px,1.9vw,20px);line-height:1.7;color:#c4c4c0;margin-top:26px}
+.art-body p:first-child{margin-top:0}
+.art-body p.lead{font-size:clamp(20px,2.2vw,24px);color:var(--white);font-weight:600;line-height:1.5}
+.art-body h2{margin-top:56px;font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;line-height:1.15;color:var(--white)}
+.art-body h3{margin-top:36px;margin-bottom:6px;font-weight:800;font-size:clamp(19px,2.2vw,23px);letter-spacing:-.015em;color:var(--white)}
+.art-body h3 + p{margin-top:0}
+.art-body ul{margin-top:24px;padding-left:22px}
+.art-body li{font-size:clamp(17px,1.9vw,20px);line-height:1.65;color:#c4c4c0;margin-top:12px}
+.art-body hr{margin-top:56px;border:none;border-top:1px solid #2a2a2a}
+.art-body .cta{margin-top:36px;display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;padding:15px 26px;border-radius:100px;background:var(--white);color:var(--black)}
+.art-body table{margin-top:32px;width:100%;border-collapse:collapse;background:#161616;color:var(--white);border-radius:14px;overflow:hidden;font-size:15px;border:1px solid #2a2a2a}
+.art-body th,.art-body td{padding:16px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,.12)}
+.art-body th{font-family:var(--cond);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:13px;color:#c8c8c4}
+.art-body tr:last-child td{border-bottom:none}
+
+.art-nav{background:var(--black);border-top:1px solid #2a2a2a;padding:56px 0}
+.art-nav .inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.art-nav a{font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--white)}
+.art-nav a:hover{color:var(--red)}
+
+.subscribe{background:var(--yellow);color:var(--black);padding:130px 0;position:relative;overflow:hidden}
+.subscribe .inner{max-width:1140px}
+.subscribe .kicker{color:#6b4e00}
+.subscribe h2{margin-top:26px;font-weight:800;font-size:clamp(30px,5vw,60px);letter-spacing:-.04em;line-height:1;max-width:16ch}
+.subscribe p{margin-top:22px;font-size:clamp(17px,1.9vw,20px);line-height:1.55;max-width:46ch;color:#4a3a00}
+.sub-form{margin-top:40px;display:flex;gap:14px;max-width:560px;flex-wrap:wrap}
+.sub-form input{flex:1;min-width:240px;font-family:var(--font);font-size:17px;padding:16px 22px;border:none;border-radius:100px;background:var(--white);outline:none}
+.sub-form button{font-family:var(--font);font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:100px;background:var(--black);color:var(--white);cursor:pointer}
+.sub-done{display:none;margin-top:22px;font-weight:700;font-size:19px}
+.sub-done.on{display:block}
+.sub-err{display:none;font-family:var(--cond);font-weight:600;font-size:15px;color:#7a1000;margin-top:14px}
+.sub-err.on{display:block}
+.squiggle-mark{display:block;margin-top:36px;width:340px;max-width:85%;height:auto;opacity:.85;pointer-events:none}
+
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .inner{max-width:1140px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+@media(max-width:700px){
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{display:none}
+  .art-body table{font-size:13px}
+  .art-body th,.art-body td{padding:12px 10px}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <div class="links" id="nav-links">
+    <a href="leading.html">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html" class="active">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="inner">
+    <p class="kicker">Perspective</p>
+    <h1>An essential guide to workshop facilitation</h1>
+    <p class="meta">Christine Sheller <span class="dot"></span> Perspective <span class="dot"></span> 7 min read</p>
+  </div>
+</header>
+
+<div class="art-img">
+  <div class="inner">
+    <div class="ph-wide"><img src="images/perspecitves-workshop-faciltation.jpg" alt="An essential guide to workshop facilitation"></div>
+  </div>
+</div>
+
+<section class="art-body">
+  <div class="inner">
+    <p class="lead">Workshops are a wonderful environment for collaborative problem-solving, ideation, and experimentation. And, when done well, they lead to more inclusive, tangible, and impactful outcomes. But they require one key thing to be successful: a master facilitator. And that facilitator doesn't always need to be the designer in the bunch, with the right tools and mindset, anyone can successfully master the art of workshop facilitation.</p>
+
+    <h2>Things to consider before your workshop day</h2>
+
+    <h3>Get alignment on the problem</h3>
+    <p>The most critical step in getting started is to first ensure that you have alignment on goals, objectives, and desired outcomes for your workshop. What's the problem you're trying to solve, and how will you know you've been successful in solving it? If you're working with multiple stakeholders, a workshop brief may help to get alignment on the problem and solution framework, KPIs, and, most importantly, the right participants. And in the case of workshopping, the more the merrier, you'll want to ensure you're capturing as many voices and perspectives as possible.</p>
+
+    <h3>Determine the hosting format and venue</h3>
+    <p>If you're hosting a workshop in person, make sure it's a place where you'll have limited distractions and lots of wall space, you'll be covering it all with your great ideas. To that point, you'll also want to make sure you have plenty of stickies, sharpies, and easel pads (with activities mapped out). If you're workshopping remotely, or even in a hybrid format, make sure everyone has access to the collaboration tool you'll be using (for me, that's Miro), and that your activities are set up and defined. Regardless of the structure, you'll also want to ensure you set and share your agenda in advance, let those participating know what they can expect from your time together.</p>
+
+    <h2>Yay, it's workshop day!</h2>
+    <p>And now it's time for the big day. You've tested technology, you have all of your boards and materials in place, and you're ready to go.</p>
+
+    <h3>Get things rolling by introducing everyone</h3>
+    <p>To kick things off, introduce yourself as the workshop's facilitator. In this role, you will act as a guide, orchestrator, and supporter, creating an atmosphere that encourages participation, collaboration, and a focus on outcomes. Then, if it is appropriate, let everyone introduce themselves to one another. An icebreaker question can be a great way to break the ice and get people talking during those first few uncomfortable moments. It could be something as simple as their favorite color or the best thing they ate recently.</p>
+
+    <h3>Establish the ground rules for participation</h3>
+    <p>Ask for everyone to be present, agree that all voices are equal (regardless of rank or role), embrace an iterative mindset (building off of each other with "yes and"), and agree that no answers are wrong answers. If you are hosting online, ask that everyone have their cameras on to ensure everyone has equal space to engage. You may also consider asking everyone to put their technology aside and turn on do not disturb mode. As the facilitator, you'll be helping to make sure ground rules are adhered to, and you'll keep the group on time and on topic.</p>
+
+    <h3>Divide activities into small chunks</h3>
+    <p>Break down the workshop content into smaller modules that align with your goals and objectives. Each module should have a clear purpose or outcome. Consider a healthy flow of ideation, consolidation, and reflection. If you're not sure which activities would best align with your problem statement, take a look at IDEO's designkit.org. They have a wonderful library of methods for inspiration, ideation, and implementation.</p>
+
+    <h3>Give people time to think individually and collectively</h3>
+    <p>Individual reflection allows participants to process information, reflect on the content presented, and internalize concepts or ideas. In a group setting, some individuals might hesitate to speak up immediately. Allowing time for individual reflection before group discussions ensures that everyone gets a chance to formulate their thoughts, fostering more balanced participation.</p>
+
+    <h3>Make time for breaks</h3>
+    <p>For every 60 minutes of workshopping, plan on carving out 5 to 10 minutes for your participants to stretch, refresh, and recharge. Be attentive to cues from the participants. If you notice signs of restlessness or decreased engagement, it might be a good time for a break.</p>
+
+    <h2>Wrapping the workshop</h2>
+
+    <h3>Connect the dots back to your problem statement</h3>
+    <p>Once you've completed all of your modules, make time to connect the dots. Recap the main ideas and key takeaways covered during the workshop. Revisit the goals and objectives, highlighting how each objective was addressed or achieved during the session. Ask participants to consider actionable steps they can take after the workshop to apply their newfound knowledge, skills, or ideas.</p>
+
+    <h3>Ask for feedback</h3>
+    <p>Request feedback on the workshop experience, this can help to improve future workshops and demonstrate your commitment to continuous improvement.</p>
+
+    <h3>Thank your participants</h3>
+    <p>Send a thank-you message expressing gratitude for their participation, contributions, and commitment. This helps in building relationships and encouraging future engagement.</p>
+
+    <h3>Follow up</h3>
+    <p>After a few weeks, check back in with your participants to see how they are doing and feeling after the workshop. Schedule follow-up meetings to track progress on open action items.</p>
+
+  </div>
+</section>
+
+<div class="art-nav">
+  <div class="inner">
+    <a href="thinking.html">&larr; Back to thinking</a>
+  </div>
+</div>
+
+<section class="subscribe">
+  <div class="inner">
+    <p class="kicker">Get updates</p>
+    <h2>Occasional insights. No spam, just the good stuff.</h2>
+    <p>On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
+    <a class="btn btn-dark sub-link" href="https://shellerville.substack.com/" target="_blank" rel="noopener" style="margin-top:46px">Subscribe on Substack <span class="arw">&rarr;</span></a>
+    <img class="squiggle-mark" src="images/pattern-squiggle.png" alt="">
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+</script>
+</body>
+</html>

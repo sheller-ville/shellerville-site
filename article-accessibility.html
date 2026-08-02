@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When accessibility flies under the radar / Christine Sheller</title>
+<meta name="description" content="How I navigated travel with a short-term disability.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+a{color:inherit}
+.inner{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.site-nav .links a.active{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+.art-hero{background:var(--black);color:var(--white);padding:100px 0 80px}
+
+.art-hero .kicker{color:var(--pink);margin-bottom:24px}
+.art-hero h1{font-weight:800;font-size:clamp(32px,5.6vw,64px);line-height:1.08;letter-spacing:-.035em;max-width:20ch}
+.art-hero .meta{margin-top:28px;font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8f8f8a;display:flex;gap:10px;align-items:center}
+.art-hero .meta .dot{width:4px;height:4px;border-radius:50%;background:#8f8f8a}
+
+.art-img{background:var(--black);padding:0 0 32px}
+.art-img .ph-wide{width:520px;max-width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#161616;border:1px solid #3a3a3a}
+.art-img .ph-wide img{width:100%;height:100%;object-fit:cover;display:block}
+
+.art-body{background:var(--black);padding:0 0 140px}
+.art-body p{font-size:clamp(17px,1.9vw,20px);line-height:1.7;color:#c4c4c0;margin-top:26px}
+.art-body p:first-child{margin-top:0}
+.art-body p.lead{font-size:clamp(20px,2.2vw,24px);color:var(--white);font-weight:600;line-height:1.5}
+.art-body h2{margin-top:56px;font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;line-height:1.15;color:var(--white)}
+.art-body ul{margin-top:24px;padding-left:22px}
+.art-body li{font-size:clamp(17px,1.9vw,20px);line-height:1.65;color:#c4c4c0;margin-top:12px}
+
+.art-nav{background:var(--black);border-top:1px solid #2a2a2a;padding:56px 0}
+.art-nav .inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.art-nav a{font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--white)}
+.art-nav a:hover{color:var(--red)}
+
+.subscribe{background:var(--yellow);color:var(--black);padding:130px 0;position:relative;overflow:hidden}
+.subscribe .inner{max-width:1140px}
+.subscribe .kicker{color:#6b4e00}
+.subscribe h2{margin-top:26px;font-weight:800;font-size:clamp(30px,5vw,60px);letter-spacing:-.04em;line-height:1;max-width:16ch}
+.subscribe p{margin-top:22px;font-size:clamp(17px,1.9vw,20px);line-height:1.55;max-width:46ch;color:#4a3a00}
+.sub-form{margin-top:40px;display:flex;gap:14px;max-width:560px;flex-wrap:wrap}
+.sub-form input{flex:1;min-width:240px;font-family:var(--font);font-size:17px;padding:16px 22px;border:none;border-radius:100px;background:var(--white);outline:none}
+.sub-form button{font-family:var(--font);font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:100px;background:var(--black);color:var(--white);cursor:pointer}
+.sub-done{display:none;margin-top:22px;font-weight:700;font-size:19px}
+.sub-done.on{display:block}
+.sub-err{display:none;font-family:var(--cond);font-weight:600;font-size:15px;color:#7a1000;margin-top:14px}
+.sub-err.on{display:block}
+.squiggle-mark{display:block;margin-top:36px;width:340px;max-width:85%;height:auto;opacity:.85;pointer-events:none}
+
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .inner{max-width:1140px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+@media(max-width:700px){
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <div class="links" id="nav-links">
+    <a href="leading.html">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html" class="active">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="inner">
+    <p class="kicker">Perspective</p>
+    <h1>When accessibility flies under the radar</h1>
+    <p class="meta">Christine Sheller <span class="dot"></span> 7 min read</p>
+  </div>
+</header>
+
+<div class="art-img">
+  <div class="inner">
+    <div class="ph-wide"><img src="images/perspective-accessibility.jpg" alt="When accessibility flies under the radar"></div>
+  </div>
+</div>
+
+<section class="art-body">
+  <div class="inner">
+    <p class="lead">Over the summer, I learned how difficult it can be to travel with a disability, albeit temporary for me. Some might say the experience was unfortunate, but for me, it was enlightening. In addition to identifying numerous opportunities to create more inclusive travel experiences, I also discovered potential avenues to tackle economic inequality.</p>
+    <p>To provide a little context: I had torn the ligament in my hip socket for the second time. And when a previous surgery to repair the injury didn't hold for the long term, my doctor suggested a full hip replacement was in order. I had been in pain for close to a year at that point and was willing to resolve that by any means necessary, with not much consideration for how my life would change in the short term.</p>
+    <p>The surgery went smoothly as planned, as did the first week and a half of recovery. But by the following week, I experienced something un-plannable. Part of my post-op mandate was to avoid air travel for six weeks, but I already had to break the rules of my recovery. Unfortunately for my family, we suddenly lost my brother, and I found myself having to travel across the country in my second week of recovery.</p>
+    <p>As soon as I received clearance to fly, my husband was able to secure us first-class tickets using his long-saved miles. Sitting was still quite uncomfortable for me, and knowing I would have a more cushy and sizable seat at the front of the plane gave me great peace of mind. He also made arrangements for me to have a wheelchair service from drop-off to the terminal. But when we arrived at LAX, things didn't go as planned.</p>
+    <p>We parked in economy parking and hobbled down to get our shuttle to the airport. It was an early Wednesday morning, and the shuttle looked packed. I was nervous about tackling the big step up to the bus with my cane. I had still been heavily reliant on a walker but decided it would be too difficult to travel with. I successfully took the big step up with great relief, made eye contact with many of the seated passengers who saw the struggle, and not one moved. Or offered their seat. Or offered to help. After negotiating luggage, we managed to find a seat in the back a few more steps up and continued on our bumpy ride to the terminal.</p>
+    <p>At the time, I thought to myself that we could have paid for an Uber instead, but for some, a bus or shuttle ride may have been their only option.</p>
+    <p>We began the loop around the airport and the terminal drop-offs. Terminal 1, Terminal 2, Terminal 3, Terminal&hellip;5? What happened to 4? Confused, we got off at Terminal 5 and learned that since Terminal 4 was under construction, there was no stop there. The terminals weren't connected on the inside, so to get to Terminal 4, we had to walk through a construction site. In the dark. "Go, run, get in line, I'll be okay," I lied to my husband. I was okay in the end, but as a clumsy person, remembering all of the warnings about how in the first six weeks a fall could dislocate the hip, I was secretly sweating bullets. I managed through the rough construction terrain with others buzzing past me with their luggage. By the time I got to the terminal, my husband, who had successfully checked our bag, informed me that the wheelchair pickup had a wait of 15 to 20 minutes. I looked to the wheelchair waiting area and saw ten people ahead of me but no wheelchairs in sight. It's going to be longer than that, I thought. And at that point, we may not have had that much time to spare.</p>
+    <p>So we began the journey to TSA on foot and with a cane. Again, I was nervous about everything: people running into me, getting on the escalator, and managing the process with TSA. We assumed that having PreCheck would make it easier. We got past security and loaded our belongings on the conveyor belt. "Cane, too, ma'am." Ummmmmm. "How do I walk through here? I just had my hip replaced and can't walk without it." They held me back, while my husband, our luggage, and my cane made it through. They handed me a wooden cane. "Take this, but we're going to need you to walk over to the full body scan a few aisles over." A TSA agent escorted me through hoards of unhappy travelers to get through another line so that they could confirm that there was, in fact, a titanium hip inside of me. My husband, meanwhile, had no idea where I was or what had happened, and my phone was with him. After the scan and the subsequent pat down, I made it through and got reunited with him and my trusty cane. He was stressed, I was stressed, and we hadn't even boarded the plane yet.</p>
+    <p>We slowly made our way down to the very crowded terminal, and I managed to grab the last accessible seat, hopping over the many belongings of a teenager playing video games on his phone. He heard us talk about our boarding plans and offered up his seat to my husband. Good kid, I thought.</p>
+    <p>We boarded the plane in advance to avoid any potential pushing or tripping, and I took my seat in first class. First seat, first row. My cane had to go in the overhead bin for the flight, but I mentally mapped out my path to the bathroom, which basically entailed bouncing off walls along the way.</p>
+    <p>What if we didn't have the miles to upgrade our flight, as I am sure would be the case for many? How could I or others safely negotiate getting to the bathroom? It's already a challenge to make it down the tight aisles, and turbulence certainly doesn't make it easier. How might airlines do better to accommodate?</p>
+    <p>Beverly, my wheelchair aide, greeted me when we arrived at the Philadelphia gate. In our short time together, she navigated us through a less crowded path, allowed me time to use the restroom, and expressed her sorrow for my brother's passing. She was cheerful, kind, and, though exhausted, grateful for her job and the hours she had that week. She shared that, as a single mom of three with very little money for fun, she thought she might splurge and spend $50 on a hotel that weekend to take her kids swimming. Times were tough for Beverly. I thought about her: if she were in my situation, would those financial limitations make travel an even greater challenge for her? Beverly safely escorted me to baggage claim, and when we parted ways, we had a big hug. I appreciated how much care and compassion she showed me. I gave her $50 and told her to go book that hotel.</p>
+    <p>The rest of the trip was focused on mental healing with my family and friends. Luckily, the travel back to LAX was relatively smooth. The process was much easier getting through PHL, and wheelchairs were on hand for me on both legs of the trip.</p>
+
+    <h2>What I learned</h2>
+    <p>Safe, accessible experiences for travel shouldn't be afforded only to those who have the means to pay for upgrades. They should be afforded to all. Airports can do better, airlines can do better, and we, as a society, above all else, can do better. Kindness, empathy, and understanding can go a long way in improving experiences for everyone.</p>
+    <p>And LAX, shame on you. As the second largest city in the country, you can and should do better at making travel more accessible. Airlines, you too: there are many stories and videos shared over the years of damaging wheelchairs, as if travel wasn't challenging enough without that. PHL, you are still my first love, and I'm so proud of your great showing of brotherly love on this trip, though you still have some room to improve.</p>
+    <p>Another important lesson, though not related to accessibility: take time to take care of yourself, your health, and your family. Life is short. Make it count.</p>
+    <p>One last note: hip replacements aren't just for "old people," despite what many have shared with me when learning of my surgery. Yes, I did in fact have a milestone birthday this summer, but my replacement was to fix an injury, and many others like me have hips replaced for this reason or to correct a genetic malformation. Let's work on that bias while we're at it, too.</p>
+  </div>
+</section>
+
+<div class="art-nav">
+  <div class="inner">
+    <a href="thinking.html">&larr; Back to thinking</a>
+  </div>
+</div>
+
+<section class="subscribe">
+  <div class="inner">
+    <p class="kicker">Get updates</p>
+    <h2>Occasional insights. No spam, just the good stuff.</h2>
+    <p>On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
+    <a class="btn btn-dark sub-link" href="https://shellerville.substack.com/" target="_blank" rel="noopener" style="margin-top:46px">Subscribe on Substack <span class="arw">&rarr;</span></a>
+    <img class="squiggle-mark" src="images/pattern-squiggle.png" alt="">
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+</script>
+</body>
+</html>

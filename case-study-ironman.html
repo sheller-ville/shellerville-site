@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRONMAN case study / Christine Sheller</title>
+<meta name="description" content="Going the distance: crafting IRONMAN's next-generation digital experience. A case study in design leadership by Christine Sheller.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
+  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--red);color:var(--white)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+.inner{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+/* ---------- nav ---------- */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
+.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.site-nav .brand span{color:var(--red)}
+.site-nav .links{display:flex;gap:20px;align-items:center}
+.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:color .15s}
+.site-nav .links a.active{color:var(--white)}
+.lock{display:inline-flex;align-items:center;gap:5px}
+.lock svg{width:11px;height:11px;opacity:.65;margin-bottom:1px}
+.site-nav .links a:hover{color:var(--white)}
+.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+/* text link */
+.tlink{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;border-bottom:2px solid var(--black);padding-bottom:3px;transition:color .2s,border-color .2s}
+.tlink .arw{transition:transform .3s var(--ease)}
+.tlink:hover{color:var(--teal);border-color:var(--teal)}
+.tlink:hover .arw{transform:translateX(5px)}
+
+/* ---------- hero (black) ---------- */
+.case-hero{background:var(--black);color:var(--white);position:relative;overflow:hidden;padding:120px 0 110px}
+.case-hero .eyebrow{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:38px}
+.case-hero h1{font-weight:800;font-size:clamp(38px,7vw,96px);line-height:1.04;letter-spacing:-.045em;max-width:16ch}
+.case-hero h1 .line{display:block;overflow:hidden;padding:.06em 0 .14em;margin:-.06em 0 -.14em}
+.case-hero h1 .word{display:inline-block;transform:translateY(135%);animation:rise 1s var(--ease) forwards}
+.case-hero h1 .accent{color:var(--red)}
+.case-hero h1 .line:nth-child(2) .word{animation-delay:.12s}
+.case-hero h1 .line:nth-child(3) .word{animation-delay:.24s}
+.case-hero h1 .line:nth-child(4) .word{animation-delay:.36s}
+@keyframes rise{to{transform:translateY(0)}}
+.case-hero .sub{margin-top:40px;font-size:clamp(18px,2vw,23px);line-height:1.55;color:#d9d9d6;max-width:44ch;opacity:0;animation:fade 1.1s .55s var(--ease) forwards}
+@keyframes fade{to{opacity:1}}
+.facts-band{background:#ECEAE6;color:var(--black);padding:44px 0}
+.facts-band .facts{display:flex;gap:44px;flex-wrap:wrap}
+.facts-band .facts div{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#6f6f6f}
+.facts-band .facts strong{display:block;font-family:var(--font);font-weight:700;font-size:17px;letter-spacing:0;text-transform:none;color:var(--black);margin-top:6px}
+
+/* hero image, edge to edge inside black */
+.hero-img{background:var(--black);padding:80px 0 130px}
+.hero-img .frame{max-width:1360px;margin:0 auto;padding:0 28px}
+.hero-img .ph-wide{aspect-ratio:21/10;border-radius:0;background:#161616;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero-img .ph-wide::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.ph-label{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6f6f6f;line-height:1.7;padding:20px}
+
+/* ---------- hero number (THE color moment: red) ---------- */
+.hero-num{background:var(--red);color:var(--white);padding:130px 0 140px;position:relative;overflow:hidden}
+.hero-num .kicker{color:var(--pink)}
+.hero-num .big{margin-top:16px;font-weight:800;font-size:clamp(110px,22vw,320px);line-height:.92;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.hero-num .label{margin-top:22px;font-weight:700;font-size:clamp(20px,2.6vw,30px);letter-spacing:-.02em;max-width:26ch}
+.hero-num .half{position:absolute;z-index:1;width:min(36vw,440px);height:min(18vw,220px);right:-60px;bottom:0;background:var(--black);border-radius:440px 440px 0 0}
+
+/* ---------- the story (quiet, paper) ---------- */
+.story{background:var(--paper);padding:160px 0 150px}
+.story .kicker{color:var(--red)}
+.story h2{margin-top:30px;font-weight:800;font-size:clamp(34px,5.2vw,66px);letter-spacing:-.035em;line-height:1.02;max-width:16ch}
+.story .carousel{margin-top:72px;position:relative}
+.story .track-wrap{overflow:hidden;border-top:2px solid var(--black);border-bottom:2px solid var(--black)}
+.story .track{display:flex;transition:transform .55s var(--ease)}
+.moment{flex:0 0 100%;display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,6vw,80px);align-items:start;padding:64px 0 72px}
+.moment .m-tag{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.moment .m-count{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;color:#8f8f8a;margin-top:8px}
+.moment h3{margin-top:16px;font-weight:800;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.03em;line-height:1.06;max-width:15ch}
+.moment .m-body p{font-weight:400;font-size:clamp(17px,1.9vw,21px);line-height:1.62;color:var(--ink);max-width:56ch}
+.moment .m-body p+p{margin-top:22px}
+.story .cbar{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.story .dots{display:flex;gap:10px}
+.story .dot{width:10px;height:10px;border-radius:50%;background:#cfcfca;border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s}
+.story .dot[aria-selected="true"]{background:var(--red);transform:scale(1.25)}
+.story .cbtns{display:flex;gap:12px}
+.story .cbtn{width:56px;height:56px;border-radius:50%;border:2px solid var(--black);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,transform .2s}
+.story .cbtn:hover{background:var(--black);color:var(--white)}
+.story .cbtn:disabled{opacity:.28;cursor:default}
+.story .cbtn:disabled:hover{background:transparent;color:inherit}
+.story .cbtn svg{width:22px;height:22px}
+
+/* ---------- strategic approach (white, bold numbered sequence) ---------- */
+.approach{background:var(--white);padding:150px 0 160px;border-top:1px solid var(--hair)}
+.approach .kicker{color:var(--black)}
+.approach h2{margin-top:30px;font-weight:800;font-size:clamp(34px,5.2vw,66px);letter-spacing:-.035em;line-height:1.02;max-width:16ch}
+.approach .list{margin-top:64px;border-top:2px solid var(--black)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,44px);align-items:start;padding:56px 0;border-bottom:2px solid var(--black)}
+.step .num{font-weight:800;font-size:clamp(96px,17vw,240px);line-height:.72;letter-spacing:-.06em;color:var(--red);transition:transform .35s var(--ease);align-self:start;margin-top:-.08em}
+.step:nth-child(2) .num{color:var(--yellow)}
+.step:nth-child(3) .num{color:var(--teal)}
+.step:nth-child(4) .num{color:var(--green)}
+.step:nth-child(5) .num{color:var(--pink)}
+.step h3{font-weight:800;font-size:clamp(26px,3.6vw,46px);letter-spacing:-.03em;line-height:1;transition:transform .35s var(--ease)}
+.step p{margin-top:18px;font-weight:400;font-size:clamp(17px,1.9vw,20px);line-height:1.6;max-width:58ch;color:var(--ink)}
+
+
+/* ---------- impact (black, count-up stats + testimonial) ---------- */
+.impact{background:var(--black);color:var(--white);padding:160px 0}
+.impact .kicker{color:var(--pink)}
+.impact h2{margin-top:30px;font-weight:800;font-size:clamp(34px,5.2vw,66px);letter-spacing:-.035em;line-height:1.02;max-width:16ch;color:var(--white)}
+.stats{margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);gap:44px;border-top:1px solid rgba(255,255,255,.18);padding-top:64px}
+.stat .n{font-weight:800;font-size:clamp(52px,6.4vw,88px);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.stat:nth-child(1) .n{color:var(--yellow)}
+.stat:nth-child(2) .n{color:var(--pink)}
+.stat:nth-child(3) .n{color:var(--green)}
+.stat:nth-child(4) .n{color:var(--teal)}
+.stat .l{margin-top:16px;font-size:16px;line-height:1.5;color:#b8b8b4;max-width:22ch}
+.stat .scope{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8f8f8a;margin-bottom:14px}
+
+/* testimonial */
+.quote{margin-top:130px;max-width:900px}
+.quote .qmark{display:block;width:clamp(70px,7vw,104px);height:auto;margin-bottom:20px}
+.quote blockquote p{font-weight:700;font-size:clamp(22px,2.8vw,34px);line-height:1.36;letter-spacing:-.02em;color:var(--white)}
+.quote blockquote p+p{margin-top:28px}
+.quote figcaption{margin-top:40px;font-family:var(--cond);font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:#8f8f8a}
+
+/* ---------- visual proof (quiet, paper) ---------- */
+.proof{background:var(--paper);padding:150px 0 160px}
+.proof .kicker{color:var(--red)}
+.proof h2{margin-top:30px;font-weight:800;font-size:clamp(34px,5.2vw,66px);letter-spacing:-.035em;line-height:1.02;max-width:16ch}
+.proof .grid{margin-top:72px;display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.proof .shot{border-radius:0;background:#eceae6;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;transition:transform .5s var(--ease)}
+.proof .shot::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.proof .shot:hover{transform:scale(1.015)}
+.proof .shot.wide{grid-column:1/-1;aspect-ratio:21/9}
+.proof .shot.tall{aspect-ratio:4/3}
+.proof .ph-label{color:#8f8f8a}
+.proof .cap{margin-top:18px;font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8f8f8a}
+
+/* ---------- next case ---------- */
+.next{background:var(--black);color:var(--white);padding:110px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.next a{display:block;text-decoration:none;color:var(--white)}
+.next .kicker{color:var(--pink)}
+.next h2{margin-top:22px;font-weight:800;font-size:clamp(30px,5vw,64px);letter-spacing:-.035em;line-height:1.04;max-width:18ch;display:inline-block;transition:transform .35s var(--ease)}
+.next .arw{display:inline-block;font-weight:800;font-size:clamp(30px,5vw,64px);margin-left:20px;transition:transform .35s var(--ease)}
+.next a:hover h2{transform:translateX(8px)}
+.next a:hover .arw{transform:translateX(18px)}
+
+/* ---------- subscribe (color moment: yellow) ---------- */
+.subscribe{background:var(--yellow);color:var(--black);padding:150px 0;position:relative;overflow:hidden}
+.subscribe .kicker{color:#6b4e00}
+.subscribe h2{margin-top:30px;font-weight:800;font-size:clamp(36px,5.8vw,80px);letter-spacing:-.04em;line-height:1;max-width:16ch}
+.subscribe p{margin-top:26px;font-size:clamp(18px,2vw,21px);line-height:1.55;max-width:46ch;color:#4a3a00}
+.sub-form{margin-top:46px;display:flex;gap:14px;max-width:560px;flex-wrap:wrap}
+.sub-form input{flex:1;min-width:240px;font-family:var(--font);font-size:17px;padding:16px 22px;border:none;border-radius:100px;background:var(--white);outline:none}
+.sub-form input:focus{box-shadow:0 0 0 3px var(--red)}
+.sub-form button{font-family:var(--font);font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:100px;background:var(--black);color:var(--white);cursor:pointer;transition:background .2s}
+.sub-form button:hover{background:var(--red)}
+.sub-done{display:none;margin-top:22px;font-weight:700;font-size:19px}
+.sub-done.on{display:block}
+.sub-err{display:none;margin-top:14px;font-family:var(--cond);font-weight:600;font-size:15px;color:#7a1000}
+.sub-err.on{display:block}
+.subscribe .square{position:absolute;z-index:1;width:200px;height:200px;background:var(--black);border-radius:36px;right:8%;bottom:-100px;transform:rotate(12deg)}
+.squiggle-mark{display:block;margin-top:36px;width:340px;max-width:85%;height:auto;opacity:.85;pointer-events:none}
+
+/* ---------- footer ---------- */
+footer{background:var(--black);color:var(--white);padding:90px 0 76px}
+footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
+footer .fmark{font-weight:800;font-size:24px}
+footer .fmark span{color:var(--red)}
+footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
+footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+footer .fsub a:hover{color:var(--yellow)}
+footer nav{display:grid;gap:12px;text-align:right}
+footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none;transition:color .15s}
+footer nav a:hover{color:var(--white)}
+footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
+
+/* ---------- reveals (subtle) ---------- */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rev.in{opacity:1;transform:none}
+.rev.d1{transition-delay:.08s}.rev.d2{transition-delay:.16s}.rev.d3{transition-delay:.24s}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .case-hero h1 .word{transform:none}
+  .case-hero .sub,.case-hero .facts{opacity:1}
+  .rev{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+@media(max-width:1040px){
+  .stats{grid-template-columns:repeat(2,1fr);row-gap:64px}
+}
+@media(max-width:860px){
+  .case-hero{padding:80px 0 80px}
+  .hero-img{padding-bottom:96px}
+  .hero-num{padding:100px 0 110px}
+  .hero-num .half{opacity:.5}
+  .story{padding:100px 0}
+  .story .carousel{margin-top:56px}
+  .moment{grid-template-columns:1fr;gap:24px;padding:48px 0 52px}
+  .story .cbtn{width:48px;height:48px}
+  .moment,.moment:nth-child(even){grid-template-columns:1fr}
+  .moment:nth-child(even) .m-head{order:1}
+  .moment:nth-child(even) .m-body{order:2}
+  .moment h3{max-width:none}
+  .approach{padding:100px 0 110px}
+  .step{grid-template-columns:1fr;gap:18px;padding:44px 0}
+  .impact{padding:100px 0}
+  .quote{margin-top:90px}
+  .proof{padding:100px 0 110px}
+  .proof .grid{grid-template-columns:1fr;gap:20px}
+  .next{padding:80px 0}
+  .subscribe{padding:100px 0}
+  .subscribe .square{display:none}
+  footer .fgrid{grid-template-columns:1fr}
+  footer nav{text-align:left}
+  .site-nav .links{position:absolute;top:62px;left:0;right:0;background:var(--black);flex-direction:column;gap:0;padding:8px 0;display:none;border-top:1px solid #222}
+  .site-nav .links.open{display:flex}
+  .site-nav .links a{padding:14px 28px;width:100%;font-size:16px}
+  .site-nav .menu-btn{display:block}
+}
+@media(max-width:560px){
+  .stats{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">christine sheller<span>.</span></a>
+  <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('nav-links').classList.toggle('open')">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+    <div class="links" id="nav-links">
+    <a href="leading.html">leading</a>
+
+    <a href="teaching.html">teaching</a>
+
+    <a href="thinking.html">thinking</a>
+
+    <a href="building.html">building</a>
+
+    <a href="case-studies.html" class="active">case studies</a>
+
+    <a href="about.html">about</a>
+
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="case-hero">
+  <div class="inner">
+    <p class="eyebrow">Case study &middot; IRONMAN</p>
+    <h1>
+      <span class="line"><span class="word">Going the distance:</span></span>
+      <span class="line"><span class="word">crafting IRONMAN's</span></span>
+      <span class="line"><span class="word accent">next-generation</span></span>
+      <span class="line"><span class="word accent">digital experience.</span></span>
+    </h1>
+    <p class="sub">Transforming a digital platform to inspire athletes and fans alike.</p>
+  </div>
+</header>
+
+<!-- ============ FACTS BAND ============ -->
+<section class="facts-band">
+  <div class="inner facts">
+    <div>Client <strong>IRONMAN</strong></div>
+    <div>My role <strong>Strategic oversight, experience design + research</strong></div>
+    <div>Scope <strong>Pro Series launch + ironman.com transformation</strong></div>
+  </div>
+</section>
+
+<!-- ============ HERO IMAGE ============ -->
+<div class="hero-img">
+  <div class="frame rev">
+    <img src="images/case-ironman-options-grid.jpg" alt="IRONMAN Pro Series brand option explorations" style="width:100%;height:auto;display:block;border-radius:0">
+  </div>
+</div>
+
+<!-- ============ HERO NUMBER (red moment) ============ -->
+<section class="hero-num">
+  <div class="half" aria-hidden="true"></div>
+  <div class="inner">
+    <p class="kicker rev">The headline number</p>
+    <p class="big rev d1"><span class="count" data-count="40" data-suffix="K">0K</span></p>
+    <p class="label rev d2">New users on the Pro Series site on launch day.</p>
+  </div>
+</section>
+
+<!-- ============ THE STORY ============ -->
+<section class="story">
+  <div class="inner">
+    <p class="kicker rev">The story</p>
+    <h2 class="rev d1">A beloved brand, a platform at the end of its life.</h2>
+
+    <div class="carousel rev d2">
+      <div class="track-wrap">
+        <div class="track" id="story-track">
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">Context</p>
+              <p class="m-count">01 / 05</p>
+              <h3>Where IRONMAN stood.</h3>
+            </div>
+            <div class="m-body">
+              <p>IRONMAN, a premier endurance sports brand, needed to transform its digital presence as the existing content management system reached end-of-life. The brand sought to modernize its platform while reinvigorating brand sentiment and better connecting with a passionate community of athletes and fans.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">My role + leadership</p>
+              <p class="m-count">02 / 05</p>
+              <h3>Where I came in.</h3>
+            </div>
+            <div class="m-body">
+              <p>I provided strategic oversight across experience design and research, leading our UX team while fostering a strong partnership with IRONMAN's marketing and design teams. I guided the discovery process, established the CX strategy, and ensured alignment between creative vision, brand, and technical implementation.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">The challenge</p>
+              <p class="m-count">03 / 05</p>
+              <h3>Thousands of pages, one ambitious clock.</h3>
+            </div>
+            <div class="m-body">
+              <p>Transforming IRONMAN's digital presence meant reimagining how athletes and fans engage with the brand. We needed to migrate thousands of pages to a new architecture while improving the experience, all within an ambitious timeline set by the IRONMAN leadership team.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">The opportunity</p>
+              <p class="m-count">04 / 05</p>
+              <h3>A once-in-a-brand reset.</h3>
+            </div>
+            <div class="m-body">
+              <p>With the Pro Series launch and main site overhaul, we had a unique chance to reset the digital experience for IRONMAN's global community: a seamless platform that would strengthen connections with existing participants while attracting new audiences to the sport.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="m-head">
+              <p class="m-tag">Our solution</p>
+              <p class="m-count">05 / 05</p>
+              <h3>Phased for speed, built for quality.</h3>
+            </div>
+            <div class="m-body">
+              <p>We developed a phased approach balancing speed and quality: first creating an immersive Pro Series experience centered on athlete stories, then transforming ironman.com into a unified platform serving everyone from first-timers to seasoned competitors, with integrated race data and intuitive content management.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cbar">
+        <div class="dots" id="story-dots" role="tablist" aria-label="Story chapters"></div>
+        <div class="cbtns">
+          <button class="cbtn" id="story-prev" aria-label="Previous" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="cbtn" id="story-next" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRATEGIC APPROACH ============ -->
+<section class="approach">
+  <div class="inner">
+    <p class="kicker rev">Strategic approach</p>
+    <h2 class="rev d1">Five moves, in order, on purpose.</h2>
+    <div class="list rev d2">
+
+      <div class="step">
+        <p class="num" aria-hidden="true">1</p>
+        <div>
+          <h3>Discovery</h3>
+          <p>We began with research and discovery to understand needs and pain points for each user type. By mapping the complete user journey across all touchpoints, we gained valuable insights into the emotional connections people have with the IRONMAN brand and identified key opportunities for improvement.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="num" aria-hidden="true">2</p>
+        <div>
+          <h3>Prioritization</h3>
+          <p>We ranked opportunities on an impact/effort matrix and built a roadmap starting with quick wins, then strategizing for larger tasks to ensure we delivered value at each phase of the project.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="num" aria-hidden="true">3</p>
+        <div>
+          <h3>Visual exploration</h3>
+          <p>Working closely with IRONMAN's brand team, we explored visual directions that would maintain brand consistency while enabling more dynamic storytelling capabilities across digital platforms.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="num" aria-hidden="true">4</p>
+        <div>
+          <h3>Wireframing</h3>
+          <p>We created low and high-fidelity wireframes to rapidly iterate on user flows and page structures, validating solutions with stakeholders before moving into visual design.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="num" aria-hidden="true">5</p>
+        <div>
+          <h3>Design system</h3>
+          <p>We developed a design system built to work seamlessly with Builder Studio: custom components that balanced brand expression with content flexibility, giving IRONMAN's team the tools to manage thousands of pages with confidence.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section class="impact">
+  <div class="inner">
+    <p class="kicker rev">Impact</p>
+    <h2 class="rev d1">The numbers did the talking.</h2>
+
+    <div class="stats rev d2">
+      <div class="stat">
+        <p class="scope">IRONMAN Pro Series</p>
+        <p class="n"><span class="count" data-count="75">0</span></p>
+        <p class="l">Days from start to delivery of the Pro Series experience.</p>
+      </div>
+      <div class="stat">
+        <p class="scope">IRONMAN Pro Series</p>
+        <p class="n"><span class="count" data-count="40" data-suffix="K">0K</span></p>
+        <p class="l">New users on the Pro Series site on launch day.</p>
+      </div>
+      <div class="stat">
+        <p class="scope">ironman.com</p>
+        <p class="n"><span class="count" data-count="33" data-prefix="+" data-suffix="%">+0%</span></p>
+        <p class="l">Year-over-year actions taken.</p>
+      </div>
+      <div class="stat">
+        <p class="scope">ironman.com</p>
+        <p class="n"><span class="count" data-count="9" data-prefix="+" data-suffix="%">+0%</span></p>
+        <p class="l">Year-over-year user engagement.</p>
+      </div>
+    </div>
+
+    <figure class="quote rev">
+      <img class="qmark" src="images/pattern-quote-bold.png" alt="" aria-hidden="true">
+      <blockquote>
+        <p>I want to give my sincerest thanks &mdash; the effort has been monumental, and the result is very exciting. In the last 12 hours we've seen lots of chatter on social media, our pro triathletes and fans sharing site grabs and 'wows' in reaction to the look and the expansiveness of detail, and we've also seen an influx of pros emailing us with kudos, now eager to supply any missing info so their bios can look as good as the rest.</p>
+        <p>Our journey continues, but I hope you can pause to appreciate how far we've come. Thank you.</p>
+      </blockquote>
+      <figcaption>Global VP of Marketing, IRONMAN</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ VISUAL PROOF ============ -->
+<section class="proof">
+  <div class="inner">
+    <p class="kicker rev">The craft</p>
+    <h2 class="rev d1">A system built to flex, not just look good.</h2>
+    <div class="grid rev d2">
+      <div>
+        <div class="shot tall"><img src="images/case-ironman-options-grid.jpg" alt="IRONMAN Pro Series brand option explorations" style="width:100%;height:100%;object-fit:cover"></div>
+        <p class="cap">Visual directions</p>
+      </div>
+      <div>
+        <div class="shot tall"><img src="images/case-ironman-styleguide.jpg" alt="IRONMAN visual style guide" style="width:100%;height:100%;object-fit:cover"></div>
+        <p class="cap">Style guide detail</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXT CASE ============ -->
+<section class="next">
+  <div class="inner">
+    <a href="case-study-figpals.html">
+      <p class="kicker rev">Next case study</p>
+      <h2 class="rev d1">When beloved characters go missing: building the Department of Missing Figpals</h2><span class="arw rev d1" aria-hidden="true">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="inner">
+    <div class="fgrid">
+      <div>
+        <div class="fmark">christine sheller<span>.</span></div>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+      </div>
+            <nav aria-label="Footer">
+        <a href="leading.html">leading</a>
+
+        <a href="teaching.html">teaching</a>
+
+        <a href="thinking.html">thinking</a>
+
+        <a href="building.html">building</a>
+
+        <a href="case-studies.html">case studies</a>
+
+        <a href="about.html">about</a>
+
+        <a href="contact.html">contact</a>
+      </nav>
+    </div>
+    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* scroll reveals */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.rev').forEach(function(el){
+    if(reduced){ el.classList.add('in'); } else { io.observe(el); }
+  });
+
+  /* count-up stats */
+  function runCount(el){
+    var target = parseInt(el.getAttribute('data-count'),10);
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    var dur = 1400;
+    var start = null;
+    function frame(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start)/dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(eased * target) + suffix;
+      if(p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var counts = document.querySelectorAll('.count');
+  if(reduced){
+    counts.forEach(function(el){
+      var prefix = el.getAttribute('data-prefix') || '';
+      var suffix = el.getAttribute('data-suffix') || '';
+      el.textContent = prefix + el.getAttribute('data-count') + suffix;
+    });
+  } else {
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ runCount(e.target); cio.unobserve(e.target); }
+      });
+    },{threshold:0.4});
+    counts.forEach(function(el){ cio.observe(el); });
+  }
+
+  /* subscribe */
+  var form = document.getElementById('sub-form');
+  if(form){
+  form.addEventListener('submit',function(ev){
+    var email = document.getElementById('sub-email');
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    document.getElementById('sub-err').classList.toggle('on',!ok);
+    if(!ok){ ev.preventDefault(); return; }
+    document.getElementById('sub-done').classList.add('on');
+    form.style.display = 'none';
+  });
+  }
+})();
+
+/* story carousel */
+(function(){
+  var track = document.getElementById('story-track');
+  if(!track) return;
+  var slides = track.children;
+  var total = slides.length;
+  var dotsWrap = document.getElementById('story-dots');
+  var prev = document.getElementById('story-prev');
+  var next = document.getElementById('story-next');
+  var i = 0;
+
+  for(var d=0; d<total; d++){
+    var b = document.createElement('button');
+    b.className = 'dot';
+    b.setAttribute('role','tab');
+    b.setAttribute('aria-label','Chapter '+(d+1));
+    (function(idx){ b.addEventListener('click', function(){ go(idx); }); })(d);
+    dotsWrap.appendChild(b);
+  }
+  var dots = dotsWrap.children;
+
+  function go(n){
+    i = Math.max(0, Math.min(total-1, n));
+    track.style.transform = 'translateX(' + (-i*100) + '%)';
+    for(var k=0;k<total;k++){ dots[k].setAttribute('aria-selected', k===i ? 'true':'false'); }
+    prev.disabled = (i===0);
+    next.disabled = (i===total-1);
+  }
+  prev.addEventListener('click', function(){ go(i-1); });
+  next.addEventListener('click', function(){ go(i+1); });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowLeft') go(i-1);
+    if(e.key==='ArrowRight') go(i+1);
+  });
+
+  var x0 = null;
+  track.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    if(x0===null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if(dx < -50) go(i+1);
+    else if(dx > 50) go(i-1);
+    x0 = null;
+  }, {passive:true});
+
+  go(0);
+})();
+</script>
+</body>
+</html>
