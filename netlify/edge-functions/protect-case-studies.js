@@ -19,16 +19,13 @@ export default async (request, context) => {
     const submitted = formData.get("password");
 
     if (submitted === password) {
-      const response = await context.next();
-      const headers = new Headers(response.headers);
+      const headers = new Headers();
+      headers.set("Location", request.url);
       headers.append(
         "Set-Cookie",
         "case_study_auth=granted; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400"
       );
-      return new Response(response.body, {
-        status: response.status,
-        headers,
-      });
+      return new Response(null, { status: 303, headers });
     }
 
     return new Response(passwordPage("Wrong password, try again."), {
