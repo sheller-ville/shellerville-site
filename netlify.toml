@@ -1,0 +1,3 @@
+[[edge_functions]]
+  path = "/case-study-*"
+  function = "protect-case-studies"
