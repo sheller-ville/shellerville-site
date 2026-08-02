@@ -1,3 +1,7 @@
+export const config = {
+  pattern: [/^\/case-study-.*/, /^\/case-studies.*/],
+};
+
 export default async (request, context) => {
   const password = Netlify.env.get("CASE_STUDY_PASSWORD");
 
