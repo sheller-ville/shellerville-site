@@ -1,7 +1,7 @@
 [[edge_functions]]
-  path = "/case-study-*"
+  pattern = "^/case-study-.*"
   function = "protect-case-studies"
 
 [[edge_functions]]
-  path = "/case-studies*"
+  pattern = "^/case-studies.*"
   function = "protect-case-studies"
