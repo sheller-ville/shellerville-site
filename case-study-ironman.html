@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6G8CFQ3LG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F6G8CFQ3LG');
+</script>
 <meta charset="UTF-8">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -45,6 +54,17 @@ a{color:inherit}
 .lock svg{width:11px;height:11px;opacity:.65;margin-bottom:1px}
 .site-nav .links a:hover{color:var(--white)}
 .site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;border:2px solid transparent}
+.btn .arw{transition:transform .3s var(--ease)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn-dark{background:var(--black);color:var(--white)}
+.btn-dark:hover{background:var(--red)}
+.btn-light{background:var(--white);color:var(--black)}
+.btn-light:hover{background:var(--black);color:var(--white)}
+.btn-ghost{border-color:#3a3a3a;color:var(--white)}
+.btn-ghost:hover{border-color:var(--white)}
 
 /* text link */
 .tlink{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;border-bottom:2px solid var(--black);padding-bottom:3px;transition:color .2s,border-color .2s}
@@ -257,6 +277,8 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
 
     <a href="teaching.html">teaching</a>
 
+    <a href="speaking.html">speaking</a>
+
     <a href="thinking.html">thinking</a>
 
     <a href="building.html">building</a>
@@ -264,8 +286,6 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
     <a href="case-studies.html" class="active">case studies</a>
 
     <a href="about.html">about</a>
-
-    <a href="contact.html">contact</a>
   </div>
 </nav>
 
@@ -524,6 +544,8 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
 
         <a href="teaching.html">teaching</a>
 
+        <a href="speaking.html">speaking</a>
+
         <a href="thinking.html">thinking</a>
 
         <a href="building.html">building</a>
@@ -531,8 +553,6 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
         <a href="case-studies.html">case studies</a>
 
         <a href="about.html">about</a>
-
-        <a href="contact.html">contact</a>
       </nav>
     </div>
     <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>

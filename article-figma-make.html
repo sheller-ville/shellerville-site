@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6G8CFQ3LG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F6G8CFQ3LG');
+</script>
 <meta charset="UTF-8">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -37,6 +46,17 @@ a{color:inherit}
 .site-nav .links a.active{color:var(--white)}
 .site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
 
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;border:2px solid transparent}
+.btn .arw{transition:transform .3s var(--ease)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn-dark{background:var(--black);color:var(--white)}
+.btn-dark:hover{background:var(--red)}
+.btn-light{background:var(--white);color:var(--black)}
+.btn-light:hover{background:var(--black);color:var(--white)}
+.btn-ghost{border-color:#3a3a3a;color:var(--white)}
+.btn-ghost:hover{border-color:var(--white)}
+
 .art-hero{background:var(--black);color:var(--white);padding:100px 0 80px}
 
 .art-hero .kicker{color:var(--pink);margin-bottom:24px}
@@ -63,11 +83,12 @@ a{color:inherit}
 .art-nav a{font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--white)}
 .art-nav a:hover{color:var(--red)}
 
-.subscribe{background:var(--yellow);color:var(--black);padding:130px 0;position:relative;overflow:hidden}
+.subscribe{background:var(--yellow);color:var(--black);padding:150px 0;position:relative;overflow:hidden}
 .subscribe .inner{max-width:1140px}
 .subscribe .kicker{color:#6b4e00}
-.subscribe h2{margin-top:26px;font-weight:800;font-size:clamp(30px,5vw,60px);letter-spacing:-.04em;line-height:1;max-width:16ch}
-.subscribe p{margin-top:22px;font-size:clamp(17px,1.9vw,20px);line-height:1.55;max-width:46ch;color:#4a3a00}
+.subscribe h2{margin-top:30px;font-weight:800;font-size:clamp(36px,5.8vw,80px);letter-spacing:-.04em;line-height:1;max-width:16ch}
+.subscribe p{margin-top:26px;font-size:clamp(18px,2vw,21px);line-height:1.55;max-width:46ch;color:#4a3a00}
+.subscribe .square{position:absolute;z-index:1;width:200px;height:200px;background:var(--black);border-radius:36px;right:8%;bottom:-100px;transform:rotate(12deg)}
 .sub-form{margin-top:40px;display:flex;gap:14px;max-width:560px;flex-wrap:wrap}
 .sub-form input{flex:1;min-width:240px;font-family:var(--font);font-size:17px;padding:16px 22px;border:none;border-radius:100px;background:var(--white);outline:none}
 .sub-form button{font-family:var(--font);font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:100px;background:var(--black);color:var(--white);cursor:pointer}
@@ -89,6 +110,8 @@ footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
 footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
 
 @media(max-width:700px){
+  .subscribe{padding:100px 0}
+  .subscribe .square{display:none}
   footer .fgrid{grid-template-columns:1fr}
   footer nav{text-align:left}
   .site-nav .links{display:none}
@@ -104,6 +127,8 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
 
     <a href="teaching.html">teaching</a>
 
+    <a href="speaking.html">speaking</a>
+
     <a href="thinking.html" class="active">thinking</a>
 
     <a href="building.html">building</a>
@@ -111,8 +136,6 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
     <a href="case-studies.html">case studies</a>
 
     <a href="about.html">about</a>
-
-    <a href="contact.html">contact</a>
   </div>
 </nav>
 
@@ -194,6 +217,7 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
 </div>
 
 <section class="subscribe">
+  <div class="square" aria-hidden="true"></div>
   <div class="inner">
     <p class="kicker">Get updates</p>
     <h2>Occasional insights. No spam, just the good stuff.</h2>
@@ -208,12 +232,14 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
     <div class="fgrid">
       <div>
         <div class="fmark">christine sheller<span>.</span></div>
-        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a> or connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>.</p>
       </div>
       <nav aria-label="Footer">
         <a href="leading.html">leading</a>
 
         <a href="teaching.html">teaching</a>
+
+        <a href="speaking.html">speaking</a>
 
         <a href="thinking.html">thinking</a>
 
@@ -222,8 +248,6 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
         <a href="case-studies.html">case studies</a>
 
         <a href="about.html">about</a>
-
-        <a href="contact.html">contact</a>
       </nav>
     </div>
     <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>

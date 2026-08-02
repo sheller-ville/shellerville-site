@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6G8CFQ3LG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F6G8CFQ3LG');
+</script>
 <meta charset="UTF-8">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -39,6 +48,17 @@ a{color:inherit}
 .site-nav .links a.active{color:var(--white)}
 .site-nav .links a:hover{color:var(--white)}
 .site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;border:2px solid transparent}
+.btn .arw{transition:transform .3s var(--ease)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn-dark{background:var(--black);color:var(--white)}
+.btn-dark:hover{background:var(--red)}
+.btn-light{background:var(--white);color:var(--black)}
+.btn-light:hover{background:var(--black);color:var(--white)}
+.btn-ghost{border-color:#3a3a3a;color:var(--white)}
+.btn-ghost:hover{border-color:var(--white)}
 
 /* hero (red, with the target motif that anchors Building everywhere else on the site) */
 .build-hero{background:var(--red);color:var(--white);position:relative;overflow:hidden;padding:130px 0 150px}
@@ -90,9 +110,9 @@ a{color:inherit}
 .check-mark{width:22px;height:auto;margin-right:8px;vertical-align:-3px;opacity:.85}
 .frameworks .item p{margin-top:16px;font-size:17px;line-height:1.6;color:var(--ink);max-width:38ch}
 
-/* case studies teaser: white band with polka dots, lock */
-.cs-band{background:var(--white);color:var(--black);padding:110px 0;border-bottom:1px solid var(--hair);position:relative;overflow:hidden}
-.cs-band::before{content:"";position:absolute;inset:0;z-index:0;background:url('images/pattern-small-dots.png') repeat;opacity:.08}
+/* case studies teaser: dotted paper band, white card, lock */
+.cs-band{background:var(--paper);color:var(--black);padding:110px 0;border-bottom:1px solid var(--hair);position:relative;overflow:hidden}
+.cs-band::before{content:"";position:absolute;inset:0;z-index:0;background:url('images/pattern-small-dots.png') repeat;opacity:.35}
 .cs-band .inner{position:relative;z-index:2}
 .cs-band a{display:block;text-decoration:none;color:var(--black)}
 .cs-band-copy{display:inline-block;background:var(--white);padding:40px clamp(28px,4vw,56px);border-radius:20px}
@@ -102,6 +122,7 @@ a{color:inherit}
 .cs-band a:hover h2{transform:translateX(8px)}
 .cs-band a:hover .arw{transform:translateX(18px)}
 .cs-band p.sub{margin-top:18px;color:#5a5a57;font-size:16px;max-width:48ch}
+.cs-band .sub.lock{display:flex}
 
 .subscribe{background:var(--yellow);color:var(--black);padding:150px 0;position:relative;overflow:hidden}
 .subscribe .kicker{font-size:13px;color:#6b4e00}
@@ -158,6 +179,8 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
 
     <a href="teaching.html">teaching</a>
 
+    <a href="speaking.html">speaking</a>
+
     <a href="thinking.html">thinking</a>
 
     <a href="building.html" class="active">building</a>
@@ -165,8 +188,6 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
     <a href="case-studies.html">case studies</a>
 
     <a href="about.html">about</a>
-
-    <a href="contact.html">contact</a>
   </div>
 </nav>
 
@@ -238,12 +259,14 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
     <div class="fgrid">
       <div>
         <div class="fmark">christine sheller<span>.</span></div>
-        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a>, connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>, or read my <a href="https://shellerville.substack.com/">Substack</a>.</p>
+        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a> or connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>.</p>
       </div>
       <nav aria-label="Footer">
         <a href="leading.html">leading</a>
 
         <a href="teaching.html">teaching</a>
+
+        <a href="speaking.html">speaking</a>
 
         <a href="thinking.html">thinking</a>
 
@@ -252,8 +275,6 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
         <a href="case-studies.html">case studies</a>
 
         <a href="about.html">about</a>
-
-        <a href="contact.html">contact</a>
       </nav>
     </div>
     <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
