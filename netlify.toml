@@ -1,7 +1,1 @@
-[[edge_functions]]
-  pattern = "^/case-study-.*"
-  function = "protect-case-studies"
 
-[[edge_functions]]
-  pattern = "^/case-studies.*"
-  function = "protect-case-studies"
