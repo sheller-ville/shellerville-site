@@ -1,3 +1,26 @@
+export const config = {
+  path: [
+    "/case-study-climate-vision",
+    "/case-study-climate-vision.html",
+    "/case-study-figpals",
+    "/case-study-figpals.html",
+    "/case-study-fs-brand",
+    "/case-study-fs-brand.html",
+    "/case-study-fs-central",
+    "/case-study-fs-central.html",
+    "/case-study-fs-website",
+    "/case-study-fs-website.html",
+    "/case-study-ironman",
+    "/case-study-ironman.html",
+    "/case-study-leadership",
+    "/case-study-leadership.html",
+    "/case-study-rec",
+    "/case-study-rec.html",
+    "/case-studies",
+    "/case-studies.html",
+  ],
+};
+
 export default async (request, context) => {
   const password = Netlify.env.get("CASE_STUDY_PASSWORD");
 
