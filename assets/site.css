@@ -336,3 +336,72 @@ a{color:inherit}
 /* square corners everywhere except buttons (circles stay circles) */
 :root{--r-sm:0;--r-card:0}
 .exp .ph,.portrait figcaption,:focus-visible{border-radius:0}
+
+/* ---------- page-load layer 2 ---------- */
+/* headline words rise from behind a mask (the h1 itself no longer fades as a block) */
+.ready .in-copy > .display.split{animation:none}
+.display.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.display.split .w > span{display:inline-block;animation:wordUp .8s var(--ease-out) both}
+@keyframes wordUp{from{transform:translateY(105%)}to{transform:none}}
+/* photos unmask upward and settle */
+.rv .ph img,.rv.portrait img,.studio figure.rv img{transition:clip-path 1s var(--ease-out),transform 1.3s var(--ease-out)}
+.rv.pending .ph img,.rv.pending.portrait img,.studio figure.rv.pending img{clip-path:inset(100% 0 0 0);transform:scale(1.08)}
+/* squiggle draws itself left to right */
+.sub .squiggle{transition:clip-path 1.4s var(--ease-out) .35s}
+.sub .rv.pending .squiggle{clip-path:inset(0 100% 0 0)}
+/* footer wordmark rises letter by letter, dot pops last */
+.wordmark.rv,.wordmark.rv.pending{opacity:1;transform:none}
+.wordmark span{display:inline-block;transition:transform .9s var(--ease-out)}
+.wordmark.pending span{transform:translateY(60%)}
+.wordmark i{transition:transform .6s var(--ease-pop)}
+.wordmark.pending i{transform:scale(0)}
+/* home cards play their hover move once on arrival */
+.card.play .m-float{transform:translateY(-10px)}
+.card.play .m-rise{transform:translateY(-14px)}
+.card.play .m-spin{transform:rotate(90deg)}
+.card.play .m-tilt{transform:rotate(-14deg)}
+.card.play .m-slide1{transform:translateX(-16px)}
+.card.play .m-slide2{transform:translateX(-30px)}
+.card.play .m-slide3{transform:translateX(-44px)}
+.card.play .m-turn{transform:rotate(18deg)}
+.card.play .m-nudge{transform:translateX(-12px)}
+.card.play .m-grow{transform:scale(1.06)}
+@media (prefers-reduced-motion:reduce){.wordmark span,.wordmark i,.rv .ph img{transform:none!important;clip-path:none!important}}
+
+/* ---------- mobile menu ---------- */
+.menu-btn{display:none;width:44px;height:44px;margin-right:-10px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.menu-btn span{position:absolute;left:11px;width:22px;height:2px;background:var(--white);transition:transform var(--dur-base) var(--ease-out),opacity var(--dur-fast)}
+.menu-btn span:nth-child(1){top:15px}.menu-btn span:nth-child(2){top:21px}.menu-btn span:nth-child(3){top:27px}
+.nav.open .menu-btn span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav.open .menu-btn span:nth-child(2){opacity:0}
+.nav.open .menu-btn span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:640px){
+  .menu-btn{display:block}
+  .nav .wrap{padding-inline:20px}
+  .nav nav{position:fixed;left:0;right:0;top:var(--nav-h);bottom:0;background:var(--black);padding:28px 20px 40px;overflow-y:auto;
+    visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out),visibility 0s linear var(--dur-base)}
+  .nav.open nav{visibility:visible;opacity:1;transform:none;transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out),visibility 0s}
+  .nav ul{display:flex;flex-direction:column;gap:0}
+  .nav ul li{border-bottom:1px solid rgba(255,255,255,.14)}
+  .nav ul a{display:block;padding:18px 0;font:800 30px/1.1 var(--font);letter-spacing:-.05em;color:var(--white)}
+  .nav ul a[aria-current]{color:var(--red)}
+  body.menu-open{overflow:hidden}
+}
+
+/* ---------- Safari / touch robustness ---------- */
+/* iOS Safari drops or clips SVG filters on shapes that are mid-transform; skip the grain on touch screens */
+@media (hover:none),(max-width:900px){.grain{filter:none}}
+@supports (-webkit-touch-callout:none){.grain{filter:none}}
+/* prefixed clip-path for older Safari */
+.rv.pending .ph img,.rv.pending.portrait img,.studio figure.rv.pending img{-webkit-clip-path:inset(100% 0 0 0)}
+.rv .ph img,.rv.portrait img,.studio figure.rv img{-webkit-clip-path:inset(0 0 0 0)}
+/* sketchy hamburger: hand-drawn strokes that swing into a scribbled X */
+.menu-btn span{display:none}
+.menu-btn svg{position:absolute;inset:6px;width:32px;height:32px;overflow:visible}
+.menu-btn path{fill:none;stroke:var(--white);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center;transition:transform var(--dur-base) var(--ease-pop),opacity var(--dur-fast)}
+.menu-btn:hover .l2{transform:translateX(-2px) rotate(-3deg)}
+.nav.open .menu-btn .l1{transform:translateY(5.1px) rotate(43deg)}
+.nav.open .menu-btn .l2{opacity:0;transform:scaleX(.2)}
+.nav.open .menu-btn .l3{transform:translateY(-5.2px) rotate(-47deg)}
+/* no widows: browsers that support it rebalance paragraph endings; motion.js ties the last two words everywhere else */
+p,dd,li,.h3,.h4{text-wrap:pretty}

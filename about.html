@@ -42,7 +42,8 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="index.html">christine sheller<b>.</b></a>
-    <nav aria-label="Main"><ul>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="l1" d="M2.6 7.6C5.4 5.9 8.2 8.4 11.3 6.8 14.4 5.3 16.8 8.1 19.6 6.5 20.5 6 21.1 6.3 21.6 6.1"/><path class="l2" d="M4.1 12.8C6.9 11 9.6 13.6 12.8 11.9 15.7 10.4 17.6 13.1 20.2 11.6"/><path class="l3" d="M2.9 17.2C5.8 18.6 8.4 16 11.6 17.7 14.9 19.3 17.4 16.4 21.3 17.9"/></svg></button>
+    <nav aria-label="Main" id="site-menu"><ul>
       <li><a href="leading.html">leading</a></li>
       <li><a href="teaching.html">teaching</a></li>
       <li><a href="speaking.html">speaking</a></li>
@@ -54,7 +55,6 @@
   </div>
 </header>
 
-<main>
   <section class="hero h-about">
     <div class="wrap">
       <div class="copy in-copy">
@@ -63,7 +63,7 @@
         <p class="lede">That intersection is where the magic happens, and it's where I've built my career. VP of AI Strategy + Consulting at Cella, educator at ArtCenter, based in Los Angeles.</p>
       </div>
     </div>
-    <div class="hero-art full" aria-hidden="true"><svg viewBox="850 72 590 738" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMax meet"><g data-depth="6" class="depth"><g class="grain"><g class="sh a-rise d1"><path d="M858.186 810a355.887 355.887 0 0 1 711.774 0z" fill="#FAFAF8"/></g></g></g><g data-depth="12" class="depth"><g class="sh a-slidein d2"><path d="M1461.46 608.226a270 270 0 0 1 0-540z" fill="#000"/></g></g><g data-depth="34" class="depth"><g class="grain"><g class="float"><g class="sh a-pop d3"><circle cx="1061.1" cy="336.096" r="68.9043" fill="#EB1000"/></g></g></g></g><g data-depth="18" class="depth"><g class="sh a-draw d5"><path d="M879.339 512.437C879.819 512.041 882.109 510.759 890.267 504.939C896.361 500.59 907.397 491.929 913.378 487.327C920.856 481.575 922.525 479.79 924.304 478.012C926.028 476.287 927.916 474.545 929.892 472.53C931.689 470.696 933.448 468.872 935.141 467.116C935.559 466.681 935.961 466.258 936.355 465.812C936.75 465.365 937.124 464.907 937.079 464.491C937.034 464.076 936.558 463.717 935.915 463.561C933.099 462.879 930.164 463.372 927.467 462.873C924.865 462.392 922.327 460.465 920.465 459.315C919.028 458.428 924.35 460.955 926.884 461.782C929.387 462.599 931.663 463.718 933.867 464.708C936.171 465.743 938.585 465.937 940.74 466.205C941.216 466.264 941.345 467.006 941.354 467.572C941.39 469.928 940.564 472.151 940.417 474.552C940.241 477.434 940.117 479.893 939.875 482.76C939.753 484.133 939.589 485.459 939.372 486.744C939.261 487.371 939.15 487.947 938.884 488.917" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g></g></svg></div>
+    <div class="hero-art full" aria-hidden="true"><svg viewBox="850 72 590 738" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMax meet"><g data-depth="6" class="depth"><g class="sh a-rise d1"><g class="grain"><path d="M858.186 810a355.887 355.887 0 0 1 711.774 0z" fill="#FAFAF8"/></g></g></g><g data-depth="12" class="depth"><g class="sh a-slidein d2"><path d="M1461.46 608.226a270 270 0 0 1 0-540z" fill="#000"/></g></g><g data-depth="34" class="depth"><g class="float"><g class="sh a-pop d3"><g class="grain"><circle cx="1061.1" cy="336.096" r="68.9043" fill="#EB1000"/></g></g></g></g><g data-depth="18" class="depth"><g class="sh a-draw d5"><path d="M879.339 512.437C879.819 512.041 882.109 510.759 890.267 504.939C896.361 500.59 907.397 491.929 913.378 487.327C920.856 481.575 922.525 479.79 924.304 478.012C926.028 476.287 927.916 474.545 929.892 472.53C931.689 470.696 933.448 468.872 935.141 467.116C935.559 466.681 935.961 466.258 936.355 465.812C936.75 465.365 937.124 464.907 937.079 464.491C937.034 464.076 936.558 463.717 935.915 463.561C933.099 462.879 930.164 463.372 927.467 462.873C924.865 462.392 922.327 460.465 920.465 459.315C919.028 458.428 924.35 460.955 926.884 461.782C929.387 462.599 931.663 463.718 933.867 464.708C936.171 465.743 938.585 465.937 940.74 466.205C941.216 466.264 941.345 467.006 941.354 467.572C941.39 469.928 940.564 472.151 940.417 474.552C940.241 477.434 940.117 479.893 939.875 482.76C939.753 484.133 939.589 485.459 939.372 486.744C939.261 487.371 939.15 487.947 938.884 488.917" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g></g></svg></div>
   </section>
 
   <section class="section paper dots story">
@@ -83,12 +83,10 @@
     </div>
   </section>
 
-  <!-- SUBSCRIBE -->
-  <section class="sub">
     <div class="half" aria-hidden="true"></div>
     <div class="wrap">
       <div class="col rv">
-        <h2 class="h2">Occasional insights. No spam, just the good stuff.</h2>
+        <h2 class="h2">Occasional insights. <span class="nw">No spam,</span> just the good stuff.</h2>
         <p class="lede">On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
         <div><a class="btn btn-dark" href="https://shellerville.substack.com/" target="_blank" rel="noopener">Subscribe on Substack <span class="arr" aria-hidden="true">→</span></a></div>
         <svg class="squiggle" viewBox="0 0 1536 260" aria-hidden="true"><path filter="url(#thin-ink)" fill="#000" fill-rule="evenodd" d="M0 187L28 212L56 221L180 237L225 234L269 222L305 245L364 252L420 247L476 234L528 214L584 182L616 220L675 247L719 258L784 257L858 243L921 215L961 230L1064 227L1157 204L1224 169L1266 182L1343 181L1476 110L1531 67L1534 48L1527 36L1509 35L1501 53L1439 97L1330 152L1250 147L1265 121L1261 95L1238 78L1209 76L1186 92L1178 110L1179 128L1193 152L1142 176L1042 199L978 200L947 193L961 160L960 139L942 120L911 118L884 133L873 154L875 172L892 195L810 222L722 227L642 199L614 171L612 162L661 111L677 62L674 33L665 17L646 3L617 0L590 14L573 41L571 107L578 148L528 179L467 204L410 217L359 221L306 212L337 186L347 166L346 147L337 130L306 109L284 112L248 137L240 168L250 195L199 206L131 202L51 188L19 168L7 170L0 187ZM927 148L930 155L919 175L904 158L927 148ZM302 140L316 161L282 185L271 160L302 140ZM1218 106L1234 112L1220 131L1209 118L1218 106ZM631 31L645 45L644 73L629 103L606 126L603 49L617 33L631 31Z"/></svg>
