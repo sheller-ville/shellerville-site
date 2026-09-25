@@ -332,3 +332,4 @@ a{color:inherit}
 .stance .box{padding:48px;display:flex;flex-direction:column;justify-content:center}
 @media (max-width:640px){.stance .box{padding:32px 24px}}
 .wordmark{color:rgba(255,255,255,.16)}
+.wordmark{color:#3a3a3a}
