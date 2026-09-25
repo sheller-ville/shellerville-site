@@ -7,403 +7,129 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-F6G8CFQ3LG');
 </script>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaking / Christine Sheller</title>
+<meta name="description" content="Talks, fireside chats, and workshops from Christine Sheller on design leadership and AI-native practice.">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Speaking / Christine Sheller</title>
-<meta name="description" content="Talks, fireside chats, and workshops from Christine Sheller on design leadership and AI-native practice.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
-  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
-  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
-  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
-  --ease:cubic-bezier(.22,1,.36,1);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3{text-wrap:balance}
-p{text-wrap:pretty}
-a{color:inherit}
-.inner{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
-.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
-
-.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
-.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
-.site-nav .brand span{color:var(--red)}
-.site-nav .links{display:flex;gap:20px;align-items:center}
-.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:color .15s}
-.site-nav .links a.active{color:var(--white)}
-.site-nav .links a:hover{color:var(--white)}
-.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
-
-.sp-hero{background:var(--yellow);color:var(--black);position:relative;overflow:hidden;padding:120px 0 100px}
-.sp-hero .eyebrow{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#6b4e00;margin-bottom:32px}
-.sp-hero h1{font-weight:800;font-size:clamp(36px,6.6vw,80px);line-height:1.06;letter-spacing:-.035em;max-width:18ch;position:relative}
-.sp-hero .lead{margin-top:22px;font-size:19px;line-height:1.6;max-width:52ch;color:#4a3a00}
-.sp-hero .quote-mark{position:absolute;z-index:1;right:-40px;bottom:-50px;width:min(40vw,520px);height:auto;opacity:.4;pointer-events:none}
-.sp-hero .speech-mark{position:absolute;z-index:1;right:max(4vw,32px);top:64px;width:min(15vw,210px);height:auto;opacity:.9;pointer-events:none}
-.sp-hero .speech-mark2{position:absolute;z-index:1;right:max(13vw,120px);top:180px;width:min(9vw,120px);height:auto;opacity:.5;pointer-events:none;transform:scaleX(-1)}
-
-.btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;border:2px solid transparent}
-.btn .arw{transition:transform .3s var(--ease)}
-.btn:hover .arw{transform:translateX(5px)}
-.btn-dark{background:var(--black);color:var(--white)}
-.btn-dark:hover{background:var(--red)}
-
-.sp-list{background:var(--white);padding:100px 0 140px}
-.sp-entry-list{margin-top:20px;border-top:1px solid var(--hair)}
-.sp-entry{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;padding:40px 0;border-bottom:1px solid var(--hair)}
-.sp-entry.has-img{grid-template-columns:280px 1fr auto}
-.sp-entry .thumb{width:280px;height:280px;overflow:hidden}
-.sp-entry .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.sp-entry .tag{font-size:13px;color:var(--red)}
-.sp-entry h3{margin-top:14px;font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.025em}
-.sp-entry p{margin-top:12px;font-size:17px;line-height:1.6;color:var(--ink);max-width:60ch}
-.sp-entry .when{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#8f8f8a;white-space:nowrap;padding-top:2px}
-
-.sp-additional{margin-top:80px}
-.sp-additional>.kicker{color:var(--red);margin-bottom:6px}
-.sp-additional h2{font-weight:800;font-size:clamp(22px,2.6vw,28px);letter-spacing:-.02em;margin-bottom:24px}
-.sp-additional-list{border-top:1px solid var(--hair)}
-.sp-additional-item{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--hair)}
-.sp-additional-item.has-img{grid-template-columns:96px 1fr auto;align-items:center}
-.sp-additional-item .thumb{width:96px;height:96px;overflow:hidden}
-.sp-additional-item .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.sp-additional-item .org{font-weight:700;font-size:15px}
-.sp-additional-item p{margin-top:4px;font-size:15px;line-height:1.5;color:var(--ink);max-width:60ch}
-.sp-additional-item .when{font-family:var(--cond);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#8f8f8a;white-space:nowrap}
-
-.subscribe{background:var(--yellow);color:var(--black);padding:150px 0;position:relative;overflow:hidden}
-.subscribe .kicker{font-size:13px;color:#6b4e00}
-.subscribe h2{margin-top:30px;font-weight:800;font-size:clamp(36px,5.8vw,80px);letter-spacing:-.04em;line-height:1;max-width:16ch}
-.subscribe p{margin-top:26px;font-size:clamp(18px,2vw,21px);line-height:1.55;max-width:46ch;color:#4a3a00}
-.subscribe .square{position:absolute;z-index:1;width:200px;height:200px;background:var(--black);border-radius:36px;right:8%;bottom:-100px;transform:rotate(12deg)}
-.squiggle-mark{display:block;margin-top:36px;width:340px;max-width:85%;height:auto;opacity:.85;pointer-events:none}
-
-footer{background:var(--black);color:var(--white);padding:90px 0 76px}
-footer .inner{max-width:1140px}
-footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
-footer .fmark{font-weight:800;font-size:24px}
-footer .fmark span{color:var(--red)}
-footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
-footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
-footer nav{display:grid;gap:12px;text-align:right}
-footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
-footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
-
-@media(max-width:700px){
-  .subscribe{padding:100px 0}
-  .subscribe .square{display:none}
-  .sp-hero .quote-mark{width:60vw;bottom:-25px;right:-25px}
-  .sp-hero .speech-mark{width:80px;top:24px;right:20px}
-  .sp-hero .speech-mark2{display:none}
-  .sp-entry{grid-template-columns:1fr}
-  .sp-entry.has-img{grid-template-columns:1fr}
-  .sp-entry .thumb{width:100%;height:200px}
-  .sp-additional-item{grid-template-columns:1fr}
-  .sp-additional-item.has-img{grid-template-columns:72px 1fr;align-items:center}
-  footer .fgrid{grid-template-columns:1fr}
-  footer nav{text-align:left}
-  .site-nav .links{display:none}
-}
-</style>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/motion.js" defer></script>
 </head>
 <body>
 
-<nav class="site-nav">
-  <a class="brand" href="index.html">christine sheller<span>.</span></a>
-  <div class="links" id="nav-links">
-    <a href="leading.html">leading</a>
+<!-- shared SVG filters: paper grain on shapes, a light erode that thins the squiggle -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="paper-grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="g"/>
+      <feComponentTransfer in="g" result="g2"><feFuncA type="linear" slope=".08"/></feComponentTransfer>
+      <feComposite in="g2" in2="SourceGraphic" operator="in" result="t"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="t"/></feMerge>
+    </filter>
+    <filter id="thin-ink"><feMorphology operator="erode" radius="3.2"/></filter>
+  </defs>
+</svg>
 
-    <a href="teaching.html">teaching</a>
-
-    <a href="speaking.html" class="active">speaking</a>
-
-    <a href="thinking.html">thinking</a>
-
-    <a href="building.html">building</a>
-
-    <a href="case-studies.html">case studies</a>
-
-    <a href="about.html">about</a>
-  </div>
-</nav>
-
-<header class="sp-hero">
-  <img class="quote-mark" src="images/pattern-quote-white.png" alt="" aria-hidden="true">
-  <img class="speech-mark" src="images/pattern-speech.png" alt="" aria-hidden="true">
-  <img class="speech-mark2" src="images/pattern-speechfill.png" alt="" aria-hidden="true">
-  <div class="inner">
-    <p class="eyebrow">Speaking &middot; the stage</p>
-    <h1>Talks, fireside chats, and workshops.</h1>
-    <p class="lead">I speak on AI-enabled design, organizational readiness, and what it actually takes to make design a strategic force inside companies. Design can drive strategy, and I want to help others see it.</p>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">christine sheller<b>.</b></a>
+    <nav aria-label="Main"><ul>
+      <li><a href="leading.html">leading</a></li>
+      <li><a href="teaching.html">teaching</a></li>
+      <li><a href="speaking.html" aria-current="page">speaking</a></li>
+      <li><a href="thinking.html">thinking</a></li>
+      <li><a href="building.html">building</a></li>
+      <li><a href="case-studies.html">case studies</a></li>
+      <li><a href="about.html">about</a></li>
+    </ul></nav>
   </div>
 </header>
 
-<section class="sp-list">
-  <div class="inner">
-    <div class="sp-entry-list">
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-RGD.jpg" alt="Christine Sheller speaking at the RGD conference"></div>
-        <div>
-          <p class="tag kicker">RGD</p>
-          <h3>Designed to do more: AI as your in-house advantage.</h3>
-          <p>At the RGD in-house design conference, shared why designers have the positional power to shape how AI works in service of the brands they build.</p>
-        </div>
-        <p class="when">2026</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-yes-i-could.jpg" alt="Christine Sheller presenting at Friends of Figma LA"></div>
-        <div>
-          <p class="tag kicker">Friends of Figma, LA</p>
-          <h3>Say yes: building a lifelong career in design.</h3>
-          <p>Stories from 20+ years of leading design teams, building products, and mentoring the next generation of designers, on how curiosity, courage, and saying yes can shape a lasting career.</p>
-        </div>
-        <p class="when">2026</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-Figma-Greg.jpg" alt="Greg Huntoon and Christine Sheller on a video call"></div>
-        <div>
-          <p class="tag kicker">Figma</p>
-          <h3>How to prompt your way to a product that lands.</h3>
-          <p>Fireside chat with Greg Huntoon. Best practices for prompting, and why design is the differentiator in products that land.</p>
-        </div>
-        <p class="when">2026</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-AIGA.jpg" alt="Christine Sheller presenting for AIGA's Practical Institute for Creative Survival"></div>
-        <div>
-          <p class="tag kicker">AIGA National</p>
-          <h3>Fixing friction: from AI panic to strategic process.</h3>
-          <p>Presented for the launch of AIGA's learning series, The Practical Institute for Creative Survival, on moving from AI overwhelm to actionable workflows.</p>
-        </div>
-        <p class="when">2025</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-AIGA-LA.jpg" alt="Christine Sheller on a panel at AIGA Los Angeles"></div>
-        <div>
-          <p class="tag kicker">AIGA Los Angeles</p>
-          <h3>The state of AI in design.</h3>
-          <p>Panelist exploring how AI is transforming the way we create, learn, and experience design, including practical applications, ethical considerations, and what it means for the future of creative work.</p>
-        </div>
-        <p class="when">2025</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-Figma-showdonttell.jpg" alt="Christine Sheller presenting at a Figma event"></div>
-        <div>
-          <p class="tag kicker">Figma</p>
-          <h3>Show don't tell: make it real.</h3>
-          <p>Lightning talk on Figma Make use cases for client work, sales processes, and building functional microsites when development resources are limited. Co-facilitated a hands-on workshop.</p>
-        </div>
-        <p class="when">2025</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-1682-2025.jpg" alt="Christine Sheller at the 1682 conference"></div>
-        <div>
-          <p class="tag kicker">O3</p>
-          <h3>From AR to AI: iconic brands at the next frontier.</h3>
-          <p>Moderated a panel with Andy Hunt (The Hershey Company) and Benny Lee (The Coca-Cola Company) on how two iconic brands are reimagining retail through spatial computing and AI.</p>
-        </div>
-        <p class="when">2025</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-artoftheprompt.jpg" alt="Art of the prompt, UX in ATX event graphic"></div>
-        <div>
-          <p class="tag kicker">UX in ATX</p>
-          <h3>Art of the prompt.</h3>
-          <p>Presented a strategic framework for how prompt-to-code workflows are eliminating organizational friction, introducing the P.R.O.M.P.T. framework.</p>
-        </div>
-        <p class="when">2025</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-Adobe.jpg" alt="Jason Druss and Christine Sheller, Philly Ad Club and Adobe event"></div>
-        <div>
-          <p class="tag kicker">Philly Ad Club + Adobe</p>
-          <h3>How Adobe is shaping the future of creativity with AI.</h3>
-          <p>Fireside chat with Jason Druss of Adobe on AI in design and the business implications of AI tools.</p>
-        </div>
-        <p class="when">2025</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-ADPList-AISummit.jpg" alt="ADPList AI Summit event graphic"></div>
-        <div>
-          <p class="tag kicker">ADPList</p>
-          <h3>AI inside + out.</h3>
-          <p>One of six companies invited to present at ADPList's inaugural AI Summit, alongside Microsoft, J.P. Morgan, and Smashing Magazine.</p>
-        </div>
-        <p class="when">2024</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-1682.jpg" alt="1682: the business of innovation conference panel"></div>
-        <div>
-          <p class="tag kicker">O3</p>
-          <h3>1682: the business of innovation conference.</h3>
-          <p>Moderated a panel on building smarter products: leveraging AI for meaningful digital experiences.</p>
-        </div>
-        <p class="when">2024</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-ADPList.jpg" alt="ADPList Superconference event recap graphic"></div>
-        <div>
-          <p class="tag kicker">ADPList</p>
-          <h3>AI + you = BFFs in delivering experiences.</h3>
-          <p>Keynote at ADPList Superconference on the opportunities for designers to make AI their BFF.</p>
-        </div>
-        <p class="when">2024</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-IDSA.jpg" alt="Christine Sheller presenting at IDSA Women in Design"></div>
-        <div>
-          <p class="tag kicker">IDSA</p>
-          <h3>Informed design.</h3>
-          <p>Closing speaker for the Women in Design Deep Dive conference, on the opportunity for research to inform design across disciplines.</p>
-        </div>
-        <p class="when">2024</p>
-      </div>
-
-      <div class="sp-entry has-img">
-        <div class="thumb"><img src="images/speaking-Figma-slides.jpg" alt="Christine Sheller at Figma's offices for the Figma Slides feature"></div>
-        <div>
-          <p class="tag kicker">Figma</p>
-          <h3>The future of presentation design.</h3>
-          <p>Invited to Figma's offices to share a perspective on Figma Slides in a video that aired at Config 2024.</p>
-        </div>
-        <p class="when">2024</p>
-      </div>
-
-    </div>
-
-    <div class="sp-additional">
-      <p class="kicker">Additional speaking</p>
-      <div class="sp-additional-list">
-        <div class="sp-additional-item">
-          <div><p class="org">ADPList</p><p>From hurdles to high-performing teams. Keynote at ADPList Superconference, moderated panel on high-performing teams, collaboration, and career pathing.</p></div>
-          <p class="when">2023</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">Ladies That UX Podcast</p><p>Featured guest for global UX podcast.</p></div>
-          <p class="when">2023</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">AIGA</p><p>One Designer, One Work: how Keith Haring influenced my design process. Featured speaker.</p></div>
-          <p class="when">2022</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">Cabrini University</p><p>Guest reviewer for final portfolio presentations.</p></div>
-          <p class="when">2023</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">DesignBrew</p><p>Host for the roundtable event, inspired by the indirect: stories from leaders who paved their own paths.</p></div>
-          <p class="when">2022</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">Fox School of Business</p><p>Guest lecturer focused on career trajectories and UX best practices.</p></div>
-          <p class="when">2022</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">General Assembly</p><p>Judge for the financial wellness hackathon.</p></div>
-          <p class="when">2022</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">SOURCE.how</p><p>Newsletter feature outlining best practices for developing a skills matrix.</p></div>
-          <p class="when">2022</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">ANA</p><p>Participant in a B2B branding panel.</p></div>
-          <p class="when">2021</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">Global Perspectives in User Experience (GPUX)</p><p>Global user experience conference co-chair.</p></div>
-          <p class="when">2020</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">TSAM East</p><p>Innovation roundtable host for the asset management conference.</p></div>
-          <p class="when">2020</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">Drexel University</p><p>Judge for senior thesis portfolio projects.</p></div>
-          <p class="when">2020</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">High-Res Podcast</p><p>One-on-one podcast with creatives in the Philadelphia community.</p></div>
-          <p class="when">2018, 2020</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">University tour</p><p>Guest lecturer on understanding design thinking: how companies use design as a strategy. Temple University, Penn State University, and West Chester University.</p></div>
-          <p class="when">2020</p>
-        </div>
-        <div class="sp-additional-item">
-          <div><p class="org">Arts + Business Council</p><p>Guest lecturer and breakout discussion leader for the mentoring session of the A+BC Designing Leadership program. Also led design thinking facilitation with innovation event attendees.</p></div>
-          <p class="when">2017, 2018</p>
-        </div>
+<main>
+  <section class="hero h-speaking">
+    <div class="wrap">
+      <div class="copy in-copy">
+        <p class="kicker">Speaking · the stage</p>
+        <h1 class="display">Talks, chats, workshops. <span class="accent">Design, out loud.</span></h1>
+        <p class="lede">I speak on AI-enabled design, organizational readiness, and what it actually takes to make design a strategic force inside companies.</p>
       </div>
     </div>
+    <div class="hero-art full" aria-hidden="true"><svg viewBox="880 72 560 738" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMax meet"><g data-depth="10" class="depth"><g class="grain"><g class="sh a-drop d1"><circle cx="1290" cy="190" r="310" fill="#077387"/></g></g></g><g data-depth="6" class="depth"><g class="grain"><g class="sh a-rise d2"><path d="M1002.3 842.698C1002.3 726.613 1048.42 615.283 1130.5 533.199C1212.59 451.114 1323.92 405 1440 405L1440 842.698Z" fill="#FAFAF8"/></g></g></g><g data-depth="24" class="depth"><g class="grain"><g class="sh a-slidein d3"><rect x="1011" y="524" width="360" height="120" rx="60" fill="#EB1000"/></g></g></g><g data-depth="32" class="depth"><g class="sh a-slidein d4"><rect x="1290" y="675.271" width="198.283" height="72.103" rx="36.0515" fill="#000"/></g></g><g data-depth="18" class="depth"><g class="sh a-draw d5"><path fill-rule="evenodd" d="M1146.21 323.546L1142.29 314.909L1136.4 307.842L1127.37 301.168L1115.59 296.064L1104.21 293.316H1088.5L1070.44 296.064L1059.84 299.597L1032.36 314.516L993.493 336.894L951.878 362.806L937.744 370.265L910.655 379.295L896.914 380.08L896.129 381.651L894.558 382.043L894.166 384.006L895.343 384.792L900.447 384.006L938.922 383.614L967.974 384.792H1002.13L1053.95 383.221L1082.22 380.473L1099.89 375.369L1118.73 367.517L1125.41 362.413L1134.04 353.776L1144.25 339.25L1146.61 332.576L1146.21 323.546ZM1143.07 322.761L1143.86 331.791L1142.68 336.109L1132.47 351.028L1125.01 358.88L1118.73 363.984L1112.06 367.517L1081.44 377.725L1059.84 380.08L1019.8 381.651L969.937 382.043L945.989 380.866H915.759L932.64 375.369L944.418 370.265L1031.97 318.05L1055.13 305.094L1069.66 299.205L1089.29 296.064H1103.42L1112.84 298.027L1127.76 304.701L1132.08 307.842L1138.76 314.909L1143.07 322.761Z" fill="#000"/></g></g></svg></div>
+  </section>
 
-    <div style="margin-top:56px">
-      <a class="btn btn-dark" href="mailto:christinesheller@gmail.com?subject=Speaking%20inquiry">Get in touch about speaking <span class="arw">&rarr;</span></a>
+  <section class="section paper">
+    <div class="wrap">
+        <article class="talk rv"><div class="ph"><img src="images/speaking-RGD.jpg" alt="RGD talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">RGD</p><h3 class="h3">Designed to do more: AI as your in-house advantage.</h3><p>At the RGD in-house design conference, shared why designers have the positional power to shape how AI works in service of the brands they build.</p></div><p class="meta yr">2026</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-yes-i-could.jpg" alt="Friends of Figma, LA talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">Friends of Figma, LA</p><h3 class="h3">Say yes: building a lifelong career in design.</h3><p>Stories from 20+ years of leading design teams, building products, and mentoring the next generation of designers, on how curiosity, courage, and saying yes can shape a lasting career.</p></div><p class="meta yr">2026</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-Figma-Greg.jpg" alt="Figma talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">Figma</p><h3 class="h3">How to prompt your way to a product that lands.</h3><p>Fireside chat with Greg Huntoon. Best practices for prompting, and why design is the differentiator in products that land.</p></div><p class="meta yr">2026</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-AIGA.jpg" alt="AIGA National talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">AIGA National</p><h3 class="h3">Fixing friction: from AI panic to strategic process.</h3><p>Presented for the launch of AIGA&#x27;s learning series, The Practical Institute for Creative Survival, on moving from AI overwhelm to actionable workflows.</p></div><p class="meta yr">2025</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-AIGA-LA.jpg" alt="AIGA Los Angeles talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">AIGA Los Angeles</p><h3 class="h3">The state of AI in design.</h3><p>Panelist exploring how AI is transforming the way we create, learn, and experience design, including practical applications, ethical considerations, and what it means for the future of creative work.</p></div><p class="meta yr">2025</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-Figma-showdonttell.jpg" alt="Figma talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">Figma</p><h3 class="h3">Show don&#x27;t tell: make it real.</h3><p>Lightning talk on Figma Make use cases for client work, sales processes, and building functional microsites when development resources are limited. Co-facilitated a hands-on workshop.</p></div><p class="meta yr">2025</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-1682-2025.jpg" alt="O3 talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">O3</p><h3 class="h3">From AR to AI: iconic brands at the next frontier.</h3><p>Moderated a panel with Andy Hunt (The Hershey Company) and Benny Lee (The Coca-Cola Company) on how two iconic brands are reimagining retail through spatial computing and AI.</p></div><p class="meta yr">2025</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-artoftheprompt.jpg" alt="UX in ATX talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">UX in ATX</p><h3 class="h3">Art of the prompt.</h3><p>Presented a strategic framework for how prompt-to-code workflows are eliminating organizational friction, introducing the P.R.O.M.P.T. framework.</p></div><p class="meta yr">2025</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-Adobe.jpg" alt="Philly Ad Club + Adobe talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">Philly Ad Club + Adobe</p><h3 class="h3">How Adobe is shaping the future of creativity with AI.</h3><p>Fireside chat with Jason Druss of Adobe on AI in design and the business implications of AI tools.</p></div><p class="meta yr">2025</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-ADPList-AISummit.jpg" alt="ADPList talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">ADPList</p><h3 class="h3">AI inside + out.</h3><p>One of six companies invited to present at ADPList&#x27;s inaugural AI Summit, alongside Microsoft, J.P. Morgan, and Smashing Magazine.</p></div><p class="meta yr">2024</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-1682.jpg" alt="O3 talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">O3</p><h3 class="h3">1682: the business of innovation conference.</h3><p>Moderated a panel on building smarter products: leveraging AI for meaningful digital experiences.</p></div><p class="meta yr">2024</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-ADPList.jpg" alt="ADPList talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">ADPList</p><h3 class="h3">AI + you = BFFs in delivering experiences.</h3><p>Keynote at ADPList Superconference on the opportunities for designers to make AI their BFF.</p></div><p class="meta yr">2024</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-IDSA.jpg" alt="IDSA talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">IDSA</p><h3 class="h3">Informed design.</h3><p>Closing speaker for the Women in Design Deep Dive conference, on the opportunity for research to inform design across disciplines.</p></div><p class="meta yr">2024</p></article>
+        <article class="talk rv"><div class="ph"><img src="images/speaking-Figma-slides.jpg" alt="Figma talk" loading="lazy"></div><div class="txt"><p class="kicker k-red">Figma</p><h3 class="h3">The future of presentation design.</h3><p>Invited to Figma&#x27;s offices to share a perspective on Figma Slides in a video that aired at Config 2024.</p></div><p class="meta yr">2024</p></article>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="subscribe">
-  <div class="square" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">Get updates</p>
-    <h2>Occasional insights. No spam, just the good stuff.</h2>
-    <p>On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
-    <a class="btn btn-dark sub-link" href="https://shellerville.substack.com/" target="_blank" rel="noopener" style="margin-top:46px">Subscribe on Substack <span class="arw">&rarr;</span></a>
-    <img class="squiggle-mark" src="images/pattern-squiggle.png" alt="">
-  </div>
-</section>
-
-<footer>
-  <div class="inner">
-    <div class="fgrid">
-      <div>
-        <div class="fmark">christine sheller<span>.</span></div>
-        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a> or connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>.</p>
+  <section class="section paper" style="padding-top:0">
+    <div class="wrap">
+      <p class="kicker k-red rv">Additional speaking</p>
+      <div class="more rv">
+        <div><p><b>ADPList</b>From hurdles to high-performing teams. Keynote at ADPList Superconference, moderated panel on high-performing teams, collaboration, and career pathing.</p><p class="meta">2023</p></div>
+        <div><p><b>Ladies That UX Podcast</b>Featured guest for global UX podcast.</p><p class="meta">2023</p></div>
+        <div><p><b>AIGA</b>One Designer, One Work: how Keith Haring influenced my design process. Featured speaker.</p><p class="meta">2022</p></div>
+        <div><p><b>Cabrini University</b>Guest reviewer for final portfolio presentations.</p><p class="meta">2023</p></div>
+        <div><p><b>DesignBrew</b>Host for the roundtable event, inspired by the indirect: stories from leaders who paved their own paths.</p><p class="meta">2022</p></div>
+        <div><p><b>Fox School of Business</b>Guest lecturer focused on career trajectories and UX best practices.</p><p class="meta">2022</p></div>
+        <div><p><b>General Assembly</b>Judge for the financial wellness hackathon.</p><p class="meta">2022</p></div>
+        <div><p><b>SOURCE.how</b>Newsletter feature outlining best practices for developing a skills matrix.</p><p class="meta">2022</p></div>
+        <div><p><b>ANA</b>Participant in a B2B branding panel.</p><p class="meta">2021</p></div>
+        <div><p><b>Global Perspectives in User Experience (GPUX)</b>Global user experience conference co-chair.</p><p class="meta">2020</p></div>
+        <div><p><b>TSAM East</b>Innovation roundtable host for the asset management conference.</p><p class="meta">2020</p></div>
+        <div><p><b>Drexel University</b>Judge for senior thesis portfolio projects.</p><p class="meta">2020</p></div>
+        <div><p><b>High-Res Podcast</b>One-on-one podcast with creatives in the Philadelphia community.</p><p class="meta">2018, 2020</p></div>
+        <div><p><b>University tour</b>Guest lecturer on understanding design thinking: how companies use design as a strategy. Temple University, Penn State University, and West Chester University.</p><p class="meta">2020</p></div>
+        <div><p><b>Arts + Business Council</b>Guest lecturer and breakout discussion leader for the mentoring session of the A+BC Designing Leadership program. Also led design thinking facilitation with innovation event attendees.</p><p class="meta">2017, 2018</p></div>
       </div>
-      <nav aria-label="Footer">
-        <a href="leading.html">leading</a>
-
-        <a href="teaching.html">teaching</a>
-
-        <a href="speaking.html" class="active">speaking</a>
-
-        <a href="thinking.html">thinking</a>
-
-        <a href="building.html">building</a>
-
-        <a href="case-studies.html">case studies</a>
-
-        <a href="about.html">about</a>
-      </nav>
+      <a class="btn btn-red rv" href="mailto:christinesheller@gmail.com?subject=Speaking%20inquiry">Get in touch about speaking <span class="arr" aria-hidden="true">→</span></a>
     </div>
-    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <section class="sub">
+    <div class="half" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="col rv">
+        <h2 class="h2">Occasional insights. No spam, just the good stuff.</h2>
+        <p class="lede">On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
+        <div><a class="btn btn-dark" href="https://shellerville.substack.com/" target="_blank" rel="noopener">Subscribe on Substack <span class="arr" aria-hidden="true">→</span></a></div>
+        <svg class="squiggle" viewBox="0 0 1536 260" aria-hidden="true"><path filter="url(#thin-ink)" fill="#000" fill-rule="evenodd" d="M0 187L28 212L56 221L180 237L225 234L269 222L305 245L364 252L420 247L476 234L528 214L584 182L616 220L675 247L719 258L784 257L858 243L921 215L961 230L1064 227L1157 204L1224 169L1266 182L1343 181L1476 110L1531 67L1534 48L1527 36L1509 35L1501 53L1439 97L1330 152L1250 147L1265 121L1261 95L1238 78L1209 76L1186 92L1178 110L1179 128L1193 152L1142 176L1042 199L978 200L947 193L961 160L960 139L942 120L911 118L884 133L873 154L875 172L892 195L810 222L722 227L642 199L614 171L612 162L661 111L677 62L674 33L665 17L646 3L617 0L590 14L573 41L571 107L578 148L528 179L467 204L410 217L359 221L306 212L337 186L347 166L346 147L337 130L306 109L284 112L248 137L240 168L250 195L199 206L131 202L51 188L19 168L7 170L0 187ZM927 148L930 155L919 175L904 158L927 148ZM302 140L316 161L282 185L271 160L302 140ZM1218 106L1234 112L1220 131L1209 118L1218 106ZM631 31L645 45L644 73L629 103L606 126L603 49L617 33L631 31Z"/></svg>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <span><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a> or connect on <a href="https://www.linkedin.com/in/christine-sheller/" target="_blank" rel="noopener">LinkedIn</a>.</span>
+      <small>© 2026 Christine Sheller. Made in Los Angeles.</small>
+    </div>
+    <span class="wordmark" aria-hidden="true">shellerville<i></i></span>
   </div>
 </footer>
 
