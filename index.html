@@ -7,432 +7,220 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-F6G8CFQ3LG');
 </script>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christine Sheller / Design leader, AI strategist, educator</title>
+<meta name="description" content="Design leader, AI strategist, and educator helping enterprise teams move from AI curiosity to AI competency.">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Christine Sheller / Design leader, AI strategist, educator</title>
-<meta name="description" content="Design leader, AI strategist, and educator helping enterprise teams move from AI curiosity to AI competency.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
-  --black:#000; --white:#fff; --paper:#FAFAF8; --ink:#3d3d3d; --hair:#e2e2df;
-  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
-  --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
-  --ease:cubic-bezier(.22,1,.36,1);
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3{text-wrap:balance}
-p{text-wrap:pretty}
-::selection{background:var(--red);color:var(--white)}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--red);outline-offset:3px}
-
-.inner{max-width:1140px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
-.kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
-
-/* nav */
-.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
-.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
-.site-nav .brand span{color:var(--red)}
-.site-nav .links{display:flex;gap:20px;align-items:center}
-.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:color .15s}
-.site-nav .links a.active{color:var(--white)}
-.lock{display:inline-flex;align-items:center;gap:5px}
-.lock svg{width:11px;height:11px;opacity:.65;margin-bottom:1px}
-.site-nav .links a:hover{color:var(--white)}
-.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;border:2px solid transparent}
-.btn .arw{transition:transform .3s var(--ease)}
-.btn:hover .arw{transform:translateX(5px)}
-.btn-dark{background:var(--black);color:var(--white)}
-.btn-dark:hover{background:var(--red)}
-.btn-light{background:var(--white);color:var(--black)}
-.btn-light:hover{background:var(--black);color:var(--white)}
-.btn-ghost{border-color:#3a3a3a;color:var(--white)}
-.btn-ghost:hover{border-color:var(--white)}
-
-.tlink{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;border-bottom:2px solid var(--black);padding-bottom:3px;transition:color .2s,border-color .2s}
-.tlink .arw{transition:transform .3s var(--ease)}
-.tlink:hover{color:var(--teal);border-color:var(--teal)}
-.tlink:hover .arw{transform:translateX(5px)}
-
-/* page hero (used on interior pages, quieter than home) */
-.page-hero{background:var(--black);color:var(--white);padding:100px 0 90px}
-.page-hero .kicker{font-size:13px;color:var(--pink);margin-bottom:26px}
-.page-hero h1{font-weight:800;font-size:clamp(38px,6.4vw,76px);line-height:1.04;letter-spacing:-.035em;max-width:16ch}
-.page-hero .sub{margin-top:26px;font-size:clamp(17px,1.8vw,20px);line-height:1.6;color:#d9d9d6;max-width:52ch}
-
-/* home hero */
-.hero{background:var(--black);color:var(--white);position:relative;overflow:hidden;padding:130px 0 150px}
-.hero .eyebrow{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink);margin-bottom:38px}
-.hero h1{font-weight:800;font-size:clamp(40px,8.4vw,120px);line-height:1.05;letter-spacing:-.04em;max-width:22ch}
-.hero h1 .line{display:block;overflow:hidden;padding:.06em 0 .14em;margin:-.06em 0 -.14em}
-.hero h1 .word{display:inline-block;transform:translateY(135%);animation:rise 1s var(--ease) forwards}
-.hero h1 .accent{color:var(--red)}
-.hero h1 .line:nth-child(2) .word{animation-delay:.12s}
-.hero h1 .line:nth-child(3) .word{animation-delay:.24s}
-@keyframes rise{to{transform:translateY(0)}}
-.hero .sub{margin-top:44px;font-size:clamp(18px,2vw,23px);line-height:1.55;font-weight:400;color:#d9d9d6;max-width:46ch;opacity:0;animation:fade 1.1s .55s var(--ease) forwards}
-.hero .sub strong{font-weight:700;color:var(--white)}
-@keyframes fade{to{opacity:1}}
-.hero-cta{margin-top:48px;display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:fade 1.1s .72s var(--ease) forwards}
-.work .arrow-mark{position:absolute;z-index:1;left:620px;top:10px;width:auto;height:180px;opacity:1;transform:rotate(-6deg);pointer-events:none}
-.hero .target{position:absolute;z-index:1;width:min(38vw,500px);height:min(38vw,500px);right:max(-11vw,-150px);bottom:-60px;border-radius:50%;overflow:hidden;background:radial-gradient(circle,var(--red) 0 44%,var(--pink) 44% 100%)}
-.hero .target-inner{position:absolute;top:50%;left:50%;width:44%;height:44%;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden}
-.hero .target-pattern{position:absolute;top:50%;left:0;transform:translateY(-50%);width:150%;height:auto;opacity:.9;filter:brightness(0) invert(1);pointer-events:none}
-@keyframes settle{to{opacity:1;transform:translateY(-50%) scale(1)}}
-
-/* stance */
-.stance{background:var(--paper);padding:170px 0;position:relative;overflow:hidden}
-.stance::before{content:"";position:absolute;inset:0;z-index:0;background:url('images/pattern-small-dots.png') repeat;background-size:220px auto;opacity:.28}
-.stance .inner{position:relative;z-index:2}
-.stance-copy{background:var(--paper);padding:56px clamp(28px,4vw,64px);border-radius:20px}
-.stance .inner{display:grid;grid-template-columns:1.05fr .8fr;gap:clamp(48px,7vw,96px);align-items:center}
-.stance .kicker{font-size:13px;color:var(--red)}
-.stance h2{margin-top:34px;font-weight:800;font-size:clamp(32px,4.6vw,60px);line-height:1.05;letter-spacing:-.035em;max-width:21ch}
-.stance h2 em{font-style:normal;color:var(--red)}
-.rule-mark{display:block;margin-top:38px;width:180px;max-width:50%;height:auto;opacity:.8}
-.strike-wrap{position:relative;display:inline-block}
-.strike-wrap .x-mark{position:absolute;left:-6%;top:8%;width:112%;height:84%;opacity:.85;pointer-events:none}
-.stance p{margin-top:34px;font-size:clamp(18px,2vw,22px);line-height:1.6;max-width:52ch;color:var(--ink)}
-.portrait{position:relative;max-width:440px;justify-self:end;width:100%}
-.portrait::before{content:"";position:absolute;width:128px;height:128px;border-radius:50%;background:var(--red);top:-40px;right:-40px;z-index:-1}
-.portrait .frame{aspect-ratio:4/5;background:#ececea;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center;padding:24px}
-.portrait .frame img{width:100%;height:100%;object-fit:cover;display:block}
-.portrait .ph-label{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8f8f8a;line-height:1.7}
-.portrait figcaption{display:inline-block;margin-top:16px;padding:8px 16px;background:var(--white);border-radius:100px;font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
-
-/* pillars */
-.pillars{background:var(--white);padding:150px 0 160px}
-.pillars .kicker{font-size:13px;color:var(--black)}
-.squiggle-mark{display:block;margin-top:36px;width:340px;max-width:85%;height:auto;opacity:.85;pointer-events:none}
-.pillars .list{margin-top:64px;border-top:2px solid var(--black)}
-.pillar{display:grid;grid-template-columns:64px 1fr auto;gap:36px;align-items:start;padding:56px 0;border-bottom:2px solid var(--black);text-decoration:none}
-.pillar .mark{width:60px;height:60px;margin-top:4px;object-fit:contain}
-.m-target{border-radius:50%;background:radial-gradient(circle,var(--red) 0 34%,var(--white) 34% 44%,var(--red) 44% 100%)}
-.m-diamond{background:var(--green);transform:rotate(45deg) scale(.86)}
-.m-half{background:var(--yellow);border-radius:44px 44px 0 0;height:24px;margin-top:22px}
-.m-square{background:var(--red);border-radius:10px}
-.pillar h3{font-weight:800;font-size:clamp(30px,4.6vw,58px);letter-spacing:-.035em;line-height:1;transition:transform .35s var(--ease)}
-.pillar p{margin-top:16px;font-size:clamp(17px,1.9vw,20px);line-height:1.55;max-width:56ch;color:var(--ink)}
-.pillar .arw{font-size:clamp(26px,3vw,40px);font-weight:800;margin-top:6px;transition:transform .35s var(--ease)}
-.pillar:hover h3{transform:translateX(8px)}
-.pillar:hover .arw{transform:translateX(14px)}
-
-/* work / red moment */
-.work{background:var(--red);color:var(--white);padding:160px 0;position:relative;overflow:hidden}
-.work .kicker{font-size:13px;color:var(--pink)}
-.work h2{margin-top:30px;font-weight:800;font-size:clamp(40px,6.6vw,92px);letter-spacing:-.04em;line-height:.98;max-width:13ch}
-.work p{margin-top:30px;font-size:clamp(18px,2vw,22px);line-height:1.55;max-width:46ch;color:#ffe3df}
-.work .go{margin-top:44px}
-.work .half{position:absolute;z-index:1;width:min(38vw,480px);height:min(19vw,240px);right:-70px;bottom:0;background:var(--black);border-radius:480px 480px 0 0}
-
-/* dark card sections (perspectives / building) */
-.persp{background:var(--black);color:var(--white);padding:160px 0}
-.persp .kicker{font-size:13px;color:var(--pink)}
-.persp h2{margin-top:30px;font-weight:800;font-size:clamp(34px,5.2vw,66px);letter-spacing:-.035em;line-height:1.02;max-width:18ch;color:var(--white)}
-.persp .cards{margin-top:72px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.card-p{display:flex;flex-direction:column;text-decoration:none;color:var(--white)}
-.card-p .thumb{aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#1a1a1a;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
-.card-p .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
-.card-p:hover .thumb img{transform:scale(1.05)}
-.card-p .thumb .ph{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6f6f6f;line-height:1.6;padding:20px}
-.card-p .thumb::after{content:"";position:absolute;inset:0;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-.card-p h3{margin-top:24px;font-weight:800;font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;line-height:1.14;transition:color .2s}
-.card-p .dek{margin-top:12px;font-size:16px;color:#b8b8b4;line-height:1.5}
-.card-p .meta{margin-top:16px;font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8f8f8a;display:flex;align-items:center;gap:8px}
-.card-p:hover h3{color:var(--pink)}
-.persp .go{margin-top:56px}
-.persp .tlink{color:var(--white);border-color:var(--white)}
-.persp .tlink:hover{color:var(--pink);border-color:var(--pink)}
-
-/* entry list (frameworks / experiments / gated) */
-.entries{background:var(--white);padding:20px 0 150px}
-.entry-list{margin-top:20px;border-top:2px solid var(--black)}
-.entry{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:40px 0;border-bottom:2px solid var(--black);text-decoration:none}
-.entry h3{font-weight:800;font-size:clamp(22px,2.8vw,32px);letter-spacing:-.02em;transition:color .2s}
-.entry p{margin-top:10px;font-size:16px;color:var(--ink);max-width:60ch}
-.entry .arw{font-size:26px;font-weight:800;transition:transform .3s var(--ease)}
-.entry:hover h3{color:var(--red)}
-.entry:hover .arw{transform:translateX(10px)}
-.section-label{margin-top:110px}
-.section-label:first-child{margin-top:0}
-
-/* gated block */
-.gated{background:var(--black);color:var(--white);border-radius:20px;padding:52px 44px;margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.gated h3{font-weight:800;font-size:clamp(24px,3vw,32px)}
-.gated p{margin-top:12px;color:#c9c9c6;max-width:48ch}
-
-/* subscribe / yellow moment */
-.subscribe{background:var(--yellow);color:var(--black);padding:150px 0;position:relative;overflow:hidden}
-.subscribe .kicker{font-size:13px;color:#6b4e00}
-.subscribe h2{margin-top:30px;font-weight:800;font-size:clamp(36px,5.8vw,80px);letter-spacing:-.04em;line-height:1;max-width:16ch}
-.subscribe p{margin-top:26px;font-size:clamp(18px,2vw,21px);line-height:1.55;max-width:46ch;color:#4a3a00}
-.sub-form{margin-top:46px;display:flex;gap:14px;max-width:560px;flex-wrap:wrap}
-.sub-form input{flex:1;min-width:240px;font-family:var(--font);font-size:17px;padding:16px 22px;border:none;border-radius:100px;background:var(--white);outline:none}
-.sub-form input:focus{box-shadow:0 0 0 3px var(--red)}
-.sub-form button{font-family:var(--font);font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:100px;background:var(--black);color:var(--white);cursor:pointer;transition:background .2s}
-.sub-form button:hover{background:var(--red)}
-.sub-done{display:none;margin-top:22px;font-weight:700;font-size:19px}
-.sub-done.on{display:block}
-.sub-err{display:none;font-family:var(--cond);font-weight:600;font-size:15px;color:#7a1000;margin-top:14px}
-.sub-err.on{display:block}
-.subscribe .square{position:absolute;z-index:1;width:200px;height:200px;background:var(--black);border-radius:36px;right:8%;bottom:-100px;transform:rotate(12deg)}
-
-/* about page specifics */
-.about-body{background:var(--paper);padding:110px 0 150px}
-.about-body .inner{display:grid;grid-template-columns:1.05fr .8fr;gap:clamp(48px,7vw,96px);align-items:start}
-.about-body p{font-size:clamp(17px,1.9vw,20px);line-height:1.65;color:var(--ink);margin-top:22px}
-.about-body p:first-child{margin-top:0}
-.about-facts{margin-top:44px;padding-top:36px;border-top:2px solid var(--black)}
-.about-facts dt{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8f8f8a;margin-top:22px}
-.about-facts dt:first-child{margin-top:0}
-.about-facts dd{font-weight:700;font-size:17px;margin-top:4px}
-
-/* contact page */
-.contact-hero{background:var(--black);color:var(--white);padding:150px 0}
-.contact-hero .kicker{font-size:13px;color:var(--pink)}
-.contact-hero h1{margin-top:26px;font-weight:800;font-size:clamp(38px,6.6vw,84px);letter-spacing:-.04em;line-height:1.02;max-width:14ch}
-.contact-hero .sub{margin-top:30px;font-size:clamp(17px,1.9vw,21px);line-height:1.6;color:#d9d9d6;max-width:48ch}
-.contact-links{margin-top:52px;display:flex;flex-direction:column;gap:0;border-top:2px solid #2a2a2a;max-width:560px}
-.contact-link{display:flex;align-items:center;justify-content:space-between;padding:28px 0;border-bottom:2px solid #2a2a2a;text-decoration:none;color:var(--white)}
-.contact-link .label{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#8f8f8a}
-.contact-link .value{font-weight:700;font-size:clamp(19px,2.2vw,24px);margin-top:4px}
-.contact-link .arw{font-size:26px;font-weight:800;transition:transform .3s var(--ease)}
-.contact-link:hover .value{color:var(--pink)}
-.contact-link:hover .arw{transform:translateX(10px)}
-
-/* footer */
-footer{background:var(--black);color:var(--white);padding:90px 0 76px}
-footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
-footer .fmark{font-weight:800;font-size:24px}
-footer .fmark span{color:var(--red)}
-footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
-footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
-footer .fsub a:hover{color:var(--yellow)}
-footer nav{display:grid;gap:12px;text-align:right}
-footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none;transition:color .15s}
-footer nav a:hover{color:var(--white)}
-footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
-
-.rev{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.rev.in{opacity:1;transform:none}
-.rev.d1{transition-delay:.08s}.rev.d2{transition-delay:.16s}.rev.d3{transition-delay:.24s}
-
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .hero h1 .word{transform:none}
-  .hero .sub,.hero-cta{opacity:1}
-  .hero .target{opacity:1;transform:translateY(-50%)}
-  .rev{opacity:1;transform:none}
-  html{scroll-behavior:auto}
-}
-
-@media(max-width:1040px){
-  .persp .cards{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:860px){
-  .arrow-mark{display:none}
-  .hero{padding:84px 0 110px}
-  .hero .target{width:70vw;height:70vw;right:-38vw;top:auto;bottom:-20vw;transform:none;opacity:.5;animation:none;opacity:0;animation:settleM 1.6s .3s var(--ease) forwards}
-  .stance{padding:110px 0}
-  .stance .inner,.about-body .inner{grid-template-columns:1fr}
-  .portrait{justify-self:start;margin-top:12px}
-  .portrait::before{width:88px;height:88px;top:-26px;right:-14px}
-  .pillars{padding:100px 0 110px}
-  .pillar{grid-template-columns:44px 1fr;gap:20px;padding:44px 0}
-  .pillar .arw{display:none}
-  .work,.persp{padding:110px 0}
-  .work .half{opacity:.5}
-  .persp .cards{grid-template-columns:1fr;gap:20px;max-width:440px}
-  .subscribe{padding:100px 0}
-  .subscribe .square{display:none}
-  .gated{flex-direction:column;align-items:flex-start}
-  footer .fgrid{grid-template-columns:1fr}
-  footer nav{text-align:left}
-  .site-nav .links{position:absolute;top:62px;left:0;right:0;background:var(--black);flex-direction:column;gap:0;padding:8px 0;display:none;border-top:1px solid #222}
-  .site-nav .links.open{display:flex}
-  .site-nav .links a{padding:14px 28px;width:100%;font-size:16px}
-  .site-nav .menu-btn{display:block}
-}
-@keyframes settleM{to{opacity:.5}}
-
-</style>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/motion.js" defer></script>
 </head>
 <body>
 
-<nav class="site-nav">
-  <a class="brand" href="index.html">christine sheller<span>.</span></a>
-  <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('nav-links').classList.toggle('open')">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-  </button>
-  <div class="links" id="nav-links">
-    <a href="leading.html">leading</a>
+<!-- shared SVG filters: paper grain on shapes, a light erode that thins the squiggle -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="paper-grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="g"/>
+      <feComponentTransfer in="g" result="g2"><feFuncA type="linear" slope=".08"/></feComponentTransfer>
+      <feComposite in="g2" in2="SourceGraphic" operator="in" result="t"/>
+      <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="t"/></feMerge>
+    </filter>
+    <filter id="thin-ink"><feMorphology operator="erode" radius="3.2"/></filter>
+  </defs>
+</svg>
 
-    <a href="teaching.html">teaching</a>
-
-    <a href="speaking.html">speaking</a>
-
-    <a href="thinking.html">thinking</a>
-
-    <a href="building.html">building</a>
-
-    <a href="case-studies.html">case studies</a>
-
-    <a href="about.html">about</a>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="target" aria-hidden="true">
-    <div class="target-inner">
-      <img class="target-pattern" src="images/pattern-squiggle.png" alt="">
-    </div>
-  </div>
-  <div class="inner">
-    <p class="eyebrow">Design leader &middot; AI strategist &middot; Educator</p>
-    <h1>Design teams. Design&nbsp;leaders. <span class="accent">Design&nbsp;practices built for&nbsp;AI.</span></h1>
-    <p class="sub"><strong>I build what didn't exist yet.</strong> I'm Christine Sheller, a design leader who builds teams, develops people, and helps organizations see further into an AI-shaped future of making.</p>
-    <div class="hero-cta">
-      <a class="btn btn-dark" style="background:var(--red)" href="#pillars">See how <span class="arw">&rarr;</span></a>
-      <a class="btn btn-ghost" href="thinking.html">Read my thinking <span class="arw">&rarr;</span></a>
-    </div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">christine sheller<b>.</b></a>
+    <nav aria-label="Main"><ul>
+      <li><a href="leading.html">leading</a></li>
+      <li><a href="teaching.html">teaching</a></li>
+      <li><a href="speaking.html">speaking</a></li>
+      <li><a href="thinking.html">thinking</a></li>
+      <li><a href="building.html">building</a></li>
+      <li><a href="case-studies.html">case studies</a></li>
+      <li><a href="about.html">about</a></li>
+    </ul></nav>
   </div>
 </header>
 
-<section class="stance">
-  <div class="inner">
-    <div class="stance-copy">
-      <p class="kicker rev">The stance</p>
-      <h2 class="rev d1">Design solves strategic problems. AI raises <em>the ceiling</em>.</h2>
-      <p class="rev d2">That's been my thesis since before AI entered the room. Good design was always about business strategy, not <span class="strike-wrap">decoration<img class="x-mark" src="images/pattern-xline.png" alt=""></span>. It gives strategic design more range.</p>
-      <img class="rule-mark" src="images/pattern-rule.png" alt="">
-    </div>
-    <figure class="portrait rev d2">
-      <div class="frame">
-        <img src="images/portrait-christine.jpg" alt="Christine Sheller">
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="copy in-copy">
+        <p class="kicker" style="color:var(--pink)">Design leader · AI strategist · Educator</p>
+        <h1 class="display">Design teams. Design leaders. <span class="accent">Design practices built for AI.</span></h1>
+        <p class="lede" style="color:var(--on-dark)"><b>I build what didn't exist yet.</b> I'm Christine Sheller, a design leader who builds teams, develops people, and helps organizations see further into an AI-shaped future of making.</p>
+        <div class="ctas">
+          <a class="btn btn-red" href="case-studies.html">See how <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="thinking.html">Read my thinking <span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </div>
-      <figcaption>Christine Sheller &middot; Los Angeles</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="pillars" id="pillars">
-  <div class="inner">
-    <p class="kicker rev">How that shows up</p>
-    <div class="list rev d1">
-      <a class="pillar" href="leading.html">
-        <img class="mark" src="images/icon-leading.png" alt="" aria-hidden="true">
-        <span>
-          <h3>Leading</h3>
-          <p>I've built the first design team three times, establishing design as a strategic business partner rather than a service function. Teams that earn a seat at the table and keep it.</p>
-        </span>
-        <span class="arw" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="pillar" href="building.html">
-        <img class="mark" src="images/icon-building.png" alt="" aria-hidden="true">
-        <span>
-          <h3>Building</h3>
-          <p>AI experiments, frameworks, and prototypes I've built to solve real friction, and the case studies that show the strategy behind the shipped work.</p>
-        </span>
-        <span class="arw" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="pillar" href="teaching.html">
-        <img class="mark" src="images/icon-teaching.png" alt="" aria-hidden="true">
-        <span>
-          <h3>Teaching</h3>
-          <p>Developing the next generation of design and innovation leaders at ArtCenter and beyond. The future of making is shaped by the people we cultivate today.</p>
-        </span>
-        <span class="arw" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="pillar" href="thinking.html">
-        <img class="mark" src="images/icon-thinking.png" alt="" aria-hidden="true">
-        <span>
-          <h3>Thinking</h3>
-          <p>Where I think out loud about design leadership, creative judgment, and what an AI-enabled future asks of how we make things. My point of view, on the record.</p>
-        </span>
-        <span class="arw" aria-hidden="true">&rarr;</span>
-      </a>
     </div>
-  </div>
-</section>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 604 712" xmlns="http://www.w3.org/2000/svg">
+        <g class="grain">
+          <!-- cream half rising from the bottom -->
+          <g data-depth="10" class="depth"><g class="sh a-rise d1">
+            <path d="M224.739 399.659C271.918 380.214 328.499 373.807 378.934 380.607C380.367 380.91 382.373 381.396 383.778 381.567C383.796 398.223 383.597 415.515 383.917 432.137C383.434 445.316 383.83 460.512 383.83 473.831L383.799 549.763C383.806 554.234 384.359 583.232 383.41 586.048C384.015 593.717 383.789 601.623 383.754 609.327L383.775 636.802C383.754 661.572 384.192 687.341 383.716 712H306.95H27.2892C26.3593 700.277 25.0979 688.304 25.0972 676.57C25.095 640.195 34.364 598.25 48.8503 564.927C81.4065 490.039 149.511 429.567 224.739 399.659Z" fill="#F2EFE9"/>
+            <path d="M383.41 586.048C384.015 593.717 383.789 601.623 383.754 609.327L383.775 636.802C383.754 661.572 384.192 687.341 383.716 712H306.95C315.952 673.257 340.961 634.984 366.625 605.287C371.969 599.102 377.738 591.78 383.41 586.048Z" fill="#000"/>
+          </g></g>
+          <!-- red orb sliding in -->
+          <g data-depth="18" class="depth"><g class="sh a-slide d2">
+            <path d="M295.498 187C297.995 190.555 300.341 194.274 302.772 197.891C312.307 212.076 323.492 223.696 335.316 235.898C345.538 245.456 357.184 254.695 368.669 262.682C372.063 265.042 375.68 267.106 379.223 269.209C380.009 269.675 383.872 271.839 384.338 272.221C382.019 277.814 384.79 312.662 383.771 321.18C383.003 327.617 384.415 340.62 383.799 347.872C383.135 355.746 383.615 366.338 383.615 375.01C383.811 378.309 383.811 379.417 383.811 381.585C333.376 374.784 271.918 380.214 224.739 399.659C222.226 397.037 216.909 393.533 213.426 390.185C199.207 376.748 188.386 360.123 181.856 341.683C171.139 311.717 173.591 282.443 187.142 253.909C203.151 220.642 233.84 196.809 270.039 189.53C271.215 189.286 274.526 188.838 275.427 188.522C279.526 187.082 292.527 188.302 295.498 187Z" fill="#D90E0C"/>
+          </g></g>
+          <!-- big red half bleeding off the right -->
+          <g data-depth="6" class="depth"><g class="sh a-rise d2">
+            <path d="M604 231.796V712H383.716C384.192 687.341 383.754 661.572 383.775 636.802L383.754 609.327C383.789 601.623 384.015 593.717 383.41 586.048C384.359 583.232 383.806 554.234 383.799 549.763L383.83 473.831C383.83 460.512 383.434 445.316 383.917 432.137C383.597 415.515 383.796 398.223 383.778 381.567C382.373 381.396 380.367 380.91 378.934 380.607C380.016 379.025 382.328 376.463 383.615 375.01C384.787 367.344 383.135 355.746 383.799 347.872C384.414 340.62 383.003 327.617 383.771 321.18C384.79 312.662 382.019 277.814 384.338 272.221C410.744 287.267 436.678 295.102 466.321 300.621C474.489 294.583 481.99 287.558 490.662 281.293C510.702 266.816 529.225 257.247 551.584 247.459L551.622 241.814C551.73 243.536 551.671 245.817 551.671 247.586C568.546 240.6 586.078 235.31 604 231.796Z" fill="#E91211"/>
+            <path d="M383.615 375.01C384.787 367.344 383.135 355.746 383.799 347.872C384.414 340.62 383.003 327.617 383.771 321.18C384.79 312.662 382.019 277.814 384.338 272.221C410.744 287.267 436.678 295.102 466.321 300.621C465.932 301.804 459.68 307.161 458.358 308.467C427.891 338.569 403.619 375.424 389.446 415.919C388.236 419.385 385.638 429.738 383.917 432.137C383.597 415.515 383.796 398.223 383.778 381.567C382.373 381.396 380.367 380.91 378.934 380.607C380.016 379.025 382.328 376.463 383.615 375.01Z" fill="#000"/>
+          </g></g>
+          <!-- pink quarter ring swinging down -->
+          <g data-depth="26" class="depth"><g class="sh a-swing d3">
+            <path d="M259.183 13.2878L374.786 13.2821L374.769 37.7892C374.769 42.9828 374.581 49.9318 375.175 55.0305C379.018 88.085 394.29 119.777 417.887 143.168C444.213 169.267 481.573 184.617 518.571 184.596C529.503 184.589 540.759 184.396 551.573 184.651C551.448 203.424 551.361 223.045 551.622 241.814L551.584 247.459C529.225 257.247 510.702 266.816 490.662 281.293C481.99 287.558 474.489 294.583 466.321 300.621C436.678 295.102 410.744 287.267 384.338 272.221C383.872 271.839 380.009 269.675 379.223 269.209C375.68 267.106 372.063 265.042 368.669 262.682C357.184 254.695 345.538 245.456 335.316 235.898C323.492 223.696 312.307 212.076 302.772 197.891C300.341 194.274 297.995 190.555 295.498 187C276.736 155.241 263.427 123.415 259.845 86.2142C258.855 75.9278 259.13 63.7209 259.139 53.2825L259.183 13.2878Z" fill="#F198AA"/>
+          </g></g>
+          <!-- yellow sun pops, then floats -->
+          <g data-depth="40" class="depth"><g class="float"><g class="sh a-pop d4">
+            <path d="M467.73 25.1109C488.614 23.5289 506.828 39.1767 508.407 60.0594C509.985 80.942 494.334 99.1495 473.446 100.725C452.562 102.3 434.358 86.653 432.78 65.7752C431.201 44.8977 446.845 26.6926 467.73 25.1109Z" fill="#F9B70B"/>
+          </g></g></g>
+        </g>
+        <!-- hand-drawn arrow draws itself in -->
+        <g data-depth="14" class="depth"><g class="sh a-draw d5">
+          <path d="M211.9 69.0783C212.974 68.9527 213.481 69.0529 214.188 69.8275C214.835 72.9355 219.099 91.7051 218.657 92.7422C217.61 93.5978 218.153 93.4851 217.048 93.3784C216.087 92.2075 212.616 76.6975 212.112 74.0696C206.314 90.8749 193.165 113.332 181.858 126.974C165.716 146.449 140.764 166.471 115.31 171.189C113.495 171.525 105.319 170.588 104.612 171.043C100.345 173.787 96.5628 177.962 92.2451 180.805C72.6559 194.713 43.0752 202.12 20.0225 194.197C19.524 194.026 19.5337 193.245 19.5232 192.826C20.874 192.102 28.7458 194.287 31.3388 194.524C40.9433 195.438 50.6324 194.771 60.021 192.549C76.1892 188.921 90.963 180.694 102.561 168.861C95.3673 161.702 97.4898 148.678 102.477 140.832C107.064 133.615 115.86 134.126 116.689 143.271C117.521 152.458 111.502 161.611 105.995 168.402C116.349 169.9 123.229 167.44 132.574 163.01C167.938 146.248 196.12 110.787 209.25 74.4989C204.55 77.7474 199.83 81.0905 195.096 84.2969C193.759 85.2022 192.885 85.884 191.387 85.1122L191.233 84.3344C191.986 82.9515 209.058 71.2577 211.9 69.0783Z" fill="#F2EFE9"/>
+          <path d="M108.994 138.372C111.849 137.94 114.09 139.697 114.256 142.57C114.737 150.885 109.884 160.11 104.81 166.342C104.322 166.787 104.62 166.634 103.799 166.6C103.365 166.286 102.378 165.513 102.151 165.056C97.6933 156.09 100.77 144.005 108.994 138.372Z" fill="#000"/>
+        </g></g>
+      </svg>
+    </div>
+  </section>
 
-<section class="work">
-  <div class="half" aria-hidden="true"></div>
-  <div class="inner">
-    <img class="arrow-mark" src="images/pattern-arrow-up.png" alt="" aria-hidden="true">
-    <p class="kicker rev">The work</p>
-    <h2 class="rev d1">Strategy you can actually see shipped.</h2>
-    <p class="rev d2">First design teams built from zero. Frameworks that make doing business better. Products that delight users and stakeholders alike. The case studies show how, not just that.</p>
-    <div class="go rev d3"><a class="btn btn-light lock" href="building.html#case-studies">See the&nbsp;case studies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></a></div>
-  </div>
-</section>
-
-<section class="subscribe">
-  <div class="square" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker rev">Get updates</p>
-    <h2 class="rev d1">Occasional insights. No spam, just the good stuff.</h2>
-    <p class="rev d2">On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
-    <a class="btn btn-dark sub-link" href="https://shellerville.substack.com/" target="_blank" rel="noopener" style="margin-top:46px">Subscribe on Substack <span class="arw">&rarr;</span></a>
-    <img class="squiggle-mark" src="images/pattern-squiggle.png" alt="">
-  </div>
-</section>
-
-<footer>
-  <div class="inner">
-    <div class="fgrid">
-      <div>
-        <div class="fmark">christine sheller<span>.</span></div>
-        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a> or connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>.</p>
+  <!-- STANCE -->
+  <section class="section paper dots stance">
+    <div class="wrap">
+      <div class="rv">
+        <p class="kicker" style="color:var(--black)">The stance</p>
+        <h2 class="h2">Design solves strategic problems. AI raises <span class="accent">the ceiling</span>.</h2>
+        <p class="body-lg">That's been my thesis since before AI entered the room. Good design was always about business strategy, not decoration. AI gives strategic design more range.</p>
       </div>
-      <nav aria-label="Footer">
-        <a href="leading.html">leading</a>
-
-        <a href="teaching.html">teaching</a>
-
-        <a href="speaking.html">speaking</a>
-
-        <a href="thinking.html">thinking</a>
-
-        <a href="building.html">building</a>
-
-        <a href="case-studies.html">case studies</a>
-
-        <a href="about.html">about</a>
-      </nav>
+      <figure class="portrait rv">
+        <img src="images/portrait-christine.jpg" alt="Christine Sheller smiling in red glasses" width="460" height="590" loading="lazy">
+        <figcaption>Christine Sheller · Los Angeles</figcaption>
+      </figure>
     </div>
-    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars paper">
+    <div class="wrap">
+      <div class="head rv">
+        <h2 class="h2">How that shows up.</h2>
+        <p class="kicker" style="color:var(--legal)">Four ways in</p>
+      </div>
+      <div class="cards">
+
+        <a class="card rv" href="leading.html">
+          <div class="tile"><svg viewBox="0 0 278 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="278" height="280" fill="#0887A0"/>
+            <g class="grain">
+              <g class="m m-rise"><rect x="147.2" y="96" width="92" height="184" fill="#FAFAF8"/><path d="M147.2 96a46 46 0 0 1 92 0z" fill="#FAFAF8"/></g>
+              <circle class="m m-float" cx="69.3" cy="71" r="35.6" fill="#FFBE00"/>
+            </g>
+            <path class="m m-tilt" fill="#1E1E1E" fill-rule="evenodd" d="M113.54 123.742L112.927 123.129H112.007L110.781 124.048L108.023 125.274L107.41 125.887L102.813 128.339L96.3766 132.63L93.3118 135.082L92.0859 135.695L84.1173 141.824L83.1979 141.518L75.8423 135.388L72.1645 132.936L67.5673 129.259H66.6478L66.0349 129.872V130.791L67.2608 132.017L73.6969 136.614L81.972 143.357L73.3904 150.099L66.0349 155.003L65.1154 155.923L62.0506 157.761L60.5182 158.068L59.9052 158.681V159.6L60.5182 160.213H61.7441L65.1154 158.681L66.0349 157.761L74.3099 152.245L79.2136 148.26L81.972 146.422L83.1979 145.196L84.1173 144.889L87.7951 147.648L93.0053 150.406L97.909 154.084L105.878 158.374L107.716 159.6L108.942 160.826H109.862L110.475 160.213V159.294L109.862 158.374L108.636 157.455L106.797 156.536L106.184 155.923L100.667 153.164L95.7637 149.486L88.1016 145.196L85.9562 143.357L99.4414 133.243L102.2 131.404L103.119 131.097L104.652 129.872L107.104 128.646L107.716 128.033L112.62 125.581L113.54 124.661V123.742Z"/>
+          </svg></div>
+          <div class="body"><h3 class="h4">Leading <span class="arr" aria-hidden="true">→</span></h3><p class="small" style="font-weight:400">I've built the first design team three times, establishing design as a strategic business partner rather than a service function.</p></div>
+        </a>
+
+        <a class="card rv" href="building.html">
+          <div class="tile"><svg viewBox="0 0 278 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="278" height="280" fill="#EB1000"/>
+            <g class="grain">
+              <path class="m m-grow" d="M177.4-33.3c0 27.9 11.1 54.7 30.8 74.5 19.8 19.7 46.6 30.8 74.5 30.8V-33.3z" fill="#FFBE00"/>
+              <rect class="m m-slide1" x="97.2" y="141" width="206" height="40.2" rx="20.1" fill="#000"/>
+              <rect class="m m-slide2" x="50.8" y="192.5" width="252.5" height="40.2" rx="20.1" fill="#000"/>
+              <rect class="m m-slide3" x="4.4" y="244.1" width="298.9" height="40.2" rx="20.1" fill="#000"/>
+            </g>
+            <path class="m m-nudge" d="M55.3 112.8c.7-.3 6-.7 9.9-1.6 3.1-.8 5.3-4.5 7.5-7 2-2.4 3.8-4.6 5.6-6.9.4-.6.8-1.2 1.3-1.7.5-.5 1.1-.8 1.8-.8 1.3 0 3.2 1.7 5.8 3.5.6.5 1.4.7 2.1.9 1.4.4 2.9.3 4.4.1 1.6-.2 2.8-1.4 4-2.4 2.6-2.1 4.6-5.5 6.7-8.8 1.8-2.8 2.8-5 3.7-5.9.4-.4 1.2-.1 1.9.2 1.3.6 2.6 1.4 4.1 1.9 1.5.4 3.1.3 4.7 0 4-.6 7-4.3 9.3-6.3 2.2-1.9 3.7-4.8 5.2-7.5l1-1.9 1.8-3.4" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg></div>
+          <div class="body"><h3 class="h4">Building <span class="arr" aria-hidden="true">→</span></h3><p class="small" style="font-weight:400">AI experiments, frameworks, and prototypes I've built to solve real friction, and the case studies that show the strategy behind the shipped work.</p></div>
+        </a>
+
+        <a class="card rv" href="teaching.html">
+          <div class="tile"><svg viewBox="0 0 278 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><clipPath id="tile-teach"><rect width="278" height="280"/></clipPath></defs>
+            <rect width="278" height="280" fill="#198F51"/>
+            <g clip-path="url(#tile-teach)">
+              <path class="m m-rise grain" d="M8.5 290.1a146.1 146.1 0 0 1 292.2 0z" fill="#FFBE00"/>
+              <path class="m m-nudge" fill="#1B1B1B" fill-rule="evenodd" d="M135.659 185.011L134.755 184.107L133.626 183.542H132.383L131.818 183.768L129.898 185.689L124.363 190.094L123.572 191.224L123.459 192.127L123.685 192.805L124.363 193.483L124.928 193.709H125.944L127.639 193.144L129.22 192.127L130.237 191.111L130.35 191.337L130.011 198.114L128.994 201.955L127.865 205.231L125.605 210.427L124.137 212.573L122.894 213.929L119.844 216.301L117.924 217.431L112.389 219.012L109.113 219.464H104.708L97.4781 218.786H94.4282L93.6375 219.351L93.2986 220.029V220.933L93.6375 221.61L94.7671 222.288L98.7207 222.401L104.369 222.966H109.452L111.485 222.74L115.665 221.836L119.28 220.707L121.991 219.125L124.928 216.866L127.074 214.607L128.994 211.557L132.044 203.988L133.513 198.566L133.965 189.529H134.191L136.111 193.144L138.596 196.307L138.709 196.985L139.274 197.776L140.516 198.34L141.307 198.453L142.437 198.001L142.889 197.324L143.002 196.194L142.663 195.516L140.629 193.257L138.935 190.998L137.015 187.157L135.659 185.011Z"/>
+              <path class="m m-spin" fill="#fff" fill-rule="evenodd" d="M213.358 -13.6428L210.611 -11.4449L209.237 -8.97232L208.962 -2.10399L215.007 8.88534L215.556 11.9074L217.204 15.2042L221.051 20.4241L220.501 20.6989L216.38 17.9515L205.116 13.0063L193.577 9.43481H189.731L187.808 10.5337L186.709 13.2811V16.8526L187.808 19.5999L196.325 30.0398L203.193 36.0839L189.731 33.3366L180.39 33.0619L172.972 34.4355L170.225 37.1829L169.126 44.8754L173.522 49.8206L181.214 52.8427L186.709 56.1395L200.72 59.711L199.622 60.2605H183.412L174.896 62.7331L167.478 67.1288L166.379 69.6014V72.6235L167.203 74.5466L170.5 77.2939L177.643 79.7665H192.204L179.291 86.3601L175.994 89.1075L172.423 95.4263V100.646L173.797 103.119L177.368 105.042L183.687 104.767L197.424 101.47L213.083 94.8769L211.985 98.7231L204.292 112.46L204.567 120.702L206.765 123.174L211.16 123.999L215.281 122.35L222.15 117.405L228.743 110.537L236.711 99.2726V112.185L235.886 117.954L236.436 129.219L240.557 137.735L246.326 140.483L249.623 139.933L252.096 135.812L255.942 105.317L260.338 126.471L265.008 138.285L271.876 146.527L276.272 148.725L281.492 148.999L283.14 148.175L285.338 145.428L286.163 138.559L279.844 113.559L278.195 104.493L281.217 108.614L288.36 115.757L297.701 127.845L301.273 131.142L310.339 136.087L315.559 136.911L320.504 136.636L321.878 134.713V130.317L318.032 116.306L315.284 111.91L312.537 104.767L308.691 98.4484L303.196 91.3053L317.482 95.1516L329.57 95.9758L339.461 94.6021L341.109 92.9537L341.384 89.3822L335.889 82.5139L326.548 75.9203L319.68 72.6235L303.745 66.5793L312.262 64.9309L317.757 62.4583L323.526 61.6341L331.219 57.7879L336.439 53.1174L338.362 48.7217L336.988 46.5238L334.79 45.4249L329.296 44.6007L308.965 45.1501L290.833 48.1722L297.701 42.6775L309.515 30.864L317.482 20.1494L319.68 13.5558V10.259L318.306 8.33588L316.383 7.51168H313.086L307.042 10.259L299.899 15.2042L294.679 17.4021L291.657 19.5999L291.108 19.3252L303.471 -5.12606L304.295 -8.42286V-11.4449L303.471 -13.9175L301.273 -15.5659L297.701 -14.7417L289.734 -6.49972L280.668 7.23694L270.777 27.2925L271.327 19.0505L272.975 11.0832V-1.27979L269.953 -15.8407L266.656 -19.9617L263.909 -21.3353L261.162 -21.0606L259.239 -19.4122L256.766 -14.7417L253.744 -4.02712L250.447 21.7978L245.777 12.7316L224.897 -10.6207L219.402 -13.6428L216.38 -14.1923L213.358 -13.6428Z"/>
+            </g>
+          </svg></div>
+          <div class="body"><h3 class="h4">Teaching <span class="arr" aria-hidden="true">→</span></h3><p class="small" style="font-weight:400">Developing the next generation of design and innovation leaders at ArtCenter and beyond.</p></div>
+        </a>
+
+        <a class="card rv" href="thinking.html">
+          <div class="tile"><svg viewBox="0 0 278 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><clipPath id="tile-think"><rect width="278" height="280"/></clipPath></defs>
+            <rect width="278" height="280" fill="#000"/>
+            <g clip-path="url(#tile-think)" class="grain">
+              <path class="m m-turn" d="M151.6-10.6 269.6 107.3 151.6 225.2 33.7 107.3z" fill="#EB1000"/>
+              <path class="m m-rise" d="M74.8 321.3a67.4 67.4 0 0 1 0-134.8z" fill="#fff"/>
+              <rect class="m m-slide2" x="132.2" y="116.7" width="117.9" height="50.5" rx="25.3" fill="#EE93AC"/>
+              <rect class="m m-slide1" x="202.2" y="194.8" width="101.1" height="42.1" rx="21.1" fill="#FFBE00"/>
+            </g>
+            <path class="m m-spin" fill="#fff" fill-rule="evenodd" d="M76.0713 46.1228L75.7528 47.7154L76.0713 48.3524L77.0269 48.671L77.6639 49.308H78.301L84.9899 52.8117H85.627L90.7233 55.3599H91.3603L92.9529 56.3155H93.59L95.1826 57.271H95.8196L97.4122 58.2266H98.0493L99.6419 59.1822L102.509 60.1377L104.738 61.4118H105.375L108.879 63.3229L93.2715 75.1082L86.901 80.8416H86.5825L83.0788 84.3454H82.7603L80.8491 86.2565L79.5751 86.8935L79.2565 87.5306L79.5751 89.1232L81.1677 89.4417L82.4417 88.8047L94.8641 77.6564L100.916 73.1971L102.19 71.923L109.516 66.8267L109.835 67.1452V71.286L110.153 71.6045V97.4047L111.109 98.0418H112.064L113.02 97.0862V68.4193L112.701 68.1008V66.1896L113.02 65.8711L114.294 66.1896L114.931 66.8267L116.524 67.4637L117.161 68.1008L118.753 68.7378L123.212 71.6045L124.805 72.2415L125.442 72.8786L127.035 73.5156L127.672 74.1527L129.264 74.7897L129.901 75.4268L131.494 76.0638L132.131 76.7008L133.724 77.3379L135.953 78.9305L142.642 82.4342L145.509 84.3454L147.739 85.3009L148.376 85.938L151.561 87.5306L153.153 87.212L153.472 86.575L153.153 84.9824L145.827 81.1601L145.19 80.5231L143.598 79.8861L142.961 79.249L132.45 73.5156L130.22 71.923L128.627 71.286L127.99 70.6489L126.398 70.0119L125.761 69.3749L124.168 68.7378L123.531 68.1008L121.938 67.4637L121.301 66.8267L119.709 66.1896L114.612 63.0044L127.672 53.4488L140.094 45.1672L145.509 41.0265L148.694 37.8412H149.013L153.153 33.382V31.7893L152.516 31.1523H151.242L144.235 38.1598L140.731 41.0265L122.894 53.1303L113.02 60.4563L112.701 60.1377V44.2117L112.383 43.8932V36.8857L112.064 36.5672V21.5967L111.109 20.9596H110.153L109.516 21.2781L109.198 21.9152V37.5227L109.516 37.8412V46.1228L109.835 46.4413V60.1377L109.516 60.4563L104.738 57.9081H104.101L102.509 56.9525H101.872L100.279 55.997H99.6419L95.8196 54.0858H95.1826L93.59 53.1303L90.7233 52.1747L88.4937 50.9006H87.8566L77.6639 45.8043L76.0713 46.1228Z"/>
+          </svg></div>
+          <div class="body"><h3 class="h4">Thinking <span class="arr" aria-hidden="true">→</span></h3><p class="small" style="font-weight:400">Where I think out loud about design leadership, creative judgment, and what an AI-enabled future asks of how we make things.</p></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WORK -->
+  <section class="section work">
+    <div class="orb" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="rv">
+        <p class="kicker" style="color:var(--yellow)">The work</p>
+        <h2 class="display">Strategy you can actually see shipped.</h2>
+        <p class="lede">First design teams built from zero. Frameworks that make doing business better. Products that delight users and stakeholders alike. The case studies show how, not just that.</p>
+      </div>
+      <a class="btn btn-red rv" href="case-studies.html">See the case studies <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <section class="sub">
+    <div class="half" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="col rv">
+        <h2 class="h2">Occasional insights. No spam, just the good stuff.</h2>
+        <p class="lede">On AI-enabled design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
+        <div><a class="btn btn-dark" href="https://shellerville.substack.com/" target="_blank" rel="noopener">Subscribe on Substack <span class="arr" aria-hidden="true">→</span></a></div>
+        <svg class="squiggle" viewBox="0 0 1536 260" aria-hidden="true"><path filter="url(#thin-ink)" fill="#000" fill-rule="evenodd" d="M0 187L28 212L56 221L180 237L225 234L269 222L305 245L364 252L420 247L476 234L528 214L584 182L616 220L675 247L719 258L784 257L858 243L921 215L961 230L1064 227L1157 204L1224 169L1266 182L1343 181L1476 110L1531 67L1534 48L1527 36L1509 35L1501 53L1439 97L1330 152L1250 147L1265 121L1261 95L1238 78L1209 76L1186 92L1178 110L1179 128L1193 152L1142 176L1042 199L978 200L947 193L961 160L960 139L942 120L911 118L884 133L873 154L875 172L892 195L810 222L722 227L642 199L614 171L612 162L661 111L677 62L674 33L665 17L646 3L617 0L590 14L573 41L571 107L578 148L528 179L467 204L410 217L359 221L306 212L337 186L347 166L346 147L337 130L306 109L284 112L248 137L240 168L250 195L199 206L131 202L51 188L19 168L7 170L0 187ZM927 148L930 155L919 175L904 158L927 148ZM302 140L316 161L282 185L271 160L302 140ZM1218 106L1234 112L1220 131L1209 118L1218 106ZM631 31L645 45L644 73L629 103L606 126L603 49L617 33L631 31Z"/></svg>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <span><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a> or connect on <a href="https://www.linkedin.com/in/christine-sheller/" target="_blank" rel="noopener">LinkedIn</a>.</span>
+      <small>© 2026 Christine Sheller. Made in Los Angeles.</small>
+    </div>
+    <span class="wordmark" aria-hidden="true">shellerville<i></i></span>
   </div>
 </footer>
 
-<script>
-(function(){
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  },{threshold:0.12});
-  document.querySelectorAll('.rev').forEach(function(el){
-    if(reduced){ el.classList.add('in'); } else { io.observe(el); }
-  });
-
-})();
-</script>
 </body>
 </html>
