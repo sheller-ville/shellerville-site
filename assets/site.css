@@ -325,3 +325,9 @@ a{color:inherit}
   .hero-art{height:min(70%,712px)}
   .hero-art.full{height:78%;top:auto}
 }
+/* stance copy sits on a white card so the dot pattern never runs behind type */
+.stance .box{background:var(--white);border-radius:var(--r-card);padding:52px 56px}
+@media (max-width:640px){.stance .box{padding:32px 24px}}
+.stance .wrap{gap:40px;align-items:stretch}
+.stance .box{padding:48px;display:flex;flex-direction:column;justify-content:center}
+@media (max-width:640px){.stance .box{padding:32px 24px}}
