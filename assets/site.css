@@ -333,3 +333,6 @@ a{color:inherit}
 @media (max-width:640px){.stance .box{padding:32px 24px}}
 .wordmark{color:rgba(255,255,255,.16)}
 .wordmark{color:#3a3a3a}
+/* square corners everywhere except buttons (circles stay circles) */
+:root{--r-sm:0;--r-card:0}
+.exp .ph,.portrait figcaption,:focus-visible{border-radius:0}
