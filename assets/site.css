@@ -314,3 +314,14 @@ a{color:inherit}
 .sec-head{max-width:1000px}
 @media (max-width:900px){.hero-art.full svg{overflow:hidden}}
 @media (max-width:800px){.talk{grid-template-columns:1fr;gap:14px}.talk .ph{width:140px}.talk .yr{grid-column:1}}
+/* keep hero copy clear of the art at every desktop width */
+.nw{white-space:nowrap}
+@media (min-width:901px){
+  .hero .copy{max-width:min(700px,calc(56vw - var(--gutter)))}
+  .hero .display{font-size:clamp(40px,5.2vw,80px)}
+  .hero .lede{font-size:clamp(19px,1.67vw,24px)}
+}
+@media (min-width:901px) and (max-width:1150px){
+  .hero-art{height:min(70%,712px)}
+  .hero-art.full{height:78%;top:auto}
+}
