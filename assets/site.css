@@ -405,3 +405,6 @@ a{color:inherit}
 .nav.open .menu-btn .l3{transform:translateY(-5.2px) rotate(-47deg)}
 /* no widows: browsers that support it rebalance paragraph endings; motion.js ties the last two words everywhere else */
 p,dd,li,.h3,.h4{text-wrap:pretty}
+/* wordmark sizes to the column so the full word and dot always fit; lighter bottom crop on phones */
+.wordmark{font-size:min(236px,calc((100vw - 2 * var(--gutter)) / 4.9))}
+@media (max-width:640px){.wordmark{margin-bottom:-.02em;margin-top:28px}}

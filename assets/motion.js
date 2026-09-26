@@ -90,6 +90,14 @@
       entries.forEach(function (e) { if (e.isIntersecting) { arrive(e.target); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -8% 0px' });
     items.forEach(function (el) { if (el.classList.contains('pending')) io.observe(el); });
+    // anything sitting in the last sliver of the page (the footer wordmark) can never cross the reveal line, so reveal it at the bottom
+    var atEnd = function () {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        items.forEach(function (el) { if (el.classList.contains('pending')) { arrive(el); io.unobserve(el); } });
+        window.removeEventListener('scroll', atEnd);
+      }
+    };
+    window.addEventListener('scroll', atEnd, { passive: true }); atEnd();
   } else items.forEach(arrive);
 
   // hero depth: layers with data-depth drift toward the pointer
