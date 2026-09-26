@@ -18,7 +18,7 @@
   }
 
   // no widows: tie the last two words of every text block together (runs before the headline split)
-  Array.prototype.forEach.call(document.querySelectorAll('main p, main h1, main h2, main h3, main dd, .foot .row span'), function (el) {
+  Array.prototype.forEach.call(document.querySelectorAll('main p, main h1, main h2, main h3, main dd, .foot .row span, .foot small'), function (el) {
     var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), t, last = null;
     while ((t = w.nextNode())) if (/\S/.test(t.textContent)) last = t;
     if (!last) return;
