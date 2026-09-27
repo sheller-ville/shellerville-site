@@ -492,9 +492,11 @@ p,dd,li,.h3,.h4{text-wrap:pretty}
 .rungs button[aria-pressed="true"] .meta{color:var(--meta)}
 .rung-detail{background:var(--white);border:1px solid var(--hair);padding:32px 36px}
 .rung-detail .h3{color:var(--black);margin:6px 0 14px}
-.rung-detail ul{list-style:none;margin:0;padding:0}
-.rung-detail li{padding:12px 0;border-top:1px solid var(--hair);font-size:16px}
-.rung-detail li b{color:var(--black)}
+.rung-detail dl{margin:0}
+.rung-detail dl div{display:grid;grid-template-columns:140px minmax(0,1fr);gap:24px;padding:14px 0;border-top:1px solid var(--hair)}
+.rung-detail dt{font:600 13px/1.6 var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--legal)}
+.rung-detail dd{margin:0;font-size:16px;line-height:1.5;color:var(--ink)}
+@media (max-width:640px){.rung-detail dl div{grid-template-columns:minmax(0,1fr);gap:4px}}
 @media (max-width:900px){.ladder{grid-template-columns:1fr}}
 
 /* toolkit */

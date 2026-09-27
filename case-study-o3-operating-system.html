@@ -78,7 +78,7 @@
       </div>
       <div class="stats rv">
         <div><b>76<small>%</small> → 88.2<small>%</small></b><p>Client satisfaction, after we rebuilt how the team worked across disciplines.</p></div>
-        <div><b>13</b><p>Roles across research, design, and writing, on one ladder with two ways up.</p></div>
+        <div><b>40+</b><p>People across the company. As CXO, I co-ran the business with oversight of every discipline.</p></div>
         <div><b>50+</b><p>Practice skills anyone could self-assess, from "never done this" to "I could teach it."</p></div>
       </div>
     </div>
@@ -116,7 +116,7 @@
           <p class="meta">04 / 04 · My role</p>
           <div>
             <h3 class="h3">Director, SVP, then CXO.</h3>
-            <p>I joined as director of the Experience Team, moved up to SVP, and finished as Chief Experience Officer, on the senior leadership team the whole way. I authored the frameworks, wrote the charter with my team, ran everything on our own work first, then took it firm-wide through my leadership lane.</p>
+            <p>I joined as director of the Experience Team, moved up to SVP, and finished as Chief Experience Officer, co-running the company with oversight of every discipline. I authored the frameworks, wrote the charter with my team, ran everything on our own work first, then took it firm-wide through my leadership lane.</p>
           </div>
         </article>
       </div>
@@ -271,7 +271,7 @@
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   function show(r){
     var rows=[['Scope',r.resp],['Consulting',r.consulting],['AI',r.ai],['Supervision',r.supervision],['Leadership',r.leadership]].filter(function(x){return x[1]});
-    detail.innerHTML='<p class="meta">'+esc(r.years)+' experience</p><h3 class="h3">'+esc(r.title)+'</h3><ul>'+rows.map(function(x){return '<li><b>'+x[0]+':</b> '+esc(x[1])+'</li>'}).join('')+'</ul>';
+    detail.innerHTML='<p class="meta">'+esc(r.years)+' experience</p><h3 class="h3">'+esc(r.title)+'</h3><dl>'+rows.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+esc(x[1])+'</dd></div>'}).join('')+'</dl>';
   }
   function load(track){
     var list=ROLES.filter(function(r){return r.track===track});
