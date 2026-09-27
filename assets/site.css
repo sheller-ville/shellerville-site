@@ -616,16 +616,9 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 
 .nwh{white-space:nowrap}
 
-/* color in the numbers: stats and story chapters cycle the brand palette */
+/* color in the numbers: stats cycle the brand palette */
 .stats > div:nth-child(4n+1) b{color:var(--red)}
 .stats > div:nth-child(4n+2) b{color:var(--teal-deep)}
 .stats > div:nth-child(4n+3) b{color:var(--green)}
 .stats > div:nth-child(4n+4) b{color:var(--pink)}
-.ch-n b{display:block;font:800 clamp(64px,7vw,104px)/.9 var(--font);letter-spacing:-.04em;margin-bottom:12px}
-.chapter:nth-child(4n+1) .ch-n b{color:var(--red)}
-.chapter:nth-child(4n+2) .ch-n b{color:var(--teal-deep)}
-.chapter:nth-child(4n+3) .ch-n b{color:var(--green)}
-.chapter:nth-child(4n+4) .ch-n b{color:var(--pink)}
-.ch-n .meta{margin:0}
-@media (max-width:800px){.ch-n{display:flex;align-items:baseline;gap:14px}.ch-n b{margin:0;font-size:56px}}
 .rung-detail dt{color:var(--teal-deep)}
