@@ -637,13 +637,29 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 .section.sun .os .h4{color:var(--black)}
 .section.sun .os article:last-child{background:var(--black);color:#d9d9d6}
 .section.sun .os article:last-child .h4{color:var(--white)}
-.kit.dots li{grid-template-columns:28px minmax(0,1fr)}
-.kit.dots li::before{content:"";width:14px;height:14px;margin-top:5px;background:var(--red)}
-.kit.dots li:nth-child(5n+2)::before{background:var(--teal-deep)}
-.kit.dots li:nth-child(5n+3)::before{background:var(--yellow)}
-.kit.dots li:nth-child(5n+4)::before{background:var(--green)}
-.kit.dots li:nth-child(5n+5)::before{background:var(--pink)}
+.kit.marks li{grid-template-columns:28px minmax(0,1fr)}
+.kit.marks li::before{content:"";width:14px;height:14px;margin-top:5px;background:var(--red)}
+.kit.marks li:nth-child(5n+2)::before{background:var(--teal-deep)}
+.kit.marks li:nth-child(5n+3)::before{background:var(--yellow)}
+.kit.marks li:nth-child(5n+4)::before{background:var(--green)}
+.kit.marks li:nth-child(5n+5)::before{background:var(--pink)}
 .results li:nth-child(4n+2)::before{background:var(--pink)}
 .results li:nth-child(4n+3)::before{background:var(--teal)}
 .results li:nth-child(4n+4)::before{background:var(--green)}
 .os.solid article p,.os.solid article li{color:inherit}
+
+/* story labels as color tags */
+.chapter > .meta{align-self:start;justify-self:start;padding:8px 12px;color:var(--white);background:var(--red-ink);letter-spacing:.14em}
+.chapter:nth-child(4n+2) > .meta{background:var(--teal-deep)}
+.chapter:nth-child(4n+3) > .meta{background:var(--green);color:var(--black)}
+.chapter:nth-child(4n+4) > .meta{background:var(--yellow);color:var(--black)}
+/* the scale: every level brings its own color */
+.scale button:nth-child(1){--lv:var(--yellow);--on:var(--black)}
+.scale button:nth-child(2){--lv:var(--pink);--on:var(--black)}
+.scale button:nth-child(3){--lv:var(--red);--on:var(--white)}
+.scale button:nth-child(4){--lv:var(--teal);--on:var(--white)}
+.scale button:nth-child(5){--lv:var(--green);--on:var(--black)}
+.scale button{border-color:var(--lv)}
+.scale button:hover{border-color:var(--lv)}
+.scale button[aria-pressed="true"]{background:var(--lv);border-color:var(--lv);color:var(--on)}
+.kit li{align-content:start}
