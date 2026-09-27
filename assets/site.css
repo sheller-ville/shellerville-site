@@ -595,3 +595,16 @@ p,dd,li,.h3,.h4{text-wrap:pretty}
 .cs-lead-img{padding-top:0;padding-bottom:0}
 @media (max-width:640px){.cs-head{padding:36px 0 32px}}
 .cs-head + .section:not(.cs-lead-img){padding-top:72px}
+/* landing receipt: feeds slowly out of the printer slot, then gets checked */
+.ready .a-print{animation:shPrint 2.2s steps(14,end) both}
+.h-cases .d6{animation-delay:2.4s!important}
+/* partner chips in the brand palette */
+.chips span{border:0;transition:transform var(--dur-base) var(--ease-pop)}
+.chips span:nth-child(6n+1){background:var(--yellow);color:var(--black)}
+.chips span:nth-child(6n+2){background:var(--pink);color:var(--black)}
+.chips span:nth-child(6n+3){background:var(--red);color:var(--white)}
+.chips span:nth-child(6n+4){background:var(--teal-deep);color:var(--white)}
+.chips span:nth-child(6n+5){background:var(--paper);color:var(--black)}
+.chips span:nth-child(6n+6){background:var(--green);color:var(--black)}
+.chips span:nth-child(odd):hover{transform:rotate(-3deg) translateY(-2px)}
+.chips span:nth-child(even):hover{transform:rotate(3deg) translateY(-2px)}
