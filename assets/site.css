@@ -439,7 +439,7 @@ p,dd,li,.h3,.h4{text-wrap:pretty}
 
 /* headline numbers */
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
-.stats > div{border-top:3px solid var(--black);padding-top:20px}
+.stats > div{border-top:1px solid var(--hair);padding-top:28px}
 .stats b{display:block;font:800 clamp(48px,6vw,88px)/1 var(--font);letter-spacing:-.04em;color:var(--black)}
 .stats b small{font-size:.5em;letter-spacing:0}
 .stats p{margin:12px 0 0;max-width:22em}
@@ -483,13 +483,13 @@ p,dd,li,.h3,.h4{text-wrap:pretty}
 /* career ladder */
 .tracks{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
 .tracks button{font:700 15px/1 var(--font);padding:12px 20px;border-radius:var(--r-pill);border:1.5px solid var(--black);background:none;color:var(--black);cursor:pointer}
-.tracks button[aria-selected="true"]{background:var(--black);color:var(--white)}
+.tracks button[aria-selected="true"]{background:var(--teal-deep);border-color:var(--teal-deep);color:var(--white)}
 .ladder{display:grid;grid-template-columns:360px minmax(0,1fr);gap:28px;align-items:start}
 .rungs{display:flex;flex-direction:column-reverse;gap:8px}
 .rungs button{display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;background:var(--white);border:1px solid var(--hair);padding:16px 18px;font:700 16px/1.3 var(--font);color:var(--black);cursor:pointer;transition:background var(--dur-fast),color var(--dur-fast)}
 .rungs button .meta{font-size:12px}
-.rungs button[aria-pressed="true"]{background:var(--black);color:var(--white)}
-.rungs button[aria-pressed="true"] .meta{color:var(--meta)}
+.rungs button[aria-pressed="true"]{background:var(--teal-deep);border-color:var(--teal-deep);color:var(--white)}
+.rungs button[aria-pressed="true"] .meta{color:var(--teal-tint,#bfe6ee)}
 .rung-detail{background:var(--white);border:1px solid var(--hair);padding:32px 36px}
 .rung-detail .h3{color:var(--black);margin:6px 0 14px}
 .rung-detail dl{margin:0}
@@ -592,7 +592,7 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 .cs-head .back{margin-bottom:18px;font-size:14px;color:var(--legal)}
 .cs-head .back:hover{color:var(--black)}
 .cs-head .h2{color:var(--black);max-width:17em}
-.cs-head .accent{color:var(--red-ink)}
+.cs-head .accent{color:var(--red)}
 .cs-head .lede{color:var(--ink);max-width:36em}
 .cs-head .cs-meta{max-width:900px;margin-top:14px;border-top:1px solid var(--hair);color:var(--black)}
 .cs-head .cs-meta dt{color:var(--legal)}
@@ -615,3 +615,17 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 .chips span:nth-child(even):hover{transform:rotate(3deg) translateY(-2px)}
 
 .nwh{white-space:nowrap}
+
+/* color in the numbers: stats and story chapters cycle the brand palette */
+.stats > div:nth-child(4n+1) b{color:var(--red)}
+.stats > div:nth-child(4n+2) b{color:var(--teal-deep)}
+.stats > div:nth-child(4n+3) b{color:var(--green)}
+.stats > div:nth-child(4n+4) b{color:var(--pink)}
+.ch-n b{display:block;font:800 clamp(64px,7vw,104px)/.9 var(--font);letter-spacing:-.04em;margin-bottom:12px}
+.chapter:nth-child(4n+1) .ch-n b{color:var(--red)}
+.chapter:nth-child(4n+2) .ch-n b{color:var(--teal-deep)}
+.chapter:nth-child(4n+3) .ch-n b{color:var(--green)}
+.chapter:nth-child(4n+4) .ch-n b{color:var(--pink)}
+.ch-n .meta{margin:0}
+@media (max-width:800px){.ch-n{display:flex;align-items:baseline;gap:14px}.ch-n b{margin:0;font-size:56px}}
+.rung-detail dt{color:var(--teal-deep)}
