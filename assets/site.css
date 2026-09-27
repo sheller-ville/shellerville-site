@@ -522,3 +522,61 @@ p,dd,li,.h3,.h4{text-wrap:pretty}
 .stats{grid-template-columns:1.5fr 1fr 1fr}
 .stats b{white-space:nowrap}
 @media (max-width:800px){.stats{grid-template-columns:1fr}}
+
+/* ---------- case study template ---------- */
+.hero.hc-red{background:var(--red)} .hc-red .accent{color:var(--black)}
+.hero.hc-pink{background:var(--pink);color:var(--black)} .hc-pink .accent{color:#055a69}
+.hero.hc-yellow{background:var(--yellow);color:var(--black)} .hc-yellow .accent{color:var(--red-ink)} .hc-yellow .lede{color:#4a3a00}
+.hero.hc-green{background:var(--green);color:var(--black)} .hc-green .accent{color:var(--white)}
+.hero.hc-black{background:var(--black)} .hc-black .lede{color:#d9d9d6}
+.hero.hc-teal{background:var(--teal-deep)} .hc-teal .accent{color:var(--yellow)}
+.cs-meta dt{color:inherit;opacity:1}
+.cs-meta dd{color:inherit}
+.hc-pink .cs-meta,.hc-yellow .cs-meta,.hc-green .cs-meta{border-top-color:rgba(0,0,0,.3)}
+@keyframes shPrint{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.ready .a-print{animation:shPrint 1.6s cubic-bezier(.65,0,.35,1) both}
+.cs-figure{margin:0}
+.cs-figure img,.cs-figure video{width:100%;height:auto;display:block;background:var(--hair)}
+.gallery{display:grid;gap:24px;grid-template-columns:repeat(var(--n,2),minmax(0,1fr))}
+.gallery figure{margin:0;display:flex;flex-direction:column;gap:12px}
+.gallery img,.gallery video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3}
+.gallery.one img,.gallery.one video{aspect-ratio:auto}
+@media (max-width:800px){.gallery{grid-template-columns:1fr}}
+.stats.auto{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:40px 32px}
+.stats.auto b{white-space:normal;font-size:clamp(40px,4.4vw,72px)}
+.stats .meta{margin:0 0 10px}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px 48px;margin-top:64px}
+.groups .h4{color:var(--black);margin-bottom:12px}
+.groups ul{margin:0;padding-left:20px}
+.groups li{margin-bottom:8px}
+.groups p{margin:0 0 10px}
+.org{display:grid;grid-template-columns:120px minmax(0,1fr);gap:32px;padding:48px 0;border-top:1px solid var(--hair)}
+.org .logo{width:120px;height:120px;background:var(--white);border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;padding:18px}
+.org .logo img{max-width:100%;max-height:100%;object-fit:contain}
+.org .h3{color:var(--black)}
+.org .intro{font-size:19px;margin:10px 0 28px;max-width:44em}
+.org-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.org-grid .meta{margin:0 0 10px;color:var(--red-ink)}
+.org-grid p{margin:0;font-size:15px}
+.org-grid ol,.org-grid ul{margin:0;padding-left:18px;font-size:15px}
+.org-grid li{margin-bottom:8px}
+.org-grid li b{color:var(--black)}
+@media (max-width:1100px){.org-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.org{grid-template-columns:1fr}.org-grid{grid-template-columns:1fr}.org .logo{width:88px;height:88px}}
+.pull.solo{margin-top:0}
+/* landing: featured first case */
+.case-grid a.feature{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:40px;align-items:center}
+.case-grid a.feature .ph{margin:0;aspect-ratio:16/10}
+.case-grid a.feature .txt{display:flex;flex-direction:column;gap:12px}
+.case-grid a.feature .h3{font-size:clamp(28px,3vw,40px);line-height:1.1}
+.case-grid a.feature p{font-size:17px}
+@media (max-width:800px){.case-grid a.feature{grid-template-columns:1fr;gap:16px}}
+.os{grid-template-columns:repeat(var(--c,4),minmax(0,1fr))}
+@media (max-width:1100px){.os{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.os{grid-template-columns:1fr}}
+.pull.long p{font-size:clamp(22px,2.3vw,34px);line-height:1.3;letter-spacing:-.02em}
+.nw2{white-space:nowrap}
+@media (max-width:640px){.nw2{white-space:normal}.hero .display{font-size:min(44px,10.5vw)}}
+@media (max-width:600px){.os{grid-template-columns:minmax(0,1fr)}}
+.os article,.org-grid > div,.groups > div{min-width:0;overflow-wrap:break-word}
+@media (max-width:400px){.stance .nw{white-space:normal}.stance .box{padding:28px 20px}}

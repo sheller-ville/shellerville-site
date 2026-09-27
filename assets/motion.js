@@ -23,7 +23,7 @@
     while ((t = w.nextNode())) if (/\S/.test(t.textContent)) last = t;
     if (!last) return;
     var s = last.textContent.replace(/\s+$/, ''), i = s.lastIndexOf(' ');
-    if (i > 0 && s.length - i < 16) last.textContent = s.slice(0, i) + '\u00a0' + s.slice(i + 1) + last.textContent.slice(s.length);
+    if (i > 0 && s.length - i < 24) last.textContent = s.slice(0, i) + '\u00a0' + s.slice(i + 1) + last.textContent.slice(s.length);
   });
 
   var root = document.documentElement;
