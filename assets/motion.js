@@ -17,14 +17,53 @@
     Array.prototype.forEach.call(navEl.querySelectorAll('nav a'), function (a) { a.addEventListener('click', function () { setOpen(false); }); });
   }
 
+  // hyphenated words stay whole too: long-term never splits into long- / term
+  Array.prototype.forEach.call(document.querySelectorAll('main p, main h1, main h2, main h3, main h4, main li, main dd, main dt, main .h2, main .h3, main .h4, main a span, main .talks-mini span'), function (el) {
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), t, list = [];
+    while ((t = w.nextNode())) if (/\S-\S/.test(t.textContent) && !t.parentElement.closest('.nw,.nw2,.nwh')) list.push(t);
+    list.forEach(function (t) {
+      var parts = t.textContent.split(/([^\s ]*[^\s -]-[^\s -][^\s ]*)/), f = document.createDocumentFragment();
+      parts.forEach(function (p, k) { if (!p) return; if (k % 2) { var s = document.createElement('span'); s.className = 'nwh'; s.textContent = p; f.appendChild(s); } else f.appendChild(document.createTextNode(p)); });
+      t.parentNode.replaceChild(f, t);
+    });
+  });
+
   // no widows: tie the last two words of every text block together (runs before the headline split)
+  var tied = [];
   Array.prototype.forEach.call(document.querySelectorAll('main p, main h1, main h2, main h3, main dd, .foot .row span, .foot small'), function (el) {
     var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), t, last = null;
     while ((t = w.nextNode())) if (/\S/.test(t.textContent)) last = t;
     if (!last) return;
     var s = last.textContent.replace(/\s+$/, ''), i = s.lastIndexOf(' ');
-    if (i > 0 && s.length - i < 24) last.textContent = s.slice(0, i) + '\u00a0' + s.slice(i + 1) + last.textContent.slice(s.length);
+    if (i === 0 && s.length < 24 && last.previousSibling) { tied.push({ el: el, node: last, i: 0 }); last.textContent = '\u00a0' + last.textContent.slice(1); return; }
+    if (i > 0 && s.length - i < 24) { tied.push({ el: el, node: last, i: i }); last.textContent = s.slice(0, i) + '\u00a0' + s.slice(i + 1) + last.textContent.slice(s.length); }
   });
+
+  // never break a word: if a block's longest word is wider than its column,
+  // first untie the widow pair, then step the type down until every word fits
+  var fitSel = 'main h1, main h2, main h3, main h4, main .h2, main .h3, main .h4, main p, main li, main dd, main dt, main a span, main .talks-mini span';
+  function overflows(el) { return el.scrollWidth > el.clientWidth + 1; }
+  function fitWords() {
+    tied.forEach(function (x) { var s = x.node.textContent; if (s.charAt(x.i) === ' ') x.node.textContent = s.slice(0, x.i) + '\u00a0' + s.slice(x.i + 1); });
+    Array.prototype.forEach.call(document.querySelectorAll(fitSel), function (el) { el.style.fontSize = ''; });
+    tied.forEach(function (x) { x.el.style.fontSize = ''; });
+    function shrink(el, floor) { var start = parseFloat(getComputedStyle(el).fontSize), size = start; while (overflows(el) && size > floor) { size -= 1; el.style.fontSize = size + 'px'; } }
+    tied.forEach(function (x) {
+      if (!x.el.clientWidth || !overflows(x.el)) return;
+      var base = parseFloat(getComputedStyle(x.el).fontSize);
+      shrink(x.el, base * 0.85); // a little smaller beats a lonely last word
+      if (!overflows(x.el)) return;
+      x.el.style.fontSize = '';
+      var s = x.node.textContent; if (s.charAt(x.i) === '\u00a0') x.node.textContent = s.slice(0, x.i) + ' ' + s.slice(x.i + 1);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(fitSel), function (el) {
+      if (!el.clientWidth || !overflows(el) || el.style.fontSize) return;
+      shrink(el, parseFloat(getComputedStyle(el).fontSize) * 0.6);
+    });
+  }
+  fitWords();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitWords);
+  var fitT; window.addEventListener('resize', function () { clearTimeout(fitT); fitT = setTimeout(fitWords, 120); });
 
   var root = document.documentElement;
   if (reduce) { root.classList.add('ready'); return; }

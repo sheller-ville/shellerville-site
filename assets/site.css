@@ -473,10 +473,10 @@ p,dd,li,.h3,.h4{text-wrap:pretty}
 
 /* self-assessment scale */
 .scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-.scale button{display:flex;flex-direction:column;gap:6px;text-align:left;background:none;border:1.5px solid rgba(255,255,255,.35);color:var(--white);padding:18px;cursor:pointer;font:inherit;transition:background var(--dur-fast),color var(--dur-fast),border-color var(--dur-fast),transform var(--dur-fast) var(--ease-out)}
+.scale button{min-width:0;container-type:inline-size;display:flex;flex-direction:column;gap:6px;text-align:left;background:none;border:1.5px solid rgba(255,255,255,.35);color:var(--white);padding:18px;cursor:pointer;font:inherit;transition:background var(--dur-fast),color var(--dur-fast),border-color var(--dur-fast),transform var(--dur-fast) var(--ease-out)}
 .scale button:hover{border-color:var(--white);transform:translateY(-3px)}
 .scale button span{font:600 12px/1 var(--cond);letter-spacing:.16em;text-transform:uppercase;opacity:.75}
-.scale button b{font:800 20px/1.15 var(--font);letter-spacing:-.04em}
+.scale button b{font:800 clamp(15px,16cqi,20px)/1.15 var(--font);letter-spacing:-.04em}
 .scale button[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow);color:var(--black)}
 .scale-say{margin:32px 0 0;max-width:30em;font:700 clamp(22px,2.4vw,32px)/1.3 var(--font);letter-spacing:-.03em;color:var(--white)}
 @media (max-width:800px){.scale{grid-template-columns:1fr 1fr}.scale button:last-child{grid-column:span 2}}
@@ -578,7 +578,10 @@ p,dd,li,.h3,.h4{text-wrap:pretty}
 .nw2{white-space:nowrap}
 @media (max-width:640px){.nw2{white-space:normal}.hero .display{font-size:min(44px,10.5vw)}}
 @media (max-width:600px){.os{grid-template-columns:minmax(0,1fr)}}
-.os article,.org-grid > div,.groups > div{min-width:0;overflow-wrap:break-word}
+.os article,.org-grid > div,.groups > div{min-width:0;container-type:inline-size}
+/* words never break mid-word. Card titles size to their column; motion.js steps down anything still too wide */
+main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:normal;word-break:normal;hyphens:manual}
+.os .h4,.org-grid .h4,.groups .h4{font-size:clamp(18px,11.5cqi,26px)}
 @media (max-width:400px){.stance .nw{white-space:normal}.stance .box{padding:28px 20px}}
 
 /* case study detail pages: second-tier header, no hero art */
@@ -608,3 +611,5 @@ p,dd,li,.h3,.h4{text-wrap:pretty}
 .chips span:nth-child(6n+6){background:var(--green);color:var(--black)}
 .chips span:nth-child(odd):hover{transform:rotate(-3deg) translateY(-2px)}
 .chips span:nth-child(even):hover{transform:rotate(3deg) translateY(-2px)}
+
+.nwh{white-space:nowrap}
