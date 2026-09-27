@@ -69,7 +69,7 @@
   root.classList.add('ready');
 
   // cascade: items that share a grid come in one after another
-  ['.cards', '.proof', '.articles', '.trio', '.exps'].forEach(function (sel) {
+  ['.cards', '.proof', '.articles', '.trio', '.exps', '.case-grid', '.os', '.stats'].forEach(function (sel) {
     Array.prototype.forEach.call(document.querySelectorAll(sel), function (grid) {
       Array.prototype.forEach.call(grid.children, function (el, i) { el.style.transitionDelay = ((i % 3) * 0.09) + 's'; });
     });
