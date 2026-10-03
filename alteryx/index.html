@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>People, strategy, operational rigor / Christine Sheller</title>
+<meta name="description" content="Prepared for Elizabeth Benker at Alteryx.">
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  color-scheme:dark;
+  --red:#eb1000; --yellow:#ffbe00; --teal:#2fb4ce; --teal-deep:#0887a0;
+  --green:#198f51; --pink:#ee93ac; --blue:#1971e9;
+  --ink:#0f0f0f; --card:#181817; --panel:#222220;
+  --paper:#fafaf8; --body:#a9a9a4; --meta:#8f8f8a; --dim:#787873;
+  --rule:#2e2e2b; --hair:#242422;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --cond:'Archivo Narrow','Arial Narrow','Roboto Condensed',sans-serif;
+  --col:1116px;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-pop:cubic-bezier(.34,1.56,.64,1);
+  --dur-fast:180ms; --dur-base:420ms; --dur-slow:900ms; --stagger:90ms;
+  --ind:96px; --gap:43px;
+}
+*{box-sizing:border-box}
+html,body{background:var(--ink);overflow-x:clip}
+body{
+  margin:0; color:var(--body);
+  font:400 17px/1.65 var(--font);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
+::selection{background:var(--red);color:#fff}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-offset:4px;border-radius:2px}
+img{max-width:100%;display:block}
+
+.inner{max-width:var(--col);margin:0 auto;padding:0 28px}
+.eyebrow{font:600 15px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;display:block}
+
+/* ---------- motion ---------- */
+.rv{transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out)}
+.rv.pending{opacity:0;transform:translateY(32px)}
+@keyframes wordUp{from{transform:translateY(105%)}to{transform:none}}
+@keyframes shPop{from{transform:scale(0)}to{transform:none}}
+@keyframes shSwing{from{opacity:0;transform:rotate(-60deg) scale(.9)}to{opacity:1;transform:none}}
+@keyframes shSlideIn{from{opacity:0;transform:translateX(35%)}to{opacity:1;transform:none}}
+@keyframes shDraw{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes bob{0%,100%{transform:translate(0,0)}50%{transform:translate(-5px,7px)}}
+
+h1.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+h1.split .w>span{display:inline-block;animation:wordUp .8s var(--ease-out) both}
+html:not(.ready) h1.split .w>span{animation-play-state:paused}
+
+/* ---------- header ---------- */
+.site{padding:30px 0 0}
+.site .mark{font:800 17px/1 var(--font);letter-spacing:-.02em;color:var(--paper);text-decoration:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(54px,8.5vw,120px) 0 clamp(44px,6vw,84px);overflow:visible}
+.hero .inner{position:relative;z-index:2}
+.hero .eyebrow{color:var(--pink);margin-bottom:clamp(26px,3.4vw,40px)}
+h1{
+  font:800 clamp(42px,7.8vw,112px)/.98 var(--font);
+  letter-spacing:-.045em;color:var(--paper);
+  max-width:13ch;text-wrap:balance;margin:0 0 clamp(30px,4vw,48px);
+}
+h1 .a{color:var(--red)}
+.letter{max-width:52ch;font-size:clamp(17px,1.4vw,19px)}
+.letter p{margin:0}
+
+.shapes{position:absolute;inset:0;pointer-events:none;z-index:1}
+.shapes>*{position:absolute;will-change:transform}
+.flower{right:clamp(-139px,-9.6vw,-60px);top:clamp(52px,7.64vw,110px);width:clamp(200px,28.8vw,415px);color:var(--pink);animation:shSwing 1.1s var(--ease-out) .25s both}
+.flower svg{width:100%;height:auto;display:block}
+.pill{right:clamp(-67px,-4.6vw,-28px);top:clamp(220px,32.36vw,466px);width:clamp(180px,25.8vw,372px);height:clamp(58px,8.3vw,120px);border-radius:100px;background:var(--green);animation:shSlideIn .9s var(--ease-out) .45s both}
+.arrow{right:clamp(44px,4.1vw,59px);top:clamp(300px,44.44vw,640px);width:clamp(68px,8.2vw,118px);color:var(--paper);animation:shDraw 1s var(--ease-out) .8s both}
+.arrow svg{width:100%;height:auto;display:block}
+
+/* ---------- framework ---------- */
+.framework{padding:0 0 clamp(50px,7vw,96px)}
+.fw{border-top:2px solid var(--rule)}
+.fw-row{
+  display:grid;grid-template-columns:auto 400px 1fr;gap:clamp(16px,2.4vw,34px);
+  align-items:center;border-bottom:2px solid var(--rule);
+  padding:clamp(22px,3vw,38px) 0;text-decoration:none;
+  transition:background var(--dur-fast) var(--ease-out);
+}
+.fw-row:hover{background:var(--card)}
+.fw-num{
+  width:clamp(44px,4.6vw,62px);height:clamp(44px,4.6vw,62px);border-radius:50%;
+  background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;
+  font:800 clamp(17px,1.8vw,23px)/1 var(--font);letter-spacing:-.04em;flex:none;
+}
+.fw-word{font:800 clamp(32px,5.6vw,80px)/1 var(--font);letter-spacing:-.05em;color:var(--paper);margin:0}
+.fw-def{font:800 clamp(14px,1.45vw,20px)/1.25 var(--font);letter-spacing:-.025em;color:var(--yellow);margin:0;white-space:nowrap}
+.fw-def i{font-style:normal;color:var(--red);margin-right:.45em}
+
+/* ---------- bands ---------- */
+.band{border-top:2px solid var(--rule);padding:clamp(50px,7vw,100px) 0;scroll-margin-top:24px}
+.head{display:grid;grid-template-columns:var(--ind) 1fr;gap:var(--gap);align-items:start;margin-bottom:clamp(32px,4.2vw,56px)}
+.n{
+  width:var(--ind);height:var(--ind);border-radius:50%;background:var(--red);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font:800 clamp(24px,2.8vw,38px)/1 var(--font);letter-spacing:-.04em;margin:0;flex:none;
+}
+.head h2{font:800 clamp(34px,5.8vw,80px)/1 var(--font);letter-spacing:-.05em;color:var(--paper);margin:0 0 10px}
+.head .def{font:800 clamp(16px,1.8vw,24px)/1.25 var(--font);letter-spacing:-.025em;color:var(--yellow);margin:0;white-space:nowrap}
+.head .def i{font-style:normal;color:var(--red);margin-right:.45em}
+
+.cols{display:grid;grid-template-columns:var(--ind) 1fr 1fr;gap:var(--gap);align-items:start}
+.cols .spacer{grid-column:1}
+.col .eyebrow{color:var(--pink);margin-bottom:14px}
+.col hr{border:0;border-top:2px solid var(--rule);margin:0 0 20px}
+.col p{margin:0 0 15px;max-width:46ch}
+.col p:last-child{margin-bottom:0}
+.col b{color:var(--paper);font-weight:700}
+.lead{font:800 clamp(20px,1.9vw,26px)/1.16 var(--font);letter-spacing:-.03em;color:var(--paper);max-width:24ch}
+.mark-doodle{margin-top:48px;color:var(--pink)}
+.mark-doodle svg{display:block;height:auto;max-width:100%}
+
+/* ---------- tabs ---------- */
+.work{margin-top:clamp(32px,4.2vw,56px);margin-left:calc(var(--ind) + var(--gap))}
+.tabrow{display:flex;flex-wrap:wrap;gap:0 36px;border-bottom:2px solid var(--rule);margin:0;padding:0}
+.tabrow button{
+  appearance:none;background:none;border:0;padding:0 0 12px;margin:0;cursor:pointer;
+  font:600 12px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--dim);
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out);
+}
+.tabrow button:hover{color:var(--body)}
+.tabrow button[aria-selected="true"]{color:var(--yellow);border-bottom-color:var(--yellow)}
+.panel{padding-top:22px}
+.panel[hidden]{display:none}
+
+/* ---------- artifact shell ---------- */
+.art{background:var(--card);border:2px solid var(--rule);padding:32px}
+.art .cap{font:600 11.5px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:0 0 16px;display:block}
+.art .intro{font:600 17px/1.4 var(--font);letter-spacing:-.02em;color:var(--paper);margin:0 0 26px}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.scroller>*{min-width:860px}
+
+/* leveling matrix */
+.lv{width:100%;border-collapse:collapse;font-size:11px;line-height:1.5}
+.lv th,.lv td{text-align:left;vertical-align:top;padding:0 14px 0 0;font-weight:400}
+.lv thead th{padding-bottom:10px}
+.lv .rolelab{font:600 12.5px/1.24 var(--font);letter-spacing:-.02em;color:var(--paper);white-space:pre-line}
+.lv th.hilite .rolelab{color:var(--red)}
+.lv thead th .ul{display:block;height:2px;background:var(--rule);margin-top:10px}
+.lv th.hilite .ul{background:var(--red)}
+.lv td.hilite{color:var(--paper)}
+.lv .rowlab{font:600 10.5px/1.4 var(--cond);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);width:92px}
+.lv tbody tr>*{padding-top:16px;padding-bottom:16px}
+.lv tbody tr+tr>*{border-top:1px solid var(--hair)}
+.lv td{color:var(--body)}
+.lv .span{color:var(--body)}
+
+/* core values */
+.vals{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.val{background:var(--teal);color:var(--ink);padding:15px 14px 10px;min-height:196px;display:flex;flex-direction:column;justify-content:space-between}
+.val h4{font:800 15px/1.18 var(--font);letter-spacing:-.03em;margin:0 0 8px;color:var(--ink)}
+.val p{font:400 10.5px/1.46 var(--font);margin:0;color:var(--ink);max-width:none}
+.val .num{font:800 44px/.92 var(--font);letter-spacing:-.05em;color:var(--paper);margin-top:14px}
+
+/* goal house */
+.roof{position:relative;min-height:134px;margin-bottom:10px;display:flex;align-items:flex-end;justify-content:center}
+.roof svg{position:absolute;inset:0;width:100%;height:100%}
+.roof .goal{position:relative;width:58%;max-width:560px;text-align:center;padding-bottom:8px}
+.roof .goal .k{font:600 11px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:8px}
+.roof .goal .l{font:600 17px/1.34 var(--font);letter-spacing:-.02em;color:var(--paper);margin:0}
+.vband{display:flex;align-items:center;background:#0e0e0d;padding:13px 16px;gap:0;margin-bottom:10px}
+.vband .k{font:600 10.5px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--dim);width:84px;flex:none}
+.vband span.v{flex:1;text-align:center;font:400 12.5px/1.4 var(--font);color:var(--paper)}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:start}
+.pillar .focus{background:var(--red);color:#fff;padding:10px 12px;display:flex;gap:8px;align-items:center}
+.pillar .focus b{font:800 17px/1.1 var(--font);letter-spacing:-.03em}
+.pillar .focus span{font:800 13px/1.18 var(--font);letter-spacing:-.02em}
+.pillar .goal{background:var(--blue);color:#fff;padding:10px 12px;margin-top:6px;font:400 10.5px/1.44 var(--font)}
+.housefoot{font:600 10px/1.4 var(--cond);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:16px 0 0}
+
+/* kick-off kit */
+.kit{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.kitcol{background:var(--panel);padding:18px}
+.kitcol .k{font:600 10.5px/1.4 var(--cond);letter-spacing:.16em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:10px}
+.kitcol p{font:400 12.5px/1.46 var(--font);color:var(--paper);margin:0 0 20px;max-width:none}
+.stickies{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stickies i{display:block;height:58px;border-radius:2px}
+.owner{display:flex;align-items:center;gap:12px;margin-top:22px}
+.owner .sq{width:16px;height:16px;background:var(--red);flex:none}
+.owner span{font:600 12.5px/1.4 var(--font);letter-spacing:-.01em;color:var(--dim)}
+
+/* image artifacts */
+.shot{border:2px solid var(--rule);background:var(--card)}
+.shot img{width:100%;height:auto}
+.shot .ph{aspect-ratio:16/9;display:flex;align-items:flex-end;padding:18px;font:600 12px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#5a5a56}
+
+/* ---------- close ---------- */
+.close{position:relative;border-top:2px solid var(--rule);padding:clamp(50px,7vw,96px) 0;overflow:hidden}
+.close .inner{position:relative;z-index:2}
+.close h2{font:800 clamp(26px,3.2vw,46px)/1.08 var(--font);letter-spacing:-.04em;color:var(--paper);max-width:22ch;margin:0 0 18px;text-wrap:balance}
+.close p{font-size:17px;color:var(--body);margin:0 0 26px;max-width:44ch}
+.squiggle{width:clamp(180px,22vw,300px);color:var(--pink)}
+.squiggle svg{width:100%;height:auto;display:block;max-width:100%}
+.close .marks{position:absolute;right:0;top:0;bottom:0;width:340px;pointer-events:none;z-index:1}
+.close .marks>*{position:absolute}
+.diamond{right:-46px;top:6%;width:clamp(140px,16vw,210px);height:clamp(140px,16vw,210px);background:var(--red);transform:rotate(45deg);display:grid;place-items:center}
+.diamond .star{width:42%;color:#fff;transform:rotate(-45deg)}
+.diamond .star svg{width:100%;height:auto;display:block}
+.pin{right:30px;top:54%;width:150px;height:46px;border-radius:100px;background:var(--pink)}
+.yel{right:96px;bottom:26px;width:130px;height:44px;border-radius:100px;background:var(--yellow)}
+
+/* ---------- footer ---------- */
+footer{border-top:2px solid var(--rule);background:#000;padding:56px 0 0;overflow:hidden}
+.frow{display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;font-size:17px;color:var(--paper)}
+.frow a{color:var(--paper);text-decoration:underline;text-underline-offset:3px}
+.frow .legal{margin-left:auto;font:500 14px/1.5 var(--cond);letter-spacing:.06em;color:var(--meta)}
+.wordmark{
+  position:relative;display:block;margin:36px 0 -.12em;
+  font:800 min(236px,calc((min(1116px,100vw) - 56px)/4.9))/.8 var(--font);
+  letter-spacing:-.06em;color:#3a3a3a;white-space:nowrap;user-select:none;
+}
+.wordmark span{display:inline-block;transition:transform .9s var(--ease-out)}
+.wordmark.pending span{transform:translateY(60%)}
+.wordmark.rv,.wordmark.rv.pending{opacity:1;transform:none}
+.wordmark i{display:inline-block;width:.27em;height:.27em;border-radius:50%;background:var(--red);margin-left:.05em;transition:transform .6s var(--ease-pop)}
+.wordmark.pending i{transform:scale(0)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  :root{--ind:0px;--gap:28px}
+  .head{grid-template-columns:1fr;gap:18px}
+  .n{width:72px;height:72px}
+  .cols{grid-template-columns:1fr}
+  .cols .spacer{display:none}
+  .col+.col{margin-top:34px}
+  .work{margin-left:0}
+  .fw-row{grid-template-columns:auto 1fr;gap:6px 20px;align-items:center}
+  .fw-row .fw-num{grid-column:1;grid-row:1}
+  .fw-row .fw-word{grid-column:2;grid-row:1}
+  .fw-row .fw-def{grid-column:1 / -1;grid-row:2}
+  .fw-def,.head .def{white-space:normal}
+  .vals{grid-template-columns:repeat(2,1fr)}
+  .pillars{grid-template-columns:1fr 1fr}
+  .kit{grid-template-columns:1fr}
+  .tabrow{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .tabrow::-webkit-scrollbar{display:none}
+  .tabrow button{flex:0 0 auto}
+  .tabrow button:last-child{padding-right:2px}
+  .shapes{display:none}
+  .close .marks{width:200px;opacity:.75}
+}
+@media (max-width:620px){
+  .art{padding:20px}
+  .vals{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
+  .close .marks{width:150px;opacity:1}
+  .close .diamond{width:104px;height:104px;right:-34px;top:4%}
+  .close .pin,.close .yel{display:none}
+  .close h2{max-width:15ch}
+  .close p{max-width:26ch}
+  .roof{min-height:172px}
+  .roof .goal .l{font-size:15px}
+  .vband{flex-wrap:wrap;gap:8px}
+  .vband .k{width:100%}
+  .vband span.v{flex:0 0 auto;text-align:left}
+  .frow .legal{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv.pending{opacity:1;transform:none}
+  .wordmark.pending span{transform:none}
+  .wordmark.pending i{transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<filter id="paper-grain" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+  <feColorMatrix in="n" type="saturate" values="0" result="g"/>
+  <feComponentTransfer in="g" result="g2"><feFuncA type="linear" slope=".08"/></feComponentTransfer>
+  <feComposite in="g2" in2="SourceGraphic" operator="in" result="t"/>
+  <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="t"/></feMerge>
+</filter>
+</defs></svg>
+
+<div class="site"><div class="inner"><a class="mark" href="../index.html">christine sheller.</a></div></div>
+
+<main>
+
+<header class="hero">
+  <div class="shapes" aria-hidden="true">
+    <div class="flower" data-depth="14"><svg viewBox="0 0 639 622" fill="none" xmlns="http://www.w3.org/2000/svg" filter="url(#paper-grain)"><path fill-rule="evenodd" clip-rule="evenodd" d="M171 28L161 36L156 45L155 70L177 110L179 121L185 133L199 152L197 153L182 143L141 125L99 112H85L78 116L74 126V139L78 149L109 187L134 209L85 199L51 198L24 203L14 213L10 241L26 259L54 270L74 282L125 295L121 297H62L31 306L4 322L0 331V342L3 349L15 359L41 368H94L47 392L35 402L22 425V444L27 453L40 460L63 459L113 447L170 423L166 437L138 487L139 517L147 526L163 529L178 523L203 505L227 480L256 439V486L253 507L255 548L270 579L291 589L303 587L312 572L326 461L342 538L359 581L384 611L400 619L419 620L425 617L433 607L436 582L413 491L407 458L418 473L444 499L478 543L491 555L524 573L543 576L561 575L566 568V552L552 501L542 485L532 459L518 436L498 410L550 424L594 427L630 422L636 416L637 403L617 378L583 354L558 342L500 320L531 314L551 305L572 302L600 288L619 271L626 255L621 247L613 243L593 240L519 242L453 253L478 233L521 190L550 151L558 127V115L553 108L546 105H534L512 115L486 133L467 141L456 149L454 148L499 59L502 47V36L499 27L491 21L478 24L449 54L416 104L380 177L382 147L388 118V73L377 20L365 5L355 0L345 1L338 7L329 24L318 63L306 157L289 124L213 39L193 28L182 26L171 28Z" fill="currentColor"/></svg></div>
+    <div class="pill" data-depth="9"></div>
+    <div class="arrow" data-depth="20"><svg viewBox="0 0 118 94" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.4318 90.1089L19.5772 92.2544L22.259 93.5953H25.209L26.5499 93.0589L31.109 88.4998L44.2499 78.0408L46.1272 75.3589L46.3953 73.2135L45.859 71.6044L44.2499 69.9953L42.909 69.459H40.4954L36.4726 70.7999L32.7181 73.2135L30.3045 75.6271L30.0363 75.0908L30.8408 58.9999L33.2545 49.8817L35.9363 42.1045L41.2999 29.7681L44.7863 24.6727L47.7363 21.4545L54.9771 15.8227L59.5362 13.1409L72.6771 9.38635L80.4544 8.31362H90.9134L108.077 9.92271H115.318L117.195 8.5818L118 6.97272V4.82727L117.195 3.21818L114.513 1.60909L105.127 1.34091L91.718 0H79.6498L74.8226 0.536369L64.8999 2.68182L56.3181 5.36363L49.8817 9.11817L42.909 14.4818L37.8135 19.8454L33.2545 27.0863L26.0136 45.0545L22.5272 57.9272L21.4545 79.3817H20.9181L16.359 70.7999L10.4591 63.2908L10.1909 61.6817L8.84997 59.8044L5.89998 58.4635L4.02271 58.1953L1.3409 59.2681L0.268166 60.8772L0 63.559L0.804527 65.1681L5.63179 70.5317L9.65451 75.8953L14.2136 85.0135L17.4318 90.1089Z" fill="currentColor"/></svg></div>
+  </div>
+  <div class="inner">
+    <span class="eyebrow">For Elizabeth Benker &nbsp;//&nbsp; Alteryx</span>
+    <h1 class="split">People, strategy, <span class="a">operational rigor.</span></h1>
+    <div class="letter rv">
+      <p>Elizabeth, thank you for the time + conversation on Friday! At the close you named three areas of focus for this role. Here is how I think about each one, and what I have done. I have had one conversation about your team, so read this as a point of view rather than a plan.</p>
+    </div>
+  </div>
+</header>
+
+<section class="framework">
+  <div class="inner">
+    <div class="fw">
+      <a class="fw-row rv" href="#people"><span class="fw-num">01</span><p class="fw-word">People.</p><p class="fw-def"><i>&rarr;</i>Who makes the decisions</p></a>
+      <a class="fw-row rv" href="#strategy"><span class="fw-num">02</span><p class="fw-word">Strategy.</p><p class="fw-def"><i>&rarr;</i>How the right decisions get made</p></a>
+      <a class="fw-row rv" href="#rigor"><span class="fw-num">03</span><p class="fw-word">Rigor.</p><p class="fw-def"><i>&rarr;</i>How those decisions become excellent work</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 01 PEOPLE ========== -->
+<section class="band" id="people">
+  <div class="inner">
+    <div class="head rv"><p class="n">01</p><div><h2>People.</h2><p class="def"><i>&rarr;</i>Who makes the decisions</p></div></div>
+
+    <div class="cols">
+      <div class="spacer"></div>
+      <div class="col rv">
+        <span class="eyebrow">What I believe</span><hr>
+        <p class="lead">Building the next layer of leadership is the work I love.</p>
+        <p>Helping a manager through a complex stakeholder situation. Shaping leveling language. Working out what someone needs to be ready for the next thing, and meeting them where they are. I am good at this, and it is where I would put my hours.</p>
+      </div>
+      <div class="col rv">
+        <span class="eyebrow">How I've done it</span><hr>
+        <p>I ran a 40-person experience organization at O3 this way, through a team of directors + managers. I rebuilt the team after the great resignation and held 90% retention over five years.</p>
+        <p>To recap a story from our call: one of them was deciding between leading people and leading projects. We pulled up the leveling matrix, talked through what each looks like week to week, ran some scenarios, and she chose projects. She was confident it was right for her, which is the part that mattered.</p>
+      </div>
+    </div>
+
+    <div class="work rv">
+      <div class="tabrow" role="tablist" aria-label="Leveling matrix views">
+        <button role="tab" id="t-p1" aria-controls="p-p1" aria-selected="true">Durable skills</button>
+        <button role="tab" id="t-p2" aria-controls="p-p2" aria-selected="false" tabindex="-1">Technical skills</button>
+        <button role="tab" id="t-p3" aria-controls="p-p3" aria-selected="false" tabindex="-1">Company values</button>
+      </div>
+
+      <div class="panel" id="p-p1" role="tabpanel" aria-labelledby="t-p1">
+        <div class="art"><div class="scroller"><div>
+          <span class="cap">O3 experience team / design track / leveling matrix sample</span>
+          <table class="lv">
+            <thead><tr>
+              <th class="rowlab"></th>
+              <th><span class="rolelab">Associate
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior
+UX Designer</span><span class="ul"></span></th>
+              <th class="hilite"><span class="rolelab">Principal
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Design
+Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior UX
+Design Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Design
+Director</span><span class="ul"></span></th>
+            </tr></thead>
+            <tbody>
+              <tr><th class="rowlab">Experience</th><td>0&ndash;2 yrs</td><td>2&ndash;6 yrs</td><td>6&ndash;10 yrs</td><td class="hilite">10+ yrs</td><td>Designer + 2&ndash;5 yrs managing</td><td>Designer + 5+ yrs managing</td><td>Designer + 8+ yrs managing leaders</td></tr>
+              <tr><th class="rowlab">Supervision</th><td>Close supervision, little latitude</td><td>Moderate supervision, some latitude</td><td>Little supervision, ample latitude</td><td class="hilite">Minimal supervision, full latitude</td><td>Minimal supervision, full latitude</td><td>Minimal supervision, full latitude</td><td>Sets direction, accountable to the business</td></tr>
+              <tr><th class="rowlab">Leadership</th><td>None</td><td>None</td><td>Mentors less experienced designers</td><td class="hilite">Non-managing leader within the team</td><td>Leads and manages designers</td><td>Leads and manages designers</td><td>Leads managers, owns how the org is shaped</td></tr>
+              <tr><th class="rowlab">Consulting</th><td>Participates under the guidance of senior staff</td><td>Consults on well-defined projects with strategy and development</td><td>Leads complex engagements across teams and stakeholders</td><td class="hilite">Drives org-wide design consulting strategy</td><td>Develops consulting capability within their team</td><td>Leads multiple complex engagements, builds org-wide programs</td><td>Owns the consulting relationship at the executive level</td></tr>
+              <tr><th class="rowlab">Client work</th><td>Building client communication + presentation skills</td><td>Comfortable with clients, presents own work</td><td>Seasoned presenter, articulates rationale</td><td class="hilite">Masterful presenter, articulates rationale</td><td>Seasoned presenter, articulates rationale</td><td>Masterful presenter, articulates rationale</td><td>Presents to executive sponsors and boards</td></tr>
+            </tbody>
+          </table>
+        </div></div></div>
+      </div>
+
+      <div class="panel" id="p-p2" role="tabpanel" aria-labelledby="t-p2" hidden>
+        <div class="art"><div class="scroller"><div>
+          <span class="cap">O3 experience team / design track / leveling matrix sample</span>
+          <table class="lv">
+            <thead><tr>
+              <th class="rowlab"></th>
+              <th><span class="rolelab">Associate
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior
+UX Designer</span><span class="ul"></span></th>
+              <th class="hilite"><span class="rolelab">Principal
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Design
+Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior UX
+Design Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Design
+Director</span><span class="ul"></span></th>
+            </tr></thead>
+            <tbody>
+              <tr><th class="rowlab">AI</th><td>Uses AI tools to explore and iterate</td><td>Integrates AI into regular workflow</td><td>Builds AI-augmented workflows for the team</td><td class="hilite">Sets frameworks for AI in design systems</td><td>Rolls AI tools out across the practice</td><td>Owns org-wide AI-augmented design strategy</td><td>Sets the AI operating model for the organization</td></tr>
+              <tr><th class="rowlab">Practice</th><td>Follows established guidelines and processes</td><td>Follows established guidelines and processes</td><td>Supports practice improvements for the team</td><td class="hilite">Leads practice activities and process improvements</td><td>Leads practice activities and process improvements</td><td>Leads practice improvements for the team and beyond</td><td>Defines what the practice is</td></tr>
+              <tr><th class="rowlab">Tools</th><td class="span" colspan="7">Figma, Miro, Notion, Adobe Creative Suite, Atlassian Suite, Google Suite, Slack, Zoom</td></tr>
+            </tbody>
+          </table>
+        </div></div></div>
+      </div>
+
+      <div class="panel" id="p-p3" role="tabpanel" aria-labelledby="t-p3" hidden>
+        <div class="art"><div class="scroller"><div>
+          <span class="cap">O3 experience team / design track / leveling matrix sample</span>
+          <table class="lv">
+            <thead><tr>
+              <th class="rowlab"></th>
+              <th><span class="rolelab">Associate
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior
+UX Designer</span><span class="ul"></span></th>
+              <th class="hilite"><span class="rolelab">Principal
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Design
+Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior UX
+Design Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Design
+Director</span><span class="ul"></span></th>
+            </tr></thead>
+            <tbody>
+              <tr><th class="rowlab">Apply optimism</th><td class="span" colspan="7">Finds opportunities for learning in failure, recognizes peer success, eager to collaborate and help clients solve their challenges</td></tr>
+              <tr><th class="rowlab">Trust in people</th><td>Assumes positive intent, pitches in</td><td>Assumes positive intent, pitches in</td><td>Puts themselves in the client's shoes, resolves conflict with empathy</td><td class="hilite">Gives clear and direct feedback from a place of care</td><td>Gives clear and direct feedback from a place of care</td><td>Gives clear and direct feedback from a place of care</td><td>Gives clear and direct feedback from a place of care</td></tr>
+              <tr><th class="rowlab">Commit to community</th><td>Regularly attends community and company events</td><td>Regularly attends community and company events</td><td>Participates in and attends community events</td><td class="hilite">Leads and attends community events</td><td>Leads and attends community events</td><td>Leads and attends community events</td><td>Leads and attends community events</td></tr>
+              <tr><th class="rowlab">Embrace iteration</th><td>Strives for continuous improvement</td><td>Strives for continuous improvement</td><td>Champions improvement, shares knowledge with the team</td><td class="hilite">Implements improvement, creates paths to success with clients</td><td>Implements improvement in workflow and process</td><td>Drives improvement in workflow and process</td><td>Drives improvement across the organization</td></tr>
+              <tr><th class="rowlab">Focus on the future</th><td>Embodies the gold standard</td><td>Embodies the gold standard</td><td>Embodies the gold standard</td><td class="hilite">Identifies new opportunities for impact</td><td>Identifies opportunities, takes calculated risks</td><td>Pushes the team to a consulting mindset, takes calculated risks</td><td>Sets where the practice goes next</td></tr>
+            </tbody>
+          </table>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 02 STRATEGY ========== -->
+<section class="band" id="strategy">
+  <div class="inner">
+    <div class="head rv"><p class="n">02</p><div><h2>Strategy.</h2><p class="def"><i>&rarr;</i>How the right decisions get made</p></div></div>
+
+    <div class="cols">
+      <div class="spacer"></div>
+      <div class="col rv">
+        <span class="eyebrow">What I believe</span><hr>
+        <p class="lead">Now that anyone can build anything, the hard part is knowing which problem is worth solving.</p>
+        <p>Good products are built on data, customer and stakeholder insight, and research, then balanced against what the business actually needs.</p>
+        <div class="mark-doodle" aria-hidden="true"><svg width="439" height="320" viewBox="0 0 186 136" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M75 130L74 133L75 135H77L78 130H75ZM39 131L40 134L44 133L43 130L39 131ZM104 122L103 125L106 126L107 123L104 122ZM126 118L125 120L128 122L129 119L126 118ZM66 112L67 115L70 114V111L66 112ZM34 109V113H37V109H34ZM158 109L156 108L154 109V112H158V109ZM178 101L175 102L176 106L179 104L178 101ZM109 99L108 103L111 104L112 99H109ZM88 99L85 101L87 104L90 102L88 99ZM51 95V98L55 97L54 95H51ZM136 95L134 94L132 95V98H136V95ZM24 92L25 95L28 94L27 91L24 92ZM153 85L152 88L155 89L156 86L153 85ZM74 85V88L77 89L78 85H74ZM182 84L181 86L184 88L185 84H182ZM109 80L106 82L108 85L110 84L109 80ZM47 77L45 80L49 81V78L47 77ZM129 72L128 74L129 76H131L132 73L129 72ZM179 69L177 71L178 73H181L183 71L182 69H179ZM89 69L90 73L93 72L92 69H89ZM152 67L151 69L152 71H154L155 68L152 67ZM19 67V70L21 72H23L24 69L22 67H19ZM52 63V66L54 67L56 66L55 63H52ZM109 58L110 62L114 61V58H109ZM81 53L80 57H83L84 54L81 53ZM138 51L137 55H140L141 52L138 51ZM9 50L7 52L8 54L12 55L13 53L9 50ZM171 49L170 53H173L174 49H171ZM36 45L33 48L35 50L38 49V47L36 45ZM91 39L90 41L92 43H94L95 40L91 39ZM117 35L116 38L120 39L121 36L117 35ZM61 34L59 37L60 39H63L64 34H61ZM7 33L5 34L6 38L9 37V35L7 33ZM152 32L149 33L150 36L153 35L152 32ZM30 23L26 27L27 30L31 31L33 29V25L30 23ZM126 20V22L128 23L130 20H126ZM100 19L97 17L95 18L94 22L98 23L100 21V19ZM64 14L62 15L63 19L66 18V15L64 14ZM0 12V15L4 16V13L0 12ZM24 9L21 11L22 13L25 12L24 9ZM45 3L46 7L49 6L48 3H45ZM84 2L83 5L86 6L87 3L84 2ZM137 0V3L141 4V1L137 0ZM110 0L109 2L111 4H113L114 1L110 0Z" fill="currentColor"/></svg></div>
+      </div>
+      <div class="col rv">
+        <span class="eyebrow">3 examples of how I've done it</span><hr>
+        <p>I teach an AI product studio at ArtCenter right now. Students ideate, validate, build, and ship to the App Store in one term. We use AI to move faster through process, then evaluate + challenge what it gives back. I push them hard on visual differentiation, because the default output is the average of everyone else's. They build business models to measure viability. They user test. They ship.</p>
+        <p>While at O3, IRONMAN came to us with one audience in their heads and several in reality. A pro chasing World Championship slots and a first-timer who cannot swim yet want almost nothing in common from the same brand. It needed to be two separate experiences. We mapped the goals + journeys for both, co-ran research with their team before design started, and built to it. The first site shipped in seventy-five days. 40,000 users on day one, and actions taken up 33% year over year.</p>
+        <p>At FS Investments our sales team was losing an average of 8 minutes at a time hunting for collateral. I took it to the President of Sales, got his sponsorship, and owned the product end-to-end. Search went from 8 minutes down to about 8 seconds.</p>
+      </div>
+    </div>
+
+    <div class="work rv">
+      <div class="tabrow" role="tablist" aria-label="Strategy examples">
+        <button role="tab" id="t-s1" aria-controls="p-s1" aria-selected="true">AI product studio</button>
+        <button role="tab" id="t-s2" aria-controls="p-s2" aria-selected="false" tabindex="-1">IRONMAN</button>
+        <button role="tab" id="t-s3" aria-controls="p-s3" aria-selected="false" tabindex="-1">FS Central</button>
+      </div>
+      <div class="panel" id="p-s1" role="tabpanel" aria-labelledby="t-s1">
+        <figure class="shot" style="margin:0"><img src="images/ai-studio-blueprint.png" alt="AI product studio blueprint: fourteen weeks across seven phases, with what we teach and what students work on." width="977" height="486" loading="lazy"></figure>
+      </div>
+      <div class="panel" id="p-s2" role="tabpanel" aria-labelledby="t-s2" hidden>
+        <figure class="shot" style="margin:0"><img src="images/ironman-concept.png" alt="IRONMAN.com homepage hero from the round 3 visual exploration." width="977" height="485" loading="lazy"></figure>
+      </div>
+      <div class="panel" id="p-s3" role="tabpanel" aria-labelledby="t-s3" hidden>
+        <figure class="shot" style="margin:0"><img src="images/fs-central.png" alt="FS Central: tiled screens of the internal collateral search product." width="977" height="325" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 03 OPERATIONAL RIGOR ========== -->
+<section class="band" id="rigor">
+  <div class="inner">
+    <div class="head rv"><p class="n">03</p><div><h2>Operational rigor</h2><p class="def"><i>&rarr;</i>how those decisions become excellent work</p></div></div>
+
+    <div class="cols">
+      <div class="spacer"></div>
+      <div class="col rv">
+        <span class="eyebrow">What I believe</span><hr>
+        <p class="lead">Give the team enough structure so that nobody has to guess. And show them where to push.</p>
+        <p>I build the starting line: a definition of good, clear decision rights, and a critique format where unfinished work is welcome. Teams move faster when they are not re-deciding the basics at the start of every project.</p>
+        <p>This matters more as teams move faster. AI can accelerate production enormously, and the operating system has to let people experiment freely while still holding the bar that was set.</p>
+        <div class="mark-doodle" aria-hidden="true"><svg width="380" height="14" viewBox="0 0 1860 66" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M1239 50L1173 51L1150 63L1231 56L1239 50ZM1549 48H1471L1460 55L1547 53L1549 48ZM980 48L982 53H1059V46L980 48ZM1701 46L1620 47L1608 59L1698 52L1701 46ZM1859 47L1839 42L1836 48L1778 54L1770 61L1853 54L1859 47ZM1389 42L1313 49L1304 57L1368 53L1389 42ZM812 41L887 28L829 27L812 41ZM741 26L671 27L656 37L739 31L741 26ZM488 25L491 30L573 29L518 20L488 25ZM330 23L411 21L413 16L348 15L330 23ZM265 6L184 8L182 13H252L265 6ZM111 2L17 3L4 7L0 19L19 10L109 7L111 2Z" fill="currentColor"/></svg></div>
+      </div>
+      <div class="col rv">
+        <span class="eyebrow">3 examples of how I've done it</span><hr>
+        <p>Same approach for goal setting. A team that agrees on what matters stops doing good work on the wrong thing. I built a goal-mapping process for my department and later deployed it across the company.</p>
+        <p>At O3, the team and I co-created a department charter. I defined the north star and team blueprint, and we workshopped the rest: values, ground rules, norms, and standards for creating, presenting and measuring work. Creating it together is why they used it.</p>
+        <p>Kicking off new work with clients is a process. Every workshop activity has a template behind it, so the team could start from what we needed to learn and build the right kick-off for that client.</p>
+      </div>
+    </div>
+
+    <div class="work rv">
+      <div class="tabrow" role="tablist" aria-label="Operating artifacts">
+        <button role="tab" id="t-r1" aria-controls="p-r1" aria-selected="true">Goal mapping</button>
+        <button role="tab" id="t-r2" aria-controls="p-r2" aria-selected="false" tabindex="-1">Department charter</button>
+        <button role="tab" id="t-r3" aria-controls="p-r3" aria-selected="false" tabindex="-1">Kick-off kit</button>
+      </div>
+
+      <div class="panel" id="p-r1" role="tabpanel" aria-labelledby="t-r1">
+        <div class="art">
+          <span class="cap">Goal mapping / sample: the department goal house / built for design + research, adopted company-wide</span>
+          <div class="roof">
+            <svg viewBox="0 0 913 132" preserveAspectRatio="none" aria-hidden="true"><polygon points="456.5,2 911,130 2,130" fill="none" stroke="#2e2e2b" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
+            <div class="goal"><span class="k">The goal is growth</span><p class="l">Everything below connects to it</p></div>
+          </div>
+          <div class="vband">
+            <span class="k">Values</span>
+            <span class="v">Apply optimism</span><span class="v">Trust in people</span><span class="v">Commit to community</span><span class="v">Embrace iteration</span><span class="v">Focus on the future</span>
+          </div>
+          <div class="pillars">
+            <div class="pillar">
+              <div class="focus"><b>1.</b><span>Solutions</span></div>
+              <div class="goal">Formalize our approach to AI with a playbook, with consideration for ethics and how we lead POC opportunities with UX</div>
+              <div class="goal">Build a process for case studies at project close: content, imagery, clickable prototypes</div>
+              <div class="goal">Begin a resource research library aligned to our solutions and industries</div>
+            </div>
+            <div class="pillar">
+              <div class="focus"><b>2.</b><span>Expand accounts</span></div>
+              <div class="goal">Increase use of client roadmaps and proactive approaches for highlighting expansion</div>
+              <div class="goal">Leverage data and statistics to inform UX decisions, including analytics and best practices</div>
+              <div class="goal">Schedule in-person meetings for key milestones, like QBR readouts</div>
+            </div>
+            <div class="pillar">
+              <div class="focus"><b>3.</b><span>New growth (wedges)</span></div>
+              <div class="goal">Publish resources in the Figma + Miro communities to establish thought leadership</div>
+              <div class="goal">Shape wedge offerings for research, design and brand, with a marketing suite to match</div>
+            </div>
+            <div class="pillar">
+              <div class="focus"><b>4.</b><span>Partnerships</span></div>
+              <div class="goal">Explore partnership opportunities with chatbot and AI providers</div>
+              <div class="goal">Build a preferred contractor partner pool across UX, design, video and data</div>
+            </div>
+          </div>
+          <p class="housefoot">Focus &rarr; dept goals</p>
+        </div>
+      </div>
+
+      <div class="panel" id="p-r2" role="tabpanel" aria-labelledby="t-r2" hidden>
+        <div class="art">
+          <span class="cap">O3 department charter / sample page: our core values</span>
+          <p class="intro">Our shared values help guide how we approach our work + how we collaborate with each other</p>
+          <div class="vals">
+            <div class="val"><div><h4>Collaboration</h4><p>Working together to achieve common goals and solve problems effectively.</p></div><div class="num">1.</div></div>
+            <div class="val"><div><h4>Accessibility</h4><p>Ensuring equal access + inclusion for all individuals, regardless of their abilities or circumstances.</p></div><div class="num">2.</div></div>
+            <div class="val"><div><h4>Learning</h4><p>Embracing continuous growth + acquiring new knowledge + skills.</p></div><div class="num">3.</div></div>
+            <div class="val"><div><h4>Equity</h4><p>Advocating for fairness + justice by providing equal opportunities + avoiding bias.</p></div><div class="num">4.</div></div>
+            <div class="val"><div><h4>Thoughtfulness</h4><p>Approaching situations with careful consideration + mindfulness.</p></div><div class="num">5.</div></div>
+            <div class="val"><div><h4>Research-driven</h4><p>Utilizing thorough research + analysis to inform decision-making and actions.</p></div><div class="num">6.</div></div>
+            <div class="val"><div><h4>Curiosity</h4><p>Embracing a sense of wonder + exploration to seek new insights + solutions.</p></div><div class="num">7.</div></div>
+            <div class="val"><div><h4>Adaptability</h4><p>Being flexible + open to change in order to respond effectively to evolving circumstances.</p></div><div class="num">8.</div></div>
+            <div class="val"><div><h4>Empathy</h4><p>Understanding and sharing the feelings and perspectives of others.</p></div><div class="num">9.</div></div>
+            <div class="val"><div><h4>Fun</h4><p>Promoting enjoyment and positive experiences in the work environment.</p></div><div class="num">10.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-r3" role="tabpanel" aria-labelledby="t-r3" hidden>
+        <div class="art">
+          <span class="cap">Kick-off kit / sample template: project stakeholders / one of 30 frames</span>
+          <p class="intro" style="font-size:32px;font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:22px">Project stakeholders</p>
+          <div class="kit">
+            <div class="kitcol">
+              <span class="k">Working team</span>
+              <p>Who here needs to be part of ongoing discussions &amp; progress meetings?</p>
+              <div class="stickies"><i style="background:var(--teal)"></i><i style="background:var(--teal)"></i><i style="background:var(--teal)"></i><i style="background:var(--teal)"></i></div>
+            </div>
+            <div class="kitcol">
+              <span class="k">Key stakeholders</span>
+              <p>Does anyone else need to be involved for collaboration like workshops or attend research readouts?</p>
+              <div class="stickies"><i style="background:#a6ccf5"></i><i style="background:#a6ccf5"></i><i style="background:#a6ccf5"></i><i style="background:#a6ccf5"></i></div>
+            </div>
+            <div class="kitcol">
+              <span class="k">Leadership</span>
+              <p>Are there any higher-level leaders needed to approve large milestones like the end of discovery or design direction?</p>
+              <div class="stickies"><i style="background:var(--pink)"></i><i style="background:var(--pink)"></i><i style="background:var(--pink)"></i><i style="background:var(--pink)"></i></div>
+            </div>
+          </div>
+          <div class="owner"><span class="sq"></span><span>Project management runs this one</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="marks" aria-hidden="true">
+    <div class="diamond"><div class="star"><svg viewBox="0 0 242 186" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M241 36L239 34H235L220 41H218L156 71L154 73L145 77L143 79L136 82L134 84L126 88L125 86L126 85V73L127 72V60L128 59V44L129 43V3L128 1L123 0L121 3L122 5V40L121 41V57L120 58V69L119 70V82L117 85L104 72H103L98 67H97L77 50H76L50 23L45 20H42L40 22V26L42 31L44 33H49L65 50H66L74 58H75L80 63H81L85 67L96 75L103 82H104L115 93V94L111 97L99 103L97 105L92 107L90 109L87 110L70 121L67 122L49 134L3 155L0 158V161L2 163H5L13 158H15L24 153H26L35 148H37L44 144H46L50 142L65 132L68 131L73 127L81 123L86 119L91 117L93 115L96 114L98 112L103 110L105 108L110 106L116 102L117 103V110L116 111V122L115 123V134L114 135L113 169L112 170V175L111 176H109L108 178V181L111 184L116 185L119 182V173L120 172V153L121 152V138L122 137V125L123 124L124 102L125 101L128 102L181 138L194 144L196 146L210 153H215L217 151V148L215 146H212L202 141L200 139L185 132L161 116L158 113L149 108L130 95L133 92L140 89L142 87L149 84L151 82L188 63H190L207 54H209L227 45H229L232 43L239 41L241 39V36Z" fill="currentColor"/></svg></div></div>
+    <div class="pin"></div>
+    <div class="yel"></div>
+  </div>
+  <div class="inner">
+    <h2 class="rv">Thank you for your time!</h2>
+    <p class="rv">Happy to answer any questions you might have.</p>
+    <div class="squiggle rv" aria-hidden="true"><svg viewBox="0 0 1536 260" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 187L28 212L56 221L180 237L225 234L269 222L305 245L364 252L420 247L476 234L528 214L584 182L616 220L675 247L719 258L784 257L858 243L921 215L961 230L1064 227L1157 204L1224 169L1266 182L1343 181L1476 110L1531 67L1534 48L1527 36L1509 35L1501 53L1439 97L1330 152L1250 147L1265 121L1261 95L1238 78L1209 76L1186 92L1178 110L1179 128L1193 152L1142 176L1042 199L978 200L947 193L961 160L960 139L942 120L911 118L884 133L873 154L875 172L892 195L810 222L722 227L642 199L614 171L612 162L661 111L677 62L674 33L665 17L646 3L617 0L590 14L573 41L571 107L578 148L528 179L467 204L410 217L359 221L306 212L337 186L347 166L346 147L337 130L306 109L284 112L248 137L240 168L250 195L199 206L131 202L51 188L19 168L7 170L0 187ZM927 148L930 155L919 175L904 158L927 148ZM302 140L316 161L282 185L271 160L302 140ZM1218 106L1234 112L1220 131L1209 118L1218 106ZM631 31L645 45L644 73L629 103L606 126L603 49L617 33L631 31Z" fill="currentColor"/></svg></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <div class="frow rv">
+      <span><a href="mailto:christinesheller@gmail.com">Email me</a> or see <a href="../leading.html">what I've led</a>.</span>
+      <small class="legal">&copy; 2026 Christine Sheller. Made in Los Angeles.</small>
+    </div>
+    <span class="wordmark rv">shellerville<i></i></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- tabs: click + arrow keys, panels stay in the DOM ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('.tabrow'), function(row){
+    var tabs = Array.prototype.slice.call(row.querySelectorAll('[role=tab]'));
+    function select(tab, focus){
+      tabs.forEach(function(t){
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function(tab, i){
+      tab.addEventListener('click', function(){ select(tab); });
+      tab.addEventListener('keydown', function(e){
+        var k = e.key, n = null;
+        if (k === 'ArrowRight' || k === 'ArrowDown') n = tabs[(i + 1) % tabs.length];
+        else if (k === 'ArrowLeft' || k === 'ArrowUp') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (k === 'Home') n = tabs[0];
+        else if (k === 'End') n = tabs[tabs.length - 1];
+        if (n){ e.preventDefault(); select(n, true); }
+      });
+    });
+  });
+
+  /* ---- headline: wrap each word in a mask so it rises ---- */
+  var h1 = document.querySelector('h1.split');
+  if (h1 && !reduce){
+    var n = 0;
+    (function wrap(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(c){
+        if (c.nodeType === 3){
+          var parts = c.textContent.split(/([ \t\n\r]+)/), frag = document.createDocumentFragment();
+          parts.forEach(function(p){
+            if (!p) return;
+            if (/^[ \t\n\r]+$/.test(p)){ frag.appendChild(document.createTextNode(p)); return; }
+            var o = document.createElement('span'); o.className = 'w';
+            var inner = document.createElement('span');
+            inner.textContent = p;
+            inner.style.animationDelay = (0.12 + n++ * 0.055) + 's';
+            o.appendChild(inner); frag.appendChild(o);
+          });
+          c.parentNode.replaceChild(frag, c);
+        } else if (c.nodeType === 1) wrap(c);
+      });
+    })(h1);
+  } else if (h1) {
+    h1.classList.remove('split');
+  }
+
+  /* ---- footer wordmark: one span per letter, dot last ---- */
+  var wm = document.querySelector('.wordmark');
+  if (wm){
+    var txt = wm.firstChild && wm.firstChild.nodeType === 3 ? wm.firstChild : null;
+    if (txt){
+      var len = txt.textContent.length, f = document.createDocumentFragment();
+      txt.textContent.split('').forEach(function(ch, k){
+        var s = document.createElement('span');
+        s.textContent = ch;
+        s.style.transitionDelay = (k * 0.04) + 's';
+        f.appendChild(s);
+      });
+      wm.replaceChild(f, txt);
+      var dot = wm.querySelector('i');
+      if (dot) dot.style.transitionDelay = (len * 0.04 + 0.15) + 's';
+    }
+  }
+
+  root.classList.add('ready');
+  if (reduce) return;
+
+  /* ---- scroll reveals ---- */
+  var vh = window.innerHeight;
+  var items = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+  items.forEach(function(el){ if (el.getBoundingClientRect().top > vh * 0.92) el.classList.add('pending'); });
+
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.remove('pending'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function(el){ if (el.classList.contains('pending')) io.observe(el); });
+
+    var atEnd = function(){
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4){
+        items.forEach(function(el){ if (el.classList.contains('pending')){ el.classList.remove('pending'); io.unobserve(el); } });
+        window.removeEventListener('scroll', atEnd);
+      }
+    };
+    window.addEventListener('scroll', atEnd, { passive: true });
+    atEnd();
+  } else {
+    items.forEach(function(el){ el.classList.remove('pending'); });
+  }
+
+  /* ---- hero shapes lean toward the cursor ---- */
+  var hero = document.querySelector('.hero');
+  if (!hero) return;
+  var layers = Array.prototype.slice.call(hero.querySelectorAll('[data-depth]'));
+  var mx = 0, my = 0, raf = null;
+  function paint(){
+    raf = null;
+    layers.forEach(function(l){
+      var d = +l.getAttribute('data-depth');
+      l.style.transform = 'translate(' + (mx * d) + 'px,' + (my * d) + 'px)';
+    });
+  }
+  hero.addEventListener('pointermove', function(e){
+    var r = hero.getBoundingClientRect();
+    mx = (e.clientX - r.left) / r.width - 0.5;
+    my = (e.clientY - r.top) / r.height - 0.5;
+    if (!raf) raf = requestAnimationFrame(paint);
+  });
+  hero.addEventListener('pointerleave', function(){
+    mx = my = 0; if (!raf) raf = requestAnimationFrame(paint);
+  });
+})();
+</script>
+</body>
+</html>
