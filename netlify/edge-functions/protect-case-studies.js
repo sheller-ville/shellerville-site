@@ -8,6 +8,8 @@ export const config = {
     "/case-study-fs-brand.html",
     "/case-study-fs-central",
     "/case-study-fs-central.html",
+    "/case-study-o3-operating-system",
+    "/case-study-o3-operating-system.html",
     "/case-study-ironman",
     "/case-study-ironman.html",
     "/case-study-rec",
