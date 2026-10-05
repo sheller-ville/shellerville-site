@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>O3: the operating system / Christine Sheller</title>
-<meta name="description" content="How Christine Sheller rebuilt O3's experience team during the Great Resignation with a department charter, a skills matrix, leader lanes, and a goals framework.">
+<meta name="description" content="How Christine Sheller rebuilt O3's experience team during the Great Resignation: a skills matrix, a department charter, a leadership playbook and a goals framework, built with the team.">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
@@ -22,6 +22,184 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/motion.js" defer></script>
+<style>
+/* ===== O3 case study: page-only styles (scoped to .o3) ===== */
+.o3 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.o3 .tags li{border:1.5px solid var(--black);padding:6px 12px;font:600 13px/1.2 var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--black)}
+.o3 .cs-head .back{margin-bottom:36px}
+.o3 .cs-head .h2 .accent{display:block}
+
+/* hero */
+.o3-hero{background:var(--paper);padding:0}
+.o3-hero svg{display:block;width:100%;height:auto;background:#000}
+.o3-hero .arch{transform-box:fill-box;transform-origin:50% 100%}
+.ready .o3-hero .arch{animation:archUp 1s var(--ease-out) both}
+.ready .o3-hero .arch:nth-of-type(2){animation-delay:.08s}
+.ready .o3-hero .arch:nth-of-type(3){animation-delay:.16s}
+.ready .o3-hero .arch:nth-of-type(4){animation-delay:.24s}
+.ready .o3-hero .sun{animation:sunDrop 1.2s var(--ease-out) .1s both}
+.ready .o3-hero .doodle{animation:inkIn 1.1s var(--ease-out) .5s both}
+@keyframes archUp{from{transform:translateY(100%)}to{transform:none}}
+@keyframes sunDrop{from{transform:translateY(-40%) scale(.85)}to{transform:none}}
+@keyframes inkIn{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
+
+/* problem + solution */
+.o3 .ps{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.o3 .ps > div{display:flex;flex-direction:column;gap:20px;padding-right:56px}
+.o3 .ps > div + div{padding:0 0 0 56px;border-left:1px solid var(--hair)}
+.o3 .ps .h3{font-size:clamp(30px,2.8vw,40px);line-height:1.12;letter-spacing:-.035em;color:var(--red)}
+.o3 .ps p:not(.kicker){margin:0;font:400 21px/1.55 var(--font);color:var(--ink)}
+
+/* results */
+.o3 .res .h2{color:var(--red)}
+.o3 .res .lede{color:var(--white);font-size:21px;max-width:none;margin-bottom:8px}
+.o3 .res .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+.o3 .res .stats > div{border-top-color:rgba(255,255,255,.3)}
+.o3 .res .stats b{color:var(--pink);font-size:clamp(48px,5vw,72px)}
+.o3 .res .stats p{color:var(--white)}
+
+/* beliefs */
+.o3 .beliefs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;list-style:none;margin:0;padding:0}
+.o3 .beliefs li{border-top:2px solid var(--black);padding-top:28px;display:flex;flex-direction:column;gap:24px}
+.o3 .beliefs .mk{width:56px;height:56px;display:block}
+.o3 .beliefs .h3{font-size:clamp(30px,2.8vw,40px);line-height:1.12;letter-spacing:-.035em;color:var(--black)}
+.o3 .beliefs p{margin:0;font:400 21px/1.55 var(--font);color:var(--ink)}
+
+/* delivered: tabs */
+.o3 .deliv .h2{color:var(--red)}
+.o3 .tabrow{display:flex;gap:40px;border-bottom:1px solid var(--hair);margin:0 0 40px;padding:0;overflow-x:auto;scrollbar-width:none}
+.o3 .tabrow::-webkit-scrollbar{display:none}
+.o3 .tabrow button{appearance:none;background:none;border:0;border-bottom:3px solid transparent;padding:0 0 16px;margin:0 0 -1px;cursor:pointer;flex:0 0 auto;font:800 20px/1.2 var(--font);letter-spacing:-.02em;color:var(--meta);transition:color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+.o3 .tabrow button:hover{color:var(--black)}
+.o3 .tabrow button[aria-selected="true"]{color:var(--black);border-bottom-color:var(--black)}
+.o3 .panel[hidden]{display:none}
+.o3 .panel > .lede{margin:0 0 32px;font-size:21px;max-width:44em;color:var(--ink)}
+.o3 .panel.on > *{animation:panelIn .5s var(--ease-out) both}
+
+/* sub-tabs inside the dark matrix board */
+.o3 .art .tabrow{gap:0 32px;border-bottom:2px solid #2e2e2b;margin:24px 0 0}
+.o3 .art .tabrow button{font:600 12px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#787873;padding:0 0 12px;border-bottom-width:2px;margin-bottom:-2px}
+.o3 .art .tabrow button:hover{color:#a9a9a4}
+.o3 .art .tabrow button[aria-selected="true"]{color:var(--yellow);border-bottom-color:var(--yellow)}
+.o3 .art .panel{padding-top:8px}
+@keyframes panelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* artifact boards (dark, like the Miro originals) */
+.o3 .art{background:#181817;color:#a9a9a4;padding:32px;font-size:12px;line-height:1.5}
+.o3 .art .cap{font:600 11.5px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#787873;margin:0 0 16px;display:block}
+.o3 .art .cap.y{color:var(--yellow);font-size:11px}
+.o3 .art .intro{font:600 17px/1.4 var(--font);letter-spacing:-.02em;color:var(--paper);margin:0 0 26px;max-width:none}
+.o3 .art p{max-width:none}
+.o3 .scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.o3 .scroller > .lv{min-width:860px}
+.o3 .art .foot-line{font:600 11px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#787873;margin:24px 0 0}
+
+/* leveling matrix */
+.o3 .lv{width:100%;border-collapse:collapse;font-size:11px;line-height:1.5}
+.o3 .lv th,.o3 .lv td{text-align:left;vertical-align:top;padding:0 14px 0 0;font-weight:400}
+.o3 .lv thead th{padding-bottom:10px}
+.o3 .lv .rolelab{font:600 12.5px/1.24 var(--font);letter-spacing:-.02em;color:var(--paper);white-space:pre-line;display:block}
+.o3 .lv th.hilite .rolelab{color:var(--red)}
+.o3 .lv thead th .ul{display:block;height:2px;background:#2e2e2b;margin-top:10px}
+.o3 .lv th.hilite .ul{background:var(--red)}
+.o3 .lv td.hilite{color:var(--paper)}
+.o3 .lv .rowlab{font:600 10.5px/1.4 var(--cond);letter-spacing:.16em;text-transform:uppercase;color:#787873;width:92px}
+.o3 .lv tbody tr > *{padding-top:16px;padding-bottom:16px}
+.o3 .lv tbody tr + tr > *{border-top:1px solid #242422}
+.o3 .lv td{color:#a9a9a4}
+
+/* core values */
+.o3 .vals{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.o3 .val{background:#2fb4ce;color:#0f0f0f;padding:15px 14px 10px;min-height:196px;display:flex;flex-direction:column;justify-content:space-between}
+.o3 .val h4{font:800 15px/1.18 var(--font);letter-spacing:-.03em;margin:0 0 8px;color:#0f0f0f}
+.o3 .val p{font:400 11px/1.46 var(--font);margin:0;color:#0f0f0f}
+.o3 .val .num{font:800 44px/.92 var(--font);letter-spacing:-.05em;color:var(--paper);margin-top:14px}
+.o3 .after-art{margin-top:48px;display:flex;flex-direction:column;gap:40px}
+.o3 .after-art .pull{margin:0}
+.o3 .after-art .pull p{color:var(--black);font-size:clamp(26px,3vw,44px)}
+.o3 .after-art .pull cite{color:var(--legal)}
+.o3 .after-art .kicker{margin-bottom:14px}
+
+/* goal house */
+.o3 .roof{position:relative;min-height:178px;margin-bottom:10px;display:flex;align-items:center;justify-content:center}
+.o3 .roof svg{position:absolute;inset:0;width:100%;height:100%}
+.o3 .roof .goal{position:relative;width:34%;max-width:420px;text-align:center}
+.o3 .roof .goal .k{font:600 11px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#2fb4ce;display:block;margin-bottom:8px}
+.o3 .roof .goal .l{font:600 17px/1.34 var(--font);letter-spacing:-.02em;color:var(--paper);margin:0}
+.o3 .vband{display:flex;align-items:center;background:#0e0e0d;padding:13px 16px;margin-bottom:10px}
+.o3 .vband .k{font:600 10.5px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#787873;width:84px;flex:none}
+.o3 .vband .v{flex:1;text-align:center;font:400 12.5px/1.4 var(--font);color:var(--paper)}
+.o3 .gp{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:start}
+.o3 .focus{background:var(--red);color:#fff;padding:10px 12px;display:flex;gap:8px;align-items:center}
+.o3 .focus b{font:800 17px/1.1 var(--font);letter-spacing:-.03em}
+.o3 .focus span{font:800 13px/1.18 var(--font);letter-spacing:-.02em}
+.o3 .gp .goal{background:#1971e9;color:#fff;padding:10px 12px;margin-top:6px;font:400 11px/1.44 var(--font)}
+
+/* wins wall */
+.o3 .wins{display:flex;flex-wrap:wrap;gap:28px;list-style:none;margin:0;padding:8px 0 0}
+.o3 .wins li{width:300px;padding:28px;font:800 20px/1.25 var(--font);letter-spacing:-.02em;color:var(--black);box-shadow:4px 5px 0 rgba(0,0,0,.25)}
+.o3 .wins li:nth-child(1){background:var(--yellow);transform:rotate(-2deg)}
+.o3 .wins li:nth-child(2){background:var(--pink);transform:rotate(1.5deg)}
+.o3 .wins li:nth-child(3){background:var(--teal-deep);color:var(--white);transform:rotate(-1deg)}
+
+/* leadership playbook board */
+.o3 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;list-style:none;margin:0 0 24px;padding:0}
+.o3 .pb{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.o3 .pb > div{min-width:0}
+.o3 .rate{min-width:400px}
+.o3 .bel-sec{padding-bottom:48px}
+.o3 .deliv{padding-top:72px}
+.o3 .rate{width:100%;border-collapse:collapse}
+.o3 .rate th{font:600 11px/1.4 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:#787873;text-align:left;padding:0 0 10px;font-weight:600}
+.o3 .rate td{padding:10px 12px 10px 0;border-top:1px solid #444442;vertical-align:middle}
+.o3 .rate td:first-child{font:700 12.5px/1.3 var(--font);color:#d1d1c9;width:34%}
+.o3 .chip{display:inline-block;padding:4px 8px;font:600 10.5px/1.2 var(--cond);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.o3 .chip.ex{background:#148871;color:#fff}
+.o3 .chip.me{border:1px solid #73736e;color:#d1d1c9}
+.o3 .chip.ng{background:var(--red);color:#fff}
+.o3 .fc{font:700 12px/1 var(--font);color:var(--yellow);white-space:nowrap}
+.o3 .fc::before{content:"";display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--yellow);margin-right:6px;vertical-align:-2px}
+.o3 .note{font:400 12px/1.5 var(--font);color:#787873;margin:16px 0 0}
+.o3 .qs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.o3 .qs li{background:#1971e9;color:#fff;padding:12px;display:grid;grid-template-columns:auto 1fr;gap:14px}
+.o3 .qs .q{font:800 17px/1.1 var(--font);letter-spacing:-.03em}
+.o3 .qs .g{font:700 13px/1.35 var(--font);margin:0 0 8px}
+.o3 .qs .sup{display:flex;flex-wrap:wrap;gap:6px}
+.o3 .qs .sup span{background:#0f4cad;padding:4px 8px;font:400 11px/1.3 var(--font)}
+.o3 .qs .sup b{font:600 9.5px/1 var(--cond);letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-right:6px}
+
+/* responsive */
+@media (max-width:1000px){
+  .o3 .ps{grid-template-columns:1fr;gap:48px}
+  .o3 .ps > div{padding:0}
+  .o3 .ps > div + div{padding:48px 0 0;border-left:0;border-top:1px solid var(--hair)}
+  .o3 .beliefs{grid-template-columns:1fr;gap:40px}
+  .o3 .res .stats{grid-template-columns:1fr}
+  .o3 .vals{grid-template-columns:repeat(2,1fr)}
+  .o3 .gp{grid-template-columns:1fr 1fr}
+  .o3 .steps{grid-template-columns:1fr 1fr}
+  .o3 .pb{grid-template-columns:minmax(0,1fr);gap:32px}
+}
+@media (max-width:640px){
+  .o3 .art{padding:20px}
+  .o3 .vals,.o3 .gp,.o3 .steps{grid-template-columns:1fr}
+  .o3 .val{min-height:0}
+  .o3 .roof{min-height:150px;align-items:flex-end}
+  .o3 .roof .goal{width:62%;padding-bottom:8px}
+  .o3 .vband{flex-wrap:wrap;gap:8px}
+  .o3 .vband .k{width:100%}
+  .o3 .vband .v{flex:0 0 auto;text-align:left}
+  .o3 .tabrow{gap:28px}
+  .o3 .tabrow button{font-size:17px}
+  .o3 .wins li{width:100%}
+  .o3 .ps p:not(.kicker),.o3 .beliefs p{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .ready .o3-hero .arch,.ready .o3-hero .sun,.ready .o3-hero .doodle,.o3 .panel.on > *{animation:none}
+}
+.o3 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+
   <script defer src="https://cloud.umami.is/script.js" data-website-id="5fa124b6-4262-4143-a192-a1fdf0e2a21d"></script>
 </head>
 <body>
@@ -56,173 +234,290 @@
   </div>
 </header>
 
-<main>
+<main class="o3">
   <section class="cs-head">
     <div class="wrap in-copy">
       <a class="back" href="case-studies.html"><span class="arr" aria-hidden="true">←</span> All case studies</a>
-      <p class="kicker k-red">Case study · O3</p>
-      <h1 class="h2">Rebuilding a team <span class="accent">while it was still running.</span></h1>
-      <p class="lede">I joined O3 at the height of the Great Resignation. So I paused the backfill and built the system first: what the job is, how to grow, and how we know it's working.</p>
+      <ul class="tags" aria-label="Topics"><li>Leadership</li><li>Org design</li><li>Team building</li></ul>
+      <h1 class="h2">Rebuilding a team <span class="accent">while it was already running.</span></h1>
+      <p class="lede">I joined O3 at the height of the Great Resignation. As I was backfilling positions, I was also building the operating model: what each role was responsible for, career pathing, how we collaborate, and how we deliver excellent work.</p>
       <dl class="cs-meta">
         <div><dt>Organization</dt><dd>O3, a 40+ person digital experience consultancy</dd></div>
-        <div><dt>My role</dt><dd>Director to SVP to Chief Experience Officer. Senior leadership team.</dd></div>
-        <div><dt>Scope</dt><dd>Org design, career architecture, leadership development, goals + performance</dd></div>
+        <div><dt>My role</dt><dd>Senior leadership team. From Director to SVP to Chief Experience Officer.</dd></div>
+        <div><dt>Scope</dt><dd>Org design, career pathing, leadership development, goals + performance</dd></div>
       </dl>
     </div>
   </section>
 
-  <section class="section paper">
+  <section class="o3-hero" aria-hidden="true">
     <div class="wrap">
-      <div class="sec-head rv">
-        <p class="kicker k-red">The headline numbers</p>
-        <h2 class="h2" style="color:var(--black)">Less guessing. More growing.</h2>
-      </div>
-      <div class="stats rv">
-        <div><b>76<small>%</small> → 88<small>%</small></b><p>Client satisfaction, after we rebuilt how the team worked across disciplines.</p></div>
-        <div><b>40+</b><p>People across the company. As CXO, I co-ran the business with oversight of every discipline.</p></div>
-        <div><b>50+</b><p>Practice skills anyone could self-assess, from "never done this" to "I could teach it."</p></div>
-      </div>
+      <svg viewBox="0 0 1180 684" role="presentation" focusable="false">
+        <circle class="sun" cx="310.8" cy="0" r="220.8" fill="#ffbe00" filter="url(#paper-grain)"/>
+        <rect y="535.8" width="1180" height="148.2" fill="#eb1000"/>
+        <g fill="#fff" filter="url(#paper-grain)"><path class="arch" style="animation-delay:0s" d="M345.2 684V570.7A67.81 67.81 0 0 1 480.8 570.7V684Z"/><path class="arch" style="animation-delay:0.08s" d="M531.6 684V495.5A67.81 67.81 0 0 1 667.2 495.5V684Z"/><path class="arch" style="animation-delay:0.16s" d="M737.5 684V459.8A67.81 67.81 0 0 1 873.1 459.8V684Z"/><path class="arch" style="animation-delay:0.24s" d="M943.4 684V427.7A67.81 67.81 0 0 1 1079.1 427.7V684Z"/></g>
+        <g class="doodle"><path fill="#ee93ac" d="M1017.25 98.036C1018.73 97.8627 1019.43 98.001 1020.41 99.0707C1021.3 103.363 1027.19 129.285 1026.58 130.718C1025.13 131.899 1025.88 131.744 1024.36 131.596C1023.03 129.979 1018.24 108.559 1017.54 104.929C1009.53 128.139 991.374 159.154 975.759 177.994C953.466 204.891 919.004 232.543 883.851 239.058C881.344 239.522 870.053 238.228 869.076 238.856C863.184 242.647 857.96 248.412 851.997 252.339C824.943 271.547 784.09 281.776 752.252 270.834C751.564 270.597 751.577 269.519 751.562 268.941C753.428 267.94 764.3 270.959 767.881 271.285C781.145 272.548 794.527 271.627 807.493 268.559C829.822 263.547 850.226 252.185 866.244 235.843C856.309 225.956 859.24 207.969 866.128 197.133C872.463 187.166 884.611 187.872 885.755 200.501C886.905 213.19 878.592 225.831 870.986 235.209C885.286 237.278 894.788 233.881 907.694 227.763C956.535 204.612 995.455 155.638 1013.59 105.522C1007.1 110.009 1000.58 114.626 994.041 119.054C992.196 120.304 990.988 121.246 988.918 120.18L988.706 119.106C989.746 117.196 1013.32 101.046 1017.25 98.036Z"/><path fill="#000" d="M875.126 193.736C879.069 193.139 882.163 195.565 882.393 199.533C883.058 211.017 876.355 223.757 869.347 232.364C868.674 232.979 869.086 232.768 867.952 232.721C867.352 232.287 865.989 231.219 865.676 230.589C859.519 218.206 863.768 201.515 875.126 193.736Z"/></g>
+      </svg>
     </div>
   </section>
 
   <section class="section white">
     <div class="wrap">
-      <div class="sec-head rv">
-        <p class="kicker k-black">The story</p>
-        <h2 class="h2">Hiring fast would have rebuilt the same problem.</h2>
-      </div>
-      <div class="chapters">
-        <article class="chapter rv">
-          <p class="meta">Context</p>
-          <div>
-            <h3 class="h3">Where O3 stood.</h3>
-            <p>I joined in October 2020. The team was turning over, the hiring market was brutal, and nothing about how the design function worked was written down. Expectations lived in people's heads, and people were leaving with them.</p>
-          </div>
-        </article>
-        <article class="chapter rv">
-          <p class="meta">Challenge</p>
-          <div>
-            <h3 class="h3">Everyone had a different definition of good.</h3>
-            <p>Designers couldn't tell you what "senior" meant here. Managers had no shared language for feedback. Clients got great work from some teams and uneven work from others. Filling seats fast would have locked all of that in.</p>
-          </div>
-        </article>
-        <article class="chapter rv">
-          <p class="meta">Approach</p>
-          <div>
-            <h3 class="h3">Define the team, then hire it.</h3>
-            <p>I started with the business: what clients bought from us, where delivery broke down, and which skills we'd need in three years. Then we built four connected pieces, each one feeding the next. The charter said what we do. The skills matrix said who does it and how they grow. Leader lanes turned leadership into owned work. The goals framework tied all of it to company, department, and individual goals.</p>
-          </div>
-        </article>
-        <article class="chapter rv">
-          <p class="meta">Role</p>
-          <div>
-            <h3 class="h3">Director, SVP, then CXO.</h3>
-            <p>I joined as director of the Experience Team, moved up to SVP, and finished as Chief Experience Officer, co-running the company with oversight of every discipline. I authored the frameworks, wrote the charter with my team, ran everything on our own work first, then took it firm-wide through my leadership lane.</p>
-          </div>
-        </article>
+      <div class="ps">
+        <div class="rv">
+          <p class="kicker k-black">The problem</p>
+          <h2 class="h3">Everyone had a different definition of good.</h2>
+          <p>The team was turning over, and nothing about how the design function worked was written down. Expectations lived in people's heads, and people were leaving with them. Designers couldn't say what "senior" meant here, and clients got great work from some teams and uneven work from others.</p>
+        </div>
+        <div class="rv">
+          <p class="kicker k-black">The solution</p>
+          <h2 class="h3">Hire and build at the same time.</h2>
+          <p>Pausing hiring wasn't an option, and hiring without a system would have locked in every bad habit. So the operating model got built alongside the backfill: a skills matrix, a department charter, a leadership playbook and a goals framework.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section dark dots">
+  <section class="section dark res">
     <div class="wrap">
       <div class="sec-head rv">
-        <p class="kicker k-pink">The operating system</p>
-        <h2 class="display">Four pieces. One shared language.</h2>
+        <p class="kicker k-white">The results</p>
+        <h2 class="h2">A team that knew what good looked like.</h2>
+        <p class="lede">I rebuilt the Experience Team with people hired against a clear ladder, and the leadership frameworks I developed went firm-wide, well beyond the design team.</p>
       </div>
-      <div class="os solid">
-        <article class="rv"><h3 class="h4">Team charter</h3><p>One document for how we work, written with the team. Nine chapters, from a north star to what "done well" means.</p><ul><li>A team blueprint and ten core values</li><li>Ground rules and day-to-day norms</li><li>Standards for creating, presenting, and measuring work</li></ul></article>
-        <article class="rv"><h3 class="h4">Skills matrix</h3><p>Thirteen roles across research, design, and writing, each defined by scope, consulting skill, supervision, leadership, and AI fluency.</p><ul><li>A Y-shaped path: lead as an expert or lead through people</li><li>Company values written into every level</li><li>50+ practice skills, self-assessed past and present</li></ul></article>
-        <article class="rv"><h3 class="h4">Leader lanes</h3><p>Each senior leader owned a lane of the business. Mine was experience. Every tactic had a milestone, budget, timeline, and two owners: one from leadership, one from staff.</p><ul><li>Managers and project leads co-owned real initiatives</li><li>Leadership practiced on live work, beyond the org chart</li></ul></article>
-        <article class="rv"><h3 class="h4">Goals framework</h3><p>Year one defined the frameworks. Year two turned them into shareable action plans inside company, department, and individual goals.</p><ul><li>Annual planning with SWOT and a three-year view</li><li>Reviews measured against the same language people grew against</li></ul></article>
-      </div>
-      <blockquote class="pull rv"><p>When we get it right, it's because we got it wrong first.</p><cite>One of the ground rules in our team charter</cite></blockquote>
-    </div>
-  </section>
-
-  <section class="section dark">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <p class="kicker k-white">The scale</p>
-        <h2 class="h2">Growth you could describe out loud.</h2>
-        <p class="lede">Every practice skill in the matrix used the same five-step self-assessment. Tap a level.</p>
-      </div>
-      <div class="scale rv" role="group" aria-label="Self-assessment levels">
-        <button type="button" aria-pressed="true" data-say="I've never done this before."><b>Apprentice</b></button>
-        <button type="button" aria-pressed="false" data-say="I've done this before, but not here, or only a little."><b>New here</b></button>
-        <button type="button" aria-pressed="false" data-say="I've done this before, with hands-on guidance from someone on the team."><b>Guided</b></button>
-        <button type="button" aria-pressed="false" data-say="I've done this before, without guidance, successfully."><b>Senior</b></button>
-        <button type="button" aria-pressed="false" data-say="I've done this successfully several times, and I feel comfortable teaching it to other people."><b>Principal</b></button>
-      </div>
-      <p class="scale-say" aria-live="polite">I've never done this before.</p>
-    </div>
-  </section>
-
-  <section class="section paper">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <p class="kicker k-red">Climb the ladder</p>
-        <h2 class="h2" style="color:var(--black)">Every role, spelled out.</h2>
-        <p class="lede">Pick a track and a level. This is the real matrix, lightly edited for the web.</p>
-      </div>
-      <div class="tracks rv" role="tablist" aria-label="Tracks">
-        <button type="button" role="tab" aria-selected="true" data-track="design">UX design</button>
-        <button type="button" role="tab" aria-selected="false" data-track="research">UX research</button>
-        <button type="button" role="tab" aria-selected="false" data-track="writing">UX writing</button>
-      </div>
-      <div class="ladder rv">
-        <div class="rungs" id="rungs"></div>
-        <div class="rung-detail" id="rung-detail" aria-live="polite"></div>
+      <div class="stats rv">
+        <div><b>90<small>%</small></b><p>Retention over five years, after rebuilding the team at the height of the Great Resignation.</p></div>
+        <div><b>50+</b><p>Practice skills anyone could self-assess, from "never done this" to "I could teach it."</p></div>
+        <div><b>88<small>%</small></b><p>Client satisfaction, up from 76%, after rebuilding how the team worked.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="section sun">
+  <section class="section paper bel-sec">
     <div class="wrap">
-      <div class="sec-head rv">
-        <p class="kicker k-black">One lane, up close</p>
-        <h2 class="h2">Experience: three initiatives, two years.</h2>
-      </div>
-      <div class="os">
-        <article class="rv"><h3 class="h4">Delivering excellence</h3><p>A consistent, polished approach to every client interaction. We co-wrote a definition of excellence for each stage of a project, mapped every CX and UX activity to our solutions from pitch to delivery, and packaged workshops into templates and training.</p></article>
-        <article class="rv"><h3 class="h4">Nurturing loyalty</h3><p>A framework to recognize and reward long-term client relationships: launches and anniversaries, lunch and learns, roundtables, and client dinners.</p></article>
-        <article class="rv"><h3 class="h4">Measuring relationships</h3><p>A regular read on project and relationship health: a client benchmark survey twice a year, project surveys, documented retros, and quarterly business reviews for long-term partners.</p></article>
-        <article class="rv"><h3 class="h4">Define, then deploy</h3><p>2022 was for defining the frameworks and planning the resources behind them. 2023 was for deploying them as action plans inside company, department, and individual goals.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section paper">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <p class="kicker k-red">The toolkit</p>
-        <h2 class="h2" style="color:var(--black)">Seven templates. Every engagement starts the same way.</h2>
-        <p class="lede">Excellence stopped depending on who was staffed. Each service got a ready-to-run Miro template, so a first-year designer and a principal ran the same playbook.</p>
-      </div>
-      <ul class="kit marks rv">
-        <li><b>Project kickoff</b><span>Team roles, meetings, milestones, timeline, and risk + change management</span></li>
-        <li><b>Discovery workshop</b><span>Business goals, rose, bud + thorn, affinity clustering, and prioritized recommendations</span></li>
-        <li><b>Naming workshop</b><span>Tone + traits, mind map, word bank, and a scored ranking</span></li>
-        <li><b>Visual design workshop</b><span>Brand attributes, color, type, photography, and iconography directions</span></li>
-        <li><b>Landscape analysis</b><span>Competitors, inspiration, findings, and what we recommend</span></li>
-        <li><b>Research readout</b><span>Goals, analysis, summary, and next steps</span></li>
-        <li><b>Account health</b><span>Mid- and end-of-project sentiment, retros, QBR content, and growth ideas</span></li>
+      <div class="sec-head rv"><p class="kicker k-black">What I believe</p></div>
+      <ul class="beliefs">
+        <li class="rv"><svg class="mk" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#eb1000" filter="url(#paper-grain)"/></svg><h3 class="h3">People often grow into what they can see.</h3><p>If nobody can say what senior means, people guess, and the good ones go find out somewhere else.</p></li>
+        <li class="rv"><svg class="mk" viewBox="0 0 56 56" aria-hidden="true"><rect width="56" height="56" fill="#077387" filter="url(#paper-grain)"/></svg><h3 class="h3">Teams buy in when they're part of the process.</h3><p>The charter, the ladder and the goals were all written with the team, which is why people actually used them.</p></li>
+        <li class="rv"><svg class="mk" viewBox="0 0 56 56" aria-hidden="true"><polygon points="28,6 54,50 2,50" fill="#ffbe00" filter="url(#paper-grain)"/></svg><h3 class="h3">Excellence shouldn't depend on who's staffed.</h3><p>Clients notice the gap between your best team and your average one. A shared charter closes it.</p></li>
       </ul>
     </div>
   </section>
 
-  <section class="section dark">
+  <section class="section paper deliv">
     <div class="wrap">
       <div class="sec-head rv">
-        <p class="kicker k-pink">Results</p>
-        <h2 class="display">A team that knew what good looked like.</h2>
+        <p class="kicker k-black">What I delivered</p>
+        <h2 class="h2">Four things we built together.</h2>
+        <p class="lede">A skills matrix, a department charter, a leadership playbook and a goals framework. Each one fed the next.</p>
       </div>
-      <ul class="results rv">
-        <li>Rebuilt the Experience Team with people hired against a clear vision and a clear ladder.</li>
-        <li>Client satisfaction rose from 76% to 88% through cross-functional process changes.</li>
-        <li>The leadership frameworks spread firm-wide, well beyond the design team.</li>
-        <li>AI fluency became a stated expectation at every level, years before most teams wrote it down.</li>
-      </ul>
+
+      <div class="rv">
+      <div class="tabrow" role="tablist" aria-label="What I delivered">
+        <button type="button" role="tab" id="t-d1" aria-controls="p-d1" aria-selected="true">Skills matrix</button>
+        <button type="button" role="tab" id="t-d2" aria-controls="p-d2" aria-selected="false" tabindex="-1">Department charter</button>
+        <button type="button" role="tab" id="t-d3" aria-controls="p-d3" aria-selected="false" tabindex="-1">Leadership playbook</button>
+        <button type="button" role="tab" id="t-d4" aria-controls="p-d4" aria-selected="false" tabindex="-1">Goals framework</button>
+      </div>
+
+      <div class="panel" id="p-d1" role="tabpanel" aria-labelledby="t-d1">
+        <p class="lede">13 roles across research, design and writing, with two ways up, and company values written into every level. One designer used it to decide between leading people and leading projects, and chose projects, confident it was right for her.</p>
+        <div class="art">
+          <span class="cap">O3 experience team / design track / leveling matrix sample</span>
+          <div class="tabrow" role="tablist" aria-label="Leveling matrix views">
+            <button type="button" role="tab" id="t-m1" aria-controls="p-m1" aria-selected="true">Durable skills</button>
+            <button type="button" role="tab" id="t-m2" aria-controls="p-m2" aria-selected="false" tabindex="-1">Technical skills</button>
+            <button type="button" role="tab" id="t-m3" aria-controls="p-m3" aria-selected="false" tabindex="-1">Company values</button>
+          </div>
+          <div class="panel" id="p-m1" role="tabpanel" aria-labelledby="t-m1"><div class="scroller"><table class="lv">
+            <thead><tr>
+              <th class="rowlab"></th>
+              <th><span class="rolelab">Associate
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior
+UX Designer</span><span class="ul"></span></th>
+              <th class="hilite"><span class="rolelab">Principal
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Design
+Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior UX
+Design Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Design
+Director</span><span class="ul"></span></th>
+            </tr></thead>
+            <tbody>
+              <tr><th class="rowlab">Experience</th><td>0&ndash;2 yrs</td><td>2&ndash;6 yrs</td><td>6&ndash;10 yrs</td><td class="hilite">10+ yrs</td><td>Designer + 2&ndash;5 yrs managing</td><td>Designer + 5+ yrs managing</td><td>Designer + 8+ yrs managing leaders</td></tr>
+              <tr><th class="rowlab">Supervision</th><td>Close supervision, little latitude</td><td>Moderate supervision, some latitude</td><td>Little supervision, ample latitude</td><td class="hilite">Minimal supervision, full latitude</td><td>Minimal supervision, full latitude</td><td>Minimal supervision, full latitude</td><td>Sets direction, accountable to the business</td></tr>
+              <tr><th class="rowlab">Leadership</th><td>None</td><td>None</td><td>Mentors less experienced designers</td><td class="hilite">Non-managing leader within the team</td><td>Leads and manages designers</td><td>Leads and manages designers</td><td>Leads managers, owns how the org is shaped</td></tr>
+              <tr><th class="rowlab">Consulting</th><td>Participates under the guidance of senior staff</td><td>Consults on well-defined projects with strategy and development</td><td>Leads complex engagements across teams and stakeholders</td><td class="hilite">Drives org-wide design consulting strategy</td><td>Develops consulting capability within their team</td><td>Leads multiple complex engagements, builds org-wide programs</td><td>Owns the consulting relationship at the executive level</td></tr>
+              <tr><th class="rowlab">Client work</th><td>Building client communication + presentation skills</td><td>Comfortable with clients, presents own work</td><td>Seasoned presenter, articulates rationale</td><td class="hilite">Masterful presenter, articulates rationale</td><td>Seasoned presenter, articulates rationale</td><td>Masterful presenter, articulates rationale</td><td>Presents to executive sponsors and boards</td></tr>
+            </tbody>
+          </table></div></div>
+          <div class="panel" id="p-m2" role="tabpanel" aria-labelledby="t-m2" hidden><div class="scroller"><table class="lv">
+            <thead><tr>
+              <th class="rowlab"></th>
+              <th><span class="rolelab">Associate
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior
+UX Designer</span><span class="ul"></span></th>
+              <th class="hilite"><span class="rolelab">Principal
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Design
+Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior UX
+Design Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Design
+Director</span><span class="ul"></span></th>
+            </tr></thead>
+            <tbody>
+              <tr><th class="rowlab">AI</th><td>Uses AI tools to explore and iterate</td><td>Integrates AI into regular workflow</td><td>Builds AI-augmented workflows for the team</td><td class="hilite">Sets frameworks for AI in design systems</td><td>Rolls AI tools out across the practice</td><td>Owns org-wide AI-augmented design strategy</td><td>Sets the AI operating model for the organization</td></tr>
+              <tr><th class="rowlab">Practice</th><td>Follows established guidelines and processes</td><td>Follows established guidelines and processes</td><td>Supports practice improvements for the team</td><td class="hilite">Leads practice activities and process improvements</td><td>Leads practice activities and process improvements</td><td>Leads practice improvements for the team and beyond</td><td>Defines what the practice is</td></tr>
+              <tr><th class="rowlab">Tools</th><td class="span" colspan="7">Figma, Miro, Notion, Adobe Creative Suite, Atlassian Suite, Google Suite, Slack, Zoom</td></tr>
+            </tbody>
+          </table></div></div>
+          <div class="panel" id="p-m3" role="tabpanel" aria-labelledby="t-m3" hidden><div class="scroller"><table class="lv">
+            <thead><tr>
+              <th class="rowlab"></th>
+              <th><span class="rolelab">Associate
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior
+UX Designer</span><span class="ul"></span></th>
+              <th class="hilite"><span class="rolelab">Principal
+UX Designer</span><span class="ul"></span></th>
+              <th><span class="rolelab">UX Design
+Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Senior UX
+Design Manager</span><span class="ul"></span></th>
+              <th><span class="rolelab">Design
+Director</span><span class="ul"></span></th>
+            </tr></thead>
+            <tbody>
+              <tr><th class="rowlab">Apply optimism</th><td class="span" colspan="7">Finds opportunities for learning in failure, recognizes peer success, eager to collaborate and help clients solve their challenges</td></tr>
+              <tr><th class="rowlab">Trust in people</th><td>Assumes positive intent, pitches in</td><td>Assumes positive intent, pitches in</td><td>Puts themselves in the client's shoes, resolves conflict with empathy</td><td class="hilite">Gives clear and direct feedback from a place of care</td><td>Gives clear and direct feedback from a place of care</td><td>Gives clear and direct feedback from a place of care</td><td>Gives clear and direct feedback from a place of care</td></tr>
+              <tr><th class="rowlab">Commit to community</th><td>Regularly attends community and company events</td><td>Regularly attends community and company events</td><td>Participates in and attends community events</td><td class="hilite">Leads and attends community events</td><td>Leads and attends community events</td><td>Leads and attends community events</td><td>Leads and attends community events</td></tr>
+              <tr><th class="rowlab">Embrace iteration</th><td>Strives for continuous improvement</td><td>Strives for continuous improvement</td><td>Champions improvement, shares knowledge with the team</td><td class="hilite">Implements improvement, creates paths to success with clients</td><td>Implements improvement in workflow and process</td><td>Drives improvement in workflow and process</td><td>Drives improvement across the organization</td></tr>
+              <tr><th class="rowlab">Focus on the future</th><td>Embodies the gold standard</td><td>Embodies the gold standard</td><td>Embodies the gold standard</td><td class="hilite">Identifies new opportunities for impact</td><td>Identifies opportunities, takes calculated risks</td><td>Pushes the team to a consulting mindset, takes calculated risks</td><td>Sets where the practice goes next</td></tr>
+            </tbody>
+          </table></div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-d2" role="tabpanel" aria-labelledby="t-d2" hidden>
+        <p class="lede">One document for how we work, written with the team: who we are, what we value, and what "done well" looks like when we create, present and measure work. Plus a ready-to-run template for every service we sold.</p>
+        <div class="art">
+          <span class="cap">O3 department charter / sample page: our core values</span>
+          <p class="intro">Our shared values help guide how we approach our work + how we collaborate with each other</p>
+          <div class="vals">
+            <div class="val"><div><h4>Collaboration</h4><p>Working together to achieve common goals and solve problems effectively.</p></div><div class="num">1.</div></div>
+            <div class="val"><div><h4>Accessibility</h4><p>Ensuring equal access + inclusion for all individuals, regardless of their abilities or circumstances.</p></div><div class="num">2.</div></div>
+            <div class="val"><div><h4>Learning</h4><p>Embracing continuous growth + acquiring new knowledge + skills.</p></div><div class="num">3.</div></div>
+            <div class="val"><div><h4>Equity</h4><p>Advocating for fairness + justice by providing equal opportunities + avoiding bias.</p></div><div class="num">4.</div></div>
+            <div class="val"><div><h4>Thoughtfulness</h4><p>Approaching situations with careful consideration + mindfulness.</p></div><div class="num">5.</div></div>
+            <div class="val"><div><h4>Research-driven</h4><p>Utilizing thorough research + analysis to inform decision-making and actions.</p></div><div class="num">6.</div></div>
+            <div class="val"><div><h4>Curiosity</h4><p>Embracing a sense of wonder + exploration to seek new insights + solutions.</p></div><div class="num">7.</div></div>
+            <div class="val"><div><h4>Adaptability</h4><p>Being flexible + open to change in order to respond effectively to evolving circumstances.</p></div><div class="num">8.</div></div>
+            <div class="val"><div><h4>Empathy</h4><p>Understanding and sharing the feelings and perspectives of others.</p></div><div class="num">9.</div></div>
+            <div class="val"><div><h4>Fun</h4><p>Promoting enjoyment and positive experiences in the work environment.</p></div><div class="num">10.</div></div>
+          </div>
+        </div>
+        <div class="after-art">
+          <blockquote class="pull"><p>When we get it right, it's because we got it wrong first.</p><cite>A ground rule from the charter</cite></blockquote>
+          <div>
+            <p class="kicker k-black">Seven ready-to-run templates</p>
+            <ul class="tags"><li>Project kickoff</li><li>Discovery workshop</li><li>Naming workshop</li><li>Visual design workshop</li><li>Landscape analysis</li><li>Research readout</li><li>Account health</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-d3" role="tabpanel" aria-labelledby="t-d3" hidden>
+        <p class="lede">Every growth plan was built with the person it belonged to. We defined what makes a great leader, both rated them against the skills matrix, agreed on what to focus on, and mapped quarterly goals with the resources and people to help.</p>
+        <div class="art">
+          <span class="cap">Leadership playbook / one person's growth plan / sample</span>
+          <ol class="steps">
+            <li class="focus"><b>1.</b><span>Define a great leader</span></li>
+            <li class="focus"><b>2.</b><span>Self-assess</span></li>
+            <li class="focus"><b>3.</b><span>I assess too</span></li>
+            <li class="focus"><b>4.</b><span>Align on focus</span></li>
+            <li class="focus"><b>5.</b><span>Roadmap the year</span></li>
+          </ol>
+          <div class="pb">
+            <div>
+              <span class="cap y">Steps 1–4 / rated against the skills matrix</span>
+              <div class="scroller"><table class="rate">
+                <thead><tr><th scope="col">Trait</th><th scope="col">Self</th><th scope="col">Christine</th><th scope="col"><span class="vh">Focus area</span></th></tr></thead>
+                <tbody>
+                  <tr><td>Supervision</td><td><span class="chip me">Meets</span></td><td><span class="chip me">Meets</span></td><td></td></tr>
+                  <tr><td>Leadership</td><td><span class="chip ng">Needs growth</span></td><td><span class="chip me">Meets</span></td><td></td></tr>
+                  <tr><td>Consulting</td><td><span class="chip me">Meets</span></td><td><span class="chip ng">Needs growth</span></td><td><span class="fc">Focus</span></td></tr>
+                  <tr><td>Client work</td><td><span class="chip ng">Needs growth</span></td><td><span class="chip ng">Needs growth</span></td><td><span class="fc">Focus</span></td></tr>
+                  <tr><td>AI fluency</td><td><span class="chip ex">Exceeds</span></td><td><span class="chip ex">Exceeds</span></td><td></td></tr>
+                </tbody>
+              </table></div>
+              <p class="note">Where we disagreed was the best part of the conversation.</p>
+            </div>
+            <div>
+              <span class="cap y">Step 5 / quarterly goals, with support</span>
+              <ul class="qs">
+                <li><span class="q">Q1</span><div><p class="g">Co-lead discovery on one engagement</p><div class="sup"><span><b>Resource</b>Discovery workshop template</span><span><b>Talk to</b>A senior strategist</span></div></div></li>
+                <li><span class="q">Q2</span><div><p class="g">Present findings to the client sponsor</p><div class="sup"><span><b>Resource</b>Charter presenting standards</span><span><b>Talk to</b>The account lead</span></div></div></li>
+                <li><span class="q">Q3</span><div><p class="g">Run a client workshop solo</p><div class="sup"><span><b>Resource</b>Workshop training</span><span><b>Talk to</b>A principal designer</span></div></div></li>
+                <li><span class="q">Q4</span><div><p class="g">Own the readout and the next-step plan</p><div class="sup"><span><b>Resource</b>Research readout template</span><span><b>Talk to</b>A design director</span></div></div></li>
+              </ul>
+            </div>
+          </div>
+          <p class="foot-line">Matrix → self-rating → my rating → shared focus → quarterly goals + support</p>
+        </div>
+      </div>
+
+      <div class="panel" id="p-d4" role="tabpanel" aria-labelledby="t-d4" hidden>
+        <p class="lede">Year one defined the frameworks. Year two turned them into action plans inside company, department and individual goals, reviewed against the same ladder people grew on.</p>
+        <div class="art">
+          <span class="cap">Goal mapping / sample of the department goal house / built for design + research, adopted company-wide</span>
+          <div class="roof">
+            <svg viewBox="0 0 913 132" preserveAspectRatio="none" aria-hidden="true"><polygon points="456.5,2 911,130 2,130" fill="none" stroke="#2e2e2b" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
+            <div class="goal"><span class="k">The goal is growth</span><p class="l">Everything below connects to it</p></div>
+          </div>
+          <div class="vband">
+            <span class="k">Values</span>
+            <span class="v">Apply optimism</span><span class="v">Trust in people</span><span class="v">Commit to community</span><span class="v">Embrace iteration</span><span class="v">Focus on the future</span>
+          </div>
+          <div class="gp">
+            <div class="gpl">
+              <div class="focus"><b>1.</b><span>Solutions</span></div>
+              <div class="goal">Formalize our approach to AI with a playbook, with consideration for ethics and how we lead POC opportunities with UX</div>
+              <div class="goal">Build a process for case studies at project close: content, imagery, clickable prototypes</div>
+              <div class="goal">Begin a resource research library aligned to our solutions and industries</div>
+            </div>
+            <div class="gpl">
+              <div class="focus"><b>2.</b><span>Expand accounts</span></div>
+              <div class="goal">Increase use of client roadmaps and proactive approaches for highlighting expansion</div>
+              <div class="goal">Leverage data and statistics to inform UX decisions, including analytics and best practices</div>
+              <div class="goal">Schedule in-person meetings for key milestones, like QBR readouts</div>
+            </div>
+            <div class="gpl">
+              <div class="focus"><b>3.</b><span>New growth (wedges)</span></div>
+              <div class="goal">Publish resources in the Figma + Miro communities to establish thought leadership</div>
+              <div class="goal">Shape wedge offerings for research, design and brand, with a marketing suite to match</div>
+            </div>
+            <div class="gpl">
+              <div class="focus"><b>4.</b><span>Partnerships</span></div>
+              <div class="goal">Explore partnership opportunities with chatbot and AI providers</div>
+              <div class="goal">Build a preferred contractor partner pool across UX, design, video and data</div>
+            </div>
+          </div>
+          
+          <p class="foot-line">Focus → dept goals</p>
+        </div>
+        <div class="after-art">
+          <div>
+            <p class="kicker k-red">From the team's wins wall</p>
+            <ul class="wins"><li>We have a department charter!</li><li>The output from the department goals has been hugely impactful to the estimation process.</li><li>I finally have clarity on what my growth path looks like.</li></ul>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -262,35 +557,31 @@
 
 <script>
 (function(){
-  var ROLES=[{"track": "research", "title": "Associate UX Researcher", "resp": "Support projects or engagements as needed, assisting a Researcher or Research Manager with related project artifacts", "consulting": "Participates in consulting under guidance of more senior staff. Presents work to immediate team members.", "ai": "Uses AI tools to support research analysis and note-taking", "years": "0–2 years", "supervision": "Close supervision with little latitude for independent judgement", "leadership": "None"}, {"track": "research", "title": "UX Researcher", "resp": "Supports 2–4 ongoing engagements, partners with the Strategy Manager in creating project artifacts", "consulting": "Collaboratively consults on well-defined project with strategy, development, and client services.", "ai": "Integrates AI tools into research workflows for insight generation", "years": "2–6 years", "supervision": "Moderate supervision, with some latitude for independent judgement", "leadership": "None"}, {"track": "research", "title": "Senior UX Researcher", "resp": "Primary or sole strategist on 2–4 ongoing engagements", "consulting": "Leads complex consulting engagements across multiple teams and stakeholders. Mentors junior researchers in consulting skills and stakeholder management", "ai": "Develops AI-augmented research methodologies for the team", "years": "6–10 years", "supervision": "Little supervision, with ample latitude for independent judgement", "leadership": "Must have the skillset and willingness to mentor less experienced employees, to include delegation and direction"}, {"track": "research", "title": "Principal UX Researcher", "resp": "Primary or sole strategist on 2–4 ongoing engagements", "consulting": "Drives organization-wide research consulting strategy. Establishes consulting frameworks and best practices for the research organization", "ai": "Establishes frameworks for AI integration in research processes", "years": "10+", "supervision": "Minimal supervision, full latitude for independent judgement", "leadership": "Required to be a non-managing leader within the team and mentor to less experienced employees"}, {"track": "research", "title": "UX Research Manager", "resp": "Leads 2–4 ongoing engagements, providing a combination of oversight + execution", "consulting": "Develops consulting capabilities within their team. Builds strategic partnerships with other department leaders", "ai": "Implements AI tools and processes across research workflows", "years": "Researcher and 2–5 years managing others", "supervision": "Minimal supervision, full latitude for independent judgement", "leadership": "Required to be a leader within the team and manage others"}, {"track": "research", "title": "Senior UX Research Manager", "resp": "Leads 2–4 ongoing engagements, providing a combination of oversight + execution", "consulting": "Leads multiple complex consulting engagements across multiple teams and stakeholders. Creates organization-wide research consulting programs.", "ai": "Creates organization-wide strategy for AI-augmented research", "years": "Researcher and 5+ years managing others", "supervision": "Minimal supervision, full latitude for independent judgement", "leadership": "Required to be a leader within the team and manage others"}, {"track": "design", "title": "Associate UX Designer", "resp": "Support projects or engagements as needed, assisting other members of the team with related project artifacts", "consulting": "Participates in consulting under guidance of more senior staff. Presents work to immediate team members.", "ai": "Uses AI tools for initial design explorations and iterations", "years": "0–2 years", "supervision": "Close supervision with little latitude for independent judgement", "leadership": "None"}, {"track": "design", "title": "UX Designer", "resp": "Supports 2–4 ongoing engagements, partners with the Director and Senior Designers in creating project artifacts", "consulting": "Collaboratively consults on well-defined project with strategy, development, and client services.", "ai": "Integrates AI tools into regular design workflow", "years": "2–6 years", "supervision": "Moderate supervision, with some latitude for independent judgement", "leadership": "None"}, {"track": "design", "title": "Senior UX Designer", "resp": "Primary or sole designer on 2–4 ongoing engagements", "consulting": "Leads complex consulting engagements across multiple teams and stakeholders. Mentors junior designers in consulting skills and stakeholder management", "ai": "Develops AI-augmented design workflows for the team", "years": "6–10 years", "supervision": "Little supervision, with ample latitude for independent judgement", "leadership": "Must have the skillset and willingness to mentor less experienced employees, to include delegation and direction"}, {"track": "design", "title": "Principal UX Designer", "resp": "Primary or sole designer on 2–4 ongoing engagements", "consulting": "Drives organization-wide design consulting strategy. Establishes design consulting frameworks and best practices", "ai": "Establishes frameworks for AI integration in design systems", "years": "10+ years", "supervision": "Minimal supervision, full latitude for independent judgement", "leadership": "Required to be a non-managing leader within the team and mentor to less experienced employees"}, {"track": "design", "title": "UX Design Manager", "resp": "Leads 2–4 ongoing engagements, providing a combination of oversight + execution", "consulting": "Develops consulting capabilities within their team. Builds strategic partnerships with other department leaders", "ai": "Implements AI tools and processes across design workflow", "years": "Designer and 2–5 years managing others", "supervision": "Minimal supervision, full latitude for independent judgement", "leadership": "Required to be a leader within the team and manage others"}, {"track": "design", "title": "Senior UX Design Manager", "resp": "Leads 2–4 ongoing engagements, providing a combination of oversight + execution", "consulting": "Leads multiple complex consulting engagements across multiple teams and stakeholders. Creates organization-wide design consulting programs.", "ai": "Creates organization-wide strategy for AI-augmented design", "years": "Designer and 5+ years managing others", "supervision": "Minimal supervision, full latitude for independent judgement", "leadership": "Required to be a leader within the team and manage others"}, {"track": "writing", "title": "UX Writer", "resp": "Supports 2–4 ongoing engagements, partners with the Strategy Manager + Director in creating project artifacts for our clients and our consultancy", "consulting": "", "ai": "", "years": "2–6 years", "supervision": "Moderate supervision, with some latitude for independent judgement", "leadership": "None"}];
-  var scale=document.querySelectorAll('.scale button'), say=document.querySelector('.scale-say');
-  Array.prototype.forEach.call(scale,function(b){b.addEventListener('click',function(){
-    Array.prototype.forEach.call(scale,function(x){x.setAttribute('aria-pressed','false')});
-    b.setAttribute('aria-pressed','true'); say.textContent=b.getAttribute('data-say');
-  })});
-  var rungs=document.getElementById('rungs'), detail=document.getElementById('rung-detail'), tabs=document.querySelectorAll('.tracks button');
-  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-  function show(r){
-    var rows=[['Scope',r.resp],['Consulting',r.consulting],['AI',r.ai],['Supervision',r.supervision],['Leadership',r.leadership]].filter(function(x){return x[1]});
-    detail.innerHTML='<p class="meta">'+esc(r.years)+' experience</p><h3 class="h3">'+esc(r.title)+'</h3><dl>'+rows.map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+esc(x[1])+'</dd></div>'}).join('')+'</dl>';
-  }
-  function load(track){
-    var list=ROLES.filter(function(r){return r.track===track});
-    rungs.innerHTML='';
-    list.forEach(function(r,i){
-      var b=document.createElement('button'); b.type='button';
-      b.setAttribute('aria-pressed',i===list.length-1?'true':'false');
-      b.innerHTML='<span>'+esc(r.title)+'</span><span class="meta">'+(/Manager/.test(r.title)?'People lead':'Maker')+'</span>';
-      b.addEventListener('click',function(){Array.prototype.forEach.call(rungs.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');show(r)});
-      rungs.appendChild(b);
+  /* tabs: click + arrow keys; works for the deliverable tabs and the matrix sub-tabs */
+  Array.prototype.forEach.call(document.querySelectorAll('.o3 [role=tablist]'), function(row){
+    var tabs = Array.prototype.slice.call(row.querySelectorAll('[role=tab]'));
+    function select(tab, focus){
+      tabs.forEach(function(t){
+        var on = t === tab, p = document.getElementById(t.getAttribute('aria-controls'));
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        p.hidden = !on;
+        p.classList.toggle('on', on);
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function(tab, i){
+      tab.addEventListener('click', function(){ select(tab); });
+      tab.addEventListener('keydown', function(e){
+        var k = e.key, n = null;
+        if (k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+        else if (k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (k === 'Home') n = tabs[0];
+        else if (k === 'End') n = tabs[tabs.length - 1];
+        if (n){ e.preventDefault(); select(n, true); }
+      });
     });
-    show(list[list.length-1]);
-  }
-  Array.prototype.forEach.call(tabs,function(t){t.addEventListener('click',function(){
-    Array.prototype.forEach.call(tabs,function(x){x.setAttribute('aria-selected','false')});
-    t.setAttribute('aria-selected','true'); load(t.getAttribute('data-track'));
-  })});
-  load('design');
+  });
 })();
 </script>
 </body>
