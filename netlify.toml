@@ -1,1 +1,11 @@
+[[redirects]]
+  from = "/case-study-leadership*"
+  to = "/case-studies.html"
+  status = 301
+  force = true
 
+[[redirects]]
+  from = "/case-study-fs-website*"
+  to = "/case-study-fs-brand.html"
+  status = 301
+  force = true
