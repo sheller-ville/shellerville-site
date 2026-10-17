@@ -129,7 +129,7 @@ a{color:inherit}
 .sub{position:relative;overflow:hidden;background:var(--yellow);color:var(--black);padding-block:90px}
 .sub .col{max-width:720px;display:flex;flex-direction:column;gap:24px}
 .sub p{margin:0}
-.sub .squiggle{width:260px;height:auto;display:block}
+.sub .squiggle{width:300px;height:auto;display:block}
 .sub .half{position:absolute;right:-60px;bottom:-180px;width:360px;height:360px;border-radius:50%;background:var(--black)}
 @media (max-width:640px){.sub .half{width:220px;height:220px;bottom:-110px}}
 
