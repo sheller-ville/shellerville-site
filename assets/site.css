@@ -663,3 +663,9 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 .scale button:hover{border-color:var(--lv)}
 .scale button[aria-pressed="true"]{background:var(--lv);border-color:var(--lv);color:var(--on)}
 .kit li{align-content:start}
+
+/* subscribe band: wider copy, bigger half-disc (Oct 2026) */
+.sub .col{max-width:815px}
+.sub .half{width:680px;height:680px;right:-326px;bottom:-344px}
+@media (max-width:1300px){.sub .half{width:440px;height:440px;right:-180px;bottom:-240px}}
+@media (max-width:640px){.sub .half{width:220px;height:220px;right:-60px;bottom:-110px}}
