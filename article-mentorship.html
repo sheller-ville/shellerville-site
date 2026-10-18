@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 <style>
 :root{
   --red:#EB1000; --yellow:#FFBE00; --teal:#0887A0; --green:#198F51; --pink:#EE93AC;
@@ -29,125 +30,124 @@
   --cond:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{font-family:var(--font);background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
 h1,h2,h3{text-wrap:balance}
+
 p{text-wrap:pretty}
+
 a{color:inherit}
+
 .inner{max-width:740px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
 .kicker{font-family:var(--cond);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
 
-.site-nav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:62px}
-.site-nav .brand{color:var(--white);font-weight:800;font-size:16px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
-.site-nav .brand span{color:var(--red)}
-.site-nav .links{display:flex;gap:20px;align-items:center}
-.site-nav .links a{color:#9a9a9a;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
-.site-nav .links a.active{color:var(--white)}
-.site-nav .menu-btn{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:6px}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;padding:15px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;border:2px solid transparent}
-.btn .arw{transition:transform .3s var(--ease)}
-.btn:hover .arw{transform:translateX(5px)}
-.btn-dark{background:var(--black);color:var(--white)}
-.btn-dark:hover{background:var(--red)}
-.btn-light{background:var(--white);color:var(--black)}
-.btn-light:hover{background:var(--black);color:var(--white)}
-.btn-ghost{border-color:#3a3a3a;color:var(--white)}
-.btn-ghost:hover{border-color:var(--white)}
 
 .art-hero{background:var(--black);color:var(--white);padding:100px 0 80px}
 
+
 .art-hero .kicker{color:var(--pink);margin-bottom:24px}
+
 .art-hero h1{font-weight:800;font-size:clamp(32px,5.6vw,60px);line-height:1.08;letter-spacing:-.035em;max-width:22ch}
+
 .art-hero .dek{margin-top:20px;font-size:clamp(17px,1.9vw,20px);color:#d9d9d6;max-width:60ch;line-height:1.55}
+
 .art-hero .meta{margin-top:28px;font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#8f8f8a;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
 .art-hero .meta .dot{width:4px;height:4px;border-radius:50%;background:#8f8f8a}
 
+
 .art-img{background:var(--black);padding:0 0 32px}
-.art-img .ph-wide{width:520px;max-width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#161616;border:1px solid #3a3a3a}
+
+.art-img .ph-wide{width:520px;max-width:100%;aspect-ratio:1/1;border-radius:0;overflow:hidden;background:#161616}
+
 .art-img .ph-wide img{width:100%;height:100%;object-fit:cover;display:block}
 
+
 .art-body{background:var(--black);padding:0 0 140px}
+
 .art-body p{font-size:clamp(17px,1.9vw,20px);line-height:1.7;color:#c4c4c0;margin-top:26px}
+
 .art-body p:first-child{margin-top:0}
+
 .art-body p.lead{font-size:clamp(20px,2.2vw,24px);color:var(--white);font-weight:600;line-height:1.5}
+
 .art-body h2{margin-top:56px;font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;line-height:1.15;color:var(--white)}
+
 .art-body h3{margin-top:36px;margin-bottom:6px;font-weight:800;font-size:clamp(19px,2.2vw,23px);letter-spacing:-.015em;color:var(--white)}
+
 .art-body h3 + p{margin-top:0}
+
 .art-body ul{margin-top:24px;padding-left:22px}
+
 .art-body li{font-size:clamp(17px,1.9vw,20px);line-height:1.65;color:#c4c4c0;margin-top:12px}
+
 .art-body hr{margin-top:56px;border:none;border-top:1px solid #2a2a2a}
+
 .art-body .cta{margin-top:36px;display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;padding:15px 26px;border-radius:100px;background:var(--white);color:var(--black)}
-.art-body table{margin-top:32px;width:100%;border-collapse:collapse;background:#161616;color:var(--white);border-radius:14px;overflow:hidden;font-size:15px;border:1px solid #2a2a2a}
+
+.art-body table{margin-top:32px;width:100%;border-collapse:collapse;background:#161616;color:var(--white);border-radius:0;overflow:hidden;font-size:15px;border:1px solid #2a2a2a}
+
 .art-body th,.art-body td{padding:16px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,.12)}
+
 .art-body th{font-family:var(--cond);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:13px;color:#c8c8c4}
+
 .art-body tr:last-child td{border-bottom:none}
 
+
 .art-nav{background:var(--black);border-top:1px solid #2a2a2a;padding:56px 0}
+
 .art-nav .inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
 .art-nav a{font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--white)}
+
 .art-nav a:hover{color:var(--red)}
 
-.subscribe{background:var(--yellow);color:var(--black);padding:150px 0;position:relative;overflow:hidden}
-.subscribe .inner{max-width:1140px}
-.subscribe .kicker{color:#6b4e00}
-.subscribe h2{margin-top:30px;font-weight:800;font-size:clamp(36px,5.8vw,80px);letter-spacing:-.04em;line-height:1;max-width:16ch}
-.subscribe p{margin-top:26px;font-size:clamp(18px,2vw,21px);line-height:1.55;max-width:46ch;color:#4a3a00}
-.subscribe .square{position:absolute;z-index:1;width:200px;height:200px;background:var(--black);border-radius:36px;right:8%;bottom:-100px;transform:rotate(12deg)}
 .sub-form{margin-top:40px;display:flex;gap:14px;max-width:560px;flex-wrap:wrap}
+
 .sub-form input{flex:1;min-width:240px;font-family:var(--font);font-size:17px;padding:16px 22px;border:none;border-radius:100px;background:var(--white);outline:none}
+
 .sub-form button{font-family:var(--font);font-weight:700;font-size:16px;padding:16px 30px;border:none;border-radius:100px;background:var(--black);color:var(--white);cursor:pointer}
+
 .sub-done{display:none;margin-top:22px;font-weight:700;font-size:19px}
+
 .sub-done.on{display:block}
+
 .sub-err{display:none;font-family:var(--cond);font-weight:600;font-size:15px;color:#7a1000;margin-top:14px}
+
 .sub-err.on{display:block}
-.squiggle-mark{display:block;margin-top:36px;width:340px;max-width:85%;height:auto;opacity:.85;pointer-events:none}
-
-footer{background:var(--black);color:var(--white);padding:90px 0 76px}
-footer .inner{max-width:1140px}
-footer .fgrid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start}
-footer .fmark{font-weight:800;font-size:24px}
-footer .fmark span{color:var(--red)}
-footer .fsub{margin-top:14px;color:#9a9a9a;font-size:17px;max-width:40ch;line-height:1.55}
-footer .fsub a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
-footer nav{display:grid;gap:12px;text-align:right}
-footer nav a{color:#9a9a9a;font-weight:600;font-size:15px;text-decoration:none}
-footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f6f;letter-spacing:.06em}
-
 @media(max-width:700px){
-  .subscribe{padding:100px 0}
-  .subscribe .square{display:none}
-  footer .fgrid{grid-template-columns:1fr}
-  footer nav{text-align:left}
-  .site-nav .links{display:none}
+
   .art-body table{font-size:13px}
+
   .art-body th,.art-body td{padding:12px 10px}
 }
 </style>
+<script src="assets/motion.js" defer></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="5fa124b6-4262-4143-a192-a1fdf0e2a21d"></script>
 </head>
 <body>
 
-<nav class="site-nav">
-  <a class="brand" href="index.html">christine sheller<span>.</span></a>
-  <div class="links" id="nav-links">
-    <a href="leading.html">leading</a>
-
-    <a href="teaching.html">teaching</a>
-
-    <a href="speaking.html">speaking</a>
-
-    <a href="thinking.html" class="active">thinking</a>
-
-    <a href="building.html">building</a>
-
-    <a href="case-studies.html" target="_blank" rel="noopener">case studies</a>
-
-    <a href="about.html">about</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">christine sheller<b>.</b></a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="l1" d="M2.6 7.6C5.4 5.9 8.2 8.4 11.3 6.8 14.4 5.3 16.8 8.1 19.6 6.5 20.5 6 21.1 6.3 21.6 6.1"/><path class="l2" d="M4.1 12.8C6.9 11 9.6 13.6 12.8 11.9 15.7 10.4 17.6 13.1 20.2 11.6"/><path class="l3" d="M2.9 17.2C5.8 18.6 8.4 16 11.6 17.7 14.9 19.3 17.4 16.4 21.3 17.9"/></svg></button>
+    <nav aria-label="Main" id="site-menu"><ul>
+      <li><a href="leading.html">leading</a></li>
+      <li><a href="teaching.html">teaching</a></li>
+      <li><a href="speaking.html">speaking</a></li>
+      <li><a href="thinking.html" aria-current="page">thinking</a></li>
+      <li><a href="building.html">building</a></li>
+      <li><a href="case-studies.html" target="_blank" rel="noopener">case studies</a></li>
+      <li><a href="about.html">about</a></li>
+    </ul></nav>
   </div>
-</nav>
+</header>
 
 <header class="art-hero">
   <div class="inner">
@@ -196,45 +196,30 @@ footer .legal{margin-top:60px;font-family:var(--cond);font-size:14px;color:#6f6f
   </div>
 </div>
 
-<section class="subscribe">
-  <div class="square" aria-hidden="true"></div>
-  <div class="inner">
-    <p class="kicker">Get updates</p>
-    <h2>Occasional insights. No spam, just the good stuff.</h2>
-    <p>On <span class="nwh">AI-enabled</span> design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
-    <a class="btn btn-dark sub-link" href="https://shellerville.substack.com/" target="_blank" rel="noopener" style="margin-top:46px">Subscribe on Substack <span class="arw">&rarr;</span></a>
-    <img class="squiggle-mark" src="images/pattern-squiggle.png" alt="">
-  </div>
-</section>
-
-<footer>
-  <div class="inner">
-    <div class="fgrid">
-      <div>
-        <div class="fmark">christine sheller<span>.</span></div>
-        <p class="fsub"><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a> or connect on <a href="https://www.linkedin.com/in/christine-sheller/">LinkedIn</a>.</p>
+<main>
+<!-- SUBSCRIBE -->
+  <section class="sub">
+    <div class="half" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="col rv">
+        <h2 class="h2">Occasional insights.<br> <span class="nw">No spam,</span> just the good stuff.</h2>
+        <p class="lede">On <span class="nwh">AI-enabled</span> design, leadership, and organizational transformation. The stuff I'd send a smart friend.</p>
+        <div><a class="btn btn-dark" href="https://shellerville.substack.com/" target="_blank" rel="noopener">Subscribe on Substack <span class="arr" aria-hidden="true">→</span></a></div>
+        <svg class="squiggle" viewBox="0 0 1536 260" aria-hidden="true"><path fill="#000" fill-rule="evenodd" d="M0 187L28 212L56 221L180 237L225 234L269 222L305 245L364 252L420 247L476 234L528 214L584 182L616 220L675 247L719 258L784 257L858 243L921 215L961 230L1064 227L1157 204L1224 169L1266 182L1343 181L1476 110L1531 67L1534 48L1527 36L1509 35L1501 53L1439 97L1330 152L1250 147L1265 121L1261 95L1238 78L1209 76L1186 92L1178 110L1179 128L1193 152L1142 176L1042 199L978 200L947 193L961 160L960 139L942 120L911 118L884 133L873 154L875 172L892 195L810 222L722 227L642 199L614 171L612 162L661 111L677 62L674 33L665 17L646 3L617 0L590 14L573 41L571 107L578 148L528 179L467 204L410 217L359 221L306 212L337 186L347 166L346 147L337 130L306 109L284 112L248 137L240 168L250 195L199 206L131 202L51 188L19 168L7 170L0 187ZM927 148L930 155L919 175L904 158L927 148ZM302 140L316 161L282 185L271 160L302 140ZM1218 106L1234 112L1220 131L1209 118L1218 106ZM631 31L645 45L644 73L629 103L606 126L603 49L617 33L631 31Z"/></svg>
       </div>
-      <nav aria-label="Footer">
-        <a href="leading.html">leading</a>
-
-        <a href="teaching.html">teaching</a>
-
-        <a href="speaking.html">speaking</a>
-
-        <a href="thinking.html">thinking</a>
-
-        <a href="building.html">building</a>
-
-        <a href="case-studies.html" target="_blank" rel="noopener">case studies</a>
-
-        <a href="about.html">about</a>
-      </nav>
     </div>
-    <p class="legal">Copyright &copy; 2026 Christine Sheller. All rights reserved.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <span><a href="mailto:christinesheller@gmail.com?subject=Hello!">Email me</a> or connect on <a href="https://www.linkedin.com/in/christine-sheller/" target="_blank" rel="noopener">LinkedIn</a>.</span>
+      <small>© 2026 Christine Sheller. Made in Los Angeles.</small>
+    </div>
+    <span class="wordmark" aria-hidden="true">shellerville<i></i></span>
   </div>
 </footer>
 
-<script>
-</script>
 </body>
 </html>

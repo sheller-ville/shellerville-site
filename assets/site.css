@@ -669,3 +669,6 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 .sub .half{width:680px;height:680px;right:-326px;bottom:-344px}
 @media (max-width:1300px){.sub .half{width:440px;height:440px;right:-180px;bottom:-240px}}
 @media (max-width:640px){.sub .half{width:220px;height:220px;right:-60px;bottom:-110px}}
+
+/* article pages: meta wraps cleanly on phones */
+@media (max-width:640px){.art-hero .meta .dot{display:none}.art-hero .meta{gap:2px 16px}}
