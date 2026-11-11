@@ -22,6 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Archivo+Narrow:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/motion.js" defer></script>
+<script src="assets/pulse.js" defer></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="5fa124b6-4262-4143-a192-a1fdf0e2a21d"></script>
 </head>
 <body>
@@ -49,7 +50,7 @@
       <li><a href="teaching.html">teaching</a></li>
       <li><a href="speaking.html">speaking</a></li>
       <li><a href="thinking.html">thinking</a></li>
-      <li><a href="building.html">building</a></li>
+      <li><a href="lab.html">lab</a></li>
       <li><a href="case-studies.html" target="_blank" rel="noopener">case studies</a></li>
       <li><a href="about.html">about</a></li>
     </ul></nav>
@@ -61,8 +62,8 @@
   <section class="hero">
     <div class="wrap">
       <div class="copy in-copy">
-        <h1 class="display"><span class="nw">Design teams.</span> <span class="nw">Design leaders.</span> <span class="accent"><span class="nw">Design practices</span> built for AI.</span></h1>
-        <p class="lede" style="color:var(--on-dark)">I'm Christine Sheller, a design leader who builds teams, develops people, and helps organizations see further into an <span class="nwh">AI-shaped</span> future of making.</p>
+        <h1 class="display"><span class="nw">Design teams.</span> <span class="nw">Design leaders.</span> <span class="accent"><span class="nw">Design <span class="swap" data-words="systems,careers,cultures">practices</span></span> built for AI.</span></h1>
+        <p class="lede" style="color:var(--on-dark)"><b class="hello"></b>I'm Christine Sheller, a design leader who builds teams, develops people, and helps organizations see further into an <span class="nwh">AI-shaped</span> future of making.</p>
         <div class="ctas">
           <a class="btn btn-red" href="leading.html">See how <span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn-ghost" href="thinking.html">Read my thinking <span class="arr" aria-hidden="true">→</span></a>
@@ -72,13 +73,13 @@
     <div class="hero-art" aria-hidden="true">
       <svg viewBox="0 0 604 712" xmlns="http://www.w3.org/2000/svg">
         <g class="grain">
+          <!-- yellow sun: sits behind the dome and follows the visitor's clock (pulse.js moves .sun-pos) -->
+          <g data-depth="20" class="depth"><g class="sun-pos"><g class="sh a-rise d2">
+            <circle cx="262" cy="410" r="100" fill="#FFBE00"/>
+          </g></g></g>
           <!-- cream dome rising from the bottom -->
           <g data-depth="8" class="depth"><g class="sh a-rise d1">
             <path d="M20 712a200 200 0 0 1 400 0z" fill="#F2EFE9"/>
-          </g></g>
-          <!-- yellow sun sitting on the dome -->
-          <g data-depth="20" class="depth"><g class="sh a-rise d2">
-            <circle cx="262" cy="410" r="100" fill="#FFBE00"/>
           </g></g>
           <!-- red column bleeding off the right and bottom -->
           <g data-depth="6" class="depth"><g class="sh a-slidein d2">
@@ -94,10 +95,10 @@
           </g></g></g>
         </g>
         <!-- hand-drawn arrow draws itself in -->
-        <g data-depth="14" class="depth"><g class="sh a-draw d5">
+        <g data-depth="14" class="depth"><g class="sh a-draw d5"><g class="hop">
           <path d="M211.9 69.0783C212.974 68.9527 213.481 69.0529 214.188 69.8275C214.835 72.9355 219.099 91.7051 218.657 92.7422C217.61 93.5978 218.153 93.4851 217.048 93.3784C216.087 92.2075 212.616 76.6975 212.112 74.0696C206.314 90.8749 193.165 113.332 181.858 126.974C165.716 146.449 140.764 166.471 115.31 171.189C113.495 171.525 105.319 170.588 104.612 171.043C100.345 173.787 96.5628 177.962 92.2451 180.805C72.6559 194.713 43.0752 202.12 20.0225 194.197C19.524 194.026 19.5337 193.245 19.5232 192.826C20.874 192.102 28.7458 194.287 31.3388 194.524C40.9433 195.438 50.6324 194.771 60.021 192.549C76.1892 188.921 90.963 180.694 102.561 168.861C95.3673 161.702 97.4898 148.678 102.477 140.832C107.064 133.615 115.86 134.126 116.689 143.271C117.521 152.458 111.502 161.611 105.995 168.402C116.349 169.9 123.229 167.44 132.574 163.01C167.938 146.248 196.12 110.787 209.25 74.4989C204.55 77.7474 199.83 81.0905 195.096 84.2969C193.759 85.2022 192.885 85.884 191.387 85.1122L191.233 84.3344C191.986 82.9515 209.058 71.2577 211.9 69.0783Z" fill="#F2EFE9"/>
           <path d="M108.994 138.372C111.849 137.94 114.09 139.697 114.256 142.57C114.737 150.885 109.884 160.11 104.81 166.342C104.322 166.787 104.62 166.634 103.799 166.6C103.365 166.286 102.378 165.513 102.151 165.056C97.6933 156.09 100.77 144.005 108.994 138.372Z" fill="#000"/>
-        </g></g>
+        </g></g></g>
       </svg>
     </div>
   </section>
@@ -137,7 +138,7 @@
           <div class="body"><h3 class="h4">Leading <span class="arr" aria-hidden="true">→</span></h3><p class="small" style="font-weight:400">I've built the first design team three times, and each time made design a partner in the business.</p></div>
         </a>
 
-        <a class="card rv" href="building.html">
+        <a class="card rv" href="lab.html">
           <div class="tile"><svg viewBox="0 0 278 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect width="278" height="280" fill="#EB1000"/>
             <g class="grain">

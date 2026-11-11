@@ -9,3 +9,9 @@
   to = "/case-study-fs-brand.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/building*"
+  to = "/lab.html"
+  status = 301
+  force = true

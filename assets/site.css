@@ -187,8 +187,8 @@ a{color:inherit}
 .hero.h-speaking .lede{color:#4a3a00}
 .hero.h-thinking{background:var(--black)}
 .hero.h-thinking .lede{color:#d9d9d6}
-.hero.h-building{background:var(--red)}
-.hero.h-building .accent{color:var(--black)}
+.hero.h-lab{background:var(--red)}
+.hero.h-lab .accent{color:var(--black)}
 .hero.h-about{background:var(--pink);color:var(--black)}
 .hero.h-about .accent{color:#055a69}
 .hero .kicker{color:inherit}
@@ -672,3 +672,29 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 
 /* article pages: meta wraps cleanly on phones */
 @media (max-width:640px){.art-hero .meta .dot{display:none}.art-hero .meta{gap:2px 16px}}
+
+/* ---------- pulse: live touches (Nov 2026), driven by assets/pulse.js ---------- */
+/* home: greeting opens the lede in white (uses .hero .lede b) */
+/* home: the sun travels to its time-of-day height after the art lands */
+.hero .sun-pos{transition:transform 1.8s var(--ease-out)}
+/* home: the last headline word swaps inside its own mask; every word shares one grid cell so the line never reflows */
+.display.split .w.rot{display:inline-grid;justify-items:start}
+.display.split .w.rot > span{grid-area:1/1;transform:translateY(105%);background:linear-gradient(currentColor,currentColor) 0 100%/0 .055em no-repeat;transition:transform .7s var(--ease-out),background-size .5s var(--ease-out)}
+.display.split .w.rot > span.alt{animation:none}
+.display.split .w.rot > span.on{transform:none}
+.display.split .w.rot > span.out{transform:translateY(-105%)}
+.display.split .w.rot > span.u{background-size:100% .055em}
+.display.split .w.rot > span.snap{transition:none}
+/* home: the arrow leans toward See how when you hover it */
+.hero .hop{transform-box:fill-box;transform-origin:center;transition:transform .5s var(--ease-pop)}
+.hero:has(.ctas .btn-red:hover) .hop,.hero:has(.ctas .btn-red:focus-visible) .hop{transform:translate(-16px,12px) rotate(-8deg)}
+/* lab: the black bars feed in like paper off a dot matrix printer */
+.ready .hero.h-lab .a-slidein{animation-duration:.85s;animation-timing-function:steps(9,end)}
+/* lab: cards lift a little higher, the screenshot pushes in, the arrow nudges */
+.exp:hover{transform:translateY(-10px)}
+.exp:hover .ph img{transform:scale(1.03)}
+.exp:hover .btn .arr{transform:translateX(5px)}
+/* lab: optional silent loop over the screenshot (add data-loop="images/loops/name.mp4" to the .ph) */
+.exp .ph{position:relative}
+.exp .ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
+.exp.playing .ph video{opacity:1}
