@@ -698,3 +698,48 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 .exp .ph{position:relative}
 .exp .ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
 .exp.playing .ph video{opacity:1}
+
+/* ---------- play: things you can touch (Nov 2026), driven by assets/pulse.js ---------- */
+/* every hero: the art is a toy. drag a shape, double-click to recolor, or hit the button */
+.hero .wrap{pointer-events:none}
+.hero .wrap > *{pointer-events:auto}
+.grab{transform-box:fill-box;transform-origin:center;transition:transform .9s var(--ease-pop)}
+.playable .grab{pointer-events:auto;cursor:grab;touch-action:none}
+.playable .grab.held{transition:none;cursor:grabbing}
+.hero-art.busy .grain{filter:none}
+.grab.hint{animation:hint 1s var(--ease-pop) 1}
+@keyframes hint{0%,100%{rotate:0deg}30%{rotate:-9deg}65%{rotate:7deg}}
+.mess{position:absolute;right:28px;top:20px;z-index:3;display:inline-flex;align-items:center;gap:8px;font:700 13px/1 var(--font);padding:11px 16px;border:0;border-radius:var(--r-pill);background:var(--white);color:var(--black);cursor:pointer;transition:transform var(--dur-fast) var(--ease-out)}
+.mess:hover{transform:translateY(-2px) rotate(-2deg)}
+.mess:active{transform:scale(.95)}
+.mess svg{width:14px;height:14px}
+@media (max-width:640px){.mess{right:20px;top:14px}}
+/* home: the greeting is a time machine */
+.hero .hello{cursor:pointer;text-decoration:underline dotted rgba(255,255,255,.45) 2px;text-underline-offset:6px}
+.hero .hello:hover{text-decoration-color:var(--yellow)}
+/* home: phrases in the lede open a peek at where they lead */
+.hero .copy{position:relative}
+.peek{color:var(--white);font-weight:700;text-decoration:underline wavy 2px;text-underline-offset:6px;padding:2px 4px;margin:-2px -4px;transition:background var(--dur-fast),color var(--dur-fast)}
+.pk-teal{text-decoration-color:#19b5d3;--pk:var(--teal);--pk-on:var(--white)}
+.pk-green{text-decoration-color:#2fc777;--pk:var(--green);--pk-on:var(--white)}
+.pk-pink{text-decoration-color:var(--pink);--pk:var(--pink);--pk-on:var(--black)}
+.peek:hover,.peek:focus-visible{background:var(--pk);color:var(--pk-on);text-decoration-color:transparent}
+.peek .pop{display:none;position:absolute;left:calc(100% + 36px);bottom:12%;width:320px;z-index:5;background:var(--white);color:var(--ink);font:400 15px/1.5 var(--font);letter-spacing:0;text-align:left;white-space:normal;box-shadow:0 22px 44px -18px rgba(0,0,0,.6);transform-origin:0 100%}
+.peek:hover .pop,.peek:focus-visible .pop{display:block;animation:peekIn .45s var(--ease-pop) both}
+@keyframes peekIn{from{opacity:0;transform:translateY(10px) rotate(4deg) scale(.9)}to{opacity:1;transform:rotate(-2deg)}}
+.pop-h{display:flex;justify-content:space-between;background:var(--pk);color:var(--pk-on);font:800 20px/1 var(--font);letter-spacing:-.02em;padding:14px 16px}
+.pop-b{display:block;padding:14px 16px 16px}
+@media (max-width:900px){.peek .pop{display:none!important}}
+/* lab: cards tilt toward the cursor, titles decode, screenshots print in strips */
+.exps{perspective:1400px}
+.exp.tilt{transition:transform .12s linear,box-shadow var(--dur-base)}
+.h-lab ~ .section .exp.rv .ph img{transition:clip-path .9s steps(10,end),transform 1.3s var(--ease-out)}
+.h-lab ~ .section .exp.rv.pending .ph img{clip-path:inset(0 0 100% 0);-webkit-clip-path:inset(0 0 100% 0);transform:none}
+.exp .h3{font-variant-ligatures:none}
+/* footer: the wordmark letters jump when you run a cursor over them, the dot boings */
+.wordmark.live span{transition:transform .5s var(--ease-pop),color .2s}
+.wordmark.live span:hover{transform:translateY(-.1em) rotate(-4deg);color:rgba(255,255,255,.9)}
+.wordmark.live i{cursor:pointer}
+.wordmark.live i:hover{transform:scale(1.35)}
+.wordmark.live i.boing{animation:boing .7s var(--ease-pop)}
+@keyframes boing{0%{transform:translateY(0) scale(1)}35%{transform:translateY(-.9em) scale(1.15)}100%{transform:none}}
