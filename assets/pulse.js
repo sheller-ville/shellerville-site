@@ -39,6 +39,7 @@
     if (hello) hello.textContent = greeting(new Date().getHours()) + ' ';
     // let the sun rise with the rest of the art first, then travel to where it belongs
     if (reduce) tick(); else setTimeout(tick, 700);
+    setInterval(tick, 10 * 60 * 1000);
   }
 
   if (reduce) return;
@@ -93,92 +94,213 @@
   var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
   var COLORS = ['#EB1000', '#FFBE00', '#EE93AC', '#0887A0', '#198F51', '#F2EFE9'];
 
-  // ---- every hero: drag the shapes, double-click to recolor, or make a mess
-  var hero = document.querySelector('.hero');
-  var art = hero && hero.querySelector('.hero-art');
+  // ---- every hero: drag the shapes, double-click to recolor, make a mess
+  // ---- heroes marked data-builder also get a tray: add shapes and doodles, resize, spin, recolor, save a PNG
+  // hero = the box that holds the controls, art = the wrapper around the svg, frame = the box a saved PNG covers,
+  // fixed = the tray is always open (the lab's hero kit)
+  var stage = function (hero, art, frame, fixed) {
   var svg = art && art.querySelector('svg');
   var layers = svg ? Array.prototype.slice.call(svg.querySelectorAll('.depth')) : [];
   if (layers.length) {
-    var NS = 'http://www.w3.org/2000/svg', grabs = [], messy = false;
+    var NS = 'http://www.w3.org/2000/svg', grabs = [], messy = false, picked = null, tools = null, nextColor = 0;
+    var each = function (list, fn) { Array.prototype.forEach.call(list, fn); };
+    var mk = function (tag, attrs) { var n = document.createElementNS(NS, tag); for (var k in attrs) n.setAttribute(k, attrs[k]); return n; };
+    var el = function (tag, cls, html) { var n = document.createElement(tag); if (cls) n.className = cls; if (html) n.innerHTML = html; return n; };
+    var icon = function (d) { return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>'; };
+    var put = function (o) { o.el.style.transform = 'translate(' + o.x + 'px,' + o.y + 'px) rotate(' + o.r + 'deg) scale(' + o.s + ')'; };
+    var paintable = function (g) {
+      var all = g.querySelectorAll('[fill],[stroke]'), i;
+      for (i = 0; i < all.length; i++) if (COLORS.indexOf((all[i].getAttribute('fill') || '').toUpperCase()) > -1) return [all[i], 'fill'];
+      for (i = 0; i < all.length; i++) if (COLORS.indexOf((all[i].getAttribute('stroke') || '').toUpperCase()) > -1) return [all[i], 'stroke'];
+      return null;
+    };
+    var recolor = function (o) { var p = paintable(o.el); if (p) p[0].setAttribute(p[1], COLORS[(COLORS.indexOf(p[0].getAttribute(p[1]).toUpperCase()) + 1) % COLORS.length]); };
+
     layers.forEach(function (d) {
-      var g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'grab');
+      var g = mk('g', { 'class': 'grab' });
       while (d.firstChild) g.appendChild(d.firstChild);
       d.appendChild(g);
-      grabs.push({ el: g, x: 0, y: 0, r: 0 });
+      var o = { el: g, x: 0, y: 0, r: 0, s: 1, paint: [] };
+      each(g.querySelectorAll('[fill]'), function (n) { o.paint.push([n, n.getAttribute('fill')]); });
+      grabs.push(o);
     });
-    var put = function (o) { o.el.style.transform = 'translate(' + o.x + 'px,' + o.y + 'px) rotate(' + o.r + 'deg)'; };
-    var btn = document.createElement('button');
-    btn.type = 'button'; btn.className = 'mess';
+
+    var bar = el('div', 'play-bar'); hero.appendChild(bar);
+    var btn = el('button', 'mess'); btn.type = 'button'; bar.appendChild(btn);
     var label = function () {
-      btn.innerHTML = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-        (messy ? '<path d="M2.5 8a5.5 5.5 0 1 0 1.8-4.1M2.5 2.5v3h3"/>' : '<path d="M2 5c2-3 4 3 6 0s4 3 6 0M2 11c2-3 4 3 6 0s4 3 6 0"/>') +
-        '</svg>' + (messy ? 'Tidy up' : 'Make a mess');
+      btn.innerHTML = icon(messy ? '<path d="M2.5 8a5.5 5.5 0 1 0 1.8-4.1M2.5 2.5v3h3"/>' : '<path d="M2 5c2-3 4 3 6 0s4 3 6 0M2 11c2-3 4 3 6 0s4 3 6 0"/>') + (messy ? 'Tidy up' : 'Make a mess');
     };
-    label(); hero.appendChild(btn);
+    label();
     var busy = function () { art.classList.add('busy'); clearTimeout(busy.t); busy.t = setTimeout(function () { art.classList.remove('busy'); }, 1200); };
+    var place = function () {
+      if (!tools) return;
+      if (!picked || !hero.classList.contains('building')) { tools.hidden = true; return; }
+      tools.hidden = false;
+      var r = picked.el.getBoundingClientRect(), h = hero.getBoundingClientRect(), w = tools.offsetWidth;
+      tools.style.left = Math.max(8, Math.min(h.width - w - 8, r.left + r.width / 2 - h.left - w / 2)) + 'px';
+      tools.style.top = Math.max(8, r.top - h.top - 48) + 'px';
+    };
+    var follow = function () { [0, 350, 950].forEach(function (t) { setTimeout(place, t); }); };
+    var pick = function (o) { if (picked) picked.el.classList.remove('picked'); picked = o; if (o) o.el.classList.add('picked'); place(); };
+    var tidy = function () {
+      grabs = grabs.filter(function (o) { if (o.added) { o.el.parentNode.removeChild(o.el); return false; } return true; });
+      grabs.forEach(function (o, i) {
+        o.el.style.display = ''; o.gone = false; o.el.style.transitionDelay = (i * 0.05) + 's';
+        o.x = o.y = o.r = 0; o.s = 1; o.paint.forEach(function (p) { p[0].setAttribute('fill', p[1]); }); put(o);
+      });
+      pick(null); messy = false; label();
+    };
     btn.addEventListener('click', function () {
-      var vb = svg.viewBox.baseVal, w = vb.width || 600, h = vb.height || 700;
       busy();
+      if (messy) { tidy(); return; }
+      var vb = svg.viewBox.baseVal, w = vb.width || 600, h = vb.height || 700;
       grabs.forEach(function (o, i) {
         o.el.style.transitionDelay = (i * 0.05) + 's';
-        if (messy) { o.x = o.y = o.r = 0; }
-        else {
-          o.x = Math.round((Math.random() * 0.7 - 0.55) * w);
-          o.y = Math.round((Math.random() * 0.5 - 0.32) * h);
-          o.r = [-90, 0, 90, 180][Math.floor(Math.random() * 4)] + Math.round(Math.random() * 30 - 15);
-        }
+        o.x = Math.round((Math.random() * 0.7 - 0.55) * w);
+        o.y = Math.round((Math.random() * 0.5 - 0.32) * h);
+        o.r = [-90, 0, 90, 180][Math.floor(Math.random() * 4)] + Math.round(Math.random() * 30 - 15);
         put(o);
       });
-      messy = !messy; label();
+      messy = true; label(); follow();
     });
+
     if (fine) {
       svg.classList.add('playable');
-      grabs.forEach(function (o) {
-        var g = o.el, sx, sy, ox, oy, k, held = false;
+      var arm = function (o) {
+        var g = o.el, sx, sy, ox, oy, k, held = false, moved = false;
         g.addEventListener('pointerdown', function (e) {
           var m = svg.getScreenCTM(); k = m && m.a ? 1 / m.a : 1;
-          held = true; sx = e.clientX; sy = e.clientY; ox = o.x; oy = o.y;
+          held = true; moved = false; sx = e.clientX; sy = e.clientY; ox = o.x; oy = o.y;
           g.style.transitionDelay = '0s'; g.classList.add('held'); art.classList.add('busy');
+          pick(o); if (tools) tools.hidden = true;
           try { g.setPointerCapture(e.pointerId); } catch (err) {}
           e.preventDefault();
         });
         g.addEventListener('pointermove', function (e) {
           if (!held) return;
+          if (Math.abs(e.clientX - sx) + Math.abs(e.clientY - sy) > 3) moved = true;
           o.x = ox + (e.clientX - sx) * k; o.y = oy + (e.clientY - sy) * k; put(o);
         });
         var drop = function () {
           if (!held) return; held = false; g.classList.remove('held'); art.classList.remove('busy');
-          o.r += Math.round(Math.random() * 16 - 8); put(o); // lands a little crooked, like a paper cutout
-          if (!messy) { messy = true; label(); }
+          if (moved) { o.r += Math.round(Math.random() * 16 - 8); put(o); if (!messy) { messy = true; label(); } } // lands a little crooked, like a paper cutout
+          follow();
         };
         g.addEventListener('pointerup', drop); g.addEventListener('pointercancel', drop);
-        g.addEventListener('dblclick', function () {
-          var shape = Array.prototype.filter.call(g.querySelectorAll('[fill]'), function (n) { return COLORS.indexOf((n.getAttribute('fill') || '').toUpperCase()) > -1; })[0];
-          if (!shape) return;
-          shape.setAttribute('fill', COLORS[(COLORS.indexOf(shape.getAttribute('fill').toUpperCase()) + 1) % COLORS.length]);
-        });
-      });
+        g.addEventListener('dblclick', function () { recolor(o); });
+      };
+      grabs.forEach(arm);
       // one small wiggle so people know the art is theirs to move
       setTimeout(function () { var o = grabs[grabs.length - 2] || grabs[0]; o.el.classList.add('hint'); setTimeout(function () { o.el.classList.remove('hint'); }, 1100); }, 2600);
+
+      if (hero.hasAttribute('data-builder')) {
+        // the kit: plain shapes drawn here, doodles borrowed from the page itself
+        var kit = [
+          ['Circle', '<circle r="90"/>'],
+          ['Half circle', '<path d="M-110 55a110 110 0 0 1 220 0z"/>'],
+          ['Quarter ring', '<path d="M-110 -110A220 220 0 0 0 110 110V22A132 132 0 0 1 -22 -110Z"/>'],
+          ['Pill', '<rect x="-130" y="-32" width="260" height="64" rx="32"/>'],
+          ['Block', '<rect x="-70" y="-115" width="140" height="230"/>'],
+          ['Diamond', '<path d="M0 -110 110 0 0 110 -110 0z"/>'],
+          ['Dot', '<circle r="34"/>']
+        ].map(function (k) { return { name: k[0], geo: k[1] }; });
+        each(document.querySelectorAll('[data-doodle]'), function (src) {
+          var t = mk('g', {}); each(src.children, function (n) { t.appendChild(n.cloneNode(true)); });
+          svg.appendChild(t); var bb = t.getBBox(), s = 170 / Math.max(bb.width, bb.height, 1);
+          t.setAttribute('transform', 'scale(' + s + ') translate(' + (-(bb.x + bb.width / 2)) + ' ' + (-(bb.y + bb.height / 2)) + ')');
+          svg.removeChild(t); kit.push({ name: src.getAttribute('data-doodle'), doodle: t });
+        });
+        var ink = function (g, shape, hole) { // one color for the drawing, another for any knocked-out holes
+          each(g.querySelectorAll('*'), function (n) {
+            var f = (n.getAttribute('fill') || '').toLowerCase(), st = (n.getAttribute('stroke') || '').toLowerCase();
+            if (f && f !== 'none') n.setAttribute('fill', f === '#000' ? hole : shape);
+            if (st && st !== 'none') n.setAttribute('stroke', shape);
+          });
+          return g;
+        };
+        var draw = function (item, color) {
+          if (item.doodle) return ink(item.doodle.cloneNode(true), color || '#F2EFE9', color ? '#fff' : '#000');
+          var g = mk('g', {}); g.innerHTML = item.geo; g.firstChild.setAttribute('fill', color || COLORS[nextColor++ % COLORS.length]); return g;
+        };
+        var add = function (item) {
+          var vb = svg.viewBox.baseVal, g = mk('g', { 'class': 'grab added' }), inner = mk('g', { 'class': 'pop-in' });
+          inner.appendChild(draw(item)); g.appendChild(inner); svg.appendChild(g);
+          var o = { el: g, added: true, paint: [], s: 1,
+            x: vb.x + vb.width * (0.12 + Math.random() * 0.6), y: vb.y + vb.height * (0.3 + Math.random() * 0.45),
+            r: item.doodle ? Math.round(Math.random() * 30 - 15) : [0, 90, 180, 270][Math.floor(Math.random() * 4)] };
+          g.style.transition = 'none'; put(o); void g.getBoundingClientRect(); g.style.transition = '';
+          grabs.push(o); arm(o); pick(o); follow(); messy = true; label();
+        };
+
+        var build = el('button', 'mess build'); build.type = 'button'; bar.insertBefore(build, btn);
+        var tray = el('div', 'tray'); tray.hidden = true; hero.appendChild(tray);
+        var row = el('div', 'tray-kit'); tray.appendChild(row);
+        kit.forEach(function (item) {
+          var b = el('button'); b.type = 'button'; b.setAttribute('aria-label', 'Add ' + item.name.toLowerCase()); b.title = item.name;
+          var th = mk('svg', { viewBox: '-140 -140 280 280', 'aria-hidden': 'true' }); th.appendChild(draw(item, '#000')); b.appendChild(th);
+          b.addEventListener('click', function () { add(item); }); row.appendChild(b);
+        });
+        var note2 = el('p', 'tray-note'); note2.textContent = hero.getAttribute('data-builder') || ''; tray.appendChild(note2);
+        var acts = el('div', 'tray-acts'); tray.appendChild(acts);
+        var wipe = el('button', '', 'Start from scratch'); wipe.type = 'button'; acts.appendChild(wipe);
+        var keep = el('button', '', 'Save it as a PNG'); keep.type = 'button'; acts.appendChild(keep);
+        var open = function (on) {
+          hero.classList.toggle('building', on); tray.hidden = !on;
+          build.innerHTML = icon(on ? '<path d="M3 8.5l3.5 3.5L13 4.5"/>' : '<path d="M8 3v10M3 8h10"/>') + (on ? 'Done' : 'Build your own');
+          if (!on) pick(null); else place();
+        };
+        open(false);
+        if (fixed) { open(true); bar.parentNode.removeChild(bar); btn.className = ''; acts.insertBefore(btn, wipe); }
+        build.addEventListener('click', function () { open(tray.hidden); });
+        wipe.addEventListener('click', function () {
+          grabs = grabs.filter(function (o) { if (o.added) { o.el.parentNode.removeChild(o.el); return false; } o.el.style.display = 'none'; o.gone = true; return true; });
+          pick(null); messy = true; label();
+        });
+
+        tools = el('div', 'shape-tools'); tools.hidden = true; hero.appendChild(tools);
+        [['Smaller', '<path d="M3 8h10"/>', function (o) { o.s = Math.max(0.3, o.s / 1.25); }],
+         ['Bigger', '<path d="M8 3v10M3 8h10"/>', function (o) { o.s = Math.min(3.2, o.s * 1.25); }],
+         ['Spin', '<path d="M13.5 8a5.5 5.5 0 1 1-1.8-4.1M13.5 2.5v3h-3"/>', function (o) { o.r += 45; }],
+         ['New color', '<circle cx="8" cy="8" r="5" fill="currentColor"/>', function (o) { recolor(o); }],
+         ['Remove', '<path d="M4 4l8 8M12 4l-8 8"/>', function (o) {
+           if (o.added) { o.el.parentNode.removeChild(o.el); grabs.splice(grabs.indexOf(o), 1); } else { o.el.style.display = 'none'; o.gone = true; }
+           pick(null);
+         }]].forEach(function (t) {
+          var b = el('button', '', icon(t[1])); b.type = 'button'; b.setAttribute('aria-label', t[0]); b.title = t[0];
+          b.addEventListener('click', function () { if (!picked) return; var o = picked; o.el.style.transitionDelay = '0s'; t[2](o); if (picked) { put(o); follow(); } if (!messy) { messy = true; label(); } });
+          tools.appendChild(b);
+        });
+        hero.addEventListener('pointerdown', function (e) { if (!e.target.closest('.grab,.shape-tools,.tray,.play-bar')) pick(null); });
+
+        // flatten what is on screen into one picture: every shape with its final position, on the hero color
+        keep.addEventListener('click', function () {
+          var hr = frame.getBoundingClientRect(), W = Math.round(hr.width), H = Math.round(hr.height);
+          var out = mk('svg', { width: W, height: H, viewBox: '0 0 ' + W + ' ' + H });
+          out.appendChild(mk('rect', { width: W, height: H, fill: getComputedStyle(frame).backgroundColor }));
+          each(svg.querySelectorAll('path,circle,rect,ellipse,polygon'), function (n) {
+            if (n.closest('defs,clipPath') || !n.getClientRects().length) return;
+            var m = n.getScreenCTM(), cs = getComputedStyle(n), c = n.cloneNode(false);
+            c.removeAttribute('class'); c.removeAttribute('style');
+            c.setAttribute('transform', 'matrix(' + [m.a, m.b, m.c, m.d, m.e - hr.left, m.f - hr.top].join(' ') + ')');
+            c.setAttribute('fill', cs.fill); c.setAttribute('stroke', cs.stroke); c.setAttribute('stroke-width', cs.strokeWidth);
+            c.setAttribute('stroke-linecap', cs.strokeLinecap); c.setAttribute('stroke-linejoin', cs.strokeLinejoin);
+            out.appendChild(c);
+          });
+          var url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(out)], { type: 'image/svg+xml' })), img = new Image();
+          img.onload = function () {
+            var cv = document.createElement('canvas'); cv.width = W * 2; cv.height = H * 2;
+            cv.getContext('2d').drawImage(img, 0, 0, W * 2, H * 2); URL.revokeObjectURL(url);
+            cv.toBlob(function (b) { var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'my-shellerville-hero.png'; document.body.appendChild(a); a.click(); a.remove(); }, 'image/png');
+          };
+          img.src = url;
+        });
+      }
     }
   }
-
-  // ---- home: click the greeting to move the clock (and the sun)
-  var hello = document.querySelector('.hero .hello'), sun = document.querySelector('.hero .sun-pos');
-  if (hello) {
-    var stops = [[4.5, "You're up early. So am I.", 500], [9, 'Good morning.', 340], [14, 'Good afternoon.', 250], [19, 'Good evening.', 440], [23, 'Still up. Bold choice.', 625]];
-    var hNow = new Date().getHours(), at = 0;
-    stops.forEach(function (s, i) { if (hNow >= s[0] - 1.5) at = i; });
-    if (hNow < 3) at = 4;
-    hello.setAttribute('role', 'button'); hello.setAttribute('tabindex', '0'); hello.setAttribute('title', 'Change the time of day');
-    var jump = function () {
-      at = (at + 1) % stops.length;
-      hello.textContent = stops[at][1] + ' ';
-      if (sun) sun.style.transform = 'translateY(' + (stops[at][2] - 410) + 'px)';
-    };
-    hello.addEventListener('click', jump);
-    hello.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); jump(); } });
-  }
+  };
+  var heroEl = document.querySelector('.hero');
+  if (heroEl) stage(heroEl, heroEl.querySelector('.hero-art'), heroEl, false);
+  Array.prototype.forEach.call(document.querySelectorAll('.herokit'), function (k) { var a = k.querySelector('.stage-art'); stage(k, a, a, true); });
 
   // ---- footer: wordmark letters jump under the cursor, the dot boings on click
   var wm = document.querySelector('.wordmark');

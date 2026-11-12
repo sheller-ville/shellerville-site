@@ -713,22 +713,24 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 .mess:hover{transform:translateY(-2px) rotate(-2deg)}
 .mess:active{transform:scale(.95)}
 .mess svg{width:14px;height:14px}
+.play-hint{display:none;position:absolute;right:28px;top:66px;z-index:3;margin:0;max-width:210px;text-align:right;font:600 13px/1.4 var(--font);color:var(--on-dark);pointer-events:none}
+@media (max-width:900px){.play-hint{display:none}}
 @media (max-width:640px){.mess{right:20px;top:14px}}
-/* home: the greeting is a time machine */
-.hero .hello{cursor:pointer;text-decoration:underline dotted rgba(255,255,255,.45) 2px;text-underline-offset:6px}
-.hero .hello:hover{text-decoration-color:var(--yellow)}
 /* home: phrases in the lede open a peek at where they lead */
 .hero .copy{position:relative}
-.peek{color:var(--white);font-weight:700;text-decoration:underline wavy 2px;text-underline-offset:6px;padding:2px 4px;margin:-2px -4px;transition:background var(--dur-fast),color var(--dur-fast)}
-.pk-teal{text-decoration-color:#19b5d3;--pk:var(--teal);--pk-on:var(--white)}
-.pk-green{text-decoration-color:#2fc777;--pk:var(--green);--pk-on:var(--white)}
-.pk-pink{text-decoration-color:var(--pink);--pk:var(--pink);--pk-on:var(--black)}
+.peek{color:var(--white);font-weight:700;text-decoration:underline 2px var(--pk-line);text-underline-offset:6px;padding:2px 4px;margin:-2px -4px;transition:background var(--dur-fast),color var(--dur-fast)}
+/* each phrase and its card take the color of the page they lead to */
+.pk-teal{--pk:var(--teal-deep);--pk-on:var(--white);--pk-line:#19b5d3}
+.pk-green{--pk:var(--green);--pk-on:var(--black);--pk-line:#2fc777}
+.pk-black{--pk:var(--black);--pk-on:var(--white);--pk-line:var(--white)}
+.peek.pk-black:hover,.peek.pk-black:focus-visible{background:var(--white);color:var(--black)}
+.pk-black .pop{outline:1.5px solid var(--white)}
 .peek:hover,.peek:focus-visible{background:var(--pk);color:var(--pk-on);text-decoration-color:transparent}
-.peek .pop{display:none;position:absolute;left:calc(100% + 36px);bottom:12%;width:320px;z-index:5;background:var(--white);color:var(--ink);font:400 15px/1.5 var(--font);letter-spacing:0;text-align:left;white-space:normal;box-shadow:0 22px 44px -18px rgba(0,0,0,.6);transform-origin:0 100%}
+.peek .pop{display:none;position:absolute;left:calc(100% + 36px);bottom:12%;width:320px;z-index:5;background:var(--pk);color:var(--pk-on);font:500 15px/1.5 var(--font);letter-spacing:0;text-align:left;white-space:normal;box-shadow:0 22px 44px -18px rgba(0,0,0,.6);transform-origin:0 100%}
 .peek:hover .pop,.peek:focus-visible .pop{display:block;animation:peekIn .45s var(--ease-pop) both}
 @keyframes peekIn{from{opacity:0;transform:translateY(10px) rotate(4deg) scale(.9)}to{opacity:1;transform:rotate(-2deg)}}
-.pop-h{display:flex;justify-content:space-between;background:var(--pk);color:var(--pk-on);font:800 20px/1 var(--font);letter-spacing:-.02em;padding:14px 16px}
-.pop-b{display:block;padding:14px 16px 16px}
+.pop-h{display:flex;justify-content:space-between;font:800 22px/1 var(--font);letter-spacing:-.02em;padding:18px 18px 0}
+.pop-b{display:block;padding:10px 18px 20px}
 @media (max-width:900px){.peek .pop{display:none!important}}
 /* lab: cards tilt toward the cursor, titles decode, screenshots print in strips */
 .exps{perspective:1400px}
@@ -743,3 +745,45 @@ main h1,main h2,main h3,main h4,main p,main li,main dd,main dt{overflow-wrap:nor
 .wordmark.live i:hover{transform:scale(1.35)}
 .wordmark.live i.boing{animation:boing .7s var(--ease-pop)}
 @keyframes boing{0%{transform:translateY(0) scale(1)}35%{transform:translateY(-.9em) scale(1.15)}100%{transform:none}}
+
+/* ---------- build your own hero (Nov 2026): tray, shape tools, save. Turn on per page with data-builder on the hero ---------- */
+.play-bar{position:absolute;right:28px;top:20px;z-index:4;display:flex;gap:8px}
+.play-bar .mess{position:static}
+.mess.build{background:var(--yellow)}
+@media (max-width:640px){.play-bar{right:20px;top:14px}}
+.hero.building .play-hint{display:none}
+.tray[hidden],.shape-tools[hidden]{display:none}
+.tray{position:absolute;right:28px;top:66px;z-index:4;width:344px;background:var(--white);color:var(--black);padding:12px;box-shadow:0 22px 44px -18px rgba(0,0,0,.6)}
+.tray-kit{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.tray-kit button{aspect-ratio:1;padding:6px;border:1.5px solid var(--hair);background:var(--paper);cursor:pointer;transition:transform var(--dur-fast) var(--ease-pop),border-color var(--dur-fast)}
+.tray-kit button:hover{transform:scale(1.08) rotate(-4deg);border-color:var(--black)}
+.tray-kit svg{width:100%;height:100%;display:block}
+.tray-note{margin:10px 0 0;font:500 12px/1.4 var(--font);color:var(--legal)}
+.tray-acts{display:flex;gap:6px;margin-top:10px}
+.tray-acts button{flex:1;font:700 13px/1 var(--font);padding:11px 8px;border:1.5px solid var(--black);background:var(--white);color:var(--black);cursor:pointer}
+.tray-acts button:last-child{background:var(--black);color:var(--white)}
+.tray-acts button:hover{background:var(--yellow);color:var(--black)}
+.shape-tools{position:absolute;z-index:4;display:flex;background:var(--white);box-shadow:0 10px 24px -10px rgba(0,0,0,.6)}
+.shape-tools button{width:34px;height:34px;display:grid;place-items:center;border:0;background:none;color:var(--black);cursor:pointer}
+.shape-tools button:hover{background:var(--yellow)}
+.shape-tools svg{width:15px;height:15px}
+.pop-in{transform-box:fill-box;transform-origin:center;animation:shPop .5s var(--ease-pop) both}
+.building .grab.picked{filter:drop-shadow(0 0 0 #fff) drop-shadow(0 0 5px rgba(255,255,255,.75))}
+/* home: the note under the button only shows where dragging works, and points to the lab's kit */
+.hero:has(svg.playable) .play-hint{display:block}
+.play-hint a{color:var(--white);pointer-events:auto;text-decoration:underline;text-underline-offset:3px}
+.play-hint a:hover{color:var(--yellow)}
+@media (max-width:900px){.hero:has(svg.playable) .play-hint{display:none}}
+/* lab: the hero kit. A canvas with the tray docked on top */
+#kit{scroll-margin-top:90px}
+.herokit{position:relative;display:grid;gap:12px;margin-top:40px}
+.stage-art{position:relative;background:var(--black);aspect-ratio:1180/560;overflow:hidden}
+.stage-art svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.herokit .play-bar{right:12px;top:12px}
+.herokit .tray{position:static;order:-1;width:auto;box-shadow:none;border:1.5px solid var(--black);display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.herokit .tray-kit{grid-template-columns:repeat(12,42px)}
+.herokit .tray-acts{margin:0 0 0 auto}
+.herokit .tray-acts button{flex:none;display:inline-flex;align-items:center;gap:8px;padding:11px 14px}
+.herokit .tray-acts svg{width:14px;height:14px}
+.herokit .tray-note{order:3;flex-basis:100%;margin:0}
+@media (max-width:1180px){.herokit .tray-kit{grid-template-columns:repeat(6,42px)}}
